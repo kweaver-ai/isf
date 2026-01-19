@@ -1,0 +1,80 @@
+depServices:
+  class-443:
+    ingressClass: class-443
+
+ingressRoutes:
+  - service: audit-log-public
+    port: 30569
+    paths:
+      - /api/audit-log/v1
+
+  - service: message-public
+    port: 30935
+    paths:
+      - /api/message
+
+  - service: oauth2-ui
+    port: 4015
+    paths:
+      - /oauth2/signin
+      - /oauth2/consent
+      - /oauth2/signout
+      - /oauth2/_next
+      - /oauth2/password
+      - /oauth2/change
+      - /oauth2/reset
+      - /oauth2/error
+      - /oauth2/userverification
+      - /oauth2/iframe-size
+
+  - service: isfwebthrift
+    port: 18802
+    paths:
+      - /isfweb/api
+
+  - service: authorization-public
+    port: 30920
+    paths:
+      - /api/authorization
+
+  - service: authentication-public
+    port: 30110
+    paths:
+      - /api/authentication
+      - /oauth2/clients
+
+  - service: thirdparty-message-plugin
+    port: 9610
+    paths:
+      - /api/thirdparty-message-plugin
+
+  - service: policy-management
+    port: 9603
+    paths:
+      - /api/policy-management
+      - /api/license
+
+  - service: eacp-public
+    port: 9998
+    paths:
+      - /api/eacp
+
+  - service: hydra-public
+    port: 4444
+    paths:
+      - /oauth2/auth
+      - /oauth2/revoke
+      - /oauth2/token
+      - /oauth2/sessions/logout
+      - /oauth2/fallbacks
+
+  - service: news-feed-public
+    port: 30930
+    paths:
+      - /api/news-feed
+
+  - service: user-management-public
+    port: 30980
+    paths:
+      - /api/user-management
+      - /api/eacp/v1/contactor/deletegroup
