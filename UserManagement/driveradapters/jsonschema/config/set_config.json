@@ -1,0 +1,55 @@
+{
+    "type": "object",
+    "properties": {
+        "default_user_pwd": {
+            "description": "用户初始密码，rsa2048+base64加密，长度限制为6-100，支持数字、字母、特殊字符（~!%#$@-_.），如果field中包含default_user_pwd则为required",
+            "type": "string"
+        },
+        "csf_level_enum": {
+            "description": "密级枚举，范围5~16，且必须唯一，如果枚举已被设置，则不能再次设置，如果field中包含csf_level_enum则为required",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "value"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "密级枚举名称",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "密级枚举值，唯一且必须为5~16之间的整数",
+                        "type": "integer",
+                        "minimum": 5,
+                        "maximum": 16
+                    }
+                }
+            }
+        },
+        "csf_level2_enum": {
+            "description": "密级2枚举，范围51~62，且必须唯一，如果枚举已被设置，则不能再次设置，如果field中包含csf_level2_enum则为required",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "value"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "密级2枚举名称",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "密级2枚举值，唯一且必须为51~62之间的整数",
+                        "type": "integer",
+                        "minimum": 51,
+                        "maximum": 62
+                    }
+                }
+            }
+        }
+    }
+}

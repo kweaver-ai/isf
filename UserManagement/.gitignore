@@ -1,0 +1,10 @@
+# Dev
+resolv.conf
+# Binary
+UserManagement
+# generate code
+tapi
+common/mock
+interfaces/mock
+# IDE
+.idea

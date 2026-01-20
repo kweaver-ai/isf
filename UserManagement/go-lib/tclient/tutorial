@@ -1,0 +1,25 @@
+package  main
+
+import (
+    "context"
+    "gitlab.aishu.cn/AnyShareFamily/common/go-lib/tclient"
+    "xxx/tapi/sharemgnt"
+    "fmt"
+)
+
+func main() {
+    var client *sharemgnt.NcTShareMgntClient
+    transport, err := tclient.NewTClient(context.Background(), sharemgnt.NewNcTShareMgntClientFactory, &client, "localhost", sharemgnt.NCT_SHAREMGNT_PORT)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    defer transport.Close()
+    result, err := client.GetCSFLevels()
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(result)
+    return
+}

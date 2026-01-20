@@ -1,0 +1,23 @@
+{
+    "required": [
+        "method",
+        "group_ids"
+    ],
+    "type": "object",
+    "properties": {
+        "method": {
+            "type": "string"
+        },
+        "group_ids": {
+            "type": "array",
+            "minItems": 0,
+            "uniqueItems": false,
+            "items": {
+                "type": "string"
+            }
+        },
+        "user_enabled": {
+            "type": "boolean"
+        }
+    }
+}

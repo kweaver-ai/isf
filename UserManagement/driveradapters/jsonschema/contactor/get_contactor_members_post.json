@@ -1,0 +1,23 @@
+{
+    "required": [
+        "method",
+        "contactor_ids"
+    ],
+    "type": "object",
+    "properties": {
+        "method": {
+            "description": "方法名，暂时只支持\"GET\"",
+            "enum": [
+                "GET"
+            ],
+            "type": "string"
+        },
+        "contactor_ids": {
+            "description": "联系人组id集合",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}
