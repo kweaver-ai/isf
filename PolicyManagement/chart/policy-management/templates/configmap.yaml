@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "policy-management.server" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "policy-management.server" . }}
+data:
+  {{- with .Values }}
+  DB_USER: {{ .depServices.rds.user | quote }}
+  DB_HOST: {{ .depServices.rds.host | quote }}
+  DB_PORT: {{ .depServices.rds.port | quote }}
+  DB_NAME: {{ printf "%s%s" .depServices.rds.system_id .depServices.rds.name | quote }}
+  DB_TYPE: {{ .depServices.rds.type | quote }}
+  DB_DRIVER: {{ .depServices.rds.driver | quote }}
+  DEBUG: {{ .service.debug | quote }}
+  API_SERVER_PORT: {{ .service.port | quote }}
+  LOG_DIR: {{ .service.logger.dir | quote }}
+  LOG_FILENAME: {{ .service.logger.filename | quote }}
+  LOG_MAX_SIZE: {{ .service.logger.max_size | quote }}
+  LOG_BACKUP_COUNT: {{ .service.logger.backup_count | quote }}
+  LOG_FORMATTER: {{ .service.logger.formatter | quote }}
+  SHAREMGNT_THRIFT_HOST: {{ .depServices.sharemgnt.host | quote }}
+  POLICY_SYNC_INTERVAL: {{ .service.networkPolicy.syncInterval | quote }}
+  POLICY_TOPIC: {{ .service.networkPolicy.topic | quote }}
+  EFAST_PROTOCOL: {{ .depServices.efast.publicProtocol | quote }}
+  EFAST_PORT: {{ .depServices.efast.publicHttpPort | quote }}
+  EFAST_HOST: {{ .depServices.efast.publicHttpHost | quote }}
+  LANGUAGE: {{ .service.language | quote }}
+  REDIS_CONNECT_TYPE: {{.depServices.redis.connectType | quote }}
+  REDIS_ENABLE_SSL: {{.depServices.redis.enableSSL | quote }}
+  REDIS_USERNAME: {{ .depServices.redis.connectInfo.username | quote }}
+  REDIS_PASSWORD: {{ .depServices.redis.connectInfo.password | quote }}
+  REDIS_HOST: {{.depServices.redis.connectInfo.host | quote }}
+  REDIS_PORT: {{.depServices.redis.connectInfo.port | quote }}
+  REDIS_MASTER_HOST: {{.depServices.redis.connectInfo.masterHost | quote }}
+  REDIS_MASTER_PORT: {{.depServices.redis.connectInfo.masterPort | quote }}
+  REDIS_SLAVE_HOST: {{.depServices.redis.connectInfo.slaveHost | quote }}
+  REDIS_SLAVE_PORT: {{.depServices.redis.connectInfo.slavePort | quote }}
+  REDIS_SENTINEL_HOST: {{.depServices.redis.connectInfo.sentinelHost | quote }}
+  REDIS_SENTINEL_PORT: {{.depServices.redis.connectInfo.sentinelPort | quote }}
+  REDIS_SENTINEL_USERNAME: {{ .depServices.redis.connectInfo.sentinelUsername | quote }}
+  REDIS_SENTINEL_PASSWORD: {{ .depServices.redis.connectInfo.sentinelPassword | quote }}
+  REDIS_MASTER_GROUP_NAME: {{ .depServices.redis.connectInfo.masterGroupName | quote }}
+  REDIS_SECRET_NAME: {{.depServices.redis.secretName | quote }}
+  REDIS_CA_NAME: {{.depServices.redis.caName | quote }}
+  REDIS_CERT_NAME: {{.depServices.redis.certName | quote }}
+  REDIS_KEY_NAME: {{.depServices.redis.keyName | quote }}
+  SYSTEM_ID: {{ .depServices.rds.system_id | quote }}
+  {{- end }}
+  USER_MANAGEMENT_HOST: {{ index .Values "depServices" "user-management" "privateHost" | quote }}
+  USER_MANAGEMENT_PORT: {{ index .Values "depServices" "user-management" "privatePort" | quote }}
+  USER_MANAGEMENT_PROTOCOL: {{ index .Values "depServices" "user-management" "privateProtocol" | quote }}
+  HYDRA_PUBLIC_HOST: {{ .Values.depServices.hydra.publicHost | quote }}
+  HYDRA_PUBLIC_PORT: {{ .Values.depServices.hydra.publicPort | quote }}
+  HYDRA_PUBLIC_PROTOCOL: {{ .Values.depServices.hydra.publicProtocol | quote }}
+  HYDRA_ADMIN_HOST: {{ .Values.depServices.hydra.administrativeHost | quote }}
+  HYDRA_ADMIN_PORT: {{ .Values.depServices.hydra.administrativePort | quote }}
+  HYDRA_ADMIN_PROTOCOL: {{ .Values.depServices.hydra.administrativeProtocol | quote }}
+  PROTON_APPLICATION_HOST: {{ index .Values "depServices" "proton-application" "host" | quote }}
+  PROTON_APPLICATION_PORT: {{ index .Values "depServices" "proton-application" "port" | quote }}
+  PROTON_APPLICATION_PROTOCOL: {{ index .Values "depServices" "proton-application" "protocol" | quote }}
+
+  mq_config.yaml: |
+    {{- toYaml .Values.depServices.mq | nindent 4 }}

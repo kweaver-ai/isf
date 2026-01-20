@@ -1,0 +1,9 @@
+# 生成的代码
+.cache
+
+
+# IDE
+.idea
+.vscode
+
+policy_mgnt
