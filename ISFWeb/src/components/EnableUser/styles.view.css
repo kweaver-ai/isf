@@ -1,0 +1,8 @@
+.select-dialog {
+    padding: 5px 0;
+}
+
+.select-item{
+    vertical-align: middle;
+    display: inline-block;
+}

@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+
+    .activity-desc {
+        position: relative;
+        font-size: 13px;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        white-space: pre-wrap;
+        word-break: break-all;
+
+        .btn {
+            position: absolute;
+            padding: 0 3px 0 7px;
+            right: 0;
+            background: #fff;
+        }
+
+        .text-btn {
+            bottom: 0;
+        }
+
+        .btn-no-absolute {
+            float: none;
+            padding: 0 3px 0 7px;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+@global-import "./tree.css";
+
+.tree {
+    position: relative;
+    display: inline-block;
+    min-width: 100%;
+}

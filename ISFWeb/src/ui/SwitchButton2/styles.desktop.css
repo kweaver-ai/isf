@@ -1,0 +1,45 @@
+.button-style {
+    width: 36px;
+    height: 20px;
+    position: relative;
+    & .slide {
+        position:absolute;
+        width: 30px;
+        height: 7px;
+        border-radius: 7px;
+        margin: 0 2px;
+        top: 5px;
+    }
+    
+    & .btn {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #b4bec8;
+        border-radius: 16px;
+        box-shadow: 0 0 2px #b4bec8;
+        background: #fff;
+    }
+
+    & .slide-on {
+        background: #90c3e3;
+        border: 1px solid #90c3e3;
+    }
+
+    & .btn-on {
+        right: 0;
+    }
+
+    & .slide-close {
+        background: #fff;
+        border: 1px solid #b4bec8;
+    }
+
+    & .btn-close {
+        left: 0;  
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+}

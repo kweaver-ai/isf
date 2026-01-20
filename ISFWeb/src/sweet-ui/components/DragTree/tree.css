@@ -1,0 +1,69 @@
+.drag-tree {
+    background: #fff;
+    font-size: 13px;
+    transition: background-color 0.3s;
+}
+
+.drag-tree-node-content-wrapper[draggable='true'] {
+    line-height: 22px;
+    border-top: 1px transparent solid;
+    border-bottom: 1px transparent solid;
+    user-select: none;
+}
+
+.drag-tree-treenode.drag-over-gap-top [draggable] {
+    border-top-color: gray;
+}
+
+.drag-tree-treenode.drag-over-gap-bottom [draggable] {
+    border-bottom-color: gray;
+}
+
+.drag-tree-treenode {
+    display: flex;
+    padding: 0 0 4px;
+    outline: none;
+    white-space: nowrap;
+}
+
+.drag-tree-indent-unit {
+    display: inline-block;
+    width: 24px;
+}
+
+.drag-tree-switcher {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    line-height: 24px;
+    text-align: center;
+}
+
+.drag-tree-node-content-wrapper {
+    flex: auto;
+    min-height: 24px;
+    margin: 0;
+    padding: 0 4px;
+    color: inherit;
+    line-height: 20px;
+    background: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    word-break: keep-all;
+    white-space: nowrap;
+    transition: all 0.3s, border 0s, line-height 0s;
+}
+
+.rc-tree-drop-indicator {
+    background-color: blue !important; /* 红色提示线 */
+}
+
+.drag-tree-node-content-wrapper:hover {
+    background-color: rgba(220, 234, 249, 0.65);
+}
+
+.drag-tree-node-selected {
+    background-color: #F0F2F7;
+    cursor: pointer;
+}

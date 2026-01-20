@@ -1,0 +1,19 @@
+.selected-item {
+    height: 30px;
+    line-height: 30px;
+
+    & .selected-name {
+        width: 90px;
+        padding: 0 10px;
+    }
+
+    & .selected-parent-name {
+        width: 130px;
+        padding: 0 10px;
+    }
+
+    & .selected-delete {
+        width: 30px;
+        padding: 0 10px;
+    }
+}

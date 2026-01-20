@@ -1,0 +1,13 @@
+.ul {
+    padding: 4px 0;
+
+    & .li {
+        min-width: 120px;
+    }
+}
+
+.btn:hover,
+.btn:active {
+    background-color: #fff;
+    border-color: #d9d9d9;
+}

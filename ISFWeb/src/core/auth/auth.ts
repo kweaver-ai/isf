@@ -1,0 +1,35 @@
+import { rsaEncrypt, jsEncrypt } from '@/util/rsa';
+
+// AnyShare公钥
+const PUBLIC_KEY = 'BB24BD0371A3141EE992761C574F1AA20010420C446144922C00F07EFB3C752' +
+    '0D81210A3C66DEC43B75A2370D01CD1F23E1BFC93B907201F5116F29A2C8149' +
+    'E2D2671313A0A78E455BBFC20B802BA1CBEE1EBBEDA50290F040F0FD4EBE89F' +
+    '24DB546EBB6B16579675551B9016A1A6FDCE6F6933901395453885CF55369AD' +
+    'B999';
+    
+/**
+ * rsa2048公钥
+ */
+const PublicKey2048 = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4E+eiWRwffhRIPQYvlXU
+jf0b3HqCmosiCxbFCYI/gdfDBhrTUzbt3fL3o/gRQQBEPf69vhJMFH2ZMtaJM6oh
+E3yQef331liPVM0YvqMOgvoID+zDa1NIZFObSsjOKhvZtv9esO0REeiVEPKNc+Dp
+6il3x7TV9VKGEv0+iriNjqv7TGAexo2jVtLm50iVKTju2qmCDG83SnVHzsiNj70M
+iviqiLpgz72IxjF+xN4bRw8I5dD0GwwO8kDoJUGWgTds+VckCwdtZA65oui9Osk5
+t1a4pg6Xu9+HFcEuqwJTDxATvGAz1/YW0oUisjM0ObKTRDVSfnTYeaBsN6L+M+8g
+CwIDAQAB
+-----END PUBLIC KEY-----`
+
+/**
+ * 使用AnyShare公钥进行加密
+ */
+export function encrypt(input) {
+    return rsaEncrypt(input, PUBLIC_KEY);
+}
+
+/**
+ * rsa2048加密
+ */
+export function jsencrypt2048(input) {
+    return jsEncrypt(input, PublicKey2048, 2048);
+}

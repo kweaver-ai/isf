@@ -1,0 +1,28 @@
+.container{
+    & .label {
+        position: relative;
+        padding: 0 18px;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        background: #f6f7fc;
+        font-size: 12px;
+        color: #868686;
+        user-select: none;
+        cursor: default;
+        
+        &:active{
+            background: #eeebfe;
+        }
+
+        &:hover{
+            background: #f1effd;
+        }
+
+        & .fold-icon{
+            position: absolute;
+            left: 0;
+            height: 100%;
+        }
+    }
+}

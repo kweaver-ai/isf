@@ -1,0 +1,15 @@
+@import '../../core/styles/root.css';
+
+.field {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+
+    &.required::before {
+        content: "*";
+        position: absolute;
+        left: -13px;
+        top: 7px;
+        color: var(--color-error);
+    }
+}

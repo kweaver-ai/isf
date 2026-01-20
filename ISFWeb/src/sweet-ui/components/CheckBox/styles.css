@@ -1,0 +1,117 @@
+@import '../../../core/styles/root.css';
+
+.checkbox-wrapper {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+
+    &.disabled {
+        cursor: default;
+    }
+}
+
+.checkbox {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    background: #fff;
+
+    &:hover {
+        border-color: #779eea;
+    }
+
+    &.disabled {
+        background-color: rgba(228, 230, 237, 0.4);
+        border: 1px solid #d3d4db;
+        cursor: default;
+    }
+}
+
+.checkbox-checked {
+    border-color: #779eea;
+    background-color: #779eea;
+
+    &:after {
+        position: absolute;
+        left: 3px;
+        top: 0;
+        width: 6px;
+        height: 9px;
+        border: 2px solid #fff;
+        border-top: 0;
+        border-left: 0;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        content: ' ';
+        box-sizing: border-box;
+    }
+
+    &.disabled {
+        border-color: #d3d4db;
+        background-color: rgba(228, 230, 237, 0.4);
+        cursor: default;
+
+        &:after {
+            border-color: #d3d4db;
+        }
+    }
+}
+
+.checkbox-indeterminate {
+    border-color: var(--border-color);
+    background-color: #fff;
+
+    &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        background-color: #779eea;
+        border: 0;
+        opacity: 1;
+        content: ' ';
+        transform: translate(-50%, -50%) scale(1);
+        -webkit-transform: translate(-50%, -50%) scale(1);
+        -ms-transform: translate(-50%, -50%) scale(1);
+    }
+
+    &.disabled {
+
+        &:after {
+            cursor: default;
+            background-color: #e0e0e0;
+        }
+    }
+}
+
+.checkbox-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+
+    &.disabled {
+        cursor: default;
+    }
+}
+
+.checkbox-text {
+    vertical-align: middle;
+    padding: 0 8px;
+    color: var(--font-color-regular);
+
+    &.disabled {
+        color: var(--font-color-disabled);
+    }
+}

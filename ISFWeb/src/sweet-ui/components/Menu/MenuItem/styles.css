@@ -1,0 +1,43 @@
+@import '../../../../core/styles/root.css';
+
+.drop-menu-item {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer; 
+
+    &:hover {
+        background: #f0f5ff;
+    }
+
+    &:active {
+        background: #f0f5ff;
+    }
+
+    &.disabled {
+        color: var(--font-color-disabled);
+        cursor: default;
+
+        &:hover {
+            color: var(--font-color-disabled);
+            background: #ffffff;
+        }
+    
+        &:active {
+            color: var(--font-color-disabled);
+            background: #ffffff;
+        }
+
+    }
+
+    &.drop-menu-item-active {
+        background: #f0f5ff;
+    }
+
+    & .label {
+        margin-left: 8px;
+    }
+}

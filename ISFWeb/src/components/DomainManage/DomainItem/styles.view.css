@@ -1,0 +1,9 @@
+.drawer {
+    float: right;
+
+    & .button-left {
+        width: 80px;
+        padding: 0px;
+        margin-right: 10px;
+    }
+}

@@ -1,0 +1,64 @@
+.box-display {
+    display: inline-block;
+    
+    & .input-size {
+        margin-right: 5px;
+    }
+
+    & .set-btn {
+        position: absolute;
+        top: -6px;
+        right: 2px;
+        line-height: 1.4;
+    }
+
+    & .status {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 6px 5px 0 0;
+    }
+
+    & .validate-message {
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        left: 100%;
+        margin: 3px 0 0 3px;
+        white-space: nowrap;
+    }
+
+    &:hover {
+        & .locator {
+            display: inline-block;
+        }
+    }
+
+    .tip-wrap {
+        position: absolute;
+    }
+
+    .right {
+        right: 1px;
+        top: 5px;
+    }
+
+    .top {
+        left: 0;
+        margin-left: -16px;
+        top: -30px;
+    }
+
+    & .locator {
+        display: inline-block;
+        margin-top: -4px;
+    }
+
+    & .mouse-status {
+        cursor: pointer !important;
+    }
+}
+
+.validate-fail {
+    background-color: #ffffee;
+}

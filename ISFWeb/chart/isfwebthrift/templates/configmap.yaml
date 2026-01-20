@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-conf
+  namespace: {{ .Values.namespace }}
+data:
+  isfweb.ini: |
+    [uwsgi]
+    master = true
+    workers = {{ .Values.uwsgi.workers }}
+
+    # 最小Worker数量
+    cheaper = 1
+
+    http-socket = 127.0.0.1:18002
+    chdir = /sysvol/apphome/app/ISFWeb/ISFWebThrift
+    module = wsgi
+    buffer-size = 16384
+  service_access.conf: |
+    [isfwebthrift]
+    host = {{ .Values.depServices.isfwebthrift.publicHost }}
+    port = {{ .Values.depServices.isfwebthrift.publicPort }}
+    [isfweb]
+    host = {{ .Values.depServices.isfweb.publicHost }}
+    port = {{ .Values.depServices.isfweb.publicPort }}
+    [hydra]
+    publicHost = {{ .Values.depServices.hydra.publicHost }}
+    publicPort = {{ .Values.depServices.hydra.publicPort }}
+    administrativeHost = {{ .Values.depServices.hydra.administrativeHost }}
+    administrativePort = {{ .Values.depServices.hydra.administrativePort }}
+    [sharemgnt]
+    host = {{ .Values.depServices.sharemgnt.host }}
+    port = {{ .Values.depServices.sharemgnt.port }}
+    [sharemgnt-single]
+    host = {{ index .Values "depServices" "sharemgnt-single" "host" }}
+    port = {{ index .Values "depServices" "sharemgnt-single" "port" }}
+    [eacp]
+    publicHttpHost: {{ .Values.depServices.eacp.publicHttpHost }}
+    publicHttpPort: {{ .Values.depServices.eacp.publicHttpPort }}
+    privateHttpHost: {{ .Values.depServices.eacp.privateHttpHost }}
+    privateHttpPort: {{ .Values.depServices.eacp.privateHttpPort }}
+    thriftHost: {{ .Values.depServices.eacp.thriftHost }}
+    thriftPort: {{ .Values.depServices.eacp.thriftHost }}
+    [user-management]
+    publicHost: {{ index .Values "depServices" "user-management" "publicHost" }}
+    publicPort: {{ index .Values "depServices" "user-management" "publicPort" }}
+    privateHost: {{ index .Values "depServices" "user-management" "privateHost" }}
+    privatePort: {{ index .Values "depServices" "user-management" "privatePort" }}
+    [authentication]
+    publicHost: {{ index .Values "depServices" "authentication" "publicHost" }}
+    publicPort: {{ index .Values "depServices" "authentication" "publicPort" }}
+    privateHost: {{ index .Values "depServices" "authentication" "privateHost" }}
+    privatePort: {{ index .Values "depServices" "authentication" "privatePort" }}
+    [ossgatewaymanager]
+    privateHost: {{ index .Values "depServices" "ossgatewaymanager" "privateHost" }}
+    privatePort: {{ index .Values "depServices" "ossgatewaymanager" "privatePort" }}
+    [audit-log]
+    privateHost: {{ index .Values "depServices" "audit-log" "privateHost" }}
+    privatePort: {{ index .Values "depServices" "audit-log" "privatePort" }}

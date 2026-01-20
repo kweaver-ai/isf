@@ -1,0 +1,1 @@
+export const defaultModalParams = { centered: true, closable: true, destroyOnHidden: true,}

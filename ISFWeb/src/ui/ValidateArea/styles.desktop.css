@@ -1,0 +1,67 @@
+:local {
+    & .validate-box {
+        &[disabled] {
+            opacity: .5;
+            filter: alpha(opacity=50);
+            cursor: default;
+        }
+
+        position: relative;
+        display: inline-block;
+        width: 118px;
+        // padding: 7px 5px 6px 5px;
+        border: 1px solid #d3d4db;
+        border-radius: 2px;
+
+        & .status {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 6px 5px 0 0;
+        }
+
+        &.validate-fail {
+            background-color: #ffffee;
+            width: 108px;
+            padding-right:20px;
+        }
+
+        & .validate-message {
+            display: inline-block;
+            margin: 3px 0 0 3px;
+        }
+
+        &:hover {
+            & .locator {
+                display: inline-block;
+            }
+        }
+        .tip-wrap{
+            position: absolute;
+
+            & .warning-icon {
+                position: relative;
+                left: -25px;
+            }
+        }
+        .right{
+            // left:100%;
+            // top: 5px;
+            // margin-left: 5px;
+            left: 100%;
+            top: 50%;
+            margin-left: 5px;
+            margin-top: -8px;
+        }
+        .top{
+            left:0;
+            margin-left:-16px;
+            top:-30px;
+        }
+    }
+    
+    & .locator {
+        display: inline-block;
+        margin-top: -4px;
+    }
+}

@@ -1,0 +1,14 @@
+@import '../../core/styles/root.css';
+
+.progress {
+    margin-bottom: 16px;
+
+    & .edit-tip {
+        margin-bottom: 8px;
+    }
+
+    & .progress-tip {
+        margin-top: 20px;
+        color: var(--color-error);
+    }
+}

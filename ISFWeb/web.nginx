@@ -1,0 +1,21 @@
+server {
+    listen       1001;
+    listen       [::]:1001;
+
+    root /app/dist/;
+
+    # 隐藏版本号
+    server_tokens off;
+
+    rewrite ^/isfweb/(.*) /$1;
+
+    # k8s探测
+    location = /probe {
+        return 200 "ok";
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}

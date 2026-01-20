@@ -1,0 +1,27 @@
+.access-control {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    & .tab {
+        border: 0;
+
+        & .line {
+            position: relative;
+            display: inline-block;
+            width: 1px;
+            height: 14px;
+            margin-left: 8px;
+            top: 2px;
+            background: rgba(5,5,5,0.06);
+        }
+    }
+
+    & .tabs-main {
+        height: calc(100% - 36px);
+
+        & .tabs-content {
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+@import '../../core/styles/root.css';
+
+.textarea {
+    position: relative;
+    min-height: 35px;
+
+    & .input {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        border: none;
+        resize: none;
+        outline: none;
+        background: none;
+        vertical-align: top;
+        overflow: auto;
+    }
+
+    & .count{
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        color: var(--font-color-secondary);
+    }
+
+    & .overflow{
+        color: var(--color-error);
+    }
+}
+
+.count-limit{
+    padding-bottom: 25px;
+}

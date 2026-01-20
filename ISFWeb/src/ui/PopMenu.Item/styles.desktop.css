@@ -1,0 +1,28 @@
+@import '../../core/styles/root.css';
+.item {
+    cursor: pointer;
+    min-width: 130px;
+    line-height: 30px;
+    color: var(--font-color-regular);
+
+    & .label {
+        padding-right: 10px;
+        font-size: 13px;
+    }
+    & .icon {
+        display: inline-block;
+        width: 30px;
+        text-align: center;
+        color: var(--grey-07);
+    }
+
+    & .children{
+        color: var(--font-color-regular);
+    }
+    &:hover {
+        background: #f3f3fa;
+    }
+    &.padding{
+        padding-left: 15px;
+    }
+}

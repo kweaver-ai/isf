@@ -1,0 +1,12 @@
+@import '../../core/styles/root.css';
+
+:local .container{
+    & .select-dialog{
+        padding: 5px 0;
+    }
+}
+
+.title {
+	color: var(--font-color-strong);
+	font-weight: bold;
+}

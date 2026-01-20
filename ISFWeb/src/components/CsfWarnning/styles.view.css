@@ -1,0 +1,14 @@
+@import '../../core/styles/root.css';
+
+.warn{
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: 3px;
+}
+
+.text {
+    border: 1px solid var(--grey-04);
+    padding: 5px;
+    font-size: 13px;
+    background-color: var(--font-color-light);
+}

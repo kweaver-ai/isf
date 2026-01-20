@@ -1,0 +1,175 @@
+@import "../../../core/styles/root.css";
+
+.organize-center{
+    width: 540px;
+    height: 375px;
+
+    & .organize-line {
+        height: 20px;
+        border-left: 2px dotted #dbdbdb;
+        margin: 1px 0 1px 15px;
+    }
+
+    & .organize-step {
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+        background: #dbdbdb;
+        display: inline-block;
+        text-align: center;
+        line-height: 32px;
+        margin-right: 8px;
+    }
+
+    & .export-btn {
+        width: 62px;
+        height: 28px;
+        line-height: 28px;
+        margin-left: 10px;
+        color: #000000;
+    }
+    & .organize-import {
+        text-align: center;
+
+        & .import-btn {
+            width: 280px;
+            height: 35px;
+            line-height: 35px;
+            color: #000000;
+        }
+    }
+    
+    & .organize-progress {
+        width: 450px;
+        margin: 25px auto;
+        line-height: 2px;
+    }
+
+    & .organize-notice {
+        color: #c8c8c8;
+        display: block;
+        margin: 5px 0 0 18px;
+    }
+
+    & .organize-check {
+        margin: 10px 0 20px 35px;
+
+        & .approval-status {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        & .radiobox {
+            vertical-align: -2px;
+            margin-right: 10px;
+        }
+    }
+
+    & .organize-box {
+        display: inline-block;
+        vertical-align: -13px;
+        margin-left: 10px;
+        position: relative;
+
+        & .btn-wraper{
+            display: inline-block;
+            position: relative;
+            width: 90px;
+            height:30px;
+            text-align: center;
+            vertical-align: middle;
+            margin-left: 10px;
+
+            & input[type=file] {
+              position:absolute;
+              z-index:1;
+              width:100%;
+              font-size:50rem;
+              opacity:0;
+              cursor:pointer;
+            }
+            
+            & .btn-uploader-picker{
+                width:88px;
+                height:28px;
+                line-height: 28px;
+                border: 1px solid #d3d8db;
+                cursor: pointer;
+                border:#e0e0e0 solid 1px;
+                border-radius: var(--control-border-radius);
+            }
+
+            & .disabled{
+                position: absolute;
+                top:0;
+                left:0;
+                width:88px;
+                height:28px;
+                line-height: 28px;
+                background: #e0e0e0;
+                color: #c8c8c8;
+                border:#e0e0e0 solid 1px;
+            }
+        }
+
+        & .btn-mask {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 88px;
+            height: 30px;
+            background: #fff;
+            border-radius: 2px;
+            opacity: .5;
+        }
+
+        & .text-normal {
+            width: 130px;
+            height: 30px;
+            border: 1px solid #bdbdbd;
+            border-radius: 2px;
+            padding: 5px 10px 6px 10px;
+            box-sizing: border-box;
+            color: #000000;
+        }
+
+        & .text-unchose {
+            width: 130px;
+            height: 30px;
+            border: 1px solid #bdbdbd;
+            border-radius: var(--control-border-radius);
+            padding: 5px 10px 6px 10px;
+            box-sizing: border-box;
+            color: #bdbdbd;
+        }
+
+        & .btn {
+            margin-left: 15px;
+        }
+
+        & .btn-uploader-picker {
+            position: relative;
+            display: inline-block;
+            width:88px;
+            height:30px;
+            line-height: 30px;
+            box-shadow: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            text-align: center;
+            vertical-align: middle;
+            border:1px solid #bdbdbd;
+            border-radius: var(--control-border-radius);
+            margin-top: -3px;
+        }
+
+        & input[type=file] {
+            position:absolute;
+            z-index:1;
+            width:100%;
+            font-size:50rem;
+            opacity:0;
+            cursor:pointer;
+        }
+    }
+}

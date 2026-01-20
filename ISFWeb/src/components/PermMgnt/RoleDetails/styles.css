@@ -1,0 +1,47 @@
+@import "../../../core/styles/root.css";
+.role-details{
+    background-repeat: repeat-x;
+
+    .header {
+        padding: 10px 24px;
+        height: auto;
+
+        .name-info {
+            display: flex;
+            align-items: center;
+
+            .name {
+                color: var(--font-color-regular);
+                line-height: 22px;
+                margin-right: 16px;
+                overflow: hidden;
+                word-break: break-all;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    
+        .description {
+            color: var(--font-color-secondary);
+            line-height: 22px;
+            margin-bottom: 8px;
+        }
+
+        .scope {
+            color: var(--font-color-secondary);
+            line-height: 22px;
+        }
+    }
+}
+
+.role-details-drawer {
+    :global {
+        .isf-drawer-body {
+            padding: 0 !important;
+        }
+
+        .isf-tabs {
+            margin: 0 24px;
+        }
+    }
+}

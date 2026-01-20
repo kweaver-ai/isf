@@ -1,0 +1,33 @@
+:local {
+    & .crumbs {
+        padding-bottom: 10px;
+
+        & .crumb {
+            display: inline-block;
+            box-sizing: content-box;
+            max-width: 200px;
+            padding: 5px;
+            border-radius: 3px;
+            margin-right: 5px;
+            height: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            & .icon {
+                margin: 0 5px;
+            }
+
+            &.active {
+                background-color: #9FC5F8;
+                color: #000;
+            }
+
+            &.configured {
+                background-color: #ddd;
+                color: #585858;
+            }
+        }
+    }
+}

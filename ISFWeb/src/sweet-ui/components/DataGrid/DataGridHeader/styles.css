@@ -1,0 +1,117 @@
+@import '../../../../core/styles/root.css';
+
+.header {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    & .head {
+        position: relative;
+        height: 30px;
+        margin: 0;
+        border-bottom: 1px solid #f6f7fc;
+        background-color: #f6f7fc;
+        text-align: left;
+        vertical-align: middle;
+
+        & .select-all {
+            margin-right: 10px;
+        }
+
+        & .head-title {
+            display: inline-block;
+
+            & .inline {
+                position: relative;
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                vertical-align: middle;
+
+                & .sort {
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    right: -4px;
+                    width: 30px;
+                    height: 30px;
+                }
+
+                & .sort-up {
+                    display: block;
+                    width: 16px;
+                    height: 15px;
+                    line-height: 18px;
+                    cursor: pointer;
+                }
+
+                & .sort-down {
+                    display: block;
+                    width: 16px;
+                    height: 15px;
+                    line-height: 4px;
+                    cursor: pointer;
+                }
+
+                & .icon {
+                    color: #A5A8B4;
+
+                    &:hover {
+                        color: var(--control-border-color__hover) !important;
+                    }
+                }
+            }
+        }
+
+        & .title {
+            color: rgba(0, 0, 0, 0.55);
+        }
+
+        & .ui-icon {
+            margin-left: 8px;
+        }
+
+        & .pointer {
+            color: var(--font-color-strong);
+            cursor: pointer;
+            opacity: 0.55;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    & .col-layout {
+        display: inline-block;
+        position: relative;
+        height: 30px;
+        line-height: 30px;
+        max-width: 100%;
+        padding: 0 5px 0 10px;
+        margin-top: 2px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        transition-delay: .5s;
+        box-sizing: border-box;
+    }
+}
+
+:global(.sweetui-grid-resizer) {
+    position: absolute;
+    display: inline-block;
+    height: 24px;
+    width: 5px;
+    right: 3px;
+    top: 5px;
+    border-right: 1px solid #c0c0c0;
+    cursor: e-resize;
+    opacity: 0;
+}
+
+.header:hover {
+    :global(.sweetui-grid-resizer) {
+        opacity: 1 !important;
+    }
+}

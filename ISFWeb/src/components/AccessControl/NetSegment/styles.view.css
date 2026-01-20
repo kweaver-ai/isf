@@ -1,0 +1,54 @@
+@import '../../../core/styles/root.css';
+
+.row-bottom {
+    padding-bottom: 10px;
+
+    & .row-bottom-title {
+        line-height: 30px;
+    }
+}
+
+.net-label {
+    display: inline-block;
+    line-height: 13px;
+    width: 78px;
+    max-height: 30px;
+    margin-left: 22px;
+}
+
+.net-ip {
+    display: inline-block;
+    height: 30px;
+    width: 56px;
+    border-radius: 4px;
+    text-align: center;
+    color: #000000bf;
+    background-color: #d3d8db3d;
+
+    &:nth-child(1) {
+        margin-right: 8px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .ip-text {
+        line-height: 30px;
+    }
+}
+
+.net-ip-checked {
+    color: #547ee8;
+    background-color: #5f78b71e;
+}
+
+.color-strong {
+    color: var(--font-color-strong);
+}
+
+.error {
+    min-height: 30px;
+    max-width: 340px;
+    color: var(--font-color-critical);
+}

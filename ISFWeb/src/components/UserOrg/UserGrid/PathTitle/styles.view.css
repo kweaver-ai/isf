@@ -1,0 +1,28 @@
+.title {
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #505050;
+    background-color: #fff;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    & .item:not(:first-child) {
+        margin-top: 10px;
+    }
+}
+
+.title-text {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gray-text {
+    color: #999;
+}

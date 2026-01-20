@@ -1,0 +1,72 @@
+@import '../../../core/styles/root.css';
+
+.custom-security {
+    min-height: 400px;
+
+    .description {
+        color: var(--font-color-regular);
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 16px; 
+    }
+
+    .security-container {
+        display: flex;
+    }
+
+    .security {
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            align-items: center;
+
+            .header-label {
+                font-weight: bold;
+            }
+        }
+
+        .main {
+            height: 320px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-small);
+            padding: 8px 0;
+            overflow: auto;
+            
+            .item {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 2px;
+
+                .item-edit-content {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                }
+
+                .item-name {
+                    flex-shrink: 1;
+                    min-width: 0;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    word-break: break-all;
+                }
+            }
+
+            .empty {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    .error-message {
+        color: var(--color-error)
+    }
+}

@@ -1,0 +1,57 @@
+@import '../../core/styles/root.css';
+.inline {
+    display: inline-flex;
+    align-items: center;
+}
+
+.node {
+    position: relative;
+    padding: 0 5px;
+}
+
+.disabled {
+    color: #C0C0C0;
+}
+
+.tree-list {
+    height: 330px;
+    overflow: auto;
+}
+
+.domain-name {
+    padding-left: 43px;
+}
+
+.check-box {
+    margin-right: 3px;
+    top: -3px;
+}
+
+.search-box {
+    margin: 10px;
+    width: 230px;
+}
+
+.empty {
+    margin-top: 100px;
+    text-align: center;
+    color: var(--font-color-Description);
+    
+    & .remarks {
+        margin-top: 5px;
+
+        & .link {
+            cursor: pointer;
+            color: #1890ff;
+            @apply --font-color-link-light-background;
+            
+            &:hover {
+                @apply --font-color-link-light-background__hover;
+            }
+    
+            &:active {
+                @apply --font-color-link-light-background__hover;
+            }
+        }
+    }
+}

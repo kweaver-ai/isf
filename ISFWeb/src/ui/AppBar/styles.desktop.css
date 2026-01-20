@@ -1,0 +1,8 @@
+.app-bar {
+    position: relative;
+    height: 64px;
+    background-color: #f9f9f9;
+    border-top: 6px solid;
+    background-repeat: no-repeat;
+    background-position: 10px 8px;
+}

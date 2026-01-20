@@ -1,0 +1,39 @@
+@import '../../core/styles/root.css';
+
+.select-menu{
+
+    & .attr-title{
+        color: #868686;
+        max-width: 200px;
+        vertical-align: top;
+    }
+
+    & .colon {
+        display: inline-block;
+        vertical-align: top;
+        color: #868686
+    }
+
+    & .button-style {
+        vertical-align: top;
+    }
+
+}
+
+.condition-select-menu{
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    & .condition-select-items{
+        padding: 0 0 0 15px;
+    }
+    
+    & .selected{
+        background: #f3f3fa; 
+    }
+
+    & .label-selected{
+        color: var(--anyshare-main-red);
+    }
+}

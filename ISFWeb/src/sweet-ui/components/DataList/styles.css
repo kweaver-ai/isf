@@ -1,0 +1,46 @@
+@import '../../../core/styles/root.css';
+
+.refreshing-indicator-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.empty-component-wrapper {
+    position: relative;
+    padding: .5em;
+    border-top: none;
+}
+
+.datalist-item {
+    position: relative;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #f4f4f4;
+    box-sizing: border-box;
+
+    &.checkbox-padding {
+        padding-left: 20px;
+    }
+
+    & .checkbox {
+        margin-right: 6px;
+    }
+
+}
+
+.selected {
+    background: #e8f2f7;
+    border-top: 1px solid #e8f2f7;
+
+    &:hover {
+        border-top: 1px solid #b3c9ce;
+        border-bottom: 1px solid #b3c9ce;
+        background: #e8f2f7;
+    }
+}
+
+.highlight {
+    background: #f5f9ff;
+}

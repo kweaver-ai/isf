@@ -1,0 +1,63 @@
+.node {
+    white-space: nowrap;
+
+    & .detail {
+        display: flex;
+        padding: 0 0 4px;
+        outline: none;
+        white-space: nowrap;
+
+        & .toggler {
+            flex: none;
+            width: 24px;
+            height: 24px;
+            margin: 0;
+            line-height: 24px;
+            text-align: center;
+        }
+
+        & .name {
+            display: inline-block;
+            flex: auto;
+            min-height: 24px;
+            padding: 0 4px;
+            margin: 0;
+            line-height: 22px;
+            background: transparent;
+            border-radius: 2px;
+            word-break: keep-all;
+            white-space: nowrap;
+            transition: all .3s;
+        }
+
+        & .name:hover,
+        &.selected>.name:hover {
+            background-color: rgba(220, 234, 249, 0.65);
+        }
+
+        & .disabled:hover {
+            background: transparent;
+            cursor: default;
+        }
+
+        &.selected>.name {
+            background-color: #F0F2F7;
+        }
+    }
+
+    & .branch {
+        margin-left: 1em;
+
+        &.collapsed {
+            display: none;
+        }
+
+        &.expanded {
+            display: block;
+        }
+    }
+
+    & .disabled {
+        color: #c0c0c0;
+    }
+}

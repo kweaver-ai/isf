@@ -1,0 +1,256 @@
+@import '../../../core/styles/root.css';
+
+.button {
+    height: var(--input-height);
+    padding: 0 8px;
+    border-radius: var(--control-border-radius);
+    box-shadow: none;
+    line-height: normal;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    font-family: var(--main-font-family);
+    font-size: var(--font-size-secondary);
+    box-sizing: border-box;
+
+    &.disabled {
+        cursor: default;
+    }
+
+    & .icon {
+        margin-right: 8px;
+        line-height: 1.2;
+
+        &.disabled {
+            opacity: 0.4;
+        }
+    }
+}
+
+/* 修复IE11 点击按钮文字偏右下方移动 */
+_:-ms-fullscreen,
+:root .button {
+    &:active span {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
+
+.normal {
+    width: 80px;
+}
+
+.regular {
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+    background-color: var(--control-background-color);
+    color: var(--font-color-regular);
+
+    &:hover {
+        border-color: var(--border-color);
+        background-color: rgba(228, 230, 237, 0.25);
+    }
+
+    &:active {
+        border-color: var(--border-color);
+        background-color: rgba(228, 230, 237, 0.45);
+    }
+
+    &.disabled {
+        color: var(--font-color-disabled);
+        opacity: 0.8;
+
+        &:hover {
+            background-color: var(--control-background-color);
+        }
+
+        &:active {
+            background-color: var(--control-background-color);
+        }
+    }
+
+    &.active {
+        background-color: #f4f4f4;
+        border-color: var(--border-color__active);
+    }
+}
+
+
+.oem {
+    color: #fff;
+    background-color: #6775CD;
+    border: none;
+
+    &:hover {
+        filter: saturate(.9) brightness(1.2) !important;
+    }
+
+    &:active {
+        filter: brightness(0.9) !important;
+    }
+
+    &.active {
+        filter: brightness(0.9) !important;
+    }
+
+    &.disabled {
+        filter: opacity(50%) !important;
+        color: #fff;
+        opacity: 1;
+        -webkit-text-fill-color: #fff;
+
+        &:hover {
+            filter: opacity(50%) !important;
+        }
+
+        &:active {
+            filter: opacity(50%) !important;
+        }
+    }
+}
+
+/* 修复IE11 不支持filter 无颜色变化 */
+_:-ms-fullscreen,
+:root .oem {
+    &:hover {
+        opacity: 0.85 !important;
+    }
+
+    &:active {
+        opacity: 1 !important;
+    }
+
+    &.active {
+        opacity: 1 !important;
+    }
+
+    &.disabled {
+        opacity: 0.5 !important;
+
+        &:hover,
+        &:active {
+            opacity: 0.5 !important;
+        }
+    }
+}
+
+.gray {
+    color: #fff;
+    background-color: #9197A9;
+    border: none;
+
+    &:hover {
+        background-color: rgba(145, 151, 169, .85);
+    }
+
+    &:active {
+        background-color: #9197A9;
+    }
+
+    &.active {
+        background-color: #9197A9;
+    }
+
+    &.disabled {
+        background-color: rgba(145, 151, 169, .5);
+
+        &:hover {
+            background-color: rgba(145, 151, 169, .5);
+        }
+
+        &:active {
+            background-color: rgba(145, 151, 169, .5);
+        }
+    }
+
+}
+
+.dark {
+    color: #f4f3f9;
+    border: 1px solid #f4f3f9;
+    box-sizing: border-box;
+    background: none;
+    opacity: 0.75;
+
+    &:hover {
+        color: #f4f3f9;
+        border-color: #f4f3f9;
+        opacity: 1;
+    }
+
+    &:active {
+        color: #f4f3f9;
+        border-color: #f4f3f9;
+        opacity: 1;
+    }
+
+    &.active {
+        color: #BDBDBD;
+        border-color: #BDBDBD;
+    }
+
+    &.disabled {
+        color: #f4f3f9;
+        border-color: #f4f3f9;
+        opacity: 0.35;
+    }
+}
+
+.text {
+    display: inline;
+    padding: 0;
+    border: none;
+    background: none;
+    background-color: transparent;
+    color: #3461EC;
+    opacity: 0.75;
+
+    &:hover {
+        color: #3461EC;
+        opacity: 1;
+    }
+
+    &:active {
+        color: #3461EC;
+        opacity: 1;
+    }
+
+    &.active {
+        color: #3461EC;
+        opacity: 1;
+    }
+
+    &.disabled {
+        color: #5b5d66;
+        opacity: 0.45;
+
+        &:hover,
+        &:active {
+            opacity: 0.45;
+        }
+    }
+}
+
+.noborder {
+    border: none;
+    background: #fff;
+    color: var(--font-color-regular);
+
+    &:hover {
+        background-color: rgba(229, 228, 233, 0.6);
+    }
+
+    &:active {
+        background-color: rgba(229, 228, 233, 0.8);
+    }
+
+    &.disabled {
+        color: rgba(91, 93, 102, 0.4);
+
+        &:hover,
+        &:active {
+            background: none;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.expire-time-tips-title {
+    padding: 0 0 20px 0;
+}
+
+.dataGrid {
+    width: 400px;
+}
+
+.icon-warning {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.is-reset-expire-time-tips {
+    display: inline;
+    vertical-align: middle;
+    padding-left: 10px;
+}

@@ -1,0 +1,31 @@
+@import '../../core/styles/root.css';
+
+.container {
+    width: 100%;
+
+    & .content {
+        position: relative;
+
+        & .mark {
+            position: absolute;
+            right: 320px;
+            width: 6px;
+            height: 20px;
+            line-height: 32px;
+            margin-right: 8px;
+            color: var(--color-error);
+        }
+
+        & .lable {
+            display: table-cell;
+            padding: 0 16px 0 0;
+            vertical-align: middle;
+        }
+
+        & .footer {
+            & .button-wrapper {
+                margin: 0 5px 0 0;
+            }
+        }
+    }
+}

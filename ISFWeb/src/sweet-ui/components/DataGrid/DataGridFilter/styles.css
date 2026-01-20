@@ -1,0 +1,39 @@
+.drop-menu {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+
+    min-width: 120px;
+    min-height: 40px;
+    margin: 0;
+    padding: 4px 0;
+    border-radius: 4px;
+    list-style: none;
+
+    & .drop-menu-item {
+        height: 32px;
+        line-height: 32px;
+        padding: 0 16px;
+        cursor: pointer;
+
+        &:hover {
+            background: #f0f5ff;
+        }
+
+        &:active {
+            background: #f0f5ff;
+        }
+
+        & .item-text {
+            padding-left: 8px;
+        }
+    }
+}
+
+.filter-icon {
+    position: relative;
+    margin-left: 8px;
+    cursor: pointer;
+}

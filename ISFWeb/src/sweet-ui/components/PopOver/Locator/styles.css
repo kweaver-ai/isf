@@ -1,0 +1,8 @@
+.wrapper {
+    position: fixed;
+    z-index: 20;
+}
+
+.pop-absolute {
+    position: absolute;
+}

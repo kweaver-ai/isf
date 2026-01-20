@@ -1,0 +1,18 @@
+.main {
+    text-align: left;
+
+    & .icon {
+        display: inline-block;
+        line-height: 1;
+    }
+
+    & .message {
+        display: inline-block;
+        max-width: 290px;
+        margin-left: 10px;
+        margin-top: 4px;
+        line-height: 1.5;
+        vertical-align: top;
+        word-wrap: break-word;
+    }
+}

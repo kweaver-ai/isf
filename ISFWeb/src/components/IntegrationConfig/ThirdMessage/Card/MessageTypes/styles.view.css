@@ -1,0 +1,40 @@
+.item-value {
+    display: inline-block;
+    vertical-align: top;
+    width: 770px;
+
+    & .tips {
+        display: inline-block;
+        vertical-align: top;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 5px;
+    }
+
+    & .mark {
+        display: inline-block;
+        vertical-align: top;
+        width: 6px;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 8px;
+        color: #DD3333;
+    }
+
+    & .validate {
+        display: inline-block;
+        margin-top: 5px;
+        line-height: 1;
+    }
+}
+
+.item-delete {
+    display: inline-block;
+    vertical-align: top;
+    height: 40px;
+    line-height: 40px;
+
+    & .ui-icon {
+        vertical-align: top;
+    }
+}

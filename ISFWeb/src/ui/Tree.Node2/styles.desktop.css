@@ -1,0 +1,61 @@
+@import '../../core/styles/root.css';
+
+:local .node {
+    white-space: nowrap;
+
+    & .detail {
+        margin: 5px 0;
+
+        & .toggler {
+            margin-right: .25em;
+            vertical-align: middle;
+
+            &.leaf {
+                visibility: hidden;
+            }
+        }
+
+        & .name {
+            display: inline-block;
+            border-radius: 2px;
+            padding-right: 10px;
+            margin-left: 5px;
+            padding-left:10px;
+            vertical-align: middle;
+            
+            &:hover{
+                background-color: var(--grey-02);
+            }
+
+        }
+
+        & .name-selected{
+            background-color: var(--grey-04);
+
+            &:hover{
+                background-color: var(--grey-04);
+            }
+           
+        }
+
+        & .selected > .name {
+            background-color: #e8e8e8;
+        }
+    }
+    
+    & .branch {
+        margin-left: 1em;
+
+        &.collapsed {
+            display: none;
+        }
+
+        &.expanded {
+            display: block;
+        }
+    }
+
+    & .disabled{
+        color: #ccc;
+    }
+}

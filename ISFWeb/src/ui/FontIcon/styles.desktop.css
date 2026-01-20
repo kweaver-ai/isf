@@ -1,0 +1,29 @@
+.icon {
+    display: inline-block;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    & .fallback-icon {
+        vertical-align: sub;
+    }
+}
+
+.link {
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: default;
+}

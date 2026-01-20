@@ -1,0 +1,11 @@
+.detail {
+    box-sizing: border-box;
+    width: 290px;
+    height: 100px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    padding: 0 2px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    user-select: text;
+}

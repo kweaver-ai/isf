@@ -1,0 +1,74 @@
+.container {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    padding: 5px 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    color: #505050;
+    &.local {
+        &:hover {
+            background: #fafafa;
+            border-color: #d1d1d1;
+        }
+        &:active {
+            background: #eeeeee;
+            border-color: #e0e0e0;
+        }
+        &.disabled {
+            background: #fff;
+            border-color: transparent;
+            cursor: default;
+            color: #c8c8c8;
+        }
+    }
+    &.global {
+        &:hover {
+            background: #fff;
+            border-color: transparent #d1d1d1;
+        }
+        &:active {
+            background: #eeeeee;
+            border-color: #e0e0e0;
+        }
+        &.disabled {
+            background: #fff;
+            border-color: transparent;
+        }
+    }
+    & .pane {
+        & .label {
+            vertical-align: middle;
+            margin-top: 5px;
+        }
+    }
+    & .badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 2px 5px 3px 5px;
+        margin: 2px 2px 0 0;
+        background: #d70000;
+        border-radius: 20px;
+        color: #fff;
+        &.circles {
+            border-radius: 50px;
+        }
+        &.oval {
+            padding: 2px 2px 3px 2px;
+        }
+    }
+    & .drop {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        font-weight: normal;
+        left: -60px;
+        top: -2px;
+        &.active {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.panel {
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.time-header {
+    text-align: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid #d0d0d0;
+
+    & .time-icon {
+        margin-right: 8px;
+    }
+
+    & .title {
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+.time-body {
+    padding: 8px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.cell {
+    display: inline-block;
+    padding: 0 9px;
+    text-align: center;
+    vertical-align: middle;
+    color: #555;
+
+    &:hover {
+        background: #FFEEBB;
+    }
+
+    &.disabled {
+        background: none;
+        cursor: default;
+    }
+    
+    &.selected {
+        background: #FFEEBB;
+    }
+
+    & .time {
+        display: block;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+    }
+}

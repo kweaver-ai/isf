@@ -1,0 +1,13 @@
+.input-drop {
+    position: relative;
+
+    & .arrow {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+    }
+        
+    & .arrow-active {
+        right: 32px;
+    }
+}

@@ -1,0 +1,15 @@
+.title {
+        height: 35px;
+        line-height: 35px;
+        border-bottom: 1px;
+        border-color: #ccc;
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 15px;
+        color: #333;
+}
+
+.line {
+        height: 1px;
+        background: #e6e6e6;
+}

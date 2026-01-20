@@ -1,0 +1,11 @@
+.container{
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+    &.loaded{
+        visibility: visible;
+    }
+    & .animation{
+         transition: all 0.3s; 
+    }
+}

@@ -1,0 +1,61 @@
+.container{
+    & .mask{
+        position: fixed;
+        z-index: 20;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0);
+        visibility: hidden;
+        transition: background 0.3s;
+        outline: none;
+        &.show{
+            visibility: visible;
+            background: rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    & .mask-top {
+        z-index: 10
+    }
+    
+    & .drawer{
+        position: fixed;
+        z-index: 21;
+        transition: transform 0.3s;
+        &.top{
+            top: 0;
+            width: 100vw;
+            transform: translateY(-100%);
+            &.open{
+                transform: translateY(0);
+            }
+        }
+        &.right{
+            right: 0;
+            transform: translateX(100%);
+            &.open{
+                transform: translateX(0);
+            }
+        }
+        &.bottom{
+            bottom: 0;
+            width: 100vw;
+            transform: translateY(100%);
+            &.open{
+                transform: translateY(0);
+            }
+        }
+        &.left{
+            left: 0;
+            height: 100vh;
+            transform: translateX(-100%);
+            &.open{
+                transform: translateX(0);
+            }
+        }
+    }
+
+    & .drawer-top {
+        z-index: 11;
+    }
+}

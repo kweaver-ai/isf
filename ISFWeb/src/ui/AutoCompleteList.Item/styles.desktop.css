@@ -1,0 +1,14 @@
+@import '../../core/styles/root.css';
+
+.autocomplte-list-item {
+    box-sizing: border-box;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: pre;
+}
+
+.selected {
+    background: var(--grey-03);
+}
+
+

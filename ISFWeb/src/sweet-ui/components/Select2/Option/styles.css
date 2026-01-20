@@ -1,0 +1,53 @@
+@import '../../../../core/styles/root.css';
+
+.select-option {
+    position: relative;
+    box-sizing: content-box;
+    height: 20px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+        background: rgba(220, 234, 249, 0.65);
+    }
+
+    &.disabled {
+        color: var(--font-color-disabled);
+        background: #ffffff;
+        cursor: default;
+
+        &:hover,
+        &:active {
+            color: var(--font-color-disabled);
+            background: #ffffff;
+            opacity: 1;
+        }
+    }
+
+    &.select {
+        background: #F0F2F7;
+        opacity: 1;
+
+        &:hover,
+        &:active {
+            background: rgba(220, 234, 249, 0.65);
+        }
+    }
+
+    &.icon {
+        padding-left: 34px;
+    }
+
+    & .sweet-icon {
+        position: absolute;
+        left: 10px;
+        vertical-align: top;
+        color: #505050;
+
+        &.disabled {
+            color: rgba(80, 80, 80, 0.4);
+        }
+    }
+}

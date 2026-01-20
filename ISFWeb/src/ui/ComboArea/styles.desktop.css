@@ -1,0 +1,50 @@
+.comboarea {
+    position: relative;
+    min-height: 35px;
+    overflow: auto;
+
+    & .placeholder {
+        color: #c8c8c8;
+    }
+
+    & .chip-wrap {
+        display: inline-block;
+        -webkit-user-select: text;
+        margin-right: 8px;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    & .box-sizing-border-box {
+        box-sizing: border-box;
+    }
+
+    & .tip-wrap {
+        position: absolute;
+        display: inline-block;
+        top: 8px;
+        right: 0;
+
+        & .warning-icon {
+            position: relative;
+            right: 5px;
+        }
+    }
+
+
+    & .locator {
+        display: inline-block;
+        margin-top: -8px;
+        margin-left: 10px;
+
+        & .validate-message {
+            display: inline-block;
+            margin: 3px 0 0 -10px;
+        }
+    }
+}
+
+.validate-fail {
+    background-color: #ffffee;
+    padding-right: 20px;
+}

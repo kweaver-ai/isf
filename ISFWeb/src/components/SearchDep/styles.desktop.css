@@ -1,0 +1,59 @@
+@import '../../core/styles/root.css';
+:local {
+        & .search-item {
+            display: block;
+            position: relative;
+            cursor: pointer;
+    
+            &:hover {
+                text-decoration: none;
+            }
+    
+            & .selected-data-Icon {
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: inline-block;
+                vertical-align: top;
+                /* margin-right: 5px; */
+            }
+    
+            & .seleted-data {
+                display: block;
+                margin-left: 30px;
+                & .allname{
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: pre;
+                    & .dename{
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: pre;
+                    }
+                    & .depaths{
+                        color:#888;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: pre;
+                    }
+                }
+
+            }
+        }
+
+}
+.title{
+    border: 1px solid var(--grey-04);
+    padding: 5px;
+    font-size: 13px;
+    line-height: 16px;
+    color:var(--font-color-regular);
+    background-color:var(--font-color-light);
+    white-space: pre;
+  }
+.safari{
+    &::before{
+        content: '';
+        display: block;
+    }
+}

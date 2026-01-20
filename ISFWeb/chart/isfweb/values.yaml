@@ -1,0 +1,58 @@
+nameOverride: ""
+fullnameOverride: ""
+
+replicaCount: 1
+
+namespace: anyshare
+
+nodeSelector: {}
+
+env:
+  publicProtocol: https
+  privateProtocol: http
+
+image:
+  registry: ""
+  pullPolicy: IfNotPresent
+  repository: "as/isfweb"
+  tag: 1.0.0
+
+service:
+  enableDualStack: false 
+  type: ClusterIP
+  port: 18900
+  containerPort: 1001
+  oauthOn: true
+  oauthClientID: ""
+  oauthClientSecret: ""
+  SECRET_KEY: ""
+  sleep:
+    tokenRefresh: 10
+  sslOn: false
+  certFile:
+  keyFile:
+  logger: stdout
+  language: zh_CN
+  readinessProbe:
+    initialDelaySeconds: 15
+    periodSeconds: 5
+    timeoutSeconds: 10
+    failureThreshold: 3
+  livenessProbe:
+    initialDelaySeconds: 20
+    periodSeconds: 10
+    timeoutSeconds: 15
+    failureThreshold: 3
+  oauth2:
+    hydraPublicProtocol: https
+
+aclOAuth:
+
+depServices:
+  class-443:
+    ingressClass: class-443
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 512Mi

@@ -1,0 +1,42 @@
+.check {
+    height: 30px;
+    line-height: 30px;
+
+}
+
+.password {
+    display: flex;
+}
+
+.tip-container {
+    height: 22px;
+    position: relative;
+
+    & .tip {
+        position: absolute;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+
+.error-tip {
+    display: inline-block;
+    width: 230px;
+    color: #e60012;
+}
+
+.locked {
+    color: #e60012;
+}
+
+.unlocked {
+    color: #60bc9f;
+}
+
+.btn {
+    margin-left: 10px;
+}
+
+.validate-box {
+    vertical-align: middle;
+}

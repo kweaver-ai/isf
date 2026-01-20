@@ -1,0 +1,13 @@
+.icon{
+
+    &.enabled{
+        &:hover{
+            border: 1px solid #cfcfcf;
+            background: #fff;
+        }
+        &:active{
+            border: 1px solid #cfcfcf;
+            background: #e0e0e0;
+        }
+    }
+}

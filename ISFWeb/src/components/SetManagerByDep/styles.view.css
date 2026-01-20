@@ -1,0 +1,55 @@
+    .dep-label{
+        width: 80px;
+        height: 32px;
+        line-height: 32px;
+    }
+    .dep-box{
+        width: 400px;
+    }
+    .dep-btn {
+        width: 80px;
+    }
+
+    .selected-user {
+        margin: 10px 0;
+    }
+
+    .organization-tree {
+        width: 320px;
+        height: 380px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        overflow: auto;
+        text-align: left;
+    }
+
+    .search-box {
+        margin: 10px;
+    }
+
+    .add-manager-selected {
+        padding: 10px;
+    }
+
+    .add-manager-user {
+        margin: 10px 10px 0 10px;
+        height: 30px;
+
+        & .add-manager-name {
+            display: inline-block;
+            vertical-align: middle;
+
+            & .name {
+                width: 150px;
+            }
+        }
+
+        & .add-manager-label {
+            display: inline-block;
+            line-height: 30px;
+        }
+    }
+
+    .add-manager-space {
+        padding: 10px 0 10px 30px;
+    }
