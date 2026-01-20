@@ -1,0 +1,105 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-conf
+  namespace: {{ .Values.namespace }}
+data:
+  SYSTEM_ID: {{ .Values.depServices.rds.system_id | quote }}
+
+  {{- with .Values.depServices.redis }}
+  REDIS_CONNECTTYPE: {{ .connectType | quote }}
+  REDIS_SSL: {{ .enableSSL | quote }}
+  REDIS_SECRETNAME: {{ .secretName | quote }}
+  REDIS_CANAME: {{ .caName | quote }}
+  REDIS_CERTNAME: {{ .certName | quote }}
+  REDIS_KEYNAME: {{ .keyName | quote }}
+
+  {{- if eq .connectType "sentinel"}}
+  REDIS_HOST: {{ .connectInfo.sentinelHost | quote }}
+  REDIS_PORT: {{ .connectInfo.sentinelPort | quote }}
+  REDIS_MASTER_NAME: {{ .connectInfo.masterGroupName | quote }}
+  {{- end}}
+
+  {{- if eq .connectType "master-slave"}}
+  REDIS_HOST: {{ .connectInfo.masterHost | quote }}
+  REDIS_PORT: {{ .connectInfo.masterPort | quote }}
+  REDIS_SLAVE_HOST: {{ .connectInfo.slaveHost | quote }}
+  REDIS_SLAVE_PORT: {{ .connectInfo.slavePort | quote }}
+  {{- end}}
+
+  {{- if eq .connectType "standalone"}}
+  REDIS_HOST: {{ .connectInfo.host | quote }}
+  REDIS_PORT: {{ .connectInfo.port | quote }}
+  {{- end}}
+
+  {{- if eq .connectType "cluster"}}
+  REDIS_HOST: {{ .connectInfo.host | quote }}
+  REDIS_PORT: {{ .connectInfo.port | quote }}
+  {{- end}}
+
+  {{- end }}
+
+  service_access.conf: |
+    [log]
+    host = {{ .Values.depServices.log.host }}
+    port = {{ .Values.depServices.log.port }}
+
+    [ossgateway]
+    protocol = {{ index .Values "depServices" "ossgatewaymanager" "protocol" }}
+    privateHost = {{ index .Values "depServices" "ossgatewaymanager" "privateHost" }}
+    privatePort = {{ index .Values "depServices" "ossgatewaymanager" "privatePort" }}
+
+    [authentication]
+    privateHost = {{ index .Values "depServices" "authentication" "privateHost" }}
+    privatePort = {{ index .Values "depServices" "authentication" "privatePort" }}
+
+  cluster.conf: |
+    [cluster]
+{{- if contains "," .Values.depServices.rds.host }}
+    db_host = DM
+{{- else}}
+    db_host = {{ .Values.depServices.rds.host }}
+{{- end}}
+    db_port = {{ .Values.depServices.rds.port }}
+    use_external_db = True
+
+  app_default.conf: |
+    [Global]
+    use_rds = False
+    use_iaas = False
+    business_time_offset = {{ .Values.service.businessTimeOffset }}
+
+    [ShareMgnt]
+    port = {{ .Values.service.port }}
+    check_service_node = True
+
+    # 单副本chart
+    is_single = True
+
+  language.conf: |
+    LANG={{ .Values.service.language }}
+
+  sigusr1.conf: |
+    [output]
+    # 结果输出的根目录设置
+    root = /sysvol/log
+
+    [dumpstacks]
+    # 获取python进程的当前所有线程堆栈
+    # 结果输出到文件 $root/dumpstacks/dumpstacks_PID_TIME.log
+    enable = True
+
+    [dumpmemory]
+    # 获取python进程的当前内存占用情况
+    # 结果输出到文件 $root/dumpmemory/dumpmemory_PID_TIME.log
+    enable = False
+
+  dm_svc.conf: |
+    TIME_ZON=(480)
+    LANGUAGE=(cn)
+    DM={{ printf "(%s)" .Values.depServices.rds.host }}
+    [DM]
+    LOGIN_MODE=(1)
+
+  mq_config.yaml: |
+    {{- toYaml .Values.depServices.mq | nindent 4 }}

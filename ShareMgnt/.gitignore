@@ -1,0 +1,12 @@
+src/common/sharemgnt_lib.py
+src/gen_auto
+.vscode
+*.pyc
+Makefile
+cmake_install.cmake
+CMakeConfig.cmake
+CMake*
+CPack*
+mysql*
+local*
+gen-py-tmp
