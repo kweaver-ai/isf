@@ -1,0 +1,236 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+native String(String);
+
+[ref] native boolRef(bool);
+[ref] native StringRef(String);
+[ref] native StringVecRef(vector<String>);
+[ref] native StringSetRef(set<String>);
+
+[ref] native dbCustomPermInfoRef(dbCustomPermInfo);
+[ref] native dbCustomPermInfoVectorRef(vector<dbCustomPermInfo>);
+[ref] native dbPermConfigRef(dbPermConfig);
+[ref] native dbPermConfigVectorRef(vector<dbPermConfig>);
+[ref] native dbAccessPermVectorRef(vector<dbAccessPerm>);
+
+%{ C++
+
+/**
+ * db perm manager
+ */
+#define NC_DB_PERM_MANAGER_CID \
+{ \
+    0xaf6e92d, \
+    0x67c5,    \
+    0x4b72,    \
+     { 0xaf, 0xeb, 0x6c, 0x32, 0x44, 0xc3, 0x49, 0x57 } \
+}
+
+/**
+ * db perm manager
+ */
+#define NC_DB_PERM_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsdb/dbpermmanager;1"
+
+enum permSourceType
+{
+    permSourceUser = 1,              // 用户配置
+};
+
+
+// 自定义权限信息
+struct dbCustomPermInfo {
+    int64               id;                 // 唯一标识一条权限配置项
+    bool                isAllowed;          // 是否是允许权限
+    int                 permValue;          // 权限值
+    int                 source;             // 权限来源; 1: 用户配置 eacp服务权限增加和修改只有用户配置
+    int                 accessorType;       // 访问者类型
+    String              accessorName;       // 访问者显示名
+    String              accessorId;         // 访问者id
+    String              docId;              // 访问对象id
+    int64               endTime;            // 结束时间，-1表示永久。
+    int64               modifyTime;         // 权限修改时间
+    int64               createTime;         // 权限创建时间
+
+    dbCustomPermInfo():
+        id(-1),
+        isAllowed(false),
+        permValue(0),
+        source(1),
+        accessorType(-1),
+        accessorId(),
+        docId(),
+        endTime (-1),
+        modifyTime (0)
+    {
+    }
+
+    bool operator == (const dbCustomPermInfo& info) const {
+        if (this->id == info.id &&
+            this->isAllowed == info.isAllowed &&
+            this->permValue == info.permValue &&
+            this->accessorType == info.accessorType &&
+            this->accessorId == info.accessorId &&
+            this->accessorName == info.accessorName &&
+            this->docId == info.docId&&
+            this->endTime == info.endTime) {
+                return true;
+        }
+
+        return false;
+    }
+};
+
+// 访问者的权限配置
+struct dbPermConfig {
+    String                  docId;           // 访问对象id
+    String                  accessorId;      // 访问者id
+    String                  accessorName;    // 访问者显示名
+    int                     accessorType;    // 访问者类型
+    int                     denyValue;       // 拒绝权限值
+    int                     allowValue;      // 允许权限值
+    int64                   endTime;         // 到期时间
+    int64                   createTime;      // 权限创建时间
+    int64                   modifyTime;      // 权限修改时间
+
+    dbPermConfig():
+        docId(),
+        accessorId(),
+        accessorType(0),
+        denyValue(0),
+        allowValue(0),
+        endTime(0),
+        createTime(0),
+        modifyTime(0)
+    {
+    }
+};
+
+// 访问令牌（访问者id）拥有的访问权限
+struct dbAccessPerm {
+    String                 docId;
+    int                    denyValue;
+    int                    allowValue;
+    bool                   inherit;
+
+    dbAccessPerm():
+        docId(),
+        denyValue(0),
+        allowValue(0),
+        inherit(true)
+    {
+    }
+};
+
+%}
+
+[uuid (95C58D46-A2D3-400c-A9C2-74EA7CAC9484)]
+interface ncIDBPermManager: nsISupports
+{
+    /*
+     * 根据docids获取自定义权限项信息
+     */
+    [notxpcom] void GetCustomPermByDocIds ([const] in StringVecRef docIds, in dbCustomPermInfoVectorRef infos);
+
+    /*
+     * 获取过期权限信息。
+     */
+    [notxpcom] void GetExpirePermInfos (in int64 expireTime, in dbCustomPermInfoVectorRef infos);
+
+    /*
+     * 添加一条自定义权限信息
+     */
+    [notxpcom] void AddCustomPerm ([const] in dbCustomPermInfoRef info);
+
+    /*
+     * 更新一条自定义权限信息
+     */
+    [notxpcom] void UpdateCustomPerm ([const] in dbCustomPermInfoRef info);
+
+    /*
+     * 删除一条自定义权限信息
+     */
+    [notxpcom] void DeleteCustomPerm (in int64 id);
+
+    /*
+     * 根据 id 查找单条自定义权限信息
+     * 如果找到，返回true，并将找到的信息写入resultInfo
+     * 如果未找到，返回false，并初始化resultInfo
+     */
+    [notxpcom] bool GetCustomPermById (in int64 id, in dbCustomPermInfoRef resultInfo);
+
+    /*
+     * 根据 docId, accessorId, accessorType, isAllowed, endTime 查找单条自定义权限信息
+     * 如果找到，返回true，并将找到的信息写入resultInfo
+     * 如果未找到，返回false，并初始化resultInfo
+     */
+    [notxpcom] bool GetCustomPermByEndTime ([const] in StringRef docId, [const] in StringRef accessorId, in int accessorType, in bool isAllowed, in int64 endTime, in dbCustomPermInfoRef resultInfo);
+
+    /*
+     * 根据文件对象的id删除权限配置
+     */
+    [notxpcom] void DeleteCustomPermByFileId ([const] in StringRef fileId);
+
+    /*
+     * 根据文件夹对象的id删除权限配置，包括子孙文件夹，文件
+     */
+    [notxpcom] void DeleteCustomPermByDirId ([const] in StringRef dirId);
+
+    /*
+     * 根据userid删除所有自定义权限信息
+     */
+    [notxpcom] void DeleteCustomPermByUserId ([const] in StringRef userId);
+
+    /*
+     * 根据userid和docID删除自定义权限信息
+     */
+    [notxpcom] void DeleteCustomPermByDocUserId ([const] in StringRef docId, [const] in StringRef userId);
+
+    /*
+     * 获取所有权限配置信息
+     */
+    [notxpcom] void GetAllCustomPerm (in dbCustomPermInfoVectorRef infos);
+
+
+    /*
+    ======================================================================================
+        1. 采用accessorId和docId来唯一标识一条权限
+        2. allowValue和denyValue同时提供
+        3. 允许权限和拒绝权限的截至时间保持一致
+    ======================================================================================
+     */
+
+    /*
+     * 获取指定访问者的权限
+     */
+    [notxpcom] void GetPermConfig ([const] in StringRef docId, [const] in StringRef accessorId, in dbPermConfigRef permConfig);
+
+    /*
+     * 设置指定访问者最终的权限
+     */
+    [notxpcom] void AddPermConfig ([const] in dbPermConfigRef config);
+
+    /*
+     * 删除指定访问者的权限
+     */
+    [notxpcom] void DelPermConfig ([const] in StringRef docId, [const] in StringRef accessorId);
+
+    /*
+     * 根据docId和访问令牌（访问者id）获取权限配置信息
+     * 结果按照目录深度由深至浅排序
+     */
+    [notxpcom] void GetPermConfigsByAccessToken ([const] in StringRef docId, [const] in StringSetRef accessToken, in dbPermConfigVectorRef permConfigs, in bool withInheritedPerm, in bool isAnonymous);
+
+    /*
+     * 根据docId和访问令牌（访问者id）获取对子对象的访问权限
+     * 结果按照目录深度由浅至深排序
+     */
+    [notxpcom] void GetAccessPermsOfSubObjs ([const] in StringRef docId, [const] in StringSetRef accessToken, in bool isAnonymous, in dbAccessPermVectorRef perms);
+
+    /*
+    ======================================================================================
+     */
+};

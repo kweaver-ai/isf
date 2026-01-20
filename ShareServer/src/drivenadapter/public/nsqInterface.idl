@@ -1,0 +1,94 @@
+/***************************************************************************************************
+nsqInterface.idl:
+    Copyright (c) Eisoo Software Inc. (2020), All rights reserved.
+
+Purpose:
+    消息队列服务
+
+Author:
+    Will.lv@aishu.cn
+
+Creating Time:
+    2021-04-07
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native ncNSQEventTypeRef(ncNSQEventType);
+[ref] native NSQMsgRef(NSQMsg);
+
+%{ C++
+
+/**
+ * NSQ Manager
+ */
+#define NSQ_CID \
+{ \
+    0xca410910, \
+    0x6822,    \
+    0x4112,    \
+     { 0xc2, 0xa2, 0x1a, 0xa1, 0xa1, 0xa1, 0xad, 0xa1 } \
+}
+
+/**
+ * NSQ Manager
+ */
+#define NSQ_CONTRACTID \
+"@eisoo.com/AnyShare3.5/eacp/drivenAdapter/nsqmanager;1"
+
+enum ncNSQEventType
+{
+    NSQ_DOC_SHARE_REALNAME_APPLY   = 1,         // 表示审核申请 共享申请、所有者、更改继承
+    NSQ_DOC_SHARE_ANONYMOUS_APPLY  = 2,         // 表示审核申请 匿名共享
+    NSQ_DOC_SHARE_CANCEL = 3,                  //  实名和匿名 申请取消
+    NSQ_SHARE_PERM_CHANGE = 4,                  // 权限变更
+    NSQ_CORE_USER_ANONYMOUS_OUT_OF_SCOPE = 5,   // 用户超出匿名共享范围限制
+};
+
+enum ncNSQApplyType
+{
+    NSQ_APPLY_PERM   = 1,          // 共享申请
+    NSQ_APPLY_OWNER   = 2,         // 所有者申请
+    NSQ_APPLY_INHERIT   = 3,       // 更改继承
+    NSQ_APPLY_ANONYMOUS  = 4,      // 匿名共享
+};
+
+struct NSQMsg {
+    String         applyId;             // 申请编号
+    String         conflictApplyId;     // 冲突的申请ID
+    vector<String> cancelApplyIds;      // 取消的申请ID集合   取消topic的时候使用
+    ncNSQApplyType applyType;           // 申请类型  perm表示共享申请 owner所有者申请  inherit更改继承
+    String         userId;              // 用户Id
+    String         docId;               // 文档docId
+    String         docPath;             // 文档路径
+    bool           isFile;              // 文件夹、文件
+    int            docLibType;          // 所属文档库类型
+    int            docCsfLevel;         // 文档密级
+    String         accessorId;          // 访问者ID
+    String         accessorName;        // 访问者名称
+    int            accessorType;        // 访问者类型
+    int            operation;              // 权限操作类型
+    int64          expiresAt;           // 截止时间；永久有效为-1
+    int            allowValue;          // 允许权限
+    int            denyValue;           // 拒绝权限
+    bool           inherit;             // 是否继承权限  更改继承申请时必填
+    int            accessLimit;         // 匿名共享访问次数
+    String         linkId;              // 匿名共享linkId
+    String         password;            // 匿名共享密码
+    String         title;               // 匿名共享标题
+};
+
+%}
+
+[uuid (B27DE271-FA7E-1ac1-A1BA-11D2BF22D33C)]
+interface nsqInterface: nsISupports
+{
+    /*
+     * 发送NSQ消息
+     */
+    [notxpcom] void PublishNSQMessage ([const] in ncNSQEventTypeRef nsqType, [const] in NSQMsgRef nsqMsg);
+};

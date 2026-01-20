@@ -1,0 +1,169 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native ncDeviceInfoVecRef(vector<ncDeviceInfo>);
+[ref] native ncDeviceBaseInfoRef(ncDeviceBaseInfo);
+[ref] native ncDeviceInfoRef(ncDeviceInfo);
+[ref] native SetStringRef(set<String>);
+[ref] native StringIntMapRef (map<String, int>);
+[ref] native dbDeviceBaseInfoVecRef(vector<ncDeviceBaseInfo>);
+[ref] native VecStringRef(vector<String>);
+[ref] native StringVecMapRef(map<String, vector<String> >);
+
+%{ C++
+
+/**
+ * acs device manager
+ */
+// 1c84ddb3-7bd7-437a-a3f8-99d8bd1840af
+#define NC_ACS_DEVICE_MANAGER_CID \
+{ \
+    0x1c84ddb3, \
+    0x7bd7,    \
+    0x437a,    \
+     { 0xa3, 0xf8, 0x99, 0xd8, 0xbd, 0x18, 0x40, 0xaf } \
+}
+
+/**
+ * acs device manager
+ */
+#define NC_ACS_DEVICE_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acsdevicemanager;1"
+
+#include "ncIACSCommon.h"
+
+// ncDeviceBaseInfo
+struct ncDeviceBaseInfo {
+    ncDeviceBaseInfo ()
+        : clientType (ACSClientType::UNKNOWN)
+        , lastLoginTime (-1)
+    {}
+
+    String                udid;           // 设备唯一标识号
+    String                name;           // 设备名称
+    ACSClientType         clientType;     // 客户端类型
+    String                deviceType;     // 设备类型
+    String                lastLoginIp;    // 上次登录ip
+    int64                 lastLoginTime;  // 上次登录时间
+    vector<String>        udids;          // 设备所有mac标识
+};
+
+// deviceInfo
+struct ncDeviceInfo {
+    ncDeviceBaseInfo baseInfo;  // 基础信息
+    int         eraseFlag;      // 缓存擦除标识
+    int64       lastEraseTime;  // 上次缓存擦除时间
+    int         disableFlag;    // 禁用标识
+    int         bindFlag;       // 绑定标识
+    int         loginFlag;      // 是否登录标识
+};
+
+%}
+
+[uuid (8702c2f0-e8c7-4797-b721-72ecff6b27d8)]
+interface ncIACSDeviceManager: nsISupports
+{
+    // ------------------------------------------------------------------------------------------------------
+    // 登录设备管理
+    // ------------------------------------------------------------------------------------------------------
+
+    /*
+     * 根据用户id获取所有设备信息
+     */
+    [notxpcom] void GetDevicesByUserIdAndUdid([const] in StringRef userId, [const] in StringRef udid, in ncDeviceInfoVecRef deviceInfos, in int start, in int limit, in bool authFlag);
+
+    /*
+     * 获取登录过的移动设备信息
+     */
+    [notxpcom] void GetLoginedMobileDevices([const] in StringRef userId, in ncDeviceInfoVecRef deviceInfos);
+
+    /*
+     * 记录成功登录的设备
+     */
+    [notxpcom] void RecordDevice([const] in StringRef userId, [const] in ncDeviceBaseInfoRef baseInfo);
+
+    /*
+     * 添加一个设备，用以管理帐号与设备的绑定关系
+     */
+    [notxpcom] void AddDevice([const] in StringRef userId, [const] in ncDeviceBaseInfoRef baseInfo);
+
+    /*
+     * 批量添加设备
+     */
+    [notxpcom] void AddDevices([const] in StringRef userId, [const] in dbDeviceBaseInfoVecRef baseInfos);
+
+    /*
+     * 删除登录设备，如果 udids 为空，删除用户的所有设备
+     */
+    [notxpcom] void DeleteDevices([const] in StringRef userId, [const] in VecStringRef udids);
+
+    /*
+     * 获取设备信息
+     */
+    [notxpcom] bool GetDeviceByUDID([const] in StringRef userId, [const] in StringRef udid, in ncDeviceInfoRef deviceInfo);
+
+    /*
+     * 设置缓存擦除状态
+     */
+    [notxpcom] void SetEraseStatus([const] in StringRef userId, [const] in StringRef udid);
+
+    /*
+     * 设置擦除成功标识
+     */
+    [notxpcom] void SetEraseSucInfo([const] in StringRef userId, [const] in StringRef udid, in int64 date);
+
+    /*
+     * 设置禁用状态
+     */
+    [notxpcom] void SetDisableStatus([const] in StringRef userId, [const] in StringRef udid);
+
+    /*
+     * 设置启用状态
+     */
+    [notxpcom] void SetEnableStatus([const] in StringRef userId, [const] in StringRef udid);
+
+    /*
+     * 设置绑定状态
+     */
+    [notxpcom] void SetBindStatus([const] in StringRef userId, [const] in VecStringRef udids);
+
+    /*
+     * 设置解绑状态
+     */
+    [notxpcom] void SetUnbindStatus([const] in StringRef userId, [const] in StringRef udid);
+
+    /*
+     * 根据用户id获取绑定的设备
+     */
+    [notxpcom] void GetBindDevices([const] in StringRef userId, in StringIntMapRef udidsMap);
+
+    /*
+     * 根据用户id和所有用户获取绑定的设备
+     */
+    [notxpcom] void GetBindDevicesWithAllUser([const] in StringRef userId, in StringVecMapRef udidsMap);
+
+    /*
+     * 强制用户已登录的Windows登录客户端下线
+     */
+    [notxpcom] void ForceLogOff([const] in StringRef userId);
+
+    /*
+     * 强制用户已登录的登录客户端下线
+     */
+    [notxpcom] void AllForceLogOff([const] in StringRef userId);
+
+    /*
+     * 获取用户是否有配置过设备信息
+     */
+    [notxpcom] bool UserHasDeviceInfo ([const] in StringRef userId, in bool binded);
+
+    /*
+     * 根据udid获取绑定用户
+     */
+    [notxpcom] void GetUserNameByUdid([const] in StringRef udid, in VecStringRef users, in int start, in int limit);
+};

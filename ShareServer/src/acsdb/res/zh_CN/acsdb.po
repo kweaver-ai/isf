@@ -1,0 +1,28 @@
+#
+# Resource script for US.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cfl 2.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################################################
+#
+######################################################################
+
+msgid "IDS_CURRENT_PATH_OPENED"
+msgstr "当前目录已开启发现共享"
+
+msgid "IDS_UP_LEVEL_PATH_OPENED"
+msgstr "上级目录已开启发现共享"
+
+msgid "IDS_CURRENT_PATH_NOT_OPENED"
+msgstr "当前目录未开启发现共享"
+
+msgid "IDS_DB_ALL_USER_GROUP_NAME"
+msgstr "所有用户"

@@ -1,0 +1,59 @@
+/***************************************************************************************************
+stdLogInterface.idl:
+    Copyright (c) Eisoo Software Inc. (2021), All rights reserved.
+
+Purpose:
+    日志记录（stderr）
+
+Author:
+    xu.zhi@aishu.cn
+
+Creating Time:
+    2022-08-02
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+[ref] native ncOperatorRef(ncOperator);
+
+%{ C++
+
+/**
+ * stdLog Manager
+ */
+#define STD_LOG_CID \
+{ \
+    0xca610154, \
+    0x1852,    \
+    0x4132,    \
+     { 0xd3, 0xa7, 0x4a, 0xdf, 0xa1, 0x51, 0x1d, 0xc1 } \
+}
+
+/**
+ * stdLog Manager
+ */
+#define STD_LOG_CONTRACTID \
+"@eisoo.com/AnyShare3.5/efast/drivenAdapter/stdlogmanager;1"
+
+#include "common.h"
+
+// 操作者信息
+struct ncOperator {
+    ncClientType        clientType;  // 客户端类型
+    String              id;          // 操作者id
+    String              name;        // 操作者名称，如果是用户则为[显示名]
+    String              ip;          // 操作者IP地址，如果是第三方应用则省略。
+    String              udid;        // 设备硬件码，如果是第三方应用则省略。
+    vector<String> departmentPaths;  // 操作者所属部门
+    vector<String> departmentNames;  // 操作者所属部门名称
+};
+
+%}
+
+[uuid (CD3DED62-E12E-4ac3-A7BA-51CABF09D553)]
+interface stdLogInterface: nsISupports
+{
+    /*
+     * 记录业务日志到stderr
+     */
+    [notxpcom] void Log ([const] in ncOperatorRef actor);
+};

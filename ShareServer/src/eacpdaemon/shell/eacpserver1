@@ -1,0 +1,160 @@
+# /bin/bash
+
+# 组件注册需要HOME这个环境变量
+export HOME=$HOME
+export LANG=en_US.UTF-8
+
+#
+# eacpserver 服务启动脚本。
+# 参考svn://192.168.1.14/trunk/platform/DataEngine/EInfoworks/components/einfoworks
+#
+
+# Source function library
+if [ -f /etc/init.d/functions ] ; then
+  . /etc/init.d/functions
+elif [ -f /etc/rc.d/init.d/functions ] ; then
+  . /etc/rc.d/init.d/functions
+else
+  exit 1
+fi
+
+APPNAME=eacpdaemon
+SERVICENAME=eacp
+
+get_absolute_path_of_this_script ()
+{
+    ori=$1
+    ori_dir=`pwd`
+    if [ -h $ori ] ; then
+        ori=$(readlink -f $ori)
+    fi
+    if [ $? = 1 ] ; then
+        echo "readlink failed"
+        exit 1
+    fi
+
+    cd $(dirname $ori)
+    abs_path=`pwd`
+    cd $ori_dir
+}
+
+check_eacpserver_start ()
+{
+    local prg
+    prg=${APPNAME//./\\.}
+    `ps -o cmd -C $APPNAME | grep -q "$prg"`
+    return $?
+}
+
+eacpserver_pid=0
+get_eacpserver_pid ()
+{
+    local prg
+    prg=${APPNAME//./\\.}
+    eacpserver_pid=$(ps -o pid,cmd -C $APPNAME | grep "$prg" | gawk '{print $1}')
+    if [ -z "$eacpserver_pid" ] ; then
+        eacpserver_pid=-1
+    fi
+
+    return 0
+}
+
+get_absolute_path_of_this_script $0
+cd $abs_path
+
+if [ ! -e "$abs_path/$APPNAME" ]; then
+    echo "$abs_path/$APPNAME does not exist."
+    exit 1
+fi
+
+status() {
+    check_eacpserver_start
+
+	RETVAL=$?
+    if [ "$RETVAL" = "0" ] ; then
+        get_eacpserver_pid
+        echo "$SERVICENAME (pid:$eacpserver_pid) started."
+    else
+        echo "$SERVICENAME stopped."
+    fi
+
+    return $RETVAL
+}
+
+start() {
+    check_eacpserver_start
+
+    if [ "$?" = "0" ] ; then
+        echo_failure
+        get_eacpserver_pid
+        echo "$SERVICENAME (pid:$eacpserver_pid) has started."
+        return $ret
+    fi
+
+    echo -n "Starting $SERVICENAME services: "
+
+    ln -sf ../../../lib64/* .
+
+    daemon $abs_path/$APPNAME ">/dev/null 2>&1 &"
+    RETVAL=$?
+
+    if [ $RETVAL  = "0" ] ; then
+        echo_success
+    else
+        echo_failure
+    fi
+
+    echo
+    return $RETVAL
+}
+
+stop() {
+    check_eacpserver_start
+
+    if [ "$?" != "0" ] ; then
+        echo_failure
+        get_eacpserver_pid
+        echo "$SERVICENAME has stopped."
+        return $ret
+    fi
+
+    echo -n "Shutting down $SERVICENAME services: "
+    killproc $abs_path/$APPNAME
+    RETVAL=$?
+    echo
+    return $RETVAL
+}
+
+restart() {
+    check_eacpserver_start
+
+    if [ "$?" = "0" ] ; then
+        stop
+    fi
+    start
+}
+
+# See how we were called.
+case "$1" in
+    start)
+        start
+        RETVAL=$?
+        ;;
+    stop)
+        stop
+        RETVAL=$?
+        ;;
+    restart)
+        restart
+        RETVAL=$?
+        ;;
+    status)
+        status
+        RETVAL=$?
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        RETVAL=2
+esac
+
+exit $RETVAL

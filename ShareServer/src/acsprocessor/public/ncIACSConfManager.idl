@@ -1,0 +1,90 @@
+#include "nsISupports.idl"
+
+native int64(int64);
+native String(String);
+[ref] native StringRef(String);
+[ref] native VectorStringRef (vector<String>);
+[ref] native StringMapRef (map<String, String>);
+
+%{ C++
+/**
+ * acs conf manager
+ */
+#define NC_ACS_CONF_MANAGER_CID \
+{ \
+    0xd44d7aad,    \
+    0x1b6f,        \
+    0x4312,        \
+    { 0xb4, 0x30, 0x54, 0xce, 0xb3, 0x64, 0x55, 0x29 } \
+}
+
+/**
+ * acs conf manager
+ */
+#define NC_ACS_CONF_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acsconfmanager;1"
+
+%}
+
+native bool(bool);
+native int(int);
+
+[uuid (E242743E-36E2-482e-AD2E-C0608960922A)]
+interface ncIACSConfManager: nsISupports
+{
+    /**
+     * 设置Config
+     */
+    [notxpcom] void SetConfig ([const] in StringRef key, [const] in StringRef value);
+
+    /**
+     * 获取Config
+     */
+    [notxpcom] String GetConfig ([const] in StringRef key);
+
+    /**
+     * 批量获取Config
+     */
+    [notxpcom] void BatchGetConfig (in VectorStringRef keys, in StringMapRef kvMap);
+
+    /**
+     * 是否开启下载水印
+     */
+    [notxpcom] bool IsDownloadWatermarkDoc ([const] in StringRef docId, [const] in int docType, [const] in int64 size, [const] in StringRef path);
+
+    /**
+     * 网段文档库限制
+     */
+    [notxpcom] bool GetNetDocsLimitStatus ();
+
+    /**
+     * 是否开启文件抓取策略
+     */
+    [notxpcom] bool GetFileCrawlStatus ();
+
+    /**
+     * 是否开启消息推送插件
+     */
+    [notxpcom] bool GetMessagePluginStatus ();
+
+    /**
+     * 获取发送验证码服务器状态
+     */
+    [notxpcom] String GetVcodeServerStatus ();
+
+    /**
+     * 获取双因子认证服务发送验证码开关状态
+     */
+    [notxpcom] String GetAuthVcodeServerStatus ();
+
+    /**
+     * 获取OEM中Proudut信息
+     */
+    [notxpcom] String GetProductName ();
+
+    /**
+     * 获取密码错误次数配置
+     */
+    [notxpcom] int GetPasswordErrCnt ();
+
+};

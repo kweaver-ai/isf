@@ -1,0 +1,60 @@
+/***************************************************************************************************
+ncIDBOutboxManager.idl:
+    Copyright (c) Eisoo Software Inc. (2021), All rights reserved.
+
+Purpose:
+    Outbox 数据库接口
+
+Author:
+    Dylan.gao@aishu.cn
+
+Creating Time:
+    2021-06-24
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native bool(bool);
+[ref] native StringRef(String);
+
+%{ C++
+
+/**
+ * db Outbox manager
+ */
+#define NC_DB_OUTBOX_MANAGER_CID \
+{ \
+    0xa14b75cc, \
+    0xd454,    \
+    0x32fc,    \
+     { 0xd1, 0xc0, 0x58, 0x84, 0x2f, 0xfd, 0xdc, 0xac } \
+}
+
+/**
+ * db Outbox manager
+ */
+#define NC_DB_OUTBOX_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsdb/dboutboxmanager;1"
+
+enum ncOutboxType
+{
+    OUTBOX_CANCEL_APPLICATION = 1,              //  实名和匿名 申请取消，发送NSQ消息
+    OUTBOX_PERM_CHANGE = 2,                     // 权限变更，发送NSQ消息
+    OUTBOX_REALNAME_APPLY = 3,                  // 表示审核申请 共享申请、所有者、更改继承，发送NSQ消息
+    OUTBOX_ANONYMOUS_APPLY = 4,                // 表示审核申请 匿名共享，发送NSQ消息
+};
+
+%}
+
+[uuid (1B53C054-159D-4FA2-A8C6-1174B0EB7E1F)]
+interface ncIDBOutboxManager: nsISupports
+{
+    /*
+     * 推送outbox消息
+     */
+    [notxpcom] bool PushOutboxInfo ();
+
+    /*
+     * 添加outbox消息
+     */
+    [notxpcom] void AddOutboxInfo ([const] in StringRef message);
+};

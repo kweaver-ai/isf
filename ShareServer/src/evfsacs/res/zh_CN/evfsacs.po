@@ -1,0 +1,22 @@
+#
+# Resource script for US.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cfl 2.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################################################
+#
+######################################################################
+
+msgid "IDS_EVFS_ACS_ANONYMOUS_NAME"
+msgstr "匿名用户"
+
+msgid "IDS_ACCESSORTYPE_OR_ID_NOT_EXIST"
+msgstr "权限配置中accessortype或者accessorid不存在"

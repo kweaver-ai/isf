@@ -1,0 +1,32 @@
+#include "nsISupports.idl"
+
+%{ C++
+
+/**
+ * thrift eacp server
+ */
+#define NC_THRIFT_EACP_SERVER_CID \
+{ \
+    0xcef71071, \
+    0xeb56,    \
+    0x430f,    \
+     { 0xbe, 0xa7, 0xf8, 0xd, 0xbc, 0x90, 0xc, 0x4f } \
+}
+
+/**
+ * thrift eacp server
+ */
+#define NC_THRIFT_EACP_SERVER_CONTRACTID \
+    "@eisoo.com/AnyShare3.5/acs/teacpsever;1"
+
+%}
+
+[uuid (3ED9AA31-D2E2-4c4c-B9ED-8EA8FCFB7D04)]
+interface ncITEACPServer: nsISupports
+{
+    // ��������
+    [notxpcom] void Start ();
+
+    // ֹͣ����
+    [notxpcom] void Stop ();
+};

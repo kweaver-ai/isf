@@ -1,0 +1,105 @@
+replicaCount: 1
+
+nodeSelector: {}
+
+namespace: eacp
+
+image:
+  registry: ""
+  service:
+    repository: as/eacp
+    tag: ""
+    pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 9998
+  language: zh_CN
+  logger: stdout
+  businessTimeOffset: 0
+  useRds: False
+  useIaas: False
+  logAssignedSize: "4194304"
+  logDumpThresholdlogin: "1000000"
+  logDumpThresholdManagement: "1000000"
+  logDumpThresholdOperation: "8000000"
+  logDumpTime: 03:00:00
+  DeleteDocTime: 22:00:00
+  ActiveRecordInterval: "600000"
+  CleanInterval: "600000"
+  readinessProbe:
+    initialDelaySeconds: 10
+    periodSeconds: 3
+    timeoutSeconds: 3
+    failureThreshold: 3
+  livenessProbe:
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 5
+  hasBuiltinServices: "no"
+  workerNumber: 50
+  eacpThriftWorkerNumber: 10
+  enableDualStack: false
+
+env:
+  language: en_US.UTF-8
+  timezone: Asia/Shanghai
+
+depServices:
+  rds:
+    system_id: ''
+    host: 127.0.0.1
+    port: 3320
+    user: ""
+    password: ""
+    enableDBRead: false
+    readHost: 127.0.0.1
+    readPort: 3320
+    database: anyshare
+    maxConnections: 30
+    dbCharset: utf8mb4
+    timeout: 10
+    readTimeout: 10
+    writeTimeout: 10
+    type: mysql
+  hydra:
+    publicHost: hydra-public
+    publicPort: 4444
+    administrativeHost: hydra-admin
+    administrativePort: 4445
+  mq: {}
+  user-management:
+    privateHost: user-management-private
+    privatePort: 30980
+  doc-share:
+    privateHost: doc-share-private
+    privatePort: 30920
+  proton-policy-engine:
+    host: proton-policy-engine-proton-policy-engine-cluster.resource
+    port: 9800
+  policy-management:
+    host: policy-management
+    port: 9603
+  deploy-service:
+    HttpHost: deploy-service
+    HttpPort: 9703
+  sharemgnt:
+    host: sharemgnt
+    port: 9600
+  eacp:
+    thriftHost: eacp-thrift
+    thriftPort: 9992
+
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 100Mi
+  limits:
+    cpu: 4
+    memory: 4Gi
+

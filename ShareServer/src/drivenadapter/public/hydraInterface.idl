@@ -1,0 +1,79 @@
+/***************************************************************************************************
+hydraInterface.idl:
+    Copyright (c) Eisoo Software Inc. (2020), All rights reserved.
+
+Purpose:
+    hydra微服务接口
+
+Author:
+    Sunshine.tang@aishu.cn
+
+Creating Time:
+    2021-02-22
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native ncTokenIntrospectInfoRef(ncTokenIntrospectInfo);
+[ref] native ncTokenIntrospectInfoVecRef(vector<ncTokenIntrospectInfo>);
+
+%{ C++
+
+/**
+ * hydra CID
+ */
+#define HYDRA_CID \
+{ \
+    0x65d7b32d, \
+    0x53f2,    \
+    0x4985,    \
+     { 0x98, 0xcb, 0x92, 0x5b, 0xf4, 0xdc, 0x55, 0x0b } \
+}
+
+/**
+ * hydra CONTRACTID
+ */
+#define HYDRA_CONTRACTID \
+"@eisoo.com/AnyShare3.5/drivenadapter/hydra;1"
+
+#include "common.h"
+
+
+//令牌内省结果
+struct ncTokenIntrospectInfo {
+    bool                  active;              //令牌状态
+    String                userId;              //用户ID
+    String                scope;               //权限范围
+    String                clientId;            //客户端ID
+    ncTokenVisitorType    visitorType;         //访问者类型
+    // 以下字段只在visitorType=1，即实名用户时才存在
+    String                loginIp;             //登陆IP
+    String                udid;                //设备码
+    ncAccountType         accountType;         //账户类型
+    ncClientType          clientType;          //设备类型
+};
+
+%}
+
+[uuid (76C51A49-B453-481E-AE5A-4D6AA1C8D241)]
+interface hydraInterface: nsISupports
+{
+    /*
+     * token内省
+     */
+    [notxpcom] void IntrospectToken ([const] in StringRef tokenId, in ncTokenIntrospectInfoRef tokenInfo);
+
+    /*
+     * 删除认证与授权会话
+     */
+    [notxpcom] void DeleteConsentAndLogin ([const] in StringRef clientId,[const] in StringRef userId);
+
+    /*
+     * 获取授权信息
+     */
+    [notxpcom] void GetConsentInfo ([const] in StringRef userId, in ncTokenIntrospectInfoVecRef tokenInfos);
+};

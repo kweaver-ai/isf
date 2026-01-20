@@ -1,0 +1,958 @@
+#
+# Resource script for CN.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: efshttpserver\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################/
+#
+# String Table for null
+#
+msgid    "IDS_EACHTTP_EVFS_INIT_ERROR"
+msgstr    "初始化获取EVFS对象错误，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACSFINDER_INIT_ERROR"
+msgstr    "初始化获取ACSFINDER对象错误:0x%x，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACSTOKEN_INIT_ERROR"
+msgstr    "初始化获取ACSTOKEN对象错误，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACSAUTHIOC_INIT_ERROR"
+msgstr    "初始化获取ACSAUTHIOC对象错误，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_THRIFT_SHAREMGNT_INIT_ERROR"
+msgstr    "初始化获取THRIFT_SHAREMGNT对象错误：0x%x，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACS_SHAREMGNT_INIT_ERROR"
+msgstr    "初始化获取ACS_SHAREMGNT对象错误：0x%x，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACS_DOC_INIT_ERROR"
+msgstr    "初始化获取ACSDOC对象错误：0x%x，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACS_OWNER_INIT_ERROR"
+msgstr    "初始化获取ACSOWNER对象错误：0x%x，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACS_PERM_INIT_ERROR"
+msgstr    "初始化获取ACSPERM对象错误：0x%x，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACS_LOCK_INIT_ERROR"
+msgstr    "初始化获取ACSLOCK对象错误：0x%x，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_DB_DOC_INIT_ERROR"
+msgstr    "初始化获取DBDOC对象错误：0x%x，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ARG_NULL"
+msgstr    "参数为空，请检测参数是否正确。"
+
+msgid    "IDS_EACHTTP_ARG_RE_SET"
+msgstr    "参数已经设置，请检测是否正确。"
+
+msgid    "IDS_EACHTTP_INVALID_ARG_VALUE"
+msgstr   "参数 (%s) 的值无效"
+
+msgid    "IDS_EACHTTP_EVFS_NULL"
+msgstr    "ncIEVFS 对象为空，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_EVFS_COMMAND_HANDLER_NULL"
+msgstr    "ncIEVFSCommandHandler 对象为空，请检测参数是否正确。"
+
+msgid    "IDS_EACHTTP_EVFS_QUERY_HANDLER_NULL"
+msgstr    "ncIEVFSQueryHandler 对象为空，请检测参数是否正确。"
+
+msgid    "IDS_EACHTTP_JSON_KEY_ERROR"
+msgstr    "JSON资源不存在，请检查key:%s"
+
+msgid    "IDS_EACHTTP_SERVER_UNKNOWN_ERROR"
+msgstr    "未知错误，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_ACSAUTHIOC_NULL"
+msgstr    "ncIEACHttpAuthIOC对象为空，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_BLOCK_SIZE_NOT_EQUAL_TO_BINARY_SIZE"
+msgstr    "参数错误，数据块大小和实际大小不匹配，请检测参数设置是否正确。"
+
+msgid    "IDS_EACHTTP_METHOD_INVALID"
+msgstr    "不支持的HTTP方法。"
+
+msgid    "IDS_EACHTTP_API_NOT_IMPLEMENTED"
+msgstr    "请求API错误，调用了不支持的API。"
+
+msgid    "IDS_EACHTTP_ACCESS_TOKEN_ERR"
+msgstr    "access token校验失败。"
+
+msgid    "IDS_EACHTTP_JSON_SERIALIZE_ARG_NULL"
+msgstr    "JSON序列化参数为空指针，请检测参数是否正确。"
+
+msgid    "IDS_EACHTTP_JSON_DESERIALIZE_ARG_NULL"
+msgstr    "JSON反序列化参数为空指针，请检测参数是否正确。"
+
+msgid    "IDS_EACHTTP_JSON_KEY_NOT_INITIALIZED"
+msgstr    "JSON字段未反序列化赋值，请检测参数是否正确。"
+
+msgid    "IDS_EACHTTP_BAD_EVBUFFER"
+msgstr    "追加回复内容到事件流中失败，请检查代码是否存在问题。"
+
+msgid    "IDS_EACHTTP_RESOURCE_TO_URI_NOT_EXIST"
+msgstr    "请求的URI ：%s 所指向的资源不存在，请检查URI是否正确。"
+
+msgid    "IDS_EACHTTP_GNS_INVALID"
+msgstr    "GNS : %s 不合法，请检测参数是否正确。"
+
+msgid    "IDS_EACHTTP_GNS_NULL"
+msgstr    "GNS为空，请检测参数是否正确。"
+
+msgid    "IDS_EACHTTP_ERR_MSG_AGR_ERR"
+msgstr    "参数错误。"
+
+msgid    "IDS_EACHTTP_EXPIRES_TYPE_INVALID"
+msgstr    "参数expirestype未设置或者非法"
+
+msgid    "IDS_EACHTTP_ERR_MSG_INTERNAL_ERR"
+msgstr    "内部错误。"
+
+msgid    "IDS_EACHTTP_ERR_MSG_NOT_AUTHORIZED"
+msgstr    "权限不足。"
+
+msgid    "IDS_EACHTTP_ERR_MSG_RESOURCE_NOT_EXIST"
+msgstr    "资源不存在。"
+
+msgid    "IDS_EACHTTP_ERR_MSG_ACCESS_TOKEN_ERR"
+msgstr    "access token验证失败。"
+
+msgid    "IDS_EACHTTP_ERR_MSG_METHOD_INVALID"
+msgstr    "请求Http方法错误，只支持POST。"
+
+msgid    "IDS_EACHTTP_ERR_MSG_API_NOT_IMPLEMENTED"
+msgstr    "请求API错误，调用了不支持的API。"
+
+msgid    "ACS_USER_DOC"
+msgstr    "个人文档"
+
+msgid    "ACS_SHARE_DOC"
+msgstr    "共享文档"
+
+msgid    "ACS_ARCHIVE_DOC"
+msgstr    "归档库"
+
+msgid   "USER_DOC"
+msgstr  "用户文档"
+
+msgid   "CUSTOM_DOC"
+msgstr  "文档库"
+
+msgid    "IDS_EACHTTP_QUERY_METHOD_NOT_SET"
+msgstr    "请求方法没设置"
+
+msgid    "IDS_EACHTTP_QUERY_METHOD_NOT_SUPPORT"
+msgstr    "请求方法不支持"
+
+msgid    "IDS_EACHTTP_INVALID_JSON"
+msgstr    "JSON格式错误"
+
+msgid    "IDS_EACHTTP_PARAMETERS_IS_REQUIRED"
+msgstr   "参数 %s 不存在"
+
+msgid    "IDS_EACHTTP_PARAMETERS_IS_INVALID"
+msgstr   "参数 %s 的值无效"
+
+msgid    "IDS_EACHTTP_ACCOUNT_NOT_SET"
+msgstr    "http请求中未设置账户名"
+
+msgid    "IDS_EACHTTP_PASSWORD_NOT_SET"
+msgstr    "http请求中未设置密码"
+
+msgid    "IDS_READ_RSA_PRIVATEKEY_ERROR"
+msgstr    "提取密钥错误"
+
+msgid    "IDS_RAS_PRIVATE_DECRYPT_ERROR"
+msgstr    "解密错误"
+
+msgid    "IDS_TOKENID_NOT_SET"
+msgstr    "http请求中未设置tokenid"
+
+msgid    "IDS_USERID_NOT_SET"
+msgstr    "http请求中未设置userid"
+
+msgid    "IDS_GROUPID_NOT_SET"
+msgstr    "http请求中未设置联系人分组ID"
+
+msgid    "IDS_DEPARTMENTID_NOT_SET"
+msgstr    "http请求中未设置部门ID"
+
+msgid    "IDS_EACHTTP_CONVERT_PATH_BATCH_ERR"
+msgstr    "批量转化GNS路径错误:%s"
+
+msgid    "IDS_EACHTTP_GET_ETSRESOURCEINFO_ERR"
+msgstr    "获取ETS信息失败"
+
+msgid    "IDS_EACHTTP_CONVERT_PATH_ERR"
+msgstr    "转化GNS路径错误:%s"
+
+msgid    "IDS_EACHTTP_GET_ETS_RES_ERR"
+msgstr    "获取ETS资源错误:%s"
+
+msgid    "IDS_DOCID_NOT_SET"
+msgstr    "http请求中未设置docid"
+
+msgid    "IDS_ROOTDOC_NOT_EXIST"
+msgstr    "文档不存在"
+
+msgid    "IDS_INVALID_QUOTA"
+msgstr    "配额设置非法:%s"
+
+msgid    "IDS_QUOTA_NOT_SET"
+msgstr    "http请求中未设置配额"
+
+msgid    "IDS_QUOTA_NUM_WRONG"
+msgstr    "配额空间非法，必须在[1,100]GB中间"
+
+msgid    "IDS_USER_DOC_NOT_EXIST"
+msgstr    "用户文档不存在"
+
+msgid    "IDS_NO_ENOUGH_QUOTA"
+msgstr    "剩余配额空间不足"
+
+msgid    "IDS_QUOTA_CANT_BE_ZERO"
+msgstr    "配额不能为0"
+
+msgid    "IDS_USERS_NOT_SET"
+msgstr    "http请求中没有设置userids"
+
+msgid    "IDS_USERDOC_CANT_SET_OWNER"
+msgstr    "用户文档不能设置所有者"
+
+msgid    "IDS_OWNER_CANT_ADD_YOURSELF"
+msgstr    "不能设置你自己为所有者"
+
+msgid    "IDS_PERM_CANT_ADD_YOURSELF"
+msgstr    "不能给自己设权限"
+
+msgid    "IDS_OWNER_CANT_ADD_ADMIN"
+msgstr    "不能设置admin为所有者"
+
+msgid    "IDS_OWNER_CANT_DELETE_YOURSELF"
+msgstr    "所有者不能删除自己"
+
+msgid    "IDS_PERM_CANT_DELETE_YOURSELF"
+msgstr    "不能删除自己的权限"
+
+msgid    "IDS_INVALID_PERM_CONFIG"
+msgstr    "非法的权限配置"
+
+msgid    "IDS_INVALID_ACCESSOR_TYPE"
+msgstr    "非法的访问者类型%s"
+
+msgid    "IDS_PERM_CONFIG_NOT_SET"
+msgstr    "http请求中没有设置权限配置"
+
+msgid    "IDS_PERM_CONFIG_ISALLOWED_NOT_SET"
+msgstr    "权限配置中isallowed没有设置"
+
+msgid    "IDS_PERM_CONFIG_PERMVALUE_NOT_SET"
+msgstr    "权限配置中permvalue没有设置"
+
+msgid    "IDS_PERM_CONFIG_ACCESSORID_NOT_SET"
+msgstr    "权限配置中accessorid没有设置"
+
+msgid    "IDS_PERM_CONFIG_ACCESSORTYPE_NOT_SET"
+msgstr    "权限配置中accessortype没有设置"
+
+msgid    "IDS_PERM_CONFIG_ISALLOWED_INVALID"
+msgstr    "权限配置中isallowed非法"
+
+msgid    "IDS_PERM_CONFIG_PERMVALUE_INVALID"
+msgstr    "权限配置中permvalue非法"
+
+msgid    "IDS_PERM_CONFIG_ACCESSORID_INVALID"
+msgstr    "权限配置中accessorid非法"
+
+msgid    "IDS_PERM_CONFIG_ACCESSORTYPE_INVALID"
+msgstr    "权限配置中accessortype非法"
+
+msgid    "IDS_PERM_CONFIG_ENDTIME_INVALID"
+msgstr    "权限配置中endtime非法"
+
+msgid    "IDS_PERM_CONFIG_ACCESSORTYPE_OR_ID_NOT_EXIST"
+msgstr    "权限配置中accessortype或者accessorid不存在"
+
+msgid    "IDS_PLATFORM_NOT_SET"
+msgstr    "http请求中platform没设定"
+
+msgid    "IDS_ARCH_NOT_SET"
+msgstr    "http请求中arch没设定"
+
+msgid    "IDS_VERSION_NOT_SET"
+msgstr    "http请求中version没设定"
+
+msgid    "IDS_PLATFORM_INVALID"
+msgstr    "平台设定非法，目前只支持windows、mac、android、iOS"
+
+msgid    "IDS_ARCH_INVALID"
+msgstr    "arch设定非法，目前只支持x86/x64"
+
+msgid    "IDS_VERSION_INVALID"
+msgstr    "version设定非法"
+
+msgid    "IDS_CLIENT_NEWER_THAN_SERVER"
+msgstr    "客户端版本大于服务器%s"
+
+msgid    "IDS_CLIENT_OLDER_THAN_SERVER"
+msgstr    "客户端版本小于服务器%s"
+
+msgid    "IDS_GET_CLIENT_SETUP_PATH_ERROR"
+msgstr    "获取客户端安装包路径失败%s"
+
+msgid    "IDS_EACHTTP_USER_NOT_EXIST"
+msgstr    "不存在的用户"
+
+msgid    "IDS_EACHTTP_INVALID_ACCOUNT_OR_PASSWORD"
+msgstr   "用户名不存在或密码错误"
+
+msgid    "IDS_EACHTTP_MESSAGEID_FORMAT_ERR"
+msgstr   "messageId 格式错误"
+
+msgid    "IDS_EACHTTP_TOKENID_FORMAT_ERR"
+msgstr    "tokenid 格式错误"
+
+msgid    "IDS_EACHTTP_USERID_FORMAT_ERR"
+msgstr    "userid 格式错误"
+
+msgid    "IDS_EACHTTP_GROUPID_FORMAT_ERR"
+msgstr    "group:%s  格式错误"
+
+msgid    "IDS_EACHTTP_DEPARTMENTID_FORMAT_ERR"
+msgstr    "depid 格式错误，无效的UUID"
+
+msgid    "IDS_EACHTTP_OBJECTID_FORMAT_ERR"
+msgstr    "objectid:%s  格式错误"
+
+msgid    "IDS_EACHTTP_DOCID_FORMAT_ERR"
+msgstr    "docid 格式错误"
+
+msgid    "IDS_EACHTTP_URI_FORMAT_ERR"
+msgstr    "URI  格式错误"
+
+msgid    "IDS_DEPART_ID_NOT_EXISTS"
+msgstr    "部门ID不存在"
+
+msgid    "IDS_EXT_LOGIN_FAILED"
+msgstr    "第三方验证失败，请检查是否开启了认证，account是否存在，APPID和Key是否正确"
+
+msgid    "IDS_EACHTTP_GET_HOST_INFO_ERR"
+msgstr    "获取WebClient配置信息失败"
+
+msgid    "IDS_EACHTTP_TICKET_INVALID"
+msgstr    "非法的ticket"
+
+msgid    "IDS_EACHTTP_THIRD_AUTH_NOT_OPEN"
+msgstr    "第三方认证功能未开启"
+
+msgid    "IDS_INVALID_XML_FORMAT"
+msgstr    "非法的xml格式"
+
+msgid    "IDS_CANT_AUTHENTICATE_TICKET"
+msgstr    "无法认证Ticket: %s"
+
+msgid    "IDS_EACHTTP_NOT_IMPORT_TO_ANYSHARE"
+msgstr    "用户未导入"
+
+msgid    "IDS_DEPLOY_WEB_FORBID_LOGIN"
+msgstr    "用户没有权限登录，请确认"
+
+msgid   "IDS_EACHTTP_SERVICE_INVALID"
+msgstr  "非法的service"
+
+msgid   "IDS_EACHTTP_LOCKER_INFO_NOT_EXIST"
+msgstr  "锁定文件的用户信息不存在"
+
+msgid   "IDS_LOGIN_SUCCESS"
+msgstr  "登录 %s客户端 成功"
+
+msgid "IDS_AUTHENICATION_SUCCESS"
+msgstr "账号认证成功"
+
+msgid "IDS_NAS_GATEWAY"
+msgstr "NAS网关"
+
+msgid "IDS_CONSOLE_WEB"
+msgstr "管理控制台"
+
+msgid "IDS_DEPLOY_WEB"
+msgstr "部署控制台"
+
+msgid   "IDS_ENABLE_FINDER_SUCCESS"
+msgstr  "开启文档“%s”的发现成功"
+
+msgid   "IDS_DISABLE_FINDER_SUCCESS"
+msgstr  "关闭文档“%s”的发现成功"
+
+msgid   "IDS_LOCK_SUCCESS"
+msgstr  "“%s”将文件“%s”锁定 成功"
+
+msgid   "IDS_FORCE_GET_LOCK_SUCCESS"
+msgstr  "“%s”将文件“%s”抢锁 成功"
+
+msgid   "IDS_FILE_IS_ALREADY_LOCKED"
+msgstr  "开启“%s”的文件锁失败，文件已被锁定"
+
+msgid   "IDS_UNLOCK_SUCCESS"
+msgstr  "“%s”将文件“%s”取消锁定 成功"
+
+msgid   "IDS_ADD_PERM_SUCCESS"
+msgstr  "将%s“%s”给%s“%s”设置权限“%s” 成功，有效期至 %s"
+
+msgid   "IDS_EDIT_PERM_SUCCESS"
+msgstr  "将%s“%s”给%s“%s”设置权限“%s” 成功，有效期至 %s"
+
+msgid   "IDS_DELETE_PERM_SUCCESS"
+msgstr  "将%s“%s”给%s“%s”取消权限“%s” 成功"
+
+msgid   "IDS_ADD_OWNER_SUCCESS"
+msgstr  "将%s“%s”的所有者设置为“%s”成功"
+
+msgid   "IDS_DELETE_OWNER_SUCCESS"
+msgstr  "取消%s“%s”的所有者“%s”成功"
+
+msgid   "IDS_CUSTOMIZED_ADD_PERM_SUCCESS"
+msgstr  "%s%s将%s“%s”%s给%s“%s”%s设置权限“%s” 成功，有效期至 %s, 由于含有高密文件，已自动过滤相关文件"
+
+msgid   "IDS_CUSTOMIZED_EDIT_PERM_SUCCESS"
+msgstr  "%s%s将%s“%s”%s给%s“%s”%s设置权限“%s” 成功，有效期至 %s, 由于含有高密文件，已自动过滤相关文件"
+
+msgid   "IDS_CUSTOMIZED_DELETE_PERM_SUCCESS"
+msgstr  "%s%s将%s“%s”%s给%s“%s”%s取消权限“%s” 成功, 由于含有高密文件，已自动过滤相关文件"
+
+msgid   "IDS_CUSTOMIZED_ADD_OWNER_SUCCESS"
+msgstr  "%s%s将%s“%s”%s的所有者设置为“%s”%s成功, 由于含有高密文件，已自动过滤相关文件"
+
+msgid   "IDS_CUSTOMIZED_DELETE_OWNER_SUCCESS"
+msgstr  "%s%s取消%s“%s”%s的所有者“%s”%s成功, 由于含有高密文件，已自动过滤相关文件"
+
+msgid   "IDS_PERM_INHERIT_SUCCESS"
+msgstr  "对%s“%s”%s从上级继承的权限 成功"
+
+msgid   "IDS_EXMSG"
+msgstr  "对象路径：%s"
+
+msgid   "IDS_ALLOW"
+msgstr  "允许"
+
+msgid   "IDS_DENY"
+msgstr  "拒绝"
+
+msgid   "IDS_DISPLAY"
+msgstr  "显示"
+
+msgid   "IDS_READ"
+msgstr  "读取"
+
+msgid   "IDS_CREATE"
+msgstr  "新建"
+
+msgid   "IDS_EDIT"
+msgstr  "修改"
+
+msgid   "IDS_DELETE"
+msgstr  "删除"
+
+msgid   "IDS_UPLOAD"
+msgstr  "上传"
+
+msgid   "IDS_EACHTTP_GET_DEVICE_INFO_ERR"
+msgstr  "获取设备信息失败：%s"
+
+msgid   "IDS_EACHTTP_GET_OAUTH_INFO_ERR"
+msgstr  "获取OAuth信息失败：%s"
+
+msgid   "IDS_USER_DISABLED"
+msgstr  "用户已被禁用"
+
+msgid   "IDS_LOGIN_FAILED"
+msgstr  "登录 %s 客户端失败"
+
+msgid   "IDS_AUTHENICATION_FAILED"
+msgstr  "账号认证失败"
+
+msgid   "IDS_FAILED_TO_LOGIN_CONSOLE"
+msgstr  "登录 %s 失败"
+
+msgid   "IDS_INCORRECT_USERNAME_OR_PASSWORD"
+msgstr  "用户名或密码不正确"
+
+msgid   "IDS_FAILED_TO_LOGIN_CONSOLE_ACCOUNT_LOCKED"
+msgstr  "登录 %s失败，账号锁定"
+
+msgid   "IDS_WRONG_PASSWORD_MANY_TIMES"
+msgstr  "该用户连续%d次输入错误密码"
+
+msgid   "IDS_URL_DEPRECATED"
+msgstr  "该URL不再支持"
+
+msgid   "IDS_INVALID_AD_SESSION"
+msgstr  "无效的Windows AD会话凭据"
+
+msgid   "IDS_EACHTTP_GET_AD_SSO_STATUS_ERROR"
+msgstr  "获取域用户自动登录状态失败：%s"
+
+msgid   "IDS_AD_SSO_NOT_ENABLED"
+msgstr  "域用户自动登录未开启"
+
+msgid   "IDS_QUIT_ENTRY_DOC"
+msgstr  "退出共享：%s"
+
+msgid   "IDS_JOIN_ENTRY_DOC"
+msgstr  "加入共享：%s"
+
+msgid   "IDS_EACHTTP_INVALID_PERM"
+msgstr  "非法的权限值"
+
+msgid   "IDS_EACHTTP_DUPLICATE_ACCESSORID"
+msgstr  "重复的accessorid"
+
+msgid   "IDS_EACHTTP_GET_THIRD_PARTY_AUTH_ERROR"
+msgstr  "获取第三方认证配置信息失败：%s"
+
+msgid   "IDS_INVALID_THIRD_PARTY_ID"
+msgstr  "非法的第三方厂商ID：%s"
+
+msgid   "IDS_INVALID_THIRD_PARTY_TICKET"
+msgstr  "非法的第三方认证凭据"
+
+msgid   "IDS_FAILED_TO_PARSE_THIRD_AUTH_CONFIG"
+msgstr  "解析第三方认证信息配置失败"
+
+msgid   "IDS_FAILED_TO_EXECUTE_THIRD_AUTH"
+msgstr  "第三方认证执行失败"
+
+msgid   "IDS_SEND_ERASE_DEVICE_REQ_SUC"
+msgstr  "成功发送设备“%s”的数据擦除请求"
+
+msgid   "IDS_ERASE_DEVICE_SUC"
+msgstr  "成功擦除设备“%s”的缓存数据"
+
+msgid   "IDS_DISABLE_DEVICE_SUC"
+msgstr  "设备“%s”禁用成功"
+
+msgid   "IDS_ENABLE_DEVICE_SUC"
+msgstr  "设备“%s”启用成功"
+
+msgid   "IDS_DEVICE_DISABLED"
+msgstr  "设备已被禁用"
+
+msgid   "IDS_DEVICE_NOT_BINDED"
+msgstr  "未绑定的设备无法进行登录"
+
+msgid   "IDS_MODIFY_PASSWORD_SUCCESS"
+msgstr  "设置 “%s”用户密码 成功"
+
+msgid "IDS_LOGOUT_SUCCESS"
+msgstr "退出 %s客户端 成功"
+
+msgid "IDS_TIMEOUT_AUTO_LOGOUT_SUCCESS"
+msgstr "登录超时，自动注销 %s客户端 成功"
+
+msgid "IDS_LOGIN_FAILED_AND_LOCKED"
+msgstr "登录%s失败，帐号锁定"
+
+msgid "IDS_INPUT_WRONG_PASSWORD_FOR_THREE_TIMES"
+msgstr "该用户连续%d次输入错误密码"
+
+msgid "IDS_MODIFY_PASSWORD_FAILED_AND_LOCKED"
+msgstr "修改密码失败，帐号锁定"
+
+msgid "IDS_EACHTTP_TIME_AHEAD_SERVER_TIME"
+msgstr "您设置的时间已经早于服务器的当前时间，请重新设置或校对时间。"
+
+msgid "IDS_EACHTTP_TIME_EXCEED_FIVE_YEARS"
+msgstr "您设置的有效期已经超过了5年的限制，请重新设置或校对时间。"
+
+msgid "IDS_END_TIME"
+msgstr "有效期至"
+
+msgid "IDS_UNLIMITED"
+msgstr "无限制"
+
+msgid "IDS_FILE"
+msgstr "文件"
+
+msgid "IDS_DIR"
+msgstr "文件夹"
+
+msgid "IDS_ACS_USER"
+msgstr "用户"
+
+msgid "IDS_ACS_DEPARTMENT"
+msgstr "部门"
+
+msgid "IDS_ACS_CONTACTOR"
+msgstr "联系人组"
+
+msgid "IDS_ACS_GROUP"
+msgstr "用户组"
+
+msgid "IDS_USER_FIND_SHARE_UNABLE"
+msgstr "用户没有开启发现共享权限"
+
+msgid "IDS_USER_CSF_LEVEL_LOWER_THAN_FILE"
+msgstr "您指定的用户密级低于当前文件的密级，无法对其配置共享。"
+
+msgid "IDS_FILE_CSF_LEVEL_IS_NOT_SET"
+msgstr "当前文件未定密，不允许共享。"
+
+msgid "IDS_CLIENT_UPDATE_PACKAGE_NOT_UPLOAD"
+msgstr "客户端升级包未上传"
+
+msgid "IDS_EACHTTP_SMTP_RECIPIENT_MAIL_ILLEGAL"
+msgstr "存在接收者邮箱地址非法"
+
+msgid "IDS_EACHTTP_SMTP_SERVER_NOT_SET"
+msgstr "smtp服务器未设置"
+
+msgid "IDS_EACHTTP_SMTP_SEND_FAILED"
+msgstr "邮件发送失败"
+
+msgid "IDS_EACHTTP_SMTP_SERVER_NOT_AVAILABLE"
+msgstr "SMTP服务器不可用"
+
+msgid "IDS_EACHTTP_SEND_VCODE_SERVER_NOT_AVAILABLE"
+msgstr "发送验证码服务器未开启"
+
+msgid "IDS_EACHTTP_APP_CREATER_SUCCESS_EXMSG"
+msgstr "用户名: \"%s\"; 显示名: \"%s\"; 用户类型: \"%s\"; 归属站点: \"%s\"; 邮箱地址: \"%s\"; 配额空间: \"%d\" G"
+
+msgid "IDS_LOCAL_USER"
+msgstr "本地用户"
+
+msgid "IDS_DOMAIN_USER"
+msgstr "域用户"
+
+msgid "IDS_THIRD_USER"
+msgstr "第三方验证用户"
+
+msgid "IDS_EACHTTP_APP_EDIT_SUCCESS_EXMSG"
+msgstr "用户名: \"%s\"; 显示名: \"%s\"; 用户类型: \"%s\"; 归属站点: \"%s\"; 邮箱地址: \"%s\"; 配额空间: \"%d\" G"
+
+msgid "IDS_PWD_CONTROL"
+msgstr "不允许用户自主修改密码"
+
+msgid "IDS_NOT_PWD_CONTROL"
+msgstr "允许用户自主修改密码"
+
+msgid "IDS_EACHTTP_APP_CREATER_SUCCESS"
+msgstr "新建用户账号\"%s(%s)\"成功，密级设置为 \"%s\", \"%s\""
+
+msgid "IDS_EACHTTP_APP_EDIT_SUCCESS"
+msgstr "编辑用户账号\"%s(%s)\"成功，密级设置为 \"%s\", \"%s\""
+
+msgid "IDS_EACHTTP_APP_DELETE_SUCCESS"
+msgstr "删除用户\"%s(%s)\"成功"
+
+msgid "IDS_EACHTTP_APP_DELETEUSERDOC_SUCCESS"
+msgstr "删除用户: \"%s\" 个人文档成功"
+
+msgid "IDS_EACHTTP_APP_CREATER_ORG_SUCCESS"
+msgstr "创建 组织 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_CREATER_ORG_SUCCESS_EXMSG"
+msgstr "归属站点 \"%s\""
+
+msgid "IDS_EACHTTP_INVALID_ORG_NAME"
+msgstr "组织名非法"
+
+msgid "IDS_EACHTTP_APP_EDIT_ORG_SUCCESS"
+msgstr "编辑 组织 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_EDIT_ORG_SUCCESS_EXMSG"
+msgstr "原组织名 \"%s\"; 归属站点 \"%s\""
+
+msgid "IDS_EACHTTP_APP_DELETE_ORG_SUCCESS"
+msgstr "删除 组织 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_CREATER_DEP_SUCCESS"
+msgstr "创建 部门 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_CREATER_DEP_SUCCESS_EXMSG"
+msgstr "归属站点 \"%s\""
+
+msgid "IDS_EACHTTP_APP_EDIT_DEP_SUCCESS"
+msgstr "编辑 部门 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_EDIT_DEP_SUCCESS_EXMSG"
+msgstr "原部门名 \"%s\"; 归属站点 \"%s\""
+
+msgid "IDS_EACHTTP_APP_DELETE_DEP_SUCCESS"
+msgstr "删除 部门 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_MOVE_USER_TO_DEP_SUCCESS"
+msgstr "移动用户 \"%s(%s)\" 至 部门/组织 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_ADD_USER_TO_DEP_SUCCESS"
+msgstr "添加用户 \"%s\" 至 部门 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_REMOVE_USER_FROM_DEP_SUCCESS"
+msgstr "从部门 \"%s\" 移除用户 \"%s(%s)\" 成功"
+
+msgid "IDS_EACHTTP_APP_SET_MANAGER_SUCCESS"
+msgstr "设置部门 \"%s\" 组织管理员为 \"%s\" 成功"
+
+msgid "IDS_EACHTTP_APP_CANCEL_MANAGER_SUCCESS"
+msgstr "取消部门 \"%s\" 组织管理员 \"%s\" 成功"
+
+msgid "IDS_APPLY_SHARE_TO_AUDITORS"
+msgstr "向审核员%s提交权限共享申请成功"
+
+msgid "IDS_APPLY_OWNER_DETAIL"
+msgstr "%s 权限共享：将%s\"%s\"给%s\"%s\"设置权限\"所有者\"，有效期至\"无限期\"。 文档路径：%s"
+
+msgid "IDS_APPLY_PERM_DETAIL"
+msgstr "%s 权限共享：将%s\"%s\"给%s\"%s\"设置权限\"%s\"，有效期至\"%s\"。 文档路径：%s"
+
+msgid "IDS_APPLY_PERM_INHERIT_DETAIL"
+msgstr "对%s\"%s\"%s从上级继承的权限 文档路径：%s"
+
+msgid "IDS_OWNER"
+msgstr "所有者"
+
+msgid "IDS_ADD"
+msgstr "新增"
+
+msgid "IDS_DISABLED"
+msgstr "禁用"
+
+msgid "IDS_ENABLED"
+msgstr "恢复"
+
+msgid "IDS_LOGIN_IP_IS_RESTRICTED"
+msgstr "您的账号受到IP 网段的限制，无法继续登录， 如有疑问，请尝试联系管理解决"
+
+msgid "IDS_EACHTTP_GET_SECRET_STATUS_ERROR"
+msgstr "获取涉密模式状态失败"
+
+msgid "IDS_EACHTTP_GET_CSF_LEVELS_ERROR"
+msgstr "获取密级枚举失败"
+
+msgid "IDS_EACHTTP_GET_THIRDCSFSYS_CONFIG_ERROR"
+msgstr "获取第三方标密系统配置失败"
+
+msgid "IDS_PUBLISH_DOCUMENT_EXCHANGE_EXMSG"
+msgstr "审核模式：%s，文档路径：%s"
+
+msgid "IDS_LOGIN_OSTYPE_IS_FORBID"
+msgstr "管理员已禁止此类客户端登录"
+
+msgid "IDS_SECURITY_DEVICE_AUTH_SUCCESS"
+msgstr "安全设备认证成功"
+
+msgid "IDS_SECURITY_DEVICE_AUTH_FAILED"
+msgstr "安全设备认证失败"
+
+msgid "IDS_EACHTTP_GET_INVITATION_SHARE_STATUS_ERROR"
+msgstr "获取共享邀请状态失败"
+
+msgid "IDS_OPEN_INVITATION_MSG"
+msgstr "开启%s\"%s\"的共享邀请链接成功，访问权限“%s” ，权限有效期至 %s，链接有效期至 %s"
+
+msgid "IDS_CLOSE_INVITATION_MSG"
+msgstr "关闭%s\"%s\"的共享邀请链接成功，访问权限“%s” ，权限有效期至 %s，链接有效期至 %s"
+
+msgid "IDS_SET_INVITATION_MSG"
+msgstr "设置%s\"%s\"的共享邀请链接成功，访问权限“%s” ，权限有效期至 %s，链接有效期至 %s"
+
+msgid "IDS_EACHTTP_CANNOT_JOIN_IN_SECRET_AND_AUDIT_MODE"
+msgstr "涉密和共享审核模式下不允许邀请加入"
+
+msgid "IDS_EACHTTP_INVITATION_SHARE_STATUS_NOT_OPEN"
+msgstr "共享邀请链接功能未开启"
+
+msgid "IDS_JOIN_INVITATION_SUCCESS"
+msgstr "用户“%s”加入文档“%s”的共享邀请成功，访问权限“%s”，有效期至 %s"
+
+msgid "IDS_EACHTTP_GET_WATERMARK_STATUS_ERROR"
+msgstr "获取文件水印策略开关状态失败"
+
+msgid "IDS_EACHTTP_GET_WATERMARK_CONFIG_ERROR"
+msgstr "获取文件水印策略配置失败"
+
+msgid "IDS_EACHTTP_GET_SHARE_DOC_STATUS_ERROR"
+msgstr "获取共享文档开关状态失败"
+
+msgid "IDS_EACHTTP_QUARANTINE_MSG"
+msgstr "“%s”涉及非法内容，隔离非法文件“%s”成功"
+
+msgid "IDS_EACHTTP_LOG_AUX_FORMAT_PATH"
+msgstr "路径: %s"
+
+msgid "IDS_EACHTTP_DEL_QUARANTINE_LOG"
+msgstr "删除非法文件“%s”"
+
+msgid "IDS_EACHTTP_DEL_QUARANTINE_EXLOG"
+msgstr "文件所在路径：%s"
+
+msgid "IDS_EACHTTP_GET_SITE_OFFICE_ONLINE_INFO_ERROR"
+msgstr "获取站点 office online 信息失败"
+
+msgid   "IDS_USER_FREEZED"
+msgstr  "用户已被冻结。"
+
+msgid   "IDS_DOC_CREATOR_FREEZED"
+msgstr  "文档创建者已被冻结。"
+
+msgid   "IDS_CLIENT_LOW_VERSION"
+msgstr  "您的AnyShare版本过低，请下载新版本客户端登录。"
+
+msgid   "IDS_EACHTTP_CHECK_VCODE_IS_NULL"
+msgstr  "请输入验证码"
+
+msgid   "IDS_EACHTTP_CHECK_VCODE_IS_TIMEOUT"
+msgstr  "您输入的验证码已失效"
+
+msgid   "IDS_EACHTTP_CHECK_VCODE_IS_WRONG"
+msgstr  "您输入的验证码有误"
+
+msgid   "IDS_USER_NOT_REAL_NAME_AUTH"
+msgstr  "用户未实名认证"
+
+msgid   "IDS_DOC_CREATOR_NOT_REAL_NAME_AUTH"
+msgstr  "文档创建者未实名认证"
+
+msgid   "IDS_INSUFFICIENT_SYSTEM_RESOURCES"
+msgstr  "服务器资源不足，无法访问"
+
+msgid   "IDS_EACHTTP_USER_NOT_ACTIVATE"
+msgstr  "您的账号已被禁用，是否立即激活？"
+
+msgid   "IDS_EACHTTP_USER_IS_ACTIVATE"
+msgstr  "您的账号已被激活，请到登录页登录"
+
+msgid   "IDS_EACHTTP_INVALID_TEL_NUMBER"
+msgstr  "手机号不合法"
+
+msgid   "IDS_EACHTTP_TEL_NUMBER_EXISTS"
+msgstr  "手机号已被占用，请重新输入"
+
+msgid   "IDS_EACHTTP_SMS_VERIFY_CODE_ERROR"
+msgstr  "验证码有误，请重新输入"
+
+msgid   "IDS_EACHTTP_SMS_VERIFY_CODE_TIMEOUT"
+msgstr  "您输入的验证码已过期，请重新输入"
+
+msgid   "IDS_EACHTTP_SEND_VERIFY_CODE_FAIL"
+msgstr  "发送验证码失败"
+
+msgid   "IDS_EACHTTP_SMS_ACTIVATE_DISABLED"
+msgstr  "短信激活未开启"
+
+msgid   "IDS_EACHTTP_INVALID_EMAIL"
+msgstr  "邮箱地址不合法"
+
+msgid   "IDS_EACHTTP_EMAIL_EXISTS"
+msgstr  "邮箱已存在"
+
+msgid   "IDS_EACHTTP_USER_ACTIVATE_ERROR"
+msgstr  "激活失败"
+
+msgid   "IDS_EACHTTP_INVALID_SEARCH_KEY"
+msgstr  "key格式非法"
+
+msgid   "IDS_ADD_CONTACTOR_PERSON"
+msgstr  "将“%s”添加至联系人分组“%s”成功"
+
+msgid   "IDS_DELETE_CONTACTOR_PERSON"
+msgstr  "将“%s”从联系人分组“%s”移除成功"
+
+msgid   "IDS_UNSUPPORTED_CLIENT_FOR_SERVER"
+msgstr  "服务器版本不支持该客户端。"
+
+msgid   "IDS_DISPLAYNAME_NOT_NULL"
+msgstr  "用户显示名不能为空"
+
+msgid   "IDS_EDIT_EMAIL_EMPTY"
+msgstr  "设置邮箱为空成功"
+
+msgid   "IDS_EDIT_EMAIL"
+msgstr  "设置邮箱“%s”成功"
+
+msgid   "IDS_ORIGINAL_EMAIL"
+msgstr  "原邮箱“%s”"
+
+msgid   "IDS_EDIT_DISPALYNAME"
+msgstr  "设置显示名“%s”成功"
+
+msgid   "IDS_ORIGINAL_DISPALYNAME"
+msgstr  "原显示名“%s”"
+
+msgid   "IDS_SIGN_NOT_SET"
+msgstr  "签名未设置"
+
+msgid   "IDS_SIGN_VERIFY_FAILED"
+msgstr  "签名验证失败"
+
+msgid   "IDS_EACHTTP_EMAIL_ADDRESS_HAS_NOT_BEEN_BOUND"
+msgstr  "该邮箱未绑定"
+
+msgid   "IDS_EACHTTP_PHONE_HAS_NOT_BEEN_BOUND"
+msgstr  "该手机号未绑定"
+
+msgid   "IDS_ORIGINAL_TELNUMBER"
+msgstr  "原手机号“%s”"
+
+msgid   "IDS_EDIT_TELNUMBER"
+msgstr  "设置手机号“%s”成功"
+
+msgid   "IDS_EDIT_TELNUMBER_EMPTY"
+msgstr  "设置手机号为空成功"
+
+msgid   "IDS_VCODE_SMS_CONTENT"
+msgstr  "【%s】验证码 %s，用于重置密码，5分钟内有效，请您尽快完成验证！"
+
+msgid   "IDS_VCODE_EMAIL_TITLE"
+msgstr  "%s 重置密码"
+
+msgid   "IDS_VCODE_EMAIL_CONTENT"
+msgstr  "<div style='margin: 0 auto;font-size: 14px;line-height: 25px;color: #595959;'><div style='color: #000000;'>尊敬的%s您好，您正在为 <font style='color: #5a8cb4;'>%s</font> 重置密码。</div><div style='color: #000000;'>验证码：</div><div style='line-height: 45px;font-size: 25px;font-weight: bold;'>%s</div><div>5分钟之内有效，请尽快完成验证！</div></div>"
+
+msgid   "IDS_RESET_PASSWORD_SUCCESS"
+msgstr  "重置密码成功"
+
+msgid   "IDS_RESET_PASSWORD_SUCCESS_BY_SMS"
+msgstr  "忘记密码通过短信验证"
+
+msgid   "IDS_RESET_PASSWORD_SUCCESS_BY_EMAIL"
+msgstr  "忘记密码通过邮箱验证"
+
+msgid   "IDS_EXIT_PWD_NOT_ENABLED"
+msgstr  "退出口令没有正常启用，请联系管理员。"
+
+msgid   "IDS_EIXT_PWD_INCORRECT"
+msgstr  "口令不正确，请重新输入或联系管理员。"
+
+msgid   "IDS_INVALID_OS_TYPE"
+msgstr  "非法的ostype参数。"
+
+msgid   "IDS_EACHTTP_CHECK_OTP_IS_NULL"
+msgstr  "请输入动态密码。"
+
+msgid   "IDS_EACHTTP_OTP_SERVER_NOT_SET"
+msgstr  "动态密码服务配置错误。"
+
+msgid   "IDS_EACHTTP_MFA_SMS_SERVER_NOT_SET"
+msgstr  "双因子认证短信服务器未设置"
+
+msgid   "IDS_EACHTTP_GET_SMTPSRV_CONFIG_ERROR"
+msgstr  "获取SMTP服务器配置失败"
+
+msgid   "IDS_EACHTTP_USER_CANNOT_OPEN_LINK"
+msgstr  "您没有给匿名用户共享的权限。"
+
+msgid   "IDS_EACHTTP_DATA_TYPE_IS_ERROR"
+msgstr  "'%s' 的数据类型应是 '%s'"
+
+msgid   "IDS_EACHTTP_VISITORTYPE_INVALID"
+msgstr  "访问者类型字段不合法，userid: %s, visitortype: %s。"

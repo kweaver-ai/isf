@@ -1,0 +1,157 @@
+/***************************************************************************************************
+authenticationInterface.idl:
+    Copyright (c) Eisoo Software Inc. (2020), All rights reserved.
+
+Purpose:
+    Authentication微服务接口
+
+Author:
+    Yuanbin.yan@aishu.cn
+
+Creating Time:
+    2023-08-28
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+
+[ref] native stlStringRef(string);
+
+[ref] native ncJSONRef(JSON::Value);
+[ref] native ncTUserLoginOptionRef(ncTUserLoginOption);
+
+[ref] native ncTokenVisitorTypeRef(ncTokenVisitorType);
+[ref] native ncTLogTypeRef(ncTLogType);
+[ref] native ncTLogLevelRef(ncTLogLevel);
+[ref] native StringRef(String);
+
+%{ C++
+
+/**
+ * authentication CID
+ */
+#define AUTHENTICATION_CID \
+{ \
+    0x65d7b322, \
+    0x53f1,    \
+    0x4986,    \
+     { 0x97, 0xcc, 0x93, 0x5c, 0xf5, 0xdd, 0x56, 0xc } \
+}
+
+// 定义日志信息结构
+#include "common.h"
+
+/**
+ * authentication CONTRACTID
+ */
+#define AUTHENTICATION_CONTRACTID \
+"@eisoo.com/AnyShare3.5/eacp/drivenadapter/authentication;1"
+
+#include <dataapi/ncJson.h>
+#include "gen-cpp/ncTShareMgnt.h"
+
+// 日志类型
+enum ncTLogType {
+    NCT_LT_LOGIN = 10,
+    NCT_LT_MANAGEMENT = 11,
+    NCT_LT_OPEARTION = 12
+};
+
+// 日志级别
+enum ncTLogLevel {
+    NCT_LL_ALL = 0,
+    NCT_LL_INFO = 1,
+    NCT_LL_WARN = 2
+};
+
+enum ncTManagementType {
+    NCT_MNT_ALL = 0,
+    NCT_MNT_CREATE = 1,
+    NCT_MNT_ADD = 2,
+    NCT_MNT_SET = 3,
+    NCT_MNT_DELETE = 4,
+    NCT_MNT_COPY = 5,
+    NCT_MNT_MOVE = 6,
+    NCT_MNT_REMOVE = 7,
+    NCT_MNT_IMPORT = 8,
+    NCT_MNT_EXPORT = 9,
+    NCT_MNT_AUDIT_MGM = 10,
+    NCT_MNT_QUARANTINE = 11,
+    NCT_MNT_UPLOAD = 12,
+    NCT_MNT_PREVIEW = 13,
+    NCT_MNT_DOWNLOAD = 14,
+    NCT_MNT_RESTORE = 15,
+    NCT_MNT_QUARANTINE_APPEAL = 16,
+    NCT_MNT_RESTART = 17,
+    NCT_MNT_SEND_EMAIL = 18,
+    NCT_MNT_RECOVER = 19,
+    NCT_MNT_EDIT = 20,
+    NCT_MNT_OTHER = 127
+};
+
+enum ncTDocOperType {
+    NCT_DOT_ALL = 0,
+    NCT_DOT_PREVIEW = 1,
+    NCT_DOT_UPLOAD = 2,
+    NCT_DOT_DOWNLOAD = 3,
+    NCT_DOT_EDIT = 4,
+    NCT_DOT_RENAME = 5,
+    NCT_DOT_DELETE = 6,
+    NCT_DOT_COPY = 7,
+    NCT_DOT_MOVE = 8,
+    NCT_DOT_REC_RESTORE = 9,
+    NCT_DOT_REC_DELETE = 10,
+    NCT_DOT_RESTORE_REV = 50,
+    NCT_DOT_PERM_MGM = 11,
+    NCT_DOT_OLINK_SHARE = 12,
+    NCT_DOT_FINDER_MGM = 13,
+    NCT_DOT_BACKUP_TASK = 14,
+    NCT_DOT_LOCK_MGM = 16,
+    NCT_DOT_ENTRY_DOC_MGM = 17,
+    NCT_DOT_DEVICE_MGM = 18,
+    NCT_DOT_SET = 19,
+    NCT_DOT_SYSREC_DELETE = 20,
+    NCT_DOT_SYSREC_REC_RESTORE = 21,
+    NCT_DOT_CREATE = 22,
+    NCT_DOT_DOCFLOW_SUBMIT = 23,
+    NCT_DOT_AUDIT_MGM = 24,
+    NCT_DOT_DOCFLOW = 25,
+    NCT_DOT_FILECOLLECTOR = 26,
+    NCT_DOT_CACHE = 27,
+    NCT_DOT_AUTOMATION = 28,
+    NCT_DOT_EXPORT = 29,
+    NCT_DOT_DOC_DOMAIN_SYNC = 30,
+    NCT_DOT_SYNC = 31,
+    NCT_DOT_FEEDBACK = 32,
+    NCT_DOT_KNOWLEDGE = 33,
+    NCT_DOT_PRODUCT_PUBLISH = 34,
+    NCT_DOT_PRODUCT_ARCHIVER = 35,
+    NCT_DOT_OTHER = 127
+};
+
+enum ncTLoginType {
+    NCT_CLT_ALL = 0,
+    NCT_CLT_LOGIN_IN = 1,
+    NCT_CLT_LOGIN_OUT = 2,
+    NCT_CLT_AUTHENICATION = 3,
+    NCT_CLT_OTHER = 127
+};
+
+%}
+
+[uuid (76C51A49-B453-481E-AE5A-4D6AA1C8D242)]
+interface authenticationInterface: nsISupports
+{
+    /*
+     * 客户端登录
+     */
+    [notxpcom] int ClientLogin ([const] in stlStringRef account, [const] in stlStringRef password, [const] in ncTUserLoginOptionRef option, in ncJSONRef JSONValue);
+
+     /*
+     * 审计日志
+     */
+    [notxpcom] void AuditLog ([const] in StringRef userId, in ncTokenVisitorTypeRef typ, in ncTLogTypeRef logType, in ncTLogLevelRef level, in int opType,
+                        [const] in StringRef msg, [const] in StringRef exmsg, [const] in StringRef ip, [const] in StringRef mac, [const] in StringRef userAgent);
+};

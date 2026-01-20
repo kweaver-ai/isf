@@ -1,0 +1,109 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int64(int64);
+native int(int);
+
+[ref] native StringRef(String);
+[ref] native StringVecRef(vector<String>);
+[ref] native StringSetRef(set<String>);
+[ref] native ncACSLockInfoRef(ncACSLockInfo);
+[ref] native ncACSLockerInfoRef(ncACSLockerInfo);
+[ref] native ncACSLockInfoVecRef(vector<ncACSLockInfo>);
+[ref] native ncACSLockInfoMapRef(map<String, String>);
+[ref] native ncACSRefreshResultMapRef(map<String, ncACSRefreshResult>);
+[ref] native ncACSClientTypeRef(ncClientType);
+
+%{ C++
+/**
+ * acs lock manager
+ */
+#define NC_ACS_LOCK_MANAGER_CID \
+{ \
+    0x8ee61229,    \
+    0x8ee4,        \
+    0x4358,        \
+    { 0x9b, 0x82, 0x89, 0x1d, 0x67, 0xa2, 0x6a, 0x7c } \
+}
+
+/**
+ * acs lock manager
+ */
+#define NC_ACS_LOCK_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acslockmanager;1"
+
+#include <drivenadapter/public/common.h>
+// 所有者信息
+struct ncACSLockInfo {
+    String        docId;        // 文档id
+    String        userId;       // 锁定者id
+    String        accessIp;     // 访问ip
+    int64         expireTime;   // 有效期限
+    ncClientType  clientType;   // 访问者终端类型
+
+    ncACSLockInfo (const String& docID = String::EMPTY,
+        const String& userID = String::EMPTY, const String& accessIP = String::EMPTY,
+        const int64& expireTime = -2, const ncClientType&  clientType = ncClientType::UNKNOWN)
+        : docId (docID)
+        , userId (userID)
+        , accessIp (accessIP)
+        , expireTime (expireTime)
+        , clientType (clientType)
+    {}
+
+    bool operator == (const ncACSLockInfo& info) const
+    {
+        return docId == info.docId && userId == info.userId && accessIp == info.accessIp;
+    }
+};
+
+// 所有者信息
+struct ncACSLockerInfo {
+    String          lockerId;         // 锁定者id
+    String          lockerAccount;        // 锁定者账号
+    String          lockerName;    // 锁定者的显示名称
+};
+
+#include "ncIACSCommon.h"
+
+struct ncACSRefreshResult {
+    int state;
+    String errMsg;
+};
+
+%}
+
+[uuid (11932C8D-2436-45e0-829C-795642193F43)]
+interface ncIACSLockManager: nsISupports
+{
+
+    /**
+     * 自动锁是否开启
+     */
+    [notxpcom] bool IsAutolockEnabled ();
+
+    /**
+     * 设置自动锁配置
+     */
+    [notxpcom] void SetAutolockConfig (in bool isEnable, in int64 expiredInterval);
+
+    /**
+     * 获取文件锁超时时间间隔
+     */
+    [notxpcom] int64 GetExpiredInterval ();
+
+    /**
+     * 删除文件锁
+     */
+    [notxpcom] void Delete ([const] in StringRef fileId);
+
+    /**
+     * 删除目录下的所有子文件的文件锁
+     */
+    [notxpcom] void DeleteSubs ([const] in StringRef dirId);
+
+    /**
+     * 通过 userId 删除锁
+     */
+    [notxpcom] void DeleteByUserId ([const] in StringRef userId);
+};

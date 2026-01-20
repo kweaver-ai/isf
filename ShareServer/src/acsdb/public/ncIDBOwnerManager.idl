@@ -1,0 +1,85 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native StringVecRef(vector<String>);
+
+[ref] native dbOwnerInfoRef(dbOwnerInfo);
+[ref] native dbOwnerInfoVecRef(vector<dbOwnerInfo>);
+
+%{ C++
+
+/**
+ * db owner manager
+ */
+#define NC_DB_OWNER_MANAGER_CID \
+{ \
+    0x2628f81d, \
+    0xc838,    \
+    0x45f0,    \
+     { 0xaf, 0x40, 0x9a, 0xbf, 0xb1, 0xd0, 0x6, 0xf3 } \
+}
+
+/**
+ * db owner manager
+ */
+#define NC_DB_OWNER_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsdb/dbownermanager;1"
+
+#include <interfaces/ncTypeCommon.h>
+
+%}
+
+[uuid (FE8D6F62-1CE0-4e59-8B3C-671F6CDEBF44)]
+interface ncIDBOwnerManager: nsISupports
+{
+    /*
+     * 添加一条所有者记录
+     */
+    [notxpcom] void AddOwner ([const] in dbOwnerInfoRef ownerInfo);
+
+    /*
+     * 清空docid的所有者信息
+     */
+    [notxpcom] void DeleteOwnerInfosByDocId ([const] in StringRef docId);
+
+    /*
+     * 获取docid的所有者信息（包括继承的）
+     */
+    [notxpcom] void GetInheritOwnerInfosByDocId ([const] in StringRef docId, in dbOwnerInfoVecRef ownerInfos, in bool onlyUser);
+
+    /*
+     * 获取docid的所有者
+     */
+    [notxpcom] void GetOwnerInfosByUserId ([const] in StringRef userId, in dbOwnerInfoVecRef ownerInfos);
+
+    /*
+     * 根据文件对象的id删除所有者配置（用以响应文件被删除后的所有者记录清除）
+     */
+    [notxpcom] void DeleteOwnerByFileId ([const] in StringRef fileId);
+
+    /*
+     * 根据文件夹对象的id删除所有者配置（用以响应文件夹被删除后的所有者记录清除）
+     */
+    [notxpcom] void DeleteOwnerByDirId ([const] in StringRef dirId);
+
+    /*
+     * 根据用户的id删除所有者配置（用以响应用户被删除后的所有者记录清除）
+     */
+    [notxpcom] void DeleteOwnerByUserId ([const] in StringRef userId);
+
+
+    /*
+     * 是否是所有者（包括继承的）
+     */
+    [notxpcom] bool IsOwner ([const] in StringRef docId, [const] in StringRef userId);
+
+    /*
+     * 获取userId作为所有者的子对象
+     * 结果按照目录深度由浅至深排序
+     */
+    [notxpcom] void GetSubObjsByUserId ([const] in StringRef docId, [const] in StringRef userId, in StringVecRef subObjs);
+};

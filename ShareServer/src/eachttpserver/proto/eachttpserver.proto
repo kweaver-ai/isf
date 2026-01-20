@@ -1,0 +1,134 @@
+syntax="proto2";
+
+option cc_generic_services = true;
+
+message HttpRequest {};
+message HttpResponse {};
+
+service HttpService {
+    // 健康检查
+    rpc Health                              (HttpRequest) returns (HttpResponse);
+
+    // Ping
+    rpc Ping                                (HttpRequest) returns (HttpResponse);
+
+    // 身份认证 V1
+    rpc Auth1_GetConfig                     (HttpRequest) returns (HttpResponse);
+    rpc Auth1_GetByNTLMV1                   (HttpRequest) returns (HttpResponse);
+    rpc Auth1_GetByTicket                   (HttpRequest) returns (HttpResponse);
+    rpc Auth1_GetByADSession                (HttpRequest) returns (HttpResponse);
+    rpc Auth1_ModifyPassword                (HttpRequest) returns (HttpResponse);
+    rpc Auth1_ValidateSecurityDevice        (HttpRequest) returns (HttpResponse);
+    rpc Auth1_CheckUninstallPwd             (HttpRequest) returns (HttpResponse);
+    rpc Auth1_CheckExitPwd                  (HttpRequest) returns (HttpResponse);
+    rpc Auth1_GetVcode                      (HttpRequest) returns (HttpResponse);
+    rpc Auth1_SendSms                       (HttpRequest) returns (HttpResponse);
+    rpc Auth1_SendVcode                     (HttpRequest) returns (HttpResponse);
+    rpc Auth1_SendPwdRetrievalVCode         (HttpRequest) returns (HttpResponse);
+    rpc Auth1_SmsActivate                   (HttpRequest) returns (HttpResponse);
+    rpc Auth1_ServerTime                    (HttpRequest) returns (HttpResponse);
+    rpc Auth1_SendAuthVcode                 (HttpRequest) returns (HttpResponse);
+
+    // 身份认证 V2
+    rpc Auth2_GetConfig                     (HttpRequest) returns (HttpResponse);
+    rpc Auth2_Login                         (HttpRequest) returns (HttpResponse);
+    rpc Auth2_ModifyPassword                (HttpRequest) returns (HttpResponse);
+    rpc Auth2_ValidateSecurityDevice        (HttpRequest) returns (HttpResponse);
+    rpc Auth2_CheckUninstallPwd             (HttpRequest) returns (HttpResponse);
+    rpc Auth2_CheckExitPwd                  (HttpRequest) returns (HttpResponse);
+
+    // 配置信息
+    rpc Auth1_Configs                       (HttpRequest) returns (HttpResponse);
+    rpc Auth1_LoginConfigs                  (HttpRequest) returns (HttpResponse);
+
+    // 部门管理
+    rpc Department_GetBasicInfo             (HttpRequest) returns (HttpResponse);
+    rpc Department_GetRoots                 (HttpRequest) returns (HttpResponse);
+    rpc Department_GetSubDeps               (HttpRequest) returns (HttpResponse);
+    rpc Department_GetSubUsers              (HttpRequest) returns (HttpResponse);
+    rpc Department_Search                   (HttpRequest) returns (HttpResponse);
+    rpc Department_SearchCount              (HttpRequest) returns (HttpResponse);
+
+    // 用户管理
+    rpc User_Get                            (HttpRequest) returns (HttpResponse);
+    rpc User_GetBasicInfo                   (HttpRequest) returns (HttpResponse);
+    rpc User_AgreedToTermsOfUse             (HttpRequest) returns (HttpResponse);
+    rpc User_Edit                           (HttpRequest) returns (HttpResponse);
+
+    // 联系人管理
+    rpc Contactor_GetContactors             (HttpRequest) returns (HttpResponse);
+    rpc Contactor_Search                    (HttpRequest) returns (HttpResponse);
+    rpc Contactor_SearchCount               (HttpRequest) returns (HttpResponse);
+    rpc Contactor_AddGroup                  (HttpRequest) returns (HttpResponse);
+    rpc Contactor_EditGroup                 (HttpRequest) returns (HttpResponse);
+    rpc Contactor_GetGroup                  (HttpRequest) returns (HttpResponse);
+    rpc Contactor_AddPersons                (HttpRequest) returns (HttpResponse);
+    rpc Contactor_SearchPersons             (HttpRequest) returns (HttpResponse);
+    rpc Contactor_DeletePersons             (HttpRequest) returns (HttpResponse);
+    rpc Contactor_GetPersons                (HttpRequest) returns (HttpResponse);
+
+    // CA认证
+    rpc Ca_Get                              (HttpRequest) returns (HttpResponse);
+
+    // PKI认证
+    rpc Pki_onOriginal                      (HttpRequest) returns (HttpResponse);
+    rpc Pki_onAuthen                        (HttpRequest) returns (HttpResponse);
+
+    // 登录设备管理
+    rpc Device_onList                       (HttpRequest) returns (HttpResponse);
+    rpc Device_onDisable                    (HttpRequest) returns (HttpResponse);
+    rpc Device_onEnable                     (HttpRequest) returns (HttpResponse);
+    rpc Device_onErase                      (HttpRequest) returns (HttpResponse);
+    rpc Device_onGetStatus                  (HttpRequest) returns (HttpResponse);
+    rpc Device_onEraseSuc                   (HttpRequest) returns (HttpResponse);
+
+    // 消息通知
+    rpc Message_Get                         (HttpRequest) returns (HttpResponse);
+    rpc Message_Read                        (HttpRequest) returns (HttpResponse);
+    rpc Message_Read2                       (HttpRequest) returns (HttpResponse);
+    rpc Message_SendMail                    (HttpRequest) returns (HttpResponse);
+
+    // 配置管理
+    rpc Config_Get                          (HttpRequest) returns (HttpResponse);
+    rpc Config_GetOEMConfigBySection        (HttpRequest) returns (HttpResponse);
+    rpc Config_GetDocWatermarkConfig        (HttpRequest) returns (HttpResponse);
+    rpc Config_GetFileCrawlConfig           (HttpRequest) returns (HttpResponse);
+    rpc Config_SetQuickStartStatus          (HttpRequest) returns (HttpResponse);
+
+    // 第三方接入接口 用户管理
+    rpc Third_CreateUser                    (HttpRequest) returns (HttpResponse);
+    rpc Third_EditUser                      (HttpRequest) returns (HttpResponse);
+    rpc Third_DeleteUser                    (HttpRequest) returns (HttpResponse);
+    rpc Third_GetUserById                   (HttpRequest) returns (HttpResponse);
+    rpc Third_GetUserByThirdId              (HttpRequest) returns (HttpResponse);
+    rpc Third_GetUserByName                 (HttpRequest) returns (HttpResponse);
+    rpc Third_GetAllUser                    (HttpRequest) returns (HttpResponse);
+    rpc Third_GetAllUserCount               (HttpRequest) returns (HttpResponse);
+
+    // 第三方接入接口 组织管理
+    rpc Third_CreateOrg                     (HttpRequest) returns (HttpResponse);
+    rpc Third_EditOrg                       (HttpRequest) returns (HttpResponse);
+    rpc Third_DeleteOrg                     (HttpRequest) returns (HttpResponse);
+    rpc Third_GetAllOrg                     (HttpRequest) returns (HttpResponse);
+    rpc Third_GetOrgById                    (HttpRequest) returns (HttpResponse);
+    rpc Third_GetOrgByName                  (HttpRequest) returns (HttpResponse);
+    rpc Third_GetSubDepByOrgId              (HttpRequest) returns (HttpResponse);
+    rpc Third_GetSubUserByOrgId             (HttpRequest) returns (HttpResponse);
+
+    // 第三方接入接口 部门管理
+    rpc Third_CreateDep                     (HttpRequest) returns (HttpResponse);
+    rpc Third_EditDep                       (HttpRequest) returns (HttpResponse);
+    rpc Third_DeleteDep                     (HttpRequest) returns (HttpResponse);
+    rpc Third_GetDepById                    (HttpRequest) returns (HttpResponse);
+    rpc Third_GetDepByThirdId               (HttpRequest) returns (HttpResponse);
+    rpc Third_GetDepByName                  (HttpRequest) returns (HttpResponse);
+    rpc Third_MoveDep                       (HttpRequest) returns (HttpResponse);
+    rpc Third_AddUsersToDep                 (HttpRequest) returns (HttpResponse);
+    rpc Third_MoveUsersToDep                (HttpRequest) returns (HttpResponse);
+    rpc Third_RemoveUsersFromDep            (HttpRequest) returns (HttpResponse);
+    rpc Third_GetSubDepsByDepId             (HttpRequest) returns (HttpResponse);
+    rpc Third_GetSubUsersByDepId            (HttpRequest) returns (HttpResponse);
+    rpc Third_SetManager                    (HttpRequest) returns (HttpResponse);
+    rpc Third_CancelManager                 (HttpRequest) returns (HttpResponse);
+
+};
