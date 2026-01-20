@@ -1,0 +1,28 @@
+{
+    "required": [
+        "method",
+        "members"
+    ],
+    "type": "object",
+    "properties": {
+        "method": {
+            "type": "string",
+            "enum": ["POST", "DELETE"]
+        },
+        "members": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": ["user", "department", "group", "app"]
+                    }
+                }
+            }
+        }
+    }
+}

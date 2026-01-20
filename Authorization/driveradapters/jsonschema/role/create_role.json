@@ -1,0 +1,40 @@
+{
+    "required": [
+        "name",
+        "resource_type_scope"
+    ],
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "resource_type_scope": {
+            "type": "object",
+            "required": [
+                "unlimited"
+            ],
+            "properties": {
+                "unlimited": {
+                    "type": "boolean"
+                },
+                "types": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": [
+                            "id"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

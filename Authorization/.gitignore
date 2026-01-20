@@ -1,0 +1,17 @@
+# Go Build
+Authorization
+
+# UT
+interfaces/mock
+common/mock
+cover.out
+
+# IDE
+.idea
+.vscode
+*goland*
+
+# Dev
+resolv.conf
+authorization.yaml
+./secret.yaml
