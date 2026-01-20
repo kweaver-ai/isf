@@ -1,0 +1,18 @@
+.layout {
+
+    & .setRole-head {
+        margin-bottom: 10px;
+
+        & .setRole-tit {
+            display: inline-block;
+            max-width: 450px;
+            margin-right: 10px;
+
+            & .user-name {
+                display: inline-block;
+                max-width: 312px;
+                vertical-align: middle;
+            }
+        }
+    }
+}

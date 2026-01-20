@@ -1,0 +1,28 @@
+.item {
+    display: table-cell;
+    vertical-align: middle;
+
+    &.alignTop {
+        vertical-align: top;
+    }
+
+    &.alignRight {
+        text-align: right;
+    }
+
+    &.alignBottom {
+        vertical-align: bottom;
+    }
+
+    &.alignLeft {
+        text-align: left;
+    }
+
+    &.alignMiddle {
+        vertical-align: middle;
+    }
+
+    &.alignCenter {
+        text-align: center;
+    }
+}

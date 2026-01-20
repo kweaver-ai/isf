@@ -1,0 +1,27 @@
+syntax="proto2";
+
+option cc_generic_services = true;
+
+message InnerHttpRequest {};
+message InnerHttpResponse {};
+
+service InnerHttpService {
+    // 健康检查
+    rpc Health                              (InnerHttpRequest) returns (InnerHttpResponse);
+
+    // 内容分析及检索依赖接口
+    rpc Permissions                         (InnerHttpRequest) returns (InnerHttpResponse);
+    rpc UserCSFLevel                        (InnerHttpRequest) returns (InnerHttpResponse);
+    rpc LatestShareTime                     (InnerHttpRequest) returns (InnerHttpResponse);
+
+    // 身份认证
+    rpc Auth1_GetNew                        (InnerHttpRequest) returns (InnerHttpResponse);
+    rpc Auth1_GetByThirdParty               (InnerHttpRequest) returns (InnerHttpResponse);
+    rpc Auth1_ConsoleLogin                  (InnerHttpRequest) returns (InnerHttpResponse);
+
+    // 登录日志
+    rpc Auth1_LoginLog                      (InnerHttpRequest) returns (InnerHttpResponse);
+
+    // 用户策略检查
+    rpc Policy_Check                        (InnerHttpRequest) returns (InnerHttpResponse);
+};

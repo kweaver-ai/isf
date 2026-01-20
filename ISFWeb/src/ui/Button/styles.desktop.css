@@ -1,0 +1,97 @@
+@import '../../core/styles/root.css';
+
+.button {
+    height: var(--input-height);
+    padding: 0 var(--layout-spacing-small);
+    border: 1px solid #d3d4db;
+    border-radius: var(--control-border-radius);
+    box-shadow: none;
+    box-sizing: border-box;
+    line-height: normal;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    font-size: var(--font-size-secondary);
+    font-family: var(--font-family);
+
+    & .icon {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    &.oem {
+        color: #fff;
+        background-color: #6775CD;
+        border: none;
+
+        &:hover {
+            filter: saturate(.9) brightness(1.2) !important;
+        }
+
+        &:active {
+            filter: brightness(0.9) !important;
+        }
+
+        &.active {
+            filter: brightness(0.9) !important;
+        }
+
+        &.disabled {
+            filter: opacity(50%) !important;
+            color: #fff;
+            opacity: 1;
+            -webkit-text-fill-color: #fff;
+
+            &:hover {
+                filter: opacity(50%) !important;
+            }
+
+            &:active {
+                filter: opacity(50%) !important;
+            }
+        }
+    }
+
+    &.regular {
+        background-color: var(--control-background-color);
+        color: var(--font-color-regular);
+
+        &:hover {
+            background-color: var(--grey-02);
+        }
+
+        &:active {
+            background-color: var(--grey-03);
+        }
+
+        &.disabled {
+            border-color: var(--control-border-color__disabled);
+            background-color: var(--control-background-color);
+            color: var(--font-color-regular);
+            opacity: .5;
+            filter: alpha(opacity=50);
+            cursor: default;
+        }
+    }
+
+    &.dark {
+        background-color: var(--background-dark);
+        color: var(--font-color-light);
+        border-color: var(--background-dark);
+
+         &:hover {
+             background-color: var(--background-dark__hover);
+             border-color: var(--background-dark__hover);
+         }
+
+         &:active {
+             background-color: var(--background-dark__active);
+             border-color: var(--background-dark__active);
+         }
+
+         &.disabled {
+             background-color: var(--background-dark__disabled);
+             border-color: var(--background-dark__disabled);
+         }
+    }
+}

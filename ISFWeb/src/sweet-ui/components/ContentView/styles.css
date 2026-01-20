@@ -1,0 +1,15 @@
+.custom-scrollbar {
+    /* &::-webkit-scrollbar {
+        width: 15px;
+        height: 15px;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        min-height: 15px;
+        background: rgba(0, 0, 0, 0.4);
+    } */
+}

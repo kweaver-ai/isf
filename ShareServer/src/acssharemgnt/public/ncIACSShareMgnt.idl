@@ -1,0 +1,788 @@
+#include "nsISupports.idl"
+
+native bool (bool);
+native int(int);
+native int64(int64);
+native String (String);
+[ref] native intRef (int);
+[ref] native StringRef (String);
+[ref] native SetStringRef(set<String>);
+[ref] native StringVecRef (vector<String>);
+[ref] native StringVecVecRef (vector<vector<String> >);
+[ref] native StringSetRef (set<String>);
+[ref] native StringMapVecRef (map<String, vector<String> >);
+[ref] native StringMapRef (map<String, String>);
+[ref] native StringIntMapRef (map<String, int>);
+[ref] native IntMapRef (map<int, int>);
+
+native ncIOCAccesorType (ncIOCAccesorType);
+native ncACSUserType (ncACSUserType);
+native ncVisitorType (ncVisitorType);
+[ref] native OrganizationVecRef (vector<ncOrganizationInfo>);
+[ref] native ncOrgaInfoPairVecRef (vector<pair<ncOrganizationInfo,bool> >);
+
+[ref] native ncGroupInfoVecRef (vector<ncGroupInfo>);
+[ref] native ncGroupInfoMapRef (map<String, ncGroupInfo>);
+
+[ref] native ncACSUserInfoRef (ncACSUserInfo);
+[ref] native ncACSAppInfoRef (ncACSAppInfo);
+[ref] native ncACSUserInfoMapRef (map<String, ncACSUserInfo>);
+[ref] native ncACSUserInfoVecRef (vector<ncACSUserInfo>);
+
+[ref] native ncACSDepartInfoRef (ncACSDepartInfo);
+[ref] native ncACSDepartInfoMapRef (map<String, ncACSDepartInfo>);
+[ref] native ncACSUserIdDepartMapRef (map<String, ncACSDepartInfo>);
+[ref] native ncACSDepartInfoVectorRef(vector<ncACSDepartInfo>);
+[ref] native ncACSDepartInfoPairVectorRef(vector<pair<ncACSDepartInfo,bool> >);
+
+[ref] native ncPermScopeObjInfoRef (ncPermScopeObjInfo);
+[ref] native ncPermScopeObjInfoVectorRef (vector<ncPermScopeObjInfo>);
+[ref] native ncObjIdScopeInfoMapRef (map<String, ncPermScopeObjInfo>);
+
+[ref] native ncOSSInfoRef (ncOSSInfo);
+[ref] native ncOSSInfoMapRef (map<String, ncOSSInfo>);
+
+[ref] native ncDepDocInfoVecRef (vector<ncDepDocInfo>);
+[ref] native ncDocRecvAreaVectorRef (vector<ncDocRecvArea>);
+[ref] native ncRecvAreaDocNameVecRef (vector<ncRecvAreaDocName>);
+[ref] native ncRoleInfoVecRef (vector<ncRoleInfo>);
+[ref] native ncManagerQuotaRef (ncManagerQuota);
+
+[ref] native ncACSRefreshInfoVecRef (vector<ncACSRefreshInfo>);
+[ref] native dbOwnerInfoVecRef(vector<dbOwnerInfo>);
+
+[ref] native ncAppPermOrgTypeRef (ncAppPermOrgType);
+
+%{ C++
+
+/**
+ * cid
+ */
+#define NC_ACS_SHARE_MGNT_CID \
+{ \
+    0x4715211f, \
+    0xf8d4,    \
+    0x41bf,    \
+     { 0xae, 0x52, 0xc6, 0xdf, 0x5c, 0x29, 0xe4, 0x76 } \
+}
+
+/**
+ * contract id
+ */
+#define NC_ACS_SHARE_MGNT_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acssharemgnt/acssharemgnt;1"
+
+// 内网数据交换ID
+#define NC_EVFS_NAME_IOC_DATAEXCHANGE_ID              ("da5bfdc4-cb4b-4b28-90c2-9eca46c3e500")
+
+#include <acsprocessor/public/ncIACSCommon.h>
+#include <interfaces/ncTypeCommon.h>
+
+ // 访问者类型
+enum ncIOCAccesorType {
+    IOC_USER        =    0x00000001,        // 用户
+    IOC_DEPARTMENT    =    0x00000002,      // 部门
+    IOC_USER_GROUP    =    0x00000003,      // 联系人组
+    IOC_GROUP         =    0x00000005,      // 用户组
+};
+
+// 组织
+struct ncOrganizationInfo {
+    String id;
+    String name;
+};
+
+// 用户类型
+enum ncACSUserType {
+    USER_TYPE_NONE = 0,
+    USER_TYPE_LOCAL = 1,
+    USER_TYPE_DOMAIN = 2,
+    USER_TYPE_THIRD = 3,
+};
+
+// 用户角色类型
+struct ncACSRoleType {
+    enum {
+        RT_AUDITOR = 1
+    };
+};
+
+// 用户信息
+struct ncACSUserInfo {
+    String id;                  // 用户id
+    String account;             // 用户名称
+    String visionName;          // 显示名
+    String email;               // 邮箱
+    bool enableStatus;          // 用户状态，true表示启用，false表示禁用
+    bool isAgreedToTermsOfUse;  // 用户是否同意使用协议，true表示同意，false表示不同意
+    String telNumber;           // 手机号
+    int csfLevel;               // 密级
+    int pwdControl;             // 是否管控
+    int authType;               // 用户类型
+    int64 documentReadStatus;   // 用户文档已读状态，目前用于快速入门
+    String belongDepartId;      // 用户直属部门id
+    int64 priority;             // 优先级
+    String thirdAttr;           // 第三方应用属性
+    String thirdId;             // 第三方应用id
+
+    ncACSUserInfo()
+        : id(),
+        account(),
+        visionName(),
+        email(),
+        enableStatus(true),
+        isAgreedToTermsOfUse(false),
+        telNumber(),
+        csfLevel(-1),
+        documentReadStatus(0),
+        belongDepartId(),
+        priority(0),
+        thirdAttr(),
+        thirdId()
+    {}
+};
+
+// 用户信息
+struct ncACSAppInfo {
+    String id;                  // 应用账户id
+    String name;                // 应用账户名称
+};
+
+// 部门信息
+struct ncACSDepartInfo {
+    String id;              // 部门id
+    String name;            // 部门名称
+    String path;            // 部门路径
+};
+
+// 联系人组信息
+struct ncGroupInfo
+{
+    String id;    // 分组id
+    String createrId; // 创建者id
+    String groupName; // 群名字
+    int64 count; // 群人数
+};
+
+// 共享范围对象
+struct ncPermScopeObjInfo
+{
+    String id;                // 范围对象id
+    String parentId;          // 范围对象的父部门id
+    ncIOCAccesorType type;    // 范围对象类型
+};
+
+// 对象存储信息
+struct ncOSSInfo
+{
+    String ossId;             // 对象存储ID
+    String ossName;           // 对象存储名称
+    String siteName;          // 对象存储归属站点
+    bool enabled;             // 对象存储状态
+};
+
+// 共享时允许搜索范围
+enum ncACSSearchRange {
+    LOGIN_NAME = 1,             // 只允许搜索用户名
+    DISPLAY_NAME = 2,           // 只允许搜索显示名
+    LOGIN_AND_DISPLAY = 3,      // 允许搜索用户名或显示名
+};
+
+// 搜索结果显示方式
+enum ncACSSearchResults {
+    SHOW_DISPLAY_NAME = 1,           // 搜索结果只显示显示名
+    SHOW_LOGIN_AND_DISPLAY = 2,      // 搜索结果显示用户名和显示名
+};
+
+// 部门文档库信息
+struct ncDepDocInfo {
+    String              id;         // 部门id
+    String              name;       // 文档库名
+    String              ossId;      // 站点id
+    String              ossName;    // 站点名
+    vector<dbOwnerInfo> ownerInfos;   // 所有者信息
+};
+
+// 文档接收区信息
+struct ncDocRecvArea {
+    String      id;     // 接收区id
+    String      name;   // 接收区名
+};
+
+// 接收区文档库名
+struct ncRecvAreaDocName {
+    String docName;    // 文档库名
+    String loginName;  // 个人文档的用户登录名
+    ncRecvAreaDocName ()
+        : docName(),
+        loginName()
+    {}
+};
+
+// 角色信息
+struct ncRoleInfo
+{
+    String id;                // 角色id
+    String name;              // 角色名称
+};
+
+//用户活跃时间信息
+struct ncACSRefreshInfo
+{
+    String lastRequestTime;
+    String userId;
+    bool bUpdateClientTime;
+};
+
+// 管理员可分配空间配额
+struct ncManagerQuota
+{
+    int64 totalUserQuota;       // 限制的总用户配额, -1表示不限制
+    int64 totalDocQuota;        // 限制的总文档配额, -1表示不限制
+    int64 allocatedUserQuota;   // 已分配的受限用户配额
+    int64 allocatedDocQuota;    // 已分配的受限文档配额
+};
+
+// 应用账户管理组织架构类型
+enum ncAppPermOrgType {
+    USER = 1,             // 用户
+    DEPARTMENT = 2,       // 部门
+    GROUP = 3,            // 用户组
+};
+
+// 应用账户管理组织架构权限
+enum ncAppOrgPermValue {
+    MODIFY = 1, // 编辑
+    READ = 2,   // 读取
+};
+
+%}
+
+[uuid (ED16A742-91AB-4a64-9A59-5D67C4726648)]
+interface ncIACSShareMgnt: nsISupports
+{
+    // 根据 accesorId 和 type获取名称
+    [notxpcom] String GetNameByAccessorId ([const] in StringRef accessorId, in ncIOCAccesorType accessorType);
+
+    // 获取用户直接所属的部门（用以获取用户的部门文档）
+    [notxpcom] void GetDirectBelongDepartmentIds ([const] in StringRef userId, in StringVecRef departIds);
+
+    // 获取用户直接所属的组织（用以获取用户的部门文档）
+    [notxpcom] void GetDirectBelongOrganIds ([const] in StringRef userId, in StringVecRef departIds);
+
+    // 获取用户所属的部门（包括直接所属的部门和父部门，用以权限计算时，检查某条权限配置的部门id是否对用户id生效）
+    [notxpcom] void GetAllBelongDepartmentIds ([const] in StringRef userId, in StringVecRef departIds);
+
+    // 获取用所有的组织信息
+    [notxpcom] void GetAllOrgInfo ([const] in StringRef userId, in OrganizationVecRef organs);
+
+    //判断是否是系统管理员,包括audit system和admin
+    [notxpcom] bool IsAdminId ([const] in StringRef userId);
+
+    // 检查用户是否是未分配用户
+    [notxpcom] bool IsUndistirbutedUser ([const] in StringRef userId);
+
+    // 判断用户是否是系统管理员或者是部门管理员
+    [notxpcom] bool IsCustomDocManager ([const] in StringRef userId);
+
+    // 获取用户类型
+    [notxpcom] ncACSUserType GetUserType ([const] in StringRef userId);
+
+    // 获取用户存储Id
+    [notxpcom] void GetUserOSSId ([const] in StringRef userId, in StringRef OSSId);
+
+    // 获取部门存储id
+    [notxpcom] void GetDepartmentOSSId ([const] in StringRef departmentId, in StringRef OSSId);
+
+    // 获取所有分组
+    [notxpcom] void GetAllGroups ([const] in StringRef createrId, in ncGroupInfoVecRef groups);
+
+    // 获取分组下联系人
+    [notxpcom] void GetContactors ([const] in StringRef groupId, in ncACSUserInfoVecRef userInfos);
+
+    // 获取用户所属的联系人分组，方便权限计算
+    [notxpcom] void GetAllBelongGroups ([const] in StringRef userId, in StringVecRef groupIds);
+
+    // 获取用户显示名
+    [notxpcom] void GetUserDisplayName ([const] in StringRef userId, in StringRef name);
+
+    // 获取用户显示名、账户名
+    [notxpcom] void GetUserName ([const] in StringRef userId, in StringRef displayName, in StringRef account);
+
+    // 检查用户显示名是否存在
+    [notxpcom] bool CheckDisplayNameIsExist ([const] in StringRef displayName);
+
+    // 根据anyshare用户id获取用户的信息
+    [notxpcom] bool GetUserInfoById ([const] in StringRef userId, in ncACSUserInfoRef userInfo);
+
+    // 根据应用账户id获取应用账户的信息
+    [notxpcom] bool GetAppInfoById ([const] in StringRef appId, in ncACSAppInfoRef appInfo);
+
+    // 根据anyshare用户账号获取用户的信息
+    [notxpcom] bool GetUserInfoByAccount ([const] in StringRef account, in ncACSUserInfoRef userInfo, in intRef accountType);
+
+    // 根据账号名获取账号类型，1 是身份证号, 0是其它账号名
+    [notxpcom] int GetAccountType ([const] in StringRef account);
+
+    // 检查用户是否启用
+    [notxpcom] bool IsUserEnabled ([const] in StringRef departId);
+
+    // 根据第三方用户id获取用户的信息
+    [notxpcom] bool GetUserInfoByThirdId ([const] in StringRef thirdId, in ncACSUserInfoRef userInfo);
+
+    // 根据部门id获取部门的信息
+    [notxpcom] bool GetDepartInfoById ([const] in StringRef departId, in ncACSDepartInfoRef departInfo);
+
+    // 根据部门id获取部门所属的组织信息
+    [notxpcom] void GetOrgInfoByDeptId ([const] in StringRef departId, in OrganizationVecRef organs);
+
+    // 批量获取用户信息
+    [notxpcom] void GetUserInfoByIdBatch ([const] in StringVecRef userIds, in ncACSUserInfoMapRef userInfoMap);
+
+    // 批量获取部门信息
+    [notxpcom] void GetDepartInfoByIdBatch ([const] in StringVecRef departIds, in ncACSDepartInfoMapRef departInfoMap);
+
+    // 批量获取联系人组信息
+    [notxpcom] void GetGroupInfoByIdBatch ([const] in StringVecRef groupIds, in ncGroupInfoMapRef groupInfoMap);
+
+    // 向上遍历获取所有父部门id
+    [notxpcom] void GetParentDepartIds ([const] in StringRef depId, in StringSetRef parentDepIds);
+
+    // 获取子部门
+    [notxpcom] void GetSubDeps ([const] in StringRef depId, in ncACSDepartInfoVectorRef depInfos);
+
+    // 获取子用户
+    [notxpcom] void GetSubUsers ([const] in StringRef depId, in ncACSUserInfoVecRef userInfos);
+
+    // 获取所有用户
+    [notxpcom] void GetAllUser (in ncACSUserInfoVecRef userInfos);
+
+    // 在指定的组织结构中搜索用户和部门信息
+    [notxpcom] void SearchGivenOrganization ([const] in StringVecRef orgIds, [const] in StringRef key, in int start, in int limit, in ncACSUserInfoVecRef userInfos, in ncACSDepartInfoVectorRef departInfos);
+
+    // 在指定的组织结构中搜索用户和部门信息的数目
+    [notxpcom] int SearchGivenOrganizationCount ([const] in StringVecRef orgIds, [const] in StringRef key, in bool searchDepart);
+
+    // 在所有的组织结构中搜索用户信息和部门信息
+    [notxpcom] void SearchAllOrganization ([const] in StringRef userId, [const] in StringRef key, in int start, in int limit, in ncACSUserInfoVecRef userInfos, in ncACSDepartInfoVectorRef departInfos);
+
+    // 在所有的组织结构中搜索用户信息和部门信息的数目
+    [notxpcom] int SearchAllOrganizationCount ([const] in StringRef userId, [const] in StringRef key);
+
+    // 在用户所管理的联系人组中搜索用户信息，联系人组信息
+    [notxpcom] void SearchContactGroup ([const] in StringRef userId, [const] in StringRef key, in int start, in int limit, in ncACSUserInfoVecRef userInfos, in ncGroupInfoVecRef groupInfos);
+
+    // 获取在用户所管理的联系人组中搜索用户信息，联系人组信息的数目
+    [notxpcom] int SearchContactGroupCount ([const] in StringRef userId, [const] in StringRef key, in bool searchGroup);
+
+    /*
+     * 在用户所属的部门下根据关键字向下遍历（子部门的用户）搜索用户信息
+     * 如果是admin，则搜索所有的组织结构
+     *
+     * @userId: admin或者组织管理员的id
+     * @key: 搜索时输入的关键字（模糊匹配用户的账号或者显示名）
+     * @userInfos: 返回的用户信息
+     */
+    [notxpcom] void SearchDepartment ([const] in StringRef userId, [const] in StringRef key, in ncACSUserInfoVecRef userInfos);
+
+    // 批量获取用户所属的部门信息
+    [notxpcom] void GetBelongDepartByIdBatch ([const] in StringVecRef userIds, in ncACSUserIdDepartMapRef infoMap);
+
+    // 批量获取用户所属的联系人组信息
+    [notxpcom] void GetBelongGroupByIdBatch ([const] in StringRef createrId, [const] in StringVecRef userIds, in ncGroupInfoMapRef infoMap);
+
+    /*
+     * 验证第三方登录，如果成功，返回userId
+     * account不存在，返回String::EMPTY
+     * appid不存在，返回String::EMPTY
+     * key 验证失败，返回String::EMPTY
+     */
+    [notxpcom] String ExtLogin ([const] in StringRef appId, [const] in StringRef account, [const] in StringRef key, [const] in StringVecRef params, in intRef accountType);
+
+    /*
+     * 获取用户密级
+     */
+    [notxpcom] int GetUserCSFLevel ([const] in StringRef userId, [const] in ncVisitorType visitorType);
+
+    /*
+     * 获取用户密级2
+     */
+    [notxpcom] int GetUserCSFLevel2 ([const] in StringRef userId, [const] in ncVisitorType visitorType);
+
+    /*
+     * 获取系统权限范围限制开启状态
+     */
+    [notxpcom] bool GetPermShareLimitStatus ( );
+
+    /*
+     * 获取系统发现共享限制开启状态
+     */
+    [notxpcom] bool GetFindShareLimitStatus ( );
+
+    /*
+     * 获取系统外链共享限制开启状态
+     */
+    [notxpcom] bool GetLinkShareLimitStatus ( );
+
+    /*
+     * 获取用户的权限共享范围
+     */
+    [notxpcom] void GetUserPermScopeInfos ([const] in StringRef userId, in ncObjIdScopeInfoMapRef scopeInfos);
+
+    /*
+     * 获取输入用户列表中不在用户的权限范围的用户
+     */
+    [notxpcom] void GetUsrIdsOutOfPermScope ([const] in StringRef userId, [const] in StringVecRef checkUserIds, in StringVecRef outScopeUserIds);
+
+    /*
+     * 检查用户是否在某个用户的权限范围内
+     */
+    [notxpcom] bool CheckUsrInPermScope ([const] in StringRef userId, [const] in StringRef checkUserId);
+
+    /*
+     * 检查部门是否在某个用户的权限范围内
+     */
+    [notxpcom] bool CheckDeptInPermScope ([const] in StringRef userId, [const] in StringRef checkDeptId);
+
+    /*
+     * 获取部门到根节点的路径（包括当前部门）
+     */
+    [notxpcom] void GetDeptRootPath ([const] in StringRef deptId, in StringVecRef path);
+
+    /*
+     * 获取父部门到根节点的路径名
+     */
+    [notxpcom] void GetParentDeptRootPathName ([const] in StringRef deptId, in StringRef path);
+
+    /*
+     * 获取用户到根节点的路径
+     */
+    [notxpcom] void GetUserRootPath ([const] in StringRef userId, in StringVecVecRef paths);
+
+    /*
+     * 根据范围信息获取根组织id
+     */
+    [notxpcom] void GetOrgIdsByScopeInfo ([const] in ncObjIdScopeInfoMapRef scopeInfos, in OrganizationVecRef orgInfos);
+
+    /*
+    * 获取用户共享范围内的组织信息
+    */
+    [notxpcom] void GetScopeOrgInfo([const] in StringRef userId, in ncOrgaInfoPairVecRef organs);
+
+    /*
+    * 获取用户权限范围内子部门
+    */
+    [notxpcom] void GetScopeSubDeps ([const] in StringRef userId, [const] in StringRef depId, in ncACSDepartInfoPairVectorRef depInfos);
+
+    /*
+    *获取用户权限范围内子用户
+    */
+    [notxpcom] void GetScopeSubUsers ([const] in StringRef userId, [const] in StringRef depId, in ncACSUserInfoVecRef userInfos);
+
+    /*
+    * 在用户权限范围边界的组织结构中搜索用户信息和部门信息
+    */
+    [notxpcom] void SearchScopeOrganization ([const] in StringRef userId, [const] in StringRef key, in int start, in int limit, in ncACSUserInfoVecRef userInfos, in ncACSDepartInfoVectorRef departInfos);
+
+    /*
+    * 在用户权限范围边界的组织结构中搜索用户信息和部门信息的数目
+    */
+    [notxpcom] int SearchScopeOrganizationCount ([const] in StringRef userId, [const] in StringRef key, in bool searchDepart);
+
+    /*
+    * 检查用户是否允许开启发现共享
+    */
+    [notxpcom] bool IsUserFindEnabled ([const] in StringRef userId);
+
+    /*
+    * 检查用户是否允许开启外链共享
+    */
+    [notxpcom] bool IsUserLinkEnabled ([const] in StringRef userId);
+
+    /*
+    * 获取所有的用户对应的联系人Id
+    */
+    [notxpcom] void GetAllUserContactIds (in StringMapVecRef userContactIds);
+
+    /*
+    * 批量删除用户的某些指定联系人
+    */
+    [notxpcom] void DeleteContactsByPatch ([const] in StringRef userId, [const] in StringVecRef contactIds);
+
+    /*
+    * 获取系统防泄密策略开启状态
+    */
+    [notxpcom] bool GetLeakProofStatus ();
+
+    /*
+    * 获取用户的防泄密权限
+    */
+    [notxpcom] int GetLeakProofPerm ([const] in StringRef userId);
+
+    /*
+    * 获取清除缓存的时间间隔
+    */
+    [notxpcom] int GetClearCacheInterval( );
+
+    /*
+    * 获取清除缓存的空间限额
+    */
+    [notxpcom] int64 GetClearCacheSize( );
+
+    /*
+     * 获取密码管控
+    */
+    [notxpcom] int GetPwdControl ([const] in StringRef userId);
+
+    /*
+     * 获取用户类型
+    */
+    [notxpcom] int GetUserAuthType ([const] in StringRef userId);
+
+    /*
+     * 获取客户端强制清除缓存状态
+    */
+    [notxpcom] bool GetClearClientCacheStatus ();
+
+    /*
+     * 获取客户端是否显示缓存设置的状态
+    */
+    [notxpcom] bool GetHideClientCacheStatus ();
+
+    /*
+    * 获取用户的组织id
+    */
+    [notxpcom] void GetOrgIdByUserId ([const] in StringRef userId, in StringVecRef orgIds);
+
+    /*
+    * 获取多租户模式状态
+    */
+    [notxpcom] bool GetMutiTenantStatus ();
+
+    /*
+    * 根据用户显示名获取用户id
+    */
+    [notxpcom] void GetUserIdByDisplayName ([const] in StringRef userDisplayName, in StringVecRef userId);
+
+    /*
+    * 向下遍历用户管理的部门的子部门id
+    */
+    [notxpcom] void GetManageDepIds ([const] in StringRef userId, in StringVecRef departIds);
+
+    /*
+    * 获取t_sharemgnt_config数据表中的配置
+    */
+    [notxpcom] String GetShareMgntConfig ([const] in StringRef key);
+
+    /**
+     * 批量获取自定义配置信息
+     */
+    [notxpcom] void BatchGetConfig (in StringVecRef keys, in StringMapRef kvMap);
+
+    /**
+     * 获取用户自定义配置信息
+    **/
+    [notxpcom] bool GetCustomConfigOfString ([const] in StringRef key, in StringRef value);
+
+    /*
+    * 获取sharemgnt模块中网段文档库限制状态值
+    */
+    [notxpcom] bool GetNetDocsLimitStatus ();
+
+    /*
+    * 检查文档库是否可以在给定ip下访问
+    */
+    [notxpcom] bool CheckNetDocLimit ([const] in StringRef cid, [const] in StringRef accessIp);
+
+    /*
+    * 过滤掉网段限制的文档库id
+    */
+    [notxpcom] void FilterByNetDocLimit (in SetStringRef docIdSet, [const] in StringRef accessIp);
+
+    /*
+    * 权限共享时，是否叠加默认策略
+    */
+    [notxpcom] bool GetDefaulStrategySuperimStatus ();
+
+    /*
+    * 更新用户最近请求时间和用户最近客户端请求时间
+    */
+    [notxpcom] void UpdateUserLastRequestTime ([const] in StringRef userId);
+
+    /*
+    * 同意用户协议
+    */
+    [notxpcom] void AgreedToTermsOfUse ([const] in StringRef userId);
+
+    /*
+     * 更新用户的文档已读状态
+     * @param leftShiftNum: 比特左移的位数，数据库使用bigint(20)，限制使用不超过15位，目前使用参数范围 1-7
+     *                      比特为0，为初始状态，表示相应文档未被读取或确认
+     */
+    [notxpcom] void UpdateUserDocumentReadStatus ([const] in StringRef userId, in int leftShiftNum);
+
+    /*
+    * 获取用户冻结开关
+    */
+    [notxpcom] bool GetFreezeStatus ();
+
+    /*
+    * 检测用户是否冻结
+    */
+    [notxpcom] bool IsUserFreeze ([const] in StringRef userId);
+
+    /*
+    * 获取实名认证开关状态
+    */
+    [notxpcom] bool GetRealNameAuthStatus ();
+
+    /*
+    * 用户是否已实名
+    */
+    [notxpcom] bool IsUserRealNameAuth ([const] in StringRef userId);
+
+    /*
+    * 根据用户/部门/组织 id 获取对应的邮箱地址
+    */
+    [notxpcom] void GetMailAddress ([const] in StringRef reveiverId, [const] in StringRef tbName, [const] in StringRef fieldName, in StringRef email);
+
+    /*
+    * 获取水印策略开启状态
+    */
+    [notxpcom] bool GetWaterMarkStrategy ();
+
+    /*
+    * 获取文档库水印配置
+    */
+    [notxpcom] void GetDownloadWatermarkDocs(in StringIntMapRef downloadWatermarkDocs);
+
+    /*
+    * 获取不同文档库类型的水印设置
+    */
+    [notxpcom] void GetDownloadWatermarkDocTypes (in IntMapRef downloadWatermarkDocTypes);
+
+    /*
+     * 获取文档抓取策略开关
+     */
+    [notxpcom] bool GetFileCrawlStatus ();
+
+    /*
+     * 判断是否存在文档抓取策略
+     */
+    [notxpcom] bool IsFileCrawlStrategy([const] in StringRef userId, [const] in StringRef docId);
+
+    /*
+    * 部门是否存在
+    */
+    [notxpcom] bool IsDepartmentExist([const] in StringRef departId);
+
+    /*
+    * 获取最下层部门id
+    */
+    [notxpcom] void GetDeepestSubDepartIds(in StringVecRef relateDepartIds, [const] in StringVecRef tmpDepartIds);
+
+    /*
+    * 获取子部门ids
+    */
+    [notxpcom] void GetSubDepartIds(in StringVecRef subDepartIds, [const] in StringVecRef departIds);
+
+    /*
+    * 获取所有子部门id
+    */
+    [notxpcom] void GetAllSubDepartIds(in StringVecRef relateDepartIds, [const] in StringVecRef tmpDepartIds);
+
+    /*
+    * 根据层级获取子部门
+    */
+    [notxpcom] void GetSubDepartIdsByLevel(in StringVecRef relateDepartIds, [const] in StringVecRef tmpDepartIds, [const] in int level);
+
+    /*
+    * 获取关联部门id
+    */
+    [notxpcom] void GetRelateDepartIds(in StringVecRef relateDepartIds, [const] in StringVecRef tmpDepartIds, [const] in bool includeCurDepart, [const] in int level);
+
+    /*
+    * 获取部门文档库信息
+    */
+    [notxpcom] void GetDocInfoOfDeparts(in ncDepDocInfoVecRef depDocInfos, [const] in StringVecRef departIds, [const] in dbOwnerInfoVecRef ownerInfoVec);
+
+    /*
+    * 获取部门路径
+    */
+    [notxpcom] void GetParentDeptPath ([const] in StringRef deptId, in StringVecRef deptNames);
+
+    /*
+    * 获取消息推送插件开启状态
+    */
+    [notxpcom] bool GetMessagePluginStatus ();
+
+    /*
+    * 获取组织审计员管辖范围内的所有用户
+    */
+    [notxpcom] void GetAuditSupervisoryUserIds ([const] in StringRef userId, in StringVecRef userIds);
+
+    /**
+     * 根据用户id获取用户所有角色id
+     */
+    [notxpcom] void GetUserRoleIds ([const] in StringRef userId, in StringVecRef roleIds);
+
+    /**
+     * 根据角色id获取所有用户
+     */
+    [notxpcom] void GetUserIdsByRoleId ([const] in StringRef roleId, in StringVecRef userIds);
+
+    /**
+     * 根据用户id获取用户所有角色信息
+     */
+    [notxpcom] void GetUserRole ([const] in StringRef userId, in ncRoleInfoVecRef roleInfos);
+
+    /**
+     * 判断用户是否是超级管理员或者系统管理员
+     */
+    [notxpcom] bool IsAdminRole ([const] in StringRef userId);
+
+    /**
+     * 判断用户是否是安全管理员
+     */
+    [notxpcom] bool IsSecuritRole ([const] in StringRef userId);
+
+    /**
+     * 判断手机号是否系统中存在
+    **/
+    [notxpcom] bool GetUserInfoByTelNumber ([const] in StringRef telnumber, in ncACSUserInfoRef userInfo);
+
+    /**
+     * 判断邮箱是否系统中存在
+    **/
+    [notxpcom] bool GetUserInfoByEmail ([const] in StringRef emailaddress, in ncACSUserInfoRef userInfo);
+
+    /**
+     * 根据option获取oem信息
+    **/
+    [notxpcom] bool OEM_GetConfigByOption ([const] in StringRef section, [const] in StringRef option, in StringRef value);
+
+    /**
+     * 批量刷新用户活跃时间
+    **/
+    [notxpcom] void BatchUpdateUserLastRequestTime([const]  in ncACSRefreshInfoVecRef infos);
+
+    /**
+     * 获取管理者的可分配空间配额信息
+    **/
+    [notxpcom] bool GetManagerQuota ([const] in StringRef userId, in ncManagerQuotaRef departIds);
+
+    /**
+     * 根据部门id批量获取该部门下用户id (不包含层级子部门下用户)
+    **/
+    [notxpcom] void GetUserIdsBydepIds ([const] in StringVecRef departIds, in StringVecRef userIds);
+
+    /**
+     * 更新用户激活状态
+    **/
+    [notxpcom] void UpdateUserActivateStatus ([const] in StringRef userId);
+
+     /**
+     * 获取应用账户组织架构管理权限
+    **/
+    [notxpcom] int GetAppOrgPerm ([const] in StringRef appID, [const] in ncAppPermOrgTypeRef orgType);
+};

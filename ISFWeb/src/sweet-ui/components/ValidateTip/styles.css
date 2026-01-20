@@ -1,0 +1,116 @@
+@import '../../../core/styles/root.css';
+
+.popover {
+    color: var(--font-color-regular);
+
+    & .arrow {
+        position: absolute;
+        border-style: solid;
+        background: #fff;
+        transform: rotate(45deg);
+
+        &.top {
+            left: 50%;
+            border-color: transparent #fff #fff transparent;
+            /* box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07); */
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        &.topLeft {
+            left: 16px;
+            border-color: transparent #fff #fff transparent;
+            /* box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07); */
+            transform: rotate(45deg);
+        }
+
+        &.topRight {
+            right: 16px;
+            border-color: transparent #fff #fff transparent;
+            /* box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07); */
+            transform: rotate(45deg);
+        }
+
+        &.right {
+            border-color: transparent transparent #fff #fff;
+            /* box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07); */
+
+            transform: translateY(-50%) rotate(45deg);
+            top: 50%;
+        }
+
+        &.rightTop {
+            top: 11px;
+            border-color: transparent transparent #fff #fff;
+            /* box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07); */
+            transform: rotate(45deg);
+        }
+
+        &.rightBottom {
+            bottom: 8px;
+            border-color: transparent transparent #fff #fff;
+            /* box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.07); */
+            transform: rotate(45deg);
+        }
+
+        &.bottom {
+            left: 50%;
+            border-color: #fff transparent transparent #fff;
+            /* box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06); */
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        &.bottomLeft {
+            left: 16px;
+            border-color: #fff transparent transparent #fff;
+            /* box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06); */
+
+            transform: rotate(45deg);
+        }
+
+        &.bottomRight {
+            right: 16px;
+            border-color: #fff transparent transparent #fff;
+            /* box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.06); */
+
+            transform: rotate(45deg);
+        }
+
+        &.left {
+            top: 50%;
+            border-color: #fff #fff transparent transparent;
+            /* box-shadow: 3px -3px 7px rgba(0, 0, 0, 0.07); */
+
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        &.leftTop {
+            top: 8px;
+            border-color: #fff #fff transparent transparent;
+            /* box-shadow: 3px -3px 7px rgba(0, 0, 0, 0.07); */
+
+            transform: rotate(45deg);
+        }
+
+        &.leftBottom {
+            bottom: 8px;
+            border-color: #fff #fff transparent transparent;
+
+            transform: rotate(45deg);
+        }
+
+    }
+
+    & .content {
+        background: #FFFFFF;
+        border: 1px solid #ECECF3;
+        position: relative;
+        line-height: 28px;
+        padding: 0 8px;
+        border-radius: 4px;
+        word-wrap: break-word;
+
+        &.error-tip {
+            border-color: var(--border-color__error);
+        }
+    }
+}

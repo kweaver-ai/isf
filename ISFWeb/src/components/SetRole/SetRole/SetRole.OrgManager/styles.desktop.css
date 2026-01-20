@@ -1,0 +1,42 @@
+.layout {
+
+    & .setRole-head {
+        margin-bottom: 10px;
+
+        & .setRole-tit {
+            display: inline-block;
+            max-width: 450px;
+            margin-right: 10px;
+
+            & .user-name {
+                display: inline-block;
+                max-width: 312px;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    & .managerSet {
+
+        & .limitSet {
+            & .limit-item {
+                margin: 10px 0;
+
+                & .label {
+                    display: inline-block;
+                    width: 260px;
+                }
+
+                & .rate-input {
+                    margin: 0 10px;
+                }
+            }
+        }
+
+        & .errMessage {
+            display: inline-block;
+            height: 14px;
+            color: #ec0000;
+        }
+    }
+}

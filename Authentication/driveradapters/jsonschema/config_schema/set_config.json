@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "remember_for": {
+            "type": "integer",
+            "format": "int64",
+            "maximum": 9223372036854775807
+        },
+        "remember_visible": {
+            "type": "boolean"
+        },
+        "anonymous_sms_expiration": {
+            "type": "integer",
+            "format": "int64"
+        }
+    }
+}

@@ -1,0 +1,145 @@
+:root {
+    --main-font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "sans-serif";
+    --font-size-secondary: 13px;
+
+    /**
+     * 常用灰色色卡
+     */
+    --grey-01: #595959;
+    --grey-02: #fafafa;
+    --grey-03: #eee;
+    --grey-04: #e0e0e0;
+    --grey-05: #bdbdbd;
+    --grey-06: #9e9e9e;
+    --grey-07: #757575;
+    --grey-08: #424242;
+
+    /**
+     * 描边
+     */
+
+    /* 正常 */
+    --border-color: #d3d4db;
+
+    /* 悬停 */
+    --border-color__hover: #9FCFFA;
+
+    /* 激活 */
+    --border-color__active: #9FCFFA;
+
+    /* 灰化 */
+    --border-color__disabled: #e0e0e0;
+
+    /* 错误 */
+    --border-color__error: #F5222D;
+
+
+    /**
+     * 字体颜色
+     */
+
+    /* 列表字体 */
+    --font-color-list: rgba(0,0,0,.60);
+
+    /* 一般黑色 */
+    --font-color-regular: rgba(0,0,0,.85);
+
+    /* 重点黑色 */
+    --font-color-strong: #000;
+
+    /* 次要灰色 */
+    --font-color-secondary: rgba(0,0,0,.60);
+
+    /* 灰化 */
+    --font-color-disabled: rgba(0,0,0,.25);
+
+    /* 深色背景中的白色字体 */
+    --font-color-light: #fff;
+
+    /* 超链接 */
+    --font-color-link: #5a8cb4;
+
+    /* 超链接（悬浮） */
+    --font-color-link__hover: #78b4d7;
+
+    /* 超链接（按下） */
+    --font-color-link__active: #376ea0;
+
+    /* 警告（迁移组件） */
+    --font-color-critical: #d70000;
+
+    /* 错误 */
+    --font-color-error: #f5222d;
+
+
+    /**
+     * 基本交互控件样式
+     */
+    --control-border-color: #d3d4db;
+    --control-border-color__hover: #779eea;
+    --control-border-color__focus: #779eea;
+    --control-border-color__disabled: rgba(211, 212, 219, 0.8);
+
+    --control-border-radius: 4px;
+
+    --control-block-shadow: 0 0 0 2px rgba(119, 158, 234, 0.35);
+
+    --control-shadow__focus: 0 0 0 2px rgba(119, 158, 234, 0.35);
+    --control-shadow__hover: #779eea;
+    --control-shadow__disabled: none;
+
+    --control-background-color: #fff;
+    --control-background-color__hover: #e4e6ed;
+    --control-background-color__disabled: #fafafa;
+
+    /* 表单控件高度(迁移组件) */
+    --input-height: 30px;
+
+    /* 表单控件高度 */
+    --input-control-height: 32px;
+
+    /* 表单控件较小高度 */
+    --input-control-min-height: 24px;
+
+    /* 按钮选中样式 */
+    --button--active: {
+        background-color: #f4f4f4;
+        border-color: #9FCFFA;
+    }
+
+    --oem--button--active: {
+        filter: brightness(0.9) !important;
+    }
+
+    --gray--button--active: {
+        background-color: #4B5258;
+    }
+
+    --dark--button--active: {
+        color: #f4f3f9;
+        border-color: #f4f3f9;
+    }
+
+    --icon-button-active: {
+        background: #eee;
+        border-color: #cfcfcf;
+    }
+
+    --text--button--active: {
+        color: #3461EC;
+        opacity: 1;
+    }
+
+    --drop--button--active: {
+        background-color: #eee;
+        color: #505050;
+    }
+
+    --panel--regular: {
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+    }
+}

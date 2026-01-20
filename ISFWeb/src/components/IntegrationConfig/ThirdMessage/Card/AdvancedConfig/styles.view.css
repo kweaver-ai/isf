@@ -1,0 +1,18 @@
+.panel-main {
+    padding: 24px 30px 8px 30px;
+    background: #fff;
+    cursor: default;
+
+    & .title {
+        height: 24px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+
+    & .tips {
+        height: 24px;
+        line-height: 24px;
+        margin-top: 8px;
+        color: #dd3333;
+    }
+}

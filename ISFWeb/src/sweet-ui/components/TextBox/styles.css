@@ -1,0 +1,54 @@
+@import '../../../core/styles/root.css';
+
+.text-box {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: var(--input-height);
+    padding: 0 8px;
+    border: 1px solid var(--control-border-color);
+    border-radius: var(--control-border-radius);
+    background-color: var(--control-background-color);
+
+    &:hover {
+        border-color: var(--control-border-color__hover);
+    }
+
+    &:active {
+        border-color: var(--control-border-color__focus);
+        box-shadow: var(--control-shadow__focus);
+    }
+
+    &.normal-active {
+        border-color: var(--control-border-color__focus);
+        box-shadow: var(--control-shadow__focus);
+    }
+
+    &.error-active {
+        border-color: var(--border-color__error);
+    }
+
+    &.disabled {
+        border-color: var(--control-border-color__disabled);
+        background-color: var(--control-background-color__disabled);
+        box-shadow: var(--control-shadow__disabled);
+    }
+
+}
+
+.caution {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+}
+
+.error {
+    border-color: var(--border-color__error);
+    padding-right: 28px;
+
+    &:hover,
+    &:active {
+        border-color: var(--border-color__error);
+        box-shadow: var(--control-shadow__disabled);
+    }
+}

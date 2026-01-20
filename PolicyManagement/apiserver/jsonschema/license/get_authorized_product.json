@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "method": {
+            "enum": ["GET"],
+            "type": "string"
+        },
+        "user_ids": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "method",
+        "user_ids"
+    ]
+}

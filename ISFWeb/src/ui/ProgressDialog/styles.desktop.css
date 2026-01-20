@@ -1,0 +1,7 @@
+:local {
+    & .dialog {
+        line-height: 18px;
+        width: 380px;
+        padding-bottom: 10px;
+    }
+}

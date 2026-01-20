@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "accessor_id": {
+            "type": "string"
+        },
+        "ip": {
+            "type": "integer"
+        },
+        "ip_type": {
+            "enum": ["ipv4","ipv6"],
+            "type": "string"
+        }
+    },
+    "required": [
+        "accessor_id",
+        "ip",
+        "ip_type"
+    ],
+    "additionalProperties": false
+}

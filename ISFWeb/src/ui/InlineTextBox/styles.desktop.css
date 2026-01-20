@@ -1,0 +1,6 @@
+:local {
+    & .inline-textbox {
+        width: 48px;
+        padding: 3px;
+    }
+}

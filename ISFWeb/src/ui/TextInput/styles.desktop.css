@@ -1,0 +1,51 @@
+@import '../../core/styles/root.css';
+
+:local {
+    & .input {
+        width: 100%;
+        color: #505050;
+        padding: 0;
+        border: none;
+        background: none;
+        line-height: normal;
+        outline: none;
+        font-family: var(--font-family);
+
+        &.disabled {
+            color: var(--font-color-disabled);
+            cursor: default;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+    }
+
+    & .input::-webkit-input-placeholder {
+        color: #c8c8c8;
+    }
+
+    & .input::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: #c8c8c8;
+    }
+
+    & .input:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: #c8c8c8;
+    }
+
+    & .input:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #c8c8c8;
+    }
+
+    & .input::-webkit-credentials-auto-fill-button {
+        display: none !important;
+        position: absolute;
+        /* 避免占用input元素额外的padding */
+        right: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,40 @@
+@import '../../core/styles/root.css';
+
+.dialog {
+    color: var(--font-color-regular);
+}
+
+.text-label {
+    min-width: 102px;
+    display: table-cell;
+    padding: 0 8px 0 0;
+    vertical-align: middle;
+}
+
+.unable-edit {
+    width: 320px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.space-gb {
+    margin: 0 4px 0 8px;
+}
+
+.required {
+    float: right;
+    padding-top: 3px;
+    color: var(--color-error);
+}
+
+.expire-date {
+    color: var(--font-color-regular) !important;
+}
+
+.tag-style {
+    top: -2px;
+}
+

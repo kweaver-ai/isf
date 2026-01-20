@@ -1,0 +1,29 @@
+.name {
+    margin-left: 0.25em;
+}
+
+.text {
+    margin-left: 5px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+
+.tree-wrp {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    & .list-tip {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}

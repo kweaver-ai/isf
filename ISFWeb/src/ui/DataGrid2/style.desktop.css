@@ -1,0 +1,67 @@
+@import '../../core/styles/root.css';
+
+.datagrid {
+    position: relative;
+
+    & .table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+    }
+
+    & .header {
+
+        & .heads {
+            border: 1px solid #e5e5e5;
+            background-color: #f7f7f7;
+            background-image: linear-gradient(#fafafa, #f3f3f3);
+        }
+
+        & .cell {
+            height: 24px;
+            padding: 4px 10px;
+            text-align: left;
+            vertical-align: middle;
+        }
+    }
+
+    & .body-wrap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 34px;
+        border: 1px solid #e5e5e5;
+        border-width: 0 1px 1px 1px;
+
+        &.headless-body {
+            border-width: 1px;
+            top: 0;
+        }
+
+        &.static-body {
+            position: static;
+        }
+
+        & .content {
+            overflow: auto;
+        }
+    }
+
+    & .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        & .footer-padding {
+            border: 1px solid var(--grey-05);
+            border-width: 0 1px 1px 1px;
+            padding: 5px 6px;
+        }
+    }
+
+    & .checkbox-cell {
+        text-align: center;
+        vertical-align: middle;
+    }
+}

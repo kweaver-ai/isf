@@ -1,0 +1,36 @@
+#include "nsISupports.idl"
+
+%{ C++
+
+/**
+ * acs outbox manager
+ */
+#define NC_ACS_OUTBOX_MANAGER_CID \
+{ \
+    0x06532e11, \
+    0xaed9,    \
+    0x349b,    \
+     { 0xa0, 0xc1, 0xa4, 0xb, 0xa9, 0xd1, 0x9e, 0xd2 } \
+}
+
+/**
+ * acs outbox manager
+ */
+#define NC_ACS_OUTBOX_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acsoutboxmanager;1"
+
+%}
+
+[uuid (1FA30608-CEC8-4742-BF8A-E56A1CDD9C33)]
+interface ncIACSOutboxManager: nsISupports
+{
+    /*
+    * 启动outbox推送线程
+    */
+    [notxpcom] void StartPushOutboxThread ();
+
+    /*
+     * 通知outbox推送线程
+     */
+    [notxpcom] void NotifyPushOutboxThread ();
+};

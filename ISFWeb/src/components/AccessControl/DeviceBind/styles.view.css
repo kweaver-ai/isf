@@ -1,0 +1,237 @@
+@import '../../../core/styles/root.css';
+
+:local .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    & .delete-icon {
+        margin-left: 15px;
+        line-height: 26px;
+        overflow: hidden;
+    }
+    & .opacity {
+        opacity: 0.3;
+    }
+    & .fl {
+        float: left;
+    }
+    & .fr {
+        float: right;
+    }
+    & .search-box {
+        margin-left: 10px;
+
+        .search-box-ui {
+            padding: 3px 10px !important;
+        }
+    }
+    & .info-header {
+        margin: 16px 0 10px;
+    }
+    & .tip {
+        margin-left: 10px;
+        color: #999;
+    }
+    & .user-container {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    & .device-container {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    & .user-wrapper {
+        width: 100%;
+        padding-top: 20px;
+        margin-right: 10px;
+        box-sizing: border-box;
+        height: 100%;
+        position: relative;
+    }
+    & .device-wrapper {
+        width: 100%;
+        min-width: 460px;
+        padding-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        box-sizing: border-box;
+        height: 100%;
+        position: relative;
+    }
+    & .info-header {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    & .data-grid {
+        border: 1px solid #e5e5e5;
+    }
+    & .displayName {
+        display: inline-block;
+        width: 100%;
+        padding: 1px 0;
+        width: 100%;
+        overflow: hidden;
+        white-space: pre;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+    }
+    & .bind-status {
+        color: #4a943f;
+    }
+    & .nobind-status {
+        color: #999;
+    }
+}
+.text-style {
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.wrapper {
+    box-sizing: border-box;
+    padding-top: 20px;
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+.dategrid-wrapper {
+    padding-top: 46px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.table-left {
+    display: table-cell;
+    width: 50%;
+    height: 100%;
+}
+.table-right {
+    display: table-cell;
+    width: 50%;
+    height: 100%;
+}
+.device-label {
+    display: inline-block;
+    padding: 0 10px 5px 0;
+}
+.device-field {
+    display: inline-block;
+    padding: 0 0 5px 0;
+    line-height: 1;
+}
+.btn-wraper{
+    display: inline-block;
+    position: relative;
+    width:60px;
+    height:30px;
+    text-align: center;
+    vertical-align: middle;
+    & .btn-uploader-picker{
+        width:58px;
+        height:28px;
+        line-height: 28px;
+        border: 1px solid #d3d8db;
+        cursor: pointer;
+    }
+    & .disabled{
+        position: absolute;
+        top:0;
+        left:0;
+        width:58px;
+        height:28px;
+        line-height: 28px;
+        background: #e0e0e0;
+        color: #c8c8c8;
+        border:#e0e0e0 solid 1px;
+    }
+}
+.file-select{
+    display:inline-block;
+    position: relative;
+    height: var(--input-height);
+    & .btn-cover{
+        position:absolute;
+        left:0;
+        top:0;
+    }
+
+    .batch-import {
+        display: inline-flex;
+        align-items: center;
+    }
+}
+.plainbutton {
+    height: var(--input-height);
+    line-height: var(--input-height);
+    padding: 0 8px;
+    background-color: var(--control-background-color);
+    border: 1px solid transparent;
+    box-shadow: none;
+    cursor: pointer;
+
+    & .icon {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    &:hover {
+        background-color: var(--anyshare-grey-02);
+        @apply --input-border;
+    }
+
+    &:active {
+        background-color: var(--anyshare-grey-03);
+    }
+
+    &:focus {
+        outline: none;
+    }
+    &:focus[disabled] {
+        border: 1px solid transparent;
+        background-color: var(--control-background-color);
+    }
+    &:hover[disabled] {
+        border: 1px solid transparent;
+        background-color: var(--control-background-color);
+    }
+
+    &:active[disabled] {
+        border: 1px solid transparent;
+        background-color: var(--control-background-color);
+    }
+
+}
+
+.box-sizing-border-box {
+    box-sizing: border-box;
+}
+
+.disabled {
+    @apply --disabled;
+}
+
+.uploading-wrap{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: 2;
+}
+.loading-text {
+    padding-top: var(--layout-spacing-medium);
+    color: var(--font-color-secondary);
+}
+.margin{
+    padding:0 8px;
+    margin: 0 1px;
+    display: inline-flex;
+    align-items: center;
+}

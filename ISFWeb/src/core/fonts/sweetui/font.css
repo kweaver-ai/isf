@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'SweetUI';
+    src: url('./SweetUI.eot');
+    src:
+        url('./SweetUI.eot?#iefix') format('embedded-opentype'),
+        url('./SweetUI.woff2') format('woff2'),
+        url('./SweetUI.woff') format('woff'),
+        url('./SweetUI.ttf') format('truetype'),
+        url('./SweetUI.svg#SweetUI') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

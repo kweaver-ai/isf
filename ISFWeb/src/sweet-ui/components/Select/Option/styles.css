@@ -1,0 +1,38 @@
+@import '../../../../core/styles/root.css';
+
+.select-option {
+    box-sizing: content-box;
+    height: 20px;
+    padding: 5px 10px;
+    line-height: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+        background: #f0f5ff;
+    }
+
+    &:active {
+        background: #f0f5ff;
+    }
+
+    &.disabled {
+        color: var(--font-color-disabled);
+        cursor: default;
+
+        &:hover {
+            color: var(--font-color-disabled);
+            background: #ffffff;
+        }
+
+        &:active {
+            color: var(--font-color-disabled);
+            background: #ffffff;
+        }
+
+    }
+
+    &.select-option-active {
+        background: #f0f5ff;
+    }
+}

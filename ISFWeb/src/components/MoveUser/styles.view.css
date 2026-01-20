@@ -1,0 +1,28 @@
+:local .container {
+
+    & .dialog {
+        max-width: 590px;
+
+        & .dialog-text-space {
+            margin: 0 4px;
+        }
+
+        & .dep-tree {
+            height: 300px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            padding: 20px;
+            overflow: auto;
+            width: 320px;
+        }
+
+        & .select-text {
+            line-height: 30px;
+        }
+
+        & .select-panel {
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+}

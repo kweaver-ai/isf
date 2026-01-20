@@ -1,0 +1,130 @@
+#
+# Resource script for US.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cfl 2.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################################################
+#
+######################################################################
+
+msgid "IDS_INVALID_CUSTOM_DOC_QUOTA"
+msgstr "Library quota must be larger or equal to 200GB"
+
+msgid "IDS_OWNER_NOT_EXISTS"
+msgstr "Library owner does not exist or has been deleted"
+
+msgid "IDS_OWNER_DISABLE"
+msgstr "Library owner is disabled."
+
+msgid "IDS_NO_OWNER"
+msgstr "Library owner is not set"
+
+msgid "IDS_FORBID_QUOTA_SIZE_DECREASED"
+msgstr "You cannot decrease library quota"
+
+msgid "IDS_EXCEED_MAX_CUSTOM_DOC_TYPE_COUNT"
+msgstr "Library types should be less than 7"
+
+msgid "ACS_USER_DOC"
+msgstr "My Documents"
+
+msgid "ACS_SHARE_DOC"
+msgstr "Shared Documents"
+
+msgid "IDS_DOC_ID_NOT_EXISTS"
+msgstr "Library ID does not exist"
+
+msgid "IDS_NOT_CREATER_CANT_EDIT"
+msgstr "You are not library creator and cannot edit this library"
+
+msgid "IDS_EDITER_NOT_EXISTS"
+msgstr "Editor ID does not exist"
+
+msgid "IDS_NON_MANAGER_CANT_CREATE"
+msgstr "Only general admin can create libraries."
+
+msgid "IDS_CANT_DECREASE_QUOTA"
+msgstr "Set total quota failed."
+
+msgid "IDS_ARGS_INVALID_OR_NOTSET"
+msgstr "Parameter is invalid or not set"
+
+msgid "IDS_CA_INFO_NOT_SET"
+msgstr "CA message is not set"
+
+msgid "IDS_YOU_ARE_NOT_ADMIN"
+msgstr "You are not admin and cannot do this operation"
+
+msgid "IDS_CUSTOM_QUOTA_NUM_WRONG"
+msgstr "Invalid quota"
+
+msgid "IDS_USER_QUOTA_NUM_WRONG"
+msgstr "Invalid quota"
+
+msgid "IDS_INVALID_OAUTH_INFO"
+msgstr "Invalid OAuth info, parameter must be valid URL"
+
+msgid "IDS_OAUTH_INFO_NOT_SET"
+msgstr "OAuth info is not set and cannot be enabled"
+
+msgid "IDS_INVALID_LICENSE"
+msgstr "License verification failed, unknown license type."
+
+msgid "IDS_INVALID_ACTIVE_STRING"
+msgstr "Activation failed, activation code, license and machine code do not match, please enter correct activation code."
+
+msgid "IDS_UNKNOWN_ERROR"
+msgstr "Unknown error."
+
+msgid "IDS_NO_ENOUGH_QUOTA"
+msgstr "Insufficient quota"
+
+msgid "IDS_SPACE_ALLOCATED_FOR_USER_EXCEEDS_THE_MAX_LIMIT"
+msgstr "Space allocated for user exceeds the max limit."
+
+msgid "IDS_INVALID_LIMIT_VALUE"
+msgstr "Limit parameter error: limit must be greater than or equal to -1."
+
+msgid "IDS_NCT_MUTITENANT_USER_BELONG_ONE_OU"
+msgstr "User should belong to only one organization in multi-tenant mode."
+
+msgid "IDS_RESTART_SHAREMGNT_SERVER_FAILED"
+msgstr "Failed to restart sharemgnt_server"
+
+msgid "NCT_INVALID_QUOTA"
+msgstr "Invalid quota"
+
+msgid "IDS_PUBLISH_DOCUMENT_EXCHANGE_EXMSG"
+msgstr "Approval type: %s, File path: %s."
+
+msgid "IDS_FILE"
+msgstr "file"
+
+msgid "IDS_DIR"
+msgstr "folder"
+
+msgid "IDS_SEND_BOX"
+msgstr "{File Outbox}"
+
+msgid "IDS_SITE_NOT_HAS_BEEN_ADDED"
+msgstr "The site has not been added."
+
+msgid "IDS_INVALID_EXPIRED_INTERVAL"
+msgstr "Invalid file lock timeout value"
+
+msgid "IDS_USER_NOT_REAL_NAME_AUTH"
+msgstr "The user has not completed real-name authentication"
+
+msgid "IDS_INVALID_JSON"
+msgstr "JSON format error"
+
+msgid "IDS_INVALID_MAC_ADDR"
+msgstr "MAC address (%s) error"

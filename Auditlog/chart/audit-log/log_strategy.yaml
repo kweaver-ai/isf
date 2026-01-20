@@ -1,0 +1,31 @@
+- type: login
+  active_log:
+    - role: sec_admin
+      scope:
+        - audit_admin
+        - normal_user
+    - role: audit_admin
+      scope:
+        - sys_admin
+        - sec_admin
+  history_log:
+    - sec_admin
+- type: management
+  active_log:
+    - role: sec_admin
+      scope:
+        - audit_admin
+        - normal_user
+    - role: audit_admin
+      scope:
+        - sys_admin
+        - sec_admin
+  history_log:
+    - sec_admin
+- type: operation
+  active_log:
+    - role: sec_admin
+      scope:
+        - normal_user
+  history_log:
+    - sec_admin

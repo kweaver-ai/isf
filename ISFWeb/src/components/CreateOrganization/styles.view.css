@@ -1,0 +1,17 @@
+@import '../../core/styles/root.css';
+.left-width {
+    width: 102px;
+    display: table-cell;
+    padding: 0 8px 0 0;
+    vertical-align: middle;
+}
+
+.required {
+    float: right;
+    padding-top: 3px;
+    color: var(--color-error);
+}
+
+.tag-style {
+    top: -2px;
+}

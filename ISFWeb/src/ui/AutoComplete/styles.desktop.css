@@ -1,0 +1,28 @@
+.container {
+    display: inline-block;
+    position: relative;
+
+    & .results {
+        min-width: 120px;
+        border: 1px solid rgba(0,0,0,0.05);
+        box-shadow: 0 2px 9px 1px rgba(0,0,0,0.10);
+        border-radius: 4px;
+    }
+
+    & .missing-message {
+        position: relative;
+        top: 1px;
+        z-index: 1;
+
+        & > .padding {
+            position: absolute;
+            left: 0;
+            right: 0;
+            padding: .5em;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 9px 1px rgba(0,0,0,0.10);
+            border-radius: 4px;
+            background: #ffffff;
+        }
+    }
+}

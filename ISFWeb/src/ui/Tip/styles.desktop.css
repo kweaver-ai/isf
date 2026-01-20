@@ -1,0 +1,55 @@
+:local {
+    & .tip {
+        display: inline-block;
+        position: relative;
+        z-index: 100;
+        max-width: 200px;
+
+        & .pointer {
+            display: inline-block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 10px solid;
+            
+
+            & .pointer-inner {
+                display: inline-block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                border: 9px solid;
+                
+            }
+            & .pointer-inner-right{
+                left: 1px;
+                top: -9px;
+                border-width: 9px 9px 9px 0;
+            }
+            & .pointer-inner-top{
+                bottom: 1px;
+                left: -9px;
+                border-width: 9px 9px 0 9px;
+            }
+        }
+        & .pointer-right{
+            border-width: 10px 10px 10px 0;
+        }
+        & .pointer-top{
+            border-width: 10px 10px 0 10px;
+            left:12px;
+            bottom:-9px;
+        }
+        & .content {
+            text-align: left;
+            display: inline-block;
+            padding: 5px;
+            border: 1px solid;
+            margin-left: 9px;
+            cursor: default;
+        }
+        & .nowarp {
+          white-space: nowrap;
+        }
+    }
+}

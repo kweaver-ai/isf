@@ -1,0 +1,22 @@
+@import '../../core/styles/root.css';
+
+.current {
+    cursor: pointer;
+    padding: 0  var(--layout-spacing-small);
+
+    & .icon {
+        color: var(--font-color-list);
+        font-size:16px;
+    }
+
+    & .drop-icon {
+        /* 下拉符号的字体图标有自带白边,视觉效果距离变大 */
+        margin-left: -4px; 
+    }
+
+    .text {
+        padding: 0  var(--layout-spacing-small);
+        color: var(--font-color-regular);
+        font-size: 14px;
+    }
+}

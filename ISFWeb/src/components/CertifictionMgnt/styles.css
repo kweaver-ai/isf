@@ -1,0 +1,27 @@
+@import '../../core/styles/root.css';
+
+.cerifiction-mgnt {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 8px 24px 24px 24px;
+
+    
+    :global {
+        .isf-tabs {
+            position: absolute;
+            width: calc(100% - 48px);
+            height: calc(100% - 32px);
+
+            .isf-tabs-content {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .isf-tabs-nav {
+                margin: 0;
+            }
+        }
+    }
+}

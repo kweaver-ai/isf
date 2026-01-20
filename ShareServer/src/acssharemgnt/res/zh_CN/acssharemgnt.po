@@ -1,0 +1,28 @@
+#
+# Resource script for US.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cfl 2.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################################################
+#
+######################################################################
+
+msgid "IDS_TEMP_CONTACTOR_GROUP_NAME"
+msgstr "临时联系人"
+
+msgid "IDS_ACS_SHARE_MGNT_ANONYMOUS_NAME"
+msgstr "匿名用户"
+
+msgid "IDS_ACS_SHARE_MGNT_DATAEXCHANGE_NAME"
+msgstr "系统"
+
+msgid "IDS_ALL_USER_GROUP_NAME"
+msgstr "所有用户"

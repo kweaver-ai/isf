@@ -1,0 +1,51 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+
+native String(String);
+[ref] native StringRef(String);
+
+%{ C++
+
+
+/**
+ * acs token manager
+ */
+#define NC_ACS_TOKEN_MANAGER_CID \
+{ \
+    0xb56650d8, \
+    0x6679,    \
+    0x4d3e,    \
+     { 0x8f, 0x14, 0x78, 0x90, 0x24, 0xb6, 0x25, 0xd3 } \
+}
+
+/**
+ * acs token manager
+ */
+#define NC_ACS_TOKEN_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acstokenmanager;1"
+
+%}
+
+[uuid (2AB4F1A4-8218-4fdd-B107-4E930DB5F524)]
+interface ncIACSTokenManager: nsISupports
+{
+    // ------------------------------------------------------------------------------------------------------
+    // access token 管理
+    // ------------------------------------------------------------------------------------------------------
+
+
+    /*
+     * 根据用户id删除所有的token信息（用以删除用户时，删除对应的token信息）
+     */
+    [notxpcom] void DeleteTokenByUserId ([const] in StringRef userId);
+
+    /*
+     * 根据用户id和udid查找是否存在token
+     * 如果找到，返回true
+     * 如果未找到，返回false
+     */
+    [notxpcom] bool HasTokenByUDID([const] in StringRef userId, [const] in StringRef udid);
+};

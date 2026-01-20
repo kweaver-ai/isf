@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'AnyShare';
+  src: url('./AnyShare.eot');
+  src: url('./AnyShare.eot?#iefix') format('embedded-opentype'),
+    url('./AnyShare.ttf') format('truetype'),
+    url('./AnyShare.woff') format('woff'),
+    url('./AnyShare.woff2') format('woff2'),
+    url('./AnyShare.svg#AnyShare') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

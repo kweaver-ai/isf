@@ -1,0 +1,16 @@
+.name {
+    display: flex;
+    line-height: 16px;
+
+    & .name-before {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: nowrap;
+    }
+
+    & .name-after {
+        word-break: break-all;
+        white-space: nowrap;
+    }
+}

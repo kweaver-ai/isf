@@ -1,0 +1,39 @@
+@import '../../core/styles/root.css';
+
+.link-button{
+    display: inline-block;
+    width: auto;
+    padding: 0 var(--layout-spacing-small);
+    border: 0;
+    font-size: var(--font-size-secondary);
+    text-decoration: none;
+    vertical-align: middle;
+    margin-left:5px;
+    color: var(--font-color-link);
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    font-family: var(--font-family);
+
+    &:hover{
+        color: var(--font-color-link__hover);
+        background-color: var(--background-light);
+    }
+
+    &:active{
+        background-color: var(--background-light);
+        color: var(--font-color-link__active);
+    }
+}
+
+.disabled{
+    color: var(--font-color-disabled);
+
+    &:hover{
+        color:var(--font-color-disabled);
+    }
+
+    &:active{
+        color:var(--font-color-disabled);
+    }
+}

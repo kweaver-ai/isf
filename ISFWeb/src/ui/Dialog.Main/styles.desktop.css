@@ -1,0 +1,15 @@
+.container {
+    padding: 0 35px; /* 左右拖拽 */
+    background: #fff;
+
+    &[role="drag-area"] {
+        cursor: move;
+    }
+
+    & .padding {
+        min-height: 62px; /* Dialog最小高度130px，通过计算减去Header/Footer和自身padding得到 */
+        padding: 20px 0; /* 左右拖拽 */
+        background: #fff;
+        cursor: default;
+    }
+}

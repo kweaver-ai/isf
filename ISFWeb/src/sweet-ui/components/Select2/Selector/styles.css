@@ -1,0 +1,113 @@
+@import '../../../../core/styles/root.css';
+
+.wrapper {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    border: 1px solid var(--control-border-color);
+    box-sizing: border-box;
+    border-radius: var(--control-border-radius);
+    cursor: pointer;
+
+    &:hover {
+        border-color: var(--control-border-color__hover);
+    }
+
+    &:active {
+        border-color: var(--control-border-color__focus);
+        box-shadow: var(--control-shadow__focus);
+    }
+
+    &.error {
+        border-color: var(--border-color__error);
+        padding-right: 28px;
+
+        &:hover,
+        &:active {
+            border-color: var(--border-color__error);
+            box-shadow: var(--control-shadow__disabled);
+        }
+    }
+
+    &.normal-active {
+        border-color: var(--control-border-color__focus);
+        box-shadow: var(--control-shadow__focus);
+    }
+
+    &.error-active {
+        border-color: var(--border-color__error);
+    }
+
+    &.disabled {
+        background-color: #fafafa;
+        cursor: default;
+
+        &:hover,
+        &:active {
+            border-color: var(--control-border-color__disabled);
+            box-shadow: var(--control-shadow__disabled)
+        }
+    }
+
+    & .input {
+        width: 100%;
+        height: 100%;
+        padding: 0 32px 0 8px;
+        box-sizing: border-box;
+        color: #505050;
+        border-radius: var(--control-border-radius);
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &.disabled {
+            color: var(--font-color-disabled);
+            cursor: default;
+        }
+    }
+
+    & .placeholder {
+        color: var(--font-color-disabled);
+    }
+
+    & .disable-input {
+        display: inline-block;
+        box-sizing: content-box;
+        width: 72%;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 32px 0 8px;
+        font-size: 13px;
+        color: var(--font-color-disabled);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &.empty {
+            height: 24px;
+            line-height: 24px;
+        }
+    }
+
+    & .arrow-down {
+        position: absolute;
+        top: 7px;
+        right: 8px;
+        color: rgba(0, 0, 0, 0.45);
+
+        &.disabled {
+            color: rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+
+    & .caution {
+        position: absolute;
+        top: 6px;
+        right: 28px;
+    }
+}

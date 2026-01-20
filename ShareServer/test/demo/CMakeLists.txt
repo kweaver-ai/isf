@@ -1,0 +1,7 @@
+
+#project name :acs_demo
+PROJECT(ACSDEMO)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+ADD_SUBDIRECTORY(acsutil)

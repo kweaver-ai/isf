@@ -1,0 +1,22 @@
+.panel-main {
+    padding: 24px 30px;
+    background: #fff;
+    cursor: default;
+
+    & .icon {
+        display: inline-block;
+    }
+
+    & .message {
+        display: inline-block;
+        max-width: 280px;
+        margin-left: 16px;
+        line-height: 1.5;
+        vertical-align: top;
+        word-break: break-all;
+
+        & .tips {
+            margin-bottom: 8px
+        }
+    }
+}

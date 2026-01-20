@@ -1,0 +1,23 @@
+@import '../../../core/styles/root.css';
+
+.drop-menu {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+
+    min-width: 120px;
+    min-height: 40px;
+    margin: 0;
+    padding: 4px 0;
+    overflow-y: auto;
+    border-radius:var(--control-border-radius);
+    list-style: none;
+    color: var(--font-color-regular);
+    white-space: nowrap;
+
+    &.box-sizing-border-box {
+        box-sizing: border-box;
+    }
+}

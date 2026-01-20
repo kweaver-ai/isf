@@ -1,0 +1,88 @@
+#include "nsISupports.idl"
+
+native int(int);
+native int64(int64);
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native StringVecRef(vector<String>);
+
+[ref] native dbMessageResultVecRef(vector<dbMessageResult>);
+
+%{ C++
+
+/**
+ * db message manager
+ */
+#define NC_DB_MESSAGE_MANAGER_CID \
+{ \
+    0xec464d30, \
+    0xccae,    \
+    0x47a7,    \
+     { 0x9d, 0x9d, 0x7b, 0xe3, 0xdc, 0xc7, 0x2c, 0x7a } \
+}
+
+/**
+ * db message manager
+ */
+#define NC_DB_MESSAGE_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsdb/dbmessagemanager;1"
+
+// 消息返回
+struct dbMessageResult {
+    String        msgId;         // 消息id
+    String        msgContent;    // 消息内容
+    int64         msgStamp;      // 消息创建时间
+    int           msgStatus;     // 消息状态
+};
+
+%}
+
+[uuid (D9C8B7D3-CDCD-4C5A-8BC9-A94731C3ED24)]
+interface ncIDBMessageManager: nsISupports
+{
+    /*
+     * 添加一条消息记录
+     */
+    [notxpcom] void AddMessage ([const] in StringRef msgid, [const] in StringRef content, [const] in StringVecRef tousers, [const] in StringRef taskId);
+
+    /*
+     * 获取指定用户消息记录
+     */
+    [notxpcom] void GetMessageByUserId ([const] in StringRef userid, in int64 stamp, in int limit, in dbMessageResultVecRef msgs);
+
+    /*
+     * 更新用户所有消息状态
+     */
+    [notxpcom] void ReadMessageByUserId ([const] in StringRef userid, in int64 stamp);
+
+    /*
+     * 更加消息id批量更新消息读取状态
+     */
+    [notxpcom] void ReadMessageByIds ([const] in StringRef userid, [const] in StringVecRef msgids);
+
+    /*
+     * 通过处理任务更新消息读取状态
+     */
+    [notxpcom] void ReadMessageByTaskId ([const] in StringRef userid, [const] in StringRef taskId);
+
+    /*
+     * 通过处理任务批量更新消息读取状态
+     */
+    [notxpcom] void BatchReadMessageByTaskId ([const] in StringRef taskId);
+
+    /*
+     * 通过消息id更新消息读取状态
+     */
+    [notxpcom] void ReadMessageByMsgId ([const] in StringRef msgId);
+
+    /*
+     * 通过消息id和接收者id组更新消息读取状态
+     */
+    [notxpcom] void ReadMessageByMsgIdAndReceiverIds ([const] in StringRef msgId, [const] in StringVecRef receiverIds);
+
+    /*
+     * 删除过期的消息
+     */
+    [notxpcom] void DelMessage (in int64 stamp);
+};

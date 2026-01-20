@@ -1,0 +1,33 @@
+.searchbox {
+    & .icon-indent {
+        margin-left: 24px;
+    }
+    & .clear-indent {
+        margin-right: 24px;
+    }
+    & .icon {
+        position: absolute;
+        top: 6px;
+        left: 8px;
+        line-height: 14px;
+    }
+    & .clear {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        line-height: 16px;
+        & .chip-x-icon {
+            color: rgba(80, 80, 80, 0.45);
+            &:hover {
+                cursor: pointer;
+                color: rgba(80, 80, 80, 1);
+            }
+            &:active {
+                color: rgba(80, 80, 80, 1);
+            }
+        }
+    }
+    & .icon-padding {
+        padding: 0 3px;
+    }
+}

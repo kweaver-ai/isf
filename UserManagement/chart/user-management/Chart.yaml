@@ -1,0 +1,9 @@
+apiVersion: v1
+appVersion: "1.0.0"
+description: A Helm user-management service chart for Kubernetes
+name: user-management
+version: 1.0.0
+keywords:
+  - user-management
+  - InformationSecurityFabric
+engine: gotpl

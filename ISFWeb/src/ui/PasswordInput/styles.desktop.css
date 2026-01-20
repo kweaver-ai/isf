@@ -1,0 +1,31 @@
+:local {
+    & .input {
+        width: 100%;
+        padding: 0;
+        border: none;
+        background: none;
+        line-height: 1.16;
+        outline: none;
+        /* chrome中将密码显示为圆点 */
+        text-security: disc;
+        -webkit-text-security: disc;
+        -moz-text-security: disc;
+        -ms-text-security: disc;
+    }
+
+    & .input::-webkit-input-placeholder{
+        color:#c8c8c8;
+    }
+    & .input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+        color:#c8c8c8;
+    }
+    & .input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+        color:#c8c8c8;
+    }
+    & .input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+        color:#c8c8c8;
+    }
+    & .input::-ms-reveal {  /*IE 不显示显示密码按钮*/
+        display: none; 
+   }
+}

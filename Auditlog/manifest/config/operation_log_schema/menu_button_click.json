@@ -1,0 +1,182 @@
+{
+    "type": "object",
+    "properties": {
+      "object": {
+        "type": [
+          "object",
+          "null"
+        ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "file",
+                "folder",
+                "fav_category",
+                "doc_lib_type"
+              ]
+            },
+            "path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "size": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "tags": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": "string"
+              }
+            },
+            "doc_lib": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "user_doc_lib",
+                    "department_doc_lib",
+                    "custom_doc_lib",
+                    "knowledge_doc_lib"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "type"
+          ]
+      },
+      "detail": {
+        "type": "object",
+        "properties": {
+          "op_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "操作名称（按钮名称）"
+          },
+          "op_type": {
+            "type": "string",
+            "minLength": 1,
+            "description": "操作类型",
+            "enum": [
+              "op_configed_built-in",
+              "op_configed_from-appstore",
+              "other"
+            ]
+          },
+          "position": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "minLength": 1,
+                "description": "操作按钮所在位置类型（如：文档中心, 智能搜索等）",
+                "enum": [
+                  "agentmessage",
+                  "autosheets",
+                  "autosheetsNewFile",
+                  "autosheetsNewForm",
+                  "cognitiveAssistant",
+                  "content-automation",
+                  "dir",
+                  "dir/filelock",
+                  "dir/quarantine",
+                  "dir/recycle",
+                  "dir/sharemanage",
+                  "dir/starred",
+                  "doc_lib_type",
+                  "home",
+                  "knowledge-center",
+                  "notificationmessage",
+                  "personalhomepage/follow",
+                  "personalhomepage/profile",
+                  "portal",
+                  "preview",
+                  "settingsmenu",
+                  "sharelink_anonymous",
+                  "smartSearch",
+                  "syncdisk",
+                  "work-center",
+                  "search-mobile",
+                  "doc-audit-mobile",
+                  "kc-mobile",
+                  "link"
+                ]
+              },
+              "path_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "路径gns"
+              },
+              "path_name": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "路径name"
+              },
+              "area_type": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "description": "操作按钮在页面上的位置"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "op_name",
+          "op_type",
+          "position"
+        ]
+      }
+    },
+    "required": [
+      "detail"
+    ]
+  }
+  

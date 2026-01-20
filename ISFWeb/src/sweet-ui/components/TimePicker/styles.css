@@ -1,0 +1,81 @@
+@import '../../../core/styles/root.css';
+
+.time-picker {
+    position: relative;
+    display: inline-block;
+    height: var(--input-height);
+    padding: 4px 56px 4px 8px;
+    border: 1px solid var(--control-border-color);
+    border-radius: var(--control-border-radius);
+    box-sizing: border-box;
+    background-color: var(--control-background-color);
+
+    &:hover {
+        border-color: var(--control-border-color__hover);
+    }
+
+    &:active {
+        border-color: var(--control-border-color__focus);
+        box-shadow: var(--control-shadow__focus);
+    }
+
+    &.disabled {
+        border-color: var(--control-border-color__disabled);
+        background-color:  var(--control-background-color__disabled);
+        box-shadow: var(--control-shadow__disabled);
+    }
+
+    &.active {
+        border-color: var(--control-border-color__focus);
+        box-shadow: var(--control-shadow__focus);
+    }
+
+    & .time-input {
+        line-height: 21px;
+    }
+
+    & .time-icon {
+        position: absolute;
+        right: 8px;
+        line-height: 21px;
+        color: #5b5d66;
+
+        &.disabled {
+            color: #5b5d66;
+            opacity: 0.4;
+        }
+    }
+
+    & .clear-button {
+        position: absolute;
+        right: 32px;
+        line-height: 21px;
+        opacity: 0;
+        color: rgba(93, 91, 102, 0.5);
+        z-index: 2;
+
+        &:hover {
+            color: rgba(93, 91, 102, 1);
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        &:active {
+            color: rgba(93, 91, 102, 1);
+            opacity: 1;
+        }
+    }
+
+}
+
+.time-panel {
+    position: relative;
+    height: 200px;
+    width: 240px;
+    box-sizing: border-box;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.10);
+    border-radius: 4px;
+}

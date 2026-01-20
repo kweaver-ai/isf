@@ -1,0 +1,18 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rule-{{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  ingressClassName: {{ index .Values.depServices "class-443" "ingressClass" }}
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: {{ .Chart.Name }}
+                port:
+                  number: {{ .Values.service.port }}
+            path: /isfweb/
+            pathType: Prefix

@@ -1,0 +1,31 @@
+@import '../../../core/styles/root.css';
+
+.icon-button {
+    box-sizing: border-box;
+    /* padding: 3px; */
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: var(--font-color-regular);
+    vertical-align: middle;
+
+    &:hover {
+        background: #fff;
+        border-color: #d3d4db;
+    }
+
+    &:active {
+        background: rgba(211, 212, 219, 0.6);
+        border: none;
+    }
+
+    &.disabled {
+        border-color: transparent;
+        opacity: 0.3 !important;
+
+        &:hover,
+        &:active {
+            background: none;
+            border-color: transparent;
+        }
+    }
+}

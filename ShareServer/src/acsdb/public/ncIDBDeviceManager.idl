@@ -1,0 +1,145 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native dbDeviceInfoVecRef(vector<dbDeviceInfo>);
+[ref] native dbDeviceInfoRef(dbDeviceInfo);
+[ref] native dbDeviceBaseInfoRef(dbDeviceBaseInfo);
+[ref] native SetStringRef(set<String>);
+[ref] native StringIntMapRef (map<String, int>);
+[ref] native dbDeviceBaseInfoVecRef(vector<dbDeviceBaseInfo>);
+[ref] native VecStringRef(vector<String>);
+[ref] native StringVecMapRef(map<String, vector<String> >);
+
+%{ C++
+
+/**
+ * db device manager
+ */
+// 1f3ea61f-c5ca-49ae-bf8d-6aba353799c4
+#define NC_DB_DEVICE_MANAGER_CID \
+{ \
+    0x1f3ea61f, \
+    0xc5ca,    \
+    0x49ae,    \
+     { 0xbf, 0x8d, 0x6a, 0xba, 0x35, 0x37, 0x99, 0xc4 } \
+}
+
+/**
+ * db device manager
+ */
+#define NC_DB_DEVICE_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsdb/dbdevicemanager;1"
+
+// dbDeviceBaseInfo
+struct dbDeviceBaseInfo {
+    String      udid;           // 设备唯一标识号
+    String      name;           // 设备名称
+    int         osType;         // 操作系统类型
+    String      deviceType;     // 设备类型
+    String      lastLoginIp;    // 上次登录ip
+    int64       lastLoginTime;  // 上次登录时间
+};
+
+// deviceInfo
+struct dbDeviceInfo {
+    dbDeviceBaseInfo baseInfo;  // 基础信息
+    int         eraseFlag;      // 缓存擦除标识
+    int64       lastEraseTime;  // 上次缓存擦除时间
+    int         disableFlag;    // 禁用标识
+    int         bindFlag;       // 绑定标识
+};
+
+%}
+
+[uuid (ff1ea6d7-d7d4-47c3-9e01-21de1f555911)]
+interface ncIDBDeviceManager: nsISupports
+{
+    // ------------------------------------------------------------------------------------------------------
+    // Device 管理
+    // ------------------------------------------------------------------------------------------------------
+
+    /*
+     * 根据用户id获取所有设备信息
+     */
+    [notxpcom] void GetDevicesByUserIdAndUdid([const] in StringRef userId, [const] in StringRef udid, in dbDeviceInfoVecRef deviceInfos, in int start, in int limit);
+
+    /*
+     * 添加登录设备
+     */
+    [notxpcom] void AddDevice([const] in StringRef userId, [const] in dbDeviceBaseInfoRef baseInfo);
+
+    /*
+     * 批量添加设备
+     */
+    [notxpcom] void AddDevices([const] in StringRef userId, [const] in dbDeviceBaseInfoVecRef baseInfos);
+
+    /*
+     * 删除登录设备，如果 udids 为空，删除用户的所有设备
+     */
+    [notxpcom] void DeleteDevices([const] in StringRef userId, [const] in VecStringRef udids);
+
+    /*
+     * 获取登录设备信息
+     */
+    [notxpcom] bool GetDeviceByUDID([const] in StringRef userId, [const] in StringRef udid, in dbDeviceInfoRef deviceInfo);
+
+    /*
+     * 更新设备的信息
+     */
+    [notxpcom] void UpdateDevice([const] in StringRef userId, [const] in dbDeviceBaseInfoRef baseInfo);
+
+    /*
+     * 设置缓存擦除状态
+     */
+    [notxpcom] void SetEraseStatus([const] in StringRef userId, [const] in StringRef udid);
+
+    /*
+     * 设置擦除成功标识
+     */
+    [notxpcom] void SetEraseSucInfo([const] in StringRef userId, [const] in StringRef udid, in int64 date);
+
+    /*
+     * 设置禁用状态
+     */
+    [notxpcom] void SetDisableStatus([const] in StringRef userId, [const] in StringRef udid);
+
+    /*
+     * 设置启用状态
+     */
+    [notxpcom] void SetEnableStatus([const] in StringRef userId, [const] in StringRef udid);
+
+    /*
+     * 设置绑定状态
+     */
+    [notxpcom] void SetBindStatus([const] in StringRef userId, [const] in VecStringRef udids);
+
+    /*
+     * 设置解绑状态
+     */
+    [notxpcom] void SetUnbindStatus([const] in StringRef userId, [const] in StringRef udid);
+
+    /*
+     * 根据用户id获取绑定的设备
+     */
+    [notxpcom] void GetBindDevices([const] in StringRef userId, in StringIntMapRef udidsMap);
+
+    /*
+     * 根据用户id和所有用户获取绑定的设备
+     */
+    [notxpcom] void GetBindDevicesWithAllUser([const] in StringRef userId, in StringVecMapRef udidsMap);
+
+    /*
+     * 获取用户是否有配置过设备信息
+     */
+    [notxpcom] bool UserHasDeviceInfo([const] in StringRef userId, in bool binded);
+
+    /*
+     * 根据设备udid获取设备绑定的用户
+     */
+    [notxpcom] void GetUserNameByUdid([const] in StringRef udid, in VecStringRef users, in int start, in int limit);
+};

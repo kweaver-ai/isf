@@ -1,0 +1,17 @@
+:local .container {
+    & .select-dialog {
+        padding: 5px 0;
+    }
+
+    & .container-select {
+        display: inline-block;
+        height: 30px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        vertical-align: middle;
+    }
+
+    & .dialog-text-space {
+        margin: 0 4px;
+    }
+}

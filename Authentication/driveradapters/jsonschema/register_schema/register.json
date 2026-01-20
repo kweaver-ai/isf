@@ -1,0 +1,97 @@
+{
+    "required": [
+        "grant_types",
+        "response_types",
+        "scope",
+        "redirect_uris",
+        "post_logout_redirect_uris",
+        "client_name",
+        "metadata"
+    ],
+    "type": "object",
+    "properties": {
+        "redirect_uris": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "grant_types": {
+            "type": "array",
+            "minItems": 3,
+            "uniqueItems": true,
+            "items": {
+                "enum": [
+                    "authorization_code",
+                    "implicit",
+                    "refresh_token"
+                ],
+                "type": "string"
+            }
+        },
+        "response_types": {
+            "type": "array",
+            "minItems": 3,
+            "uniqueItems": true,
+            "items": {
+                "enum": [
+                    "code",
+                    "token",
+                    "token id_token"
+                ],
+                "type": "string"
+            }
+        },
+        "client_name": {
+            "type": "string"
+        },
+        "scope": {
+            "type": "string"
+        },
+        "post_logout_redirect_uris": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "metadata": {
+            "required": [
+                "device"
+            ],
+            "type": "object",
+            "properties": {
+                "device": {
+                    "required": [
+                        "client_type"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "client_type": {
+                            "enum": [
+                                "unknown",
+                                "ios",
+                                "android",
+                                "windows_phone",
+                                "windows",
+                                "mac_os",
+                                "web",
+                                "mobile_web",
+                                "console_web",
+                                "deploy_web",
+                                "linux"
+                            ],
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "additionalProperties": true
+        }
+    }
+}

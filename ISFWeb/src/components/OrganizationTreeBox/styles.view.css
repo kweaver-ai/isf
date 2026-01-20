@@ -1,0 +1,22 @@
+.container {
+
+    & .flexbox-item {
+        height: 100%;
+    }
+
+    & .selecor {
+        box-sizing: border-box;
+
+        & .tree-wrapper {
+            box-sizing: border-box;
+
+            &.show-search {
+                margin-top: 8px;
+            }
+        }
+    }
+}
+
+.save-btn {
+    margin-right: 10px;
+}

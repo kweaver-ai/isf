@@ -1,0 +1,17 @@
+.tree-wrapper {
+    height: 350px;
+    width: 390px;
+    margin-top: 15px;
+    padding: 0 6px;
+    overflow: auto;
+    border: 1px solid #cccccc;
+}
+
+.loading {
+    padding-bottom: 32px;
+    text-align: center;
+
+    & .loading-icon {
+        margin-bottom: 8px;
+    }
+}

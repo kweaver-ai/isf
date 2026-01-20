@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "required": [
+      "operation",
+      "description",
+      "op_time",
+      "log_from",
+      "level",
+      "out_biz_id",
+      "type"
+    ],
+    "properties": {
+      "operation": {
+        "type": "string",
+        "description": "操作类型，需要进行枚举检查"
+      },
+      "description": {
+        "type": "string",
+        "maxLength": 65535,
+        "description": "字符串描述，最大长度为65535个字符"
+      },
+      "op_time": {
+        "type": "integer",
+        "description": "操作时间，精确到纳秒"
+      },
+      "object": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "对象类型"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 128,
+            "description": "对象名称"
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 40,
+            "description": "对象ID"
+          }
+        }
+      },
+      "log_from": {
+        "type": "object",
+        "required": ["package", "service"],
+        "properties": {
+          "package": {
+            "type": "string",
+            "description": "大包名"
+          },
+          "service": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "服务名称"
+              }
+            }
+          }
+        }
+      },
+      "detail": {
+        "type": "object",
+        "description": "细节"
+      },
+      "ex_msg": {
+        "type": "string",
+        "maxLength": 65535,
+        "description": "附加信息"
+      },
+      "level": {
+        "type": "string",
+        "enum": ["WARN", "INFO"],
+        "description": "日志级别"
+      },
+      "out_biz_id": {
+        "type": "string",
+        "maxLength": 128,
+        "description": "外部唯一业务ID"
+      },
+      "type": {
+        "type": "string",
+        "enum": ["login", "operation", "management"],
+        "description": "日志类型"
+      }
+    }
+  }

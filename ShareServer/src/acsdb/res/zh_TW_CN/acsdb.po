@@ -1,0 +1,28 @@
+#
+# Resource script for US.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cfl 2.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################################################
+#
+######################################################################
+
+msgid "IDS_CURRENT_PATH_OPENED"
+msgstr "目前的目錄已開啟發現共用"
+
+msgid "IDS_UP_LEVEL_PATH_OPENED"
+msgstr "上級目錄已開啟發現共用"
+
+msgid "IDS_CURRENT_PATH_NOT_OPENED"
+msgstr "目前的目錄未開啟發現共用"
+
+msgid "IDS_DB_ALL_USER_GROUP_NAME"
+msgstr "所有使用者"

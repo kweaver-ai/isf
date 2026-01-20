@@ -1,0 +1,19 @@
+.root {
+    position: relative;
+    overflow: auto;
+
+    & .refreshing-indicator-wrapper,
+    & .empty-component-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+
+    & .list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+}

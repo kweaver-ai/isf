@@ -1,0 +1,16 @@
+#ignore files or dirs here
+#file e.g.：*.exe *.json
+#dir e.g.：bin/
+*.exe
+*.o
+*.log
+*.xml
+.vscode/
+.idea
+bin/
+build/
+*.tgz
+*.tar
+interfaces/mock
+common/mock
+Authentication

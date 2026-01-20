@@ -1,0 +1,12 @@
+@import '../../../core/styles/root.css';
+
+.text-input {
+    height: 100%;
+    color: var(--font-color-regular);
+
+    &.disabled {
+        background-color: var(--control-background-color__disabled);
+        color: var(--font-color-disabled);
+        cursor: default;
+    }
+}

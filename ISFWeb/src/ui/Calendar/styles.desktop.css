@@ -1,0 +1,66 @@
+.calendar {
+    & .day {
+        padding: 7px 0;
+        text-align: center;
+    }
+
+    & .cell {
+        border: 1px solid #d0d0d0;
+        text-align: center;
+        vertical-align: middle;
+        color: #555;
+
+        &:hover {
+            background: #FFEEBB;
+        }
+        
+        &.selected {
+            background: #FFEEBB;
+        }
+
+        & .date {
+            display: block;
+            width: 27px;
+            height: 27px;
+            line-height: 27px;
+        }
+
+    }
+
+    & .invalid{
+        background: #d3d8db;
+        opacity: 0.4;
+
+        &:hover {
+            background: #d3d8db;
+        }
+    }
+
+    & .time-layout {
+        border: 1px solid #d0d0d0;
+        border-top: none;
+
+        & .time-padding {
+            padding: 8px 16px;
+        }
+
+        & .time-icon {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        & .time-text {
+            color: #505050;
+            cursor: pointer;
+
+            &.disabled {
+                color: #c8c8c8;
+                cursor: default;
+            }
+
+            & .time {
+                font-weight: bold;
+            }
+        }
+    }
+}

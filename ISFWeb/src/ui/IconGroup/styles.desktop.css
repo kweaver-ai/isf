@@ -1,0 +1,11 @@
+.container{
+    user-select: none;
+    display: inline-block;
+    white-space: nowrap;
+    > *{
+        margin-left: 5px;
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+}

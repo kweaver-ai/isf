@@ -1,0 +1,41 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+
+native String(String);
+[ref] native StringMapRef (map<String, String>);
+
+%{ C++
+
+/**
+ * db token manager
+ */
+#define NC_DB_TOKEN_MANAGER_CID \
+{ \
+    0x688cc450, \
+    0x5012,    \
+    0x46cc,    \
+     { 0xaa, 0xbd, 0xc3, 0xd, 0x54, 0x15, 0xe7, 0x9f } \
+}
+
+/**
+ * db perm manager
+ */
+#define NC_DB_TOKEN_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsdb/dbtokenmanager;1"
+
+%}
+
+[uuid (87575787-C6CB-49ec-9424-71410FF72561)]
+interface ncIDBTokenManager: nsISupports
+{
+    // ------------------------------------------------------------------------------------------------------
+    // Token 管理
+    // ------------------------------------------------------------------------------------------------------
+    /*
+     * 记录活跃用户
+     */
+    [notxpcom] void SaveActiveUser(in StringMapRef activeUserInfos);
+};

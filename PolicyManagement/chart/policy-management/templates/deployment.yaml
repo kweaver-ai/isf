@@ -1,0 +1,145 @@
+{{- if semverCompare ">=1.16-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: apps/v1
+{{- else -}}
+apiVersion: extensions/v1beta1
+{{- end }}
+kind: Deployment
+metadata:
+  name: {{ template "policy-management.server" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "policy-management.server" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "policy-management.server" . }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      labels:
+        app: {{ template "policy-management.server" . }}
+    spec:
+      securityContext:
+        runAsUser: 5000
+        runAsGroup: 5000
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ template "policy-management.server" . }}
+            topologyKey: "kubernetes.io/hostname"
+      {{- if .Values.service.hostNetwork }}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - {{ template "policy-management.server" . }}
+                topologyKey: failure-domain.beta.kubernetes.io/zone
+      {{- end }}
+      containers:
+        - name: policy-management
+          securityContext:
+            readOnlyRootFilesystem: true
+          image: {{ .Values.image.registry }}/{{ .Values.image.service.repository }}:{{ .Values.image.service.tag }}
+          imagePullPolicy: {{ .Values.image.service.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+          readinessProbe:
+            httpGet:
+              path: /api/policy-management/v1/health/ready
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: {{ .Values.service.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.service.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.service.readinessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.service.readinessProbe.failureThreshold }}
+          livenessProbe:
+            httpGet:
+              path: /api/policy-management/v1/health/alive
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: {{ .Values.service.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.service.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.service.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.service.livenessProbe.failureThreshold }}
+          # https://freecontent.manning.com/handling-client-requests-properly-with-kubernetes/
+          # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+          # 给负载均衡器和服务发现系统充分的“下线”时间。Pod 在即将被终止时，需要让其他服务
+          # 发现机制（比如 Kubernetes Service）知道这个实例即将离线，以免继续将请求路由到它。
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 5"]
+          env:
+            {{- if .Values.env.language}}
+              - name: LANG
+                value: {{ .Values.env.language }}
+              - name: LC_ALL
+                value: {{ .Values.env.language }}
+            {{- end}}
+            {{- if .Values.env.timezone}}
+              - name: TZ
+                value: {{ .Values.env.timezone }}
+            {{- end}}
+            {{- if .Values.env.GIN_MODE}}
+              - name: GIN_MODE
+                value: {{ .Values.env.GIN_MODE }}
+            {{- end}}            
+              - name: HOST_IP
+                valueFrom:
+                  fieldRef:
+                    fieldPath: status.hostIP
+              - name: POD_IP
+                valueFrom:
+                  fieldRef:
+                    fieldPath: status.podIP
+          envFrom:
+            - configMapRef:
+                name: {{ template "policy-management.server" . }}
+            - secretRef:
+                name: {{ template "policy-management.server" . }}
+          volumeMounts:
+            - name: {{ .Release.Name }}
+              mountPath: /sysvol/conf
+            - name: tmp-volume
+              mountPath: /tmp
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+      volumes:
+        - name: {{ .Release.Name }}
+          configMap:
+            name: {{ .Release.Name }}
+            items:
+            - key: mq_config.yaml
+              path: mq_config.yaml
+        - name: tmp-volume
+          emptyDir: {}
+      dnsConfig:
+         options:
+           - name: single-request-reopen
+           - name: use-vc

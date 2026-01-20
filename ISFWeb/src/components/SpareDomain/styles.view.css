@@ -1,0 +1,73 @@
+@import '../../core/styles/root.css';
+
+.tip-text {
+    line-height: 1.5;
+    color: var(--font-color-strong);
+    opacity: 0.4;
+}
+
+.add-domain {
+    margin-top: 10px;
+    border: 1px #aaa dashed;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+    cursor: pointer;
+
+    & .plus {
+        margin-left: 10px;
+        margin-right: 8px;
+        font-weight: bold;
+    }
+}
+
+.disable {
+    color: var(--font-color-Description);
+}
+
+.domain-area {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px #eee solid;
+    border-radius: 4px;
+
+    & .text-title {
+        display: inline-block;
+    }
+
+    & .text-link {
+        float: right;
+        margin-right: 10px;
+        color: #505050;
+    }
+
+    & .warning-style {
+        margin-left: 5px;
+        margin-right: 5px;
+        color: var(--color-error);
+    }
+
+    & .placeholder {
+        margin-left: 15px;
+    }
+
+    & .secret-password {
+        text-security: disc;
+        -webkit-text-security: disc;
+        -moz-text-security: disc;
+        -ms-text-security: disc;
+    }
+
+    & .err {
+        margin-bottom: 10px;
+        color: var(--color-error);
+    }
+
+    & .cancel-btn {
+        margin-left: 5px;
+    }
+}
+
+.hidden-input {
+    display: none;
+}

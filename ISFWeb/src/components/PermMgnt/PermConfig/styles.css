@@ -1,0 +1,103 @@
+@import "../../../core/styles/root.css";
+.perm-config {
+    width: 496px;
+
+    .perm-set {
+        display: flex;
+        align-items: center;    
+
+        .policy-icon {
+            display: flex;
+            color: var(--color-blue);
+            margin-left: 8px;
+        }
+    }
+
+    .label {
+        label {
+            width: 84px;
+            margin-left: 12px;
+        }
+    }
+    .required-label {
+        label {
+            width: 96px;
+        }
+    }
+}
+
+.perm {
+    display: flex;
+    flex-direction: column;
+    margin: 21px 7px 24px 7px;
+    padding-right: 13px;
+    padding-left: 5px;
+    
+    .title {
+        display: flex;
+        align-items: center;
+
+        .title-label {
+            text-align: center;
+            color: var(--font-color-description);
+            width: 172px;
+        }
+
+        .title-box {
+            text-align: center;
+            width: 94px;
+            color: var(--font-color-description);
+        }
+
+        .title-policy {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            width: 126px;
+            color: var(--font-color-description);
+
+            .policy-icon {
+                display: flex;
+            }
+        }
+    }
+
+    .permission {
+        display: flex;
+        align-items: center;
+        height: 24px;
+        margin: 4px 0px 0px 0px;
+
+        .label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 172px;
+            color: var(--font-color-regular);
+
+            .name {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-break: break-all;
+                white-space: nowrap;
+            }
+
+            .tip {
+                display: flex;
+                align-items: center;
+                margin-left: 4px;
+            }
+        }
+
+        .checkbox {
+            width: 94px;
+            text-align: center;
+        }
+
+        .policy {
+            width: 126px;
+            text-align: left;
+        }
+    }
+}

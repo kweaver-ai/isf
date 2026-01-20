@@ -1,0 +1,102 @@
+@import '../../../core/styles/root.css';
+:local .container{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    & .fl,
+    & .fr{
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+    }
+    & .info-header{
+        margin:20px 0 10px;
+
+        .search-input {
+            padding: 3px 10px !important;
+        }
+    }
+    & .tip{
+        margin-left: 10px;
+        color: #999;
+    }    
+    & .net-container,
+    & .device-container{
+        width: 50%;
+        height: 100%;
+    }
+    & .net-wrapper{
+        height: 100%;
+    }
+    & .user-net-wrapper {
+        margin-right: 10px;
+    }
+    & .device-wrapper{
+        margin-left: 10px;
+        height: 100%;
+    }
+    & .info-header{
+        margin: 20px 0 10px;
+    }
+    & .data-grid{
+        border: 1px solid #e5e5e5;
+    }
+    & .search-item{
+        display: block;
+        text-decoration: none;
+        & .allname{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: pre;
+            & .dename{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: pre;
+            }
+            & .depaths{
+                color:#888;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: pre;
+            }
+        }
+    }
+}
+.head-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+}
+
+.data-wrapper {
+    width: 100%;
+    height: 100%;
+    padding-top: 86px;
+    display: table;
+    box-sizing: border-box;
+}
+
+.udid-wrapper {
+    display: block;
+}
+
+.udid-user {
+    line-height: 16px;
+}
+
+.title{
+    border: 1px solid var(--anyshare-grey-04);
+    padding: 5px;
+    font-size: 13px;
+    line-height: 16px;
+    color:var(--font-color-regular);
+    background-color:var(--font-color-light);
+    white-space: pre;
+  }
+.safari{
+    &::before{
+        content: '';
+        display: block;
+    }
+}

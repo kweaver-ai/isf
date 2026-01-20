@@ -1,0 +1,46 @@
+.container {
+    display: inline-block;
+    position: relative;
+
+    & .link {
+        position: relative;
+        display: inline-block;
+        min-width: 126px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        text-decoration: none;
+        color: #333;
+        outline: none;
+
+        &[disabled] {
+            background-color: #f0f0f0;
+            cursor: default;
+            
+            & .icon {
+                opacity: 0.5;
+            }
+        }
+
+        & .icon {
+            position: absolute;
+            top: 6px;
+            right: 5px;
+            line-height: normal;
+        }
+    }
+
+    & .picker {
+        position: absolute;
+
+        &.collapsed {
+            display: none;
+        }
+    }
+
+    & .pickerWarpper {
+        display: block;
+    }
+}

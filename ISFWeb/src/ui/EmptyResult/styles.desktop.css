@@ -1,0 +1,12 @@
+@import '../../core/styles/root.css';
+
+.picture{
+    width: 64px;
+    height: 64px;
+}
+
+.text{
+    margin-top: var(--layout-spacing-small);
+    size: var(--font-size-regular);
+    color:var(--font-color-secondary);
+}

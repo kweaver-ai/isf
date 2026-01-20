@@ -1,0 +1,204 @@
+{{- if semverCompare ">=1.16-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: apps/v1
+{{- else -}}
+apiVersion: extensions/v1beta1
+{{- end }}
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      serviceAccountName: {{ template "audit-log.serviceAccountName" . }}
+      {{- with .Values.securityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - {{ .Release.Name }}
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: {{ .Release.Name }}
+          image: {{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            readOnlyRootFilesystem: true
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-yaml
+            - secretRef:
+                name: {{ .Release.Name }}-secret-env
+          env:
+            {{- if .Values.service.logger}}
+            - name: LOGOUT
+              value: {{ .Values.service.logger | quote }}
+            {{- end}}
+            {{- if .Values.env.language}}
+            - name: LANG
+              value: {{ .Values.env.language | quote }}
+            - name: LC_ALL
+              value: {{ .Values.env.language | quote }}
+            {{- end}}
+            {{- if .Values.env.timezone}}
+            - name: TZ
+              value: {{ .Values.env.timezone | quote }}
+            {{- end}}
+            {{- if .Values.depServices.rds.type }}
+            - name: DB_TYPE
+              value: {{ .Values.depServices.rds.type | quote }}
+            {{- end}}
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: MIGRATION_DATE
+              value: {{ .Values.service.migration_date | quote }}
+            {{- if .Values.service.ismigration }}
+            - name: IS_MIGRATION
+              value: {{ .Values.service.ismigration | quote }}
+            {{- end}}
+          ports:
+            - name: public-port
+              containerPort: {{ .Values.service.port }}
+            - name: private-port
+              containerPort: {{ add1 .Values.service.port }}
+          readinessProbe:
+            httpGet:
+              path: /api/audit-log/v1/health/ready
+              port: private-port
+            initialDelaySeconds: {{ .Values.service.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.service.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.service.readinessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.service.readinessProbe.failureThreshold }}
+          livenessProbe:
+            httpGet:
+              path: /api/audit-log/v1/health/alive
+              port: private-port
+            initialDelaySeconds: {{ .Values.service.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.service.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.service.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.service.livenessProbe.failureThreshold }}
+          volumeMounts:
+            - name: mq-config-yaml
+              mountPath: {{ .Values.service.configPath }}/mq_config.yaml
+              subPath: mq_config.yaml
+            - name: dbrw-yaml
+              mountPath: {{ .Values.service.configPath }}/dbrw.yaml
+              subPath: dbrw.yaml
+            - name: secret-yaml
+              mountPath: {{ .Values.service.configPath }}/opensearch.yaml
+              subPath: opensearch.yaml
+            - name: cm-yaml
+              mountPath: {{ .Values.service.configPath }}/dep_svc.yaml
+              subPath: dep_svc.yaml
+            - name: cm-yaml
+              mountPath: {{ .Values.service.configPath }}/log_config.yaml
+              subPath: log_config.yaml
+            - name: cm-yaml
+              mountPath: {{ .Values.service.configPath }}/rec_config.yaml
+              subPath: rec_config.yaml
+            - name: cm-yaml
+              mountPath: {{ .Values.service.configPath }}/self_server_config.yaml
+              subPath: self_server_config.yaml
+            - name: redis-yaml
+              mountPath: {{ .Values.service.configPath }}/redis.yaml
+              subPath: redis.yaml
+            - name: operation-log-schema
+              mountPath: {{ .Values.service.configPath }}/operation_log_schema
+            - name: log-strategy-yaml
+              mountPath: {{ .Values.service.configPath }}/log_strategy.yaml
+              subPath: log_strategy.yaml
+            - name: log-dump-config-yaml
+              mountPath: {{ .Values.service.configPath }}/log_dump_config.yaml
+              subPath: log_dump_config.yaml
+            - mountPath: /tmp
+              name: tmp-volume
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
+      volumes:
+        - name: mq-config-yaml
+          configMap:
+            name: {{ .Release.Name }}-yaml
+        - name: log-strategy-yaml
+          configMap:
+            name: {{ .Release.Name }}-yaml
+            items:
+              - key: log_strategy.yaml
+                path: log_strategy.yaml
+        - name: log-dump-config-yaml
+          configMap:
+            name: {{ .Release.Name }}-yaml
+            items:
+              - key: log_dump_config.yaml
+                path: log_dump_config.yaml
+        - name: operation-log-schema
+          configMap:
+            name: {{ .Release.Name }}-oprlogschema-yaml
+        - name: dbrw-yaml
+          secret:
+            secretName: {{ .Release.Name }}-secret
+            items:
+              - key: dbrw.yaml
+                path: dbrw.yaml
+        - name: redis-yaml
+          secret:
+            secretName: {{ .Release.Name }}-secret
+            items:
+              - key: redis.yaml
+                path: redis.yaml
+        - name: cm-yaml
+          configMap:
+            name: {{ .Release.Name }}-yaml
+            items:
+              - key: log_config.yaml
+                path: log_config.yaml
+              - key: dep_svc.yaml
+                path: dep_svc.yaml
+              - key: rec_config.yaml
+                path: rec_config.yaml
+              - key: self_server_config.yaml
+                path: self_server_config.yaml
+        - name: secret-yaml
+          secret:
+            secretName: {{ .Release.Name }}-secret
+            items:
+              - key: opensearch.yaml
+                path: opensearch.yaml
+        - name: tmp-volume
+          emptyDir: {}
+      dnsConfig:
+        options:
+          - name: single-request-reopen
+          - name: use-vc
+

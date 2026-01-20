@@ -1,0 +1,31 @@
+efast:
+  private:
+    host: efast-private
+    port: 9123
+    protocol: http
+  public:
+    host: efast-public
+    port: 9123
+    protocol: http
+sharemgnt:
+  host: sharemgnt
+  port: 9600
+doc-center:
+  private:
+    host: doc-center-private
+    port: 30566
+    protocol: http
+  public:
+    host: doc-center-public
+    port: 30566
+    protocol: http
+kc:
+  private:
+    host: kc-mc-private
+    port: 7203
+    protocol: http
+personal-config:
+  private:
+    host: personal-config-private
+    port: 8082
+    protocol: http

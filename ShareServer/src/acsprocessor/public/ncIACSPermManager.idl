@@ -1,0 +1,345 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+native String(String);
+
+[ref] native boolRef(bool);
+[ref] native StringRef(String);
+[ref] native SetStringRef(set<String>);
+[ref] native StringVectorRef (vector<String>);
+[ref] native StringIntMapRef (map<String, int>);
+[ref] native StringNcPermPairMapRef (map<String, ncPermPair>);
+[ref] native VecInt64Ref(vector<int64>);
+
+native ncAtomPermValue(ncAtomPermValue);
+native ncAccessorType(ncAccessorType);
+native ncCheckPermCode(ncCheckPermCode);
+native ncAccessPerm(ncAccessPerm);
+native ncVisitorType(ncVisitorType);
+
+[ref] native ncEnumSubIdResultRef(ncEnumSubIdResult);
+
+native ncCustomPermConfig(ncCustomPermConfig);
+[ref] native ncCustomPermConfigVectorRef(vector<ncCustomPermConfig>);
+
+native ncCustomPermInfo(ncCustomPermInfo);
+[ref] native ncCustomPermInfoVectorRef(vector<ncCustomPermInfo>);
+[ref] native ncACSDocInfoVecRef(vector<ncACSDocInfo>);
+[ref] native ncListPermissionResultRef(ncListPermissionResult);
+
+[ref] native ncACSOwnerPermVecRef(vector<ncOwnerPermInfo>);
+[ref] native ncPermConfigRef(ncPermConfig);
+[ref] native ncPermConfigVectorRef(vector<ncPermConfig>);
+[ref] native ncSubjectAttrRef(ncSubjectAttr);
+[ref] native ncObjectAttrRef(ncObjectAttr);
+[ref] native ncOpsAttrRef(ncOpsAttr);
+[ref] native ncCheckFlagsRef(ncCheckFlags);
+[ref] native StringInt64MapRef(map<String, int64>);
+[ref] native ncInternalLinkInfoRef(ncInternalLinkInfo);
+[ref] native StringNcAccessPermMapRef(map<String, ncAccessPerm>);
+
+%{ C++
+/**
+ * acs perm manager
+ */
+#define NC_ACS_PERM_MANAGER_CID \
+{ \
+    0x2090b368, \
+    0x687,    \
+    0x44d6,    \
+     { 0xb7, 0xa0, 0xd4, 0xae, 0x3c, 0x67, 0x5e, 0xcd } \
+}
+
+/**
+ * acs perm manager
+ */
+#define NC_ACS_PERM_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acspermmanager;1"
+
+#include "ncIACSCommon.h"
+
+// 权限共享时是否需要记录历史
+enum ncPermShareHistory {
+    NO_HISTORY          =       0,                // 不开启审核时不记录共享历史
+    RECORD_HISTORY      =       1                 // 开启审核且该次权限配置免审核时记录共享历史
+};
+
+// 原子权限
+enum ncAtomPermValue {
+    ACS_AP_DISPLAY          =       0x00000001,       // 显示
+    ACS_AP_PREVIEW          =       0x00000002,       // 预览
+    ACS_AP_READ             =       0x00000004,       // 下载 枚举值名称未改
+    ACS_AP_CREATE           =       0x00000008,       // 新建
+    ACS_AP_EDIT             =       0x00000010,       // 修改
+    ACS_AP_DELETE           =       0x00000020,       // 删除
+    ACS_AP_CACHE            =       0x00000040,       // 缓存
+    ACS_AP_INTERNAL_SHARING =       0x00000080,       // 内部共享  该权限值暂未使用
+    ACS_AP_EXTERNAL_SHARING =       0x00000100,       // 外部共享  该权限值暂未使用
+    ACS_AP_PRINT            =       0x00000200,       // 打印
+
+    ACS_CP_MIN              =       0x00000001,       // 权限配置最小值
+    ACS_CP_MAX              =       0x000003FF,       // 权限配置最大值
+};
+
+// 访问者类型
+enum ncAccessorType {
+    ACS_USER            =       0x00000001,         // 用户
+    ACS_DEPARTMENT      =       0x00000002,         // 部门
+    ACS_CONTACTOR       =       0x00000003,         // 联系人
+    ACS_ANONYMOUS_USER  =       0x00000004,         // 匿名用户
+    ACS_GROUP           =       0x00000005,         // 用户组
+};
+
+// 自定义权限配置
+struct ncCustomPermConfig {
+    int64                   id;             // 唯一标识一条权限配置项，添加的时候该字段无效
+    bool                    isAllowed;      // 是否是允许权限
+    int                     permValue;      // 权限值
+    ncAccessorType          accessorType;   // 访问者类型
+    String                  accessorId;     // 访问者id
+    int64                   endTime;        // 到期时间
+    int64                   createTime;     // 创建时间
+};
+
+// 自定义权限信息
+struct ncCustomPermInfo {
+    int64                   id;             // 唯一标识一条权限配置项
+    bool                    isAllowed;      // 是否是允许权限
+    int                     permValue;      // 权限值
+    String                  accessorId;     // 访问者id
+    ncAccessorType          accessorType;   // 访问者类型
+    int                     accessorCsfLevel;   // 访问者密级
+    String                  docId;          // 继承的文档对象的id(gns://guid1/guid2/guid3)
+    int64                   endTime;        // 到期时间
+    String                  accessorName;   // 访问者名称（用于显示权限）
+    int64                   createTime;     // 创建时间
+    int64                   modifyTime;     // 权限修改时间
+};
+
+// 权限检查结果
+enum ncCheckPermCode {
+    CHECK_OK,                               // 拥有权限
+    CHECK_NOT_ALLOW,                        // 没有配置任何权限
+    CHECK_DENY,                             // 被显式的拒绝
+};
+
+// 枚举权限类结果
+struct ncEnumSubIdResult {
+    bool                    isOwner;            // 是否是父目录的所有者
+    set<String>             denyReadSubIds;     // 拒绝读的子docid
+    set<String>             allowWriteSubIds;   // 允许写的子docid
+    set<String>             denyWriteSubIds;    // 拒绝写的子docid
+};
+
+struct ncOwnerResult {
+    String                  accessorId;         // 所有者id
+    ncAccessorType          accessorType;       // 所有者类型
+    String                  accessorName;       // 所有者名称
+};
+
+struct ncPermResult {
+    String                  accessorId;     // 访问者id
+    ncAccessorType          accessorType;   // 访问者类型
+    String                  accessorName;   // 访问者名称（用于显示权限）
+    int                     allowValue;     // 允许的权限值
+    int                     denyValue;      // 拒绝的权限值
+};
+
+// 列举权限结果
+struct ncListPermissionResult {
+    vector<ncOwnerResult>   ownerResults;   // 所有者结果
+    vector<ncPermResult>    permResults;    // 权限计算结果
+};
+
+// 所有者权限信息，仅包含文档id, 访问者id，所有者id
+struct ncOwnerPermInfo {
+    String   docId;                         // 文件对象id
+    String   accessorId;                    // 访问者id
+    ncAccessorType   accessorType;          // 访问者类型
+    vector<String>   ownerIds;              //文档的所有者信息
+};
+
+// 访问者的权限配置
+struct ncPermConfig {
+    String                  docId;           // 访问对象gns
+    String                  accessorId;      // 访问者id
+    String                  accessorName;      // 访问者显示名
+    ncAccessorType          accessorType;    // 访问者类型
+    int                     denyValue;       // 拒绝权限值
+    int                     allowValue;      // 允许权限值
+    int64                   endTime;         // 到期时间
+    int64                   createTime;      // 创建时间
+    int64                   modifyTime;      // 权限修改时间
+    String                  title;           // 匿名共享标题
+    String                  password;        // 访问密码
+    int                     limitedTimes;    // 访问次数限制
+};
+
+class ncPermPair {
+public:
+    enum {
+        OPER_NONE,
+        OPER_ADD,
+        OPER_UPDATE,
+        OPER_DELETE
+    };
+
+    int operType;
+    ncPermConfig* oldPerm;
+    ncPermConfig* newPerm;
+
+    ncPermPair():
+    operType (0),
+    oldPerm (NULL),
+    newPerm (NULL)
+    {
+    }
+
+    ncAccessorType getAccessorType() {
+        if (operType != OPER_DELETE)
+            return newPerm->accessorType;
+        else
+            return oldPerm->accessorType;
+    }
+
+    int64 getEndTime() {
+        if (operType != OPER_DELETE)
+            return newPerm->endTime;
+        else
+            return oldPerm->endTime;
+    }
+
+    int getAllowValue() {
+        if (operType != OPER_DELETE)
+            return newPerm->allowValue;
+        else
+            return oldPerm->allowValue;
+    }
+
+    int getDenyValue() {
+        if (operType != OPER_DELETE)
+            return newPerm->denyValue;
+        else
+            return oldPerm->denyValue;
+    }
+};
+
+// 主体属性
+struct ncSubjectAttr {
+    String  userId;         // 用户id
+    String  accessIp;       // 访问ip
+    ncVisitorType     visitorType;    // 访问者类型
+
+    ncSubjectAttr ()
+        : userId ()
+        , accessIp ()
+        , visitorType (ncVisitorType::REALNAME)   // 默认初始化为实名用户
+    {
+    }
+};
+
+// 对象属性
+struct ncObjectAttr {
+    String gnsPath;     // 文件路径gns
+};
+
+// 操作属性
+struct ncOpsAttr {
+    int permValue;     // 权限值
+};
+
+// 检查flag标志
+struct ncCheckFlags {
+    enum {
+        NO_CHECK = 0,         // 不做任何检查
+        CHECK_GNS_EXIST  = 1, // 检查gns路径是否存在
+    };
+};
+
+// 内链共享信息
+struct ncInternalLinkInfo {
+    String userId;              // 用户ID
+    int permValue;              // 权限值
+    bool setOwner;              // 是否设置所有者
+    int allowExpireDays;        // 配置天数上限
+};
+
+%}
+
+[uuid (980102F7-AD6C-470c-A797-87F38F61B77B) ]
+interface ncIACSPermManager: nsISupports
+{
+    /*
+    * 获取所有的权限配置项信息 (包含docId accessorId ownerId)
+    */
+    [notxpcom] void GetAllCustomPermOwnerInfos (in ncACSOwnerPermVecRef vInfos);
+
+    /*
+     * 添加一批自定义权限配置项（用以添加权限配置），返回成功添加的权限条目, 不检查所有者
+     */
+    [notxpcom] void AddCustomPermConfigsWithoutOwner ([const] in StringRef gnsPath, [const] in ncCustomPermConfigVectorRef cpConfigs,
+        in ncCustomPermConfigVectorRef addedConfigs);
+
+    /*
+     * 根据文件对象的id删除权限配置（用以响应文件被删除后的权限记录清除）
+     */
+    [notxpcom] void DeleteCustomPermByFileId ([const] in StringRef fileId);
+
+    /*
+     * 根据文件夹对象的id删除权限配置，包括子孙文件夹，文件（用以响应文件夹被删除后的权限记录清除）
+     */
+    [notxpcom] void DeleteCustomPermByDirId ([const] in StringRef dirId);
+
+    /*
+     * 删除对象id对应的所有权限配置信息（用以删除用户，部门，角色后，清除对应的权限记录）
+     */
+    [notxpcom] void DeleteCustomPermByUserId ([const] in StringRef userId);
+
+    /*
+     * 删除文档id和对象id对应的所有权限配置信息（用以删除清除不在用户权限范围内的权限）
+     */
+    [notxpcom] void DeleteCustomPermByDocUserId ([const] in StringRef docId, [const] in StringRef userId);
+
+    /*
+     * 检查权限（用以EVFS检查对象的权限，检查文件夹的删除权限时，不检查子孙对象能否被删除）
+     */
+    [notxpcom] ncCheckPermCode CheckPermission ([const] in ncSubjectAttrRef subjectAttr, [const] in ncObjectAttrRef objAttr, [const] in ncOpsAttrRef optAttr, in int checkFlags);
+
+     /*
+     * 获取权限（用以列举目录时，要能够返回文件的只读、读写、锁定状态）
+     */
+    [notxpcom] ncAccessPerm GetPermission ([const] in StringRef userId, [const] in StringRef gnsPath);
+
+
+    /*
+     * 获取用户有显示权限的文档信息(同一路径上只保留父路径的信息)
+     */
+    [notxpcom] void ListEntryDocsWithLongPath ([const] in ncSubjectAttrRef subjectAttr, [const] in ncObjectAttrRef objectAttr, in StringNcAccessPermMapRef displayIdsMap);
+
+
+    /*
+     * 启动权限清理线程
+     */
+    [notxpcom] void StartCleanPermThread ();
+
+
+    /*
+    ======================================================================================
+        1. 采用accessorId和docId来唯一标识一条权限
+        2. allowValue和denyValue同时提供
+        3. 允许权限和拒绝权限的截至时间保持一致
+    ======================================================================================
+     */
+
+    /*
+    ======================================================================================
+     */
+
+    /*
+     * 根据用户id获取生效的显示权限的最新时间，用来满足涉密需求：
+        1. 新建的文件夹，文件不能被共享出去
+     */
+    [notxpcom] int64 GetLatestShareTime ([const] in StringRef userId, [const] in StringRef docId, [const] in ncVisitorType visitorType, in SetStringRef subShareTimeSet);
+};

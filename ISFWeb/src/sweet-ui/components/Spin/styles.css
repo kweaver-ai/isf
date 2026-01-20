@@ -1,0 +1,89 @@
+.container {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #1890ff;
+    text-align: center;
+    line-height: 1.5715;
+    vertical-align: middle;
+    opacity: 1;
+    transition: transform .3s cubic-bezier(.78, .14, .15, .86);
+    box-sizing: border-box;
+
+    & .dot {
+        position: relative;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        font-size: 20px;
+        transform: rotate(0deg);
+        animation: dotRotate 1.2s linear infinite;
+
+        & .dot-item {
+            position: absolute;
+            display: block;
+            width: 9px;
+            height: 9px;
+            background-color: #1890ff;
+            border-radius: 100%;
+            transform: scale(.75);
+            transform-origin: 50% 50%;
+            opacity: .3;
+            animation: dotMove 1s linear infinite alternate;
+
+            &:nth-child(1) {
+                top: 0;
+                left: 0;
+            }
+
+            &:nth-child(2) {
+                top: 0;
+                right: 0;
+                animation-delay: 0.4s;
+            }
+
+            &:nth-child(3) {
+                right: 0;
+                bottom: 0;
+                animation-delay: 0.8s;
+            }
+
+            &:nth-child(4) {
+                bottom: 0;
+                left: 0;
+                animation-delay: 1.2s;
+            }
+        }
+    }
+
+    & .dot-small {
+        font-size: 14px;
+
+        & .dot-item {
+            width: 6px;
+            height: 6px;
+        }
+    }
+
+    & .dot-large {
+        font-size: 32px;
+
+        & .dot-item {
+            width: 14px;
+            height: 14px;
+        }
+    }
+}
+
+@keyframes dotRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dotMove {
+    to {
+        opacity: 1;
+    }
+}

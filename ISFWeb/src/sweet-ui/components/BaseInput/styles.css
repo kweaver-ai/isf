@@ -1,0 +1,37 @@
+@import '../../../core/styles/root.css';
+
+.base-input {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    outline: none;
+    line-height: 1.16;
+    font-size: 13px;
+
+    &::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: var(--font-color-disabled);
+    }
+
+    &:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: var(--font-color-disabled);
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: var(--font-color-disabled);
+    }
+
+    &:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: var(--font-color-disabled);
+    }
+}
+
+.disabled {
+    background-color: var(--control-background-color__disabled);
+    color: var(--font-color-disabled);
+    cursor: default;
+}

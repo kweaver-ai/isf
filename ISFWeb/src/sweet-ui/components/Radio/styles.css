@@ -1,0 +1,85 @@
+@import '../../../core/styles/root.css';
+
+.radio-wrapper {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &.disabled {
+        cursor: default;
+    }
+
+    & .radio {
+        position: relative;
+        width: 14px;
+        height: 14px;
+        padding: 0;
+        margin: 0;
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        background: #ffffff;
+
+        &:hover {
+            border-color: #779eea;
+        }
+
+        &.disabled {
+            border: 1px solid var(--border-color);
+            background-color: rgba(228, 230, 237, 0.4);
+        }
+
+        &.radio-checked {
+            border-color: #779eea;
+
+            &:after {
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 6px;
+                height: 6px;
+                border-radius: 6px;
+                background-color: #779eea;
+                content: ' ';
+            }
+
+            &.disabled {
+                border-color: var(--border-color);
+                background-color: rgba(228, 230, 237, 0.4);
+
+                &:after {
+                    background-color: #d3d4db;
+                }
+            }
+        }
+    }
+
+    & .radio-input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+
+        &.disabled {
+            cursor: default;
+        }
+    }
+
+    & .radio-text {
+        padding: 0 8px;
+        vertical-align: middle;
+        white-space: normal;
+        word-break: break-word;
+        color: var(--font-color-regular);
+
+        &.disabled {
+            color: var(--font-color-disabled);
+        }
+    }
+
+}

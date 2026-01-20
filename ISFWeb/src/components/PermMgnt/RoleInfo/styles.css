@@ -1,0 +1,15 @@
+.role-info {
+    width: 100%;
+
+    input {
+       width: 100%;
+       min-width: 200px;
+    }
+
+    :global {
+        .isf-select.isf-select-in-form-item {
+            width: 100%;
+            min-width: 200px;
+        }
+    }
+}

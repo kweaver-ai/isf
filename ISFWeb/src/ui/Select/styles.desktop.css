@@ -1,0 +1,7 @@
+.container {
+    display: inline-block;
+    min-width: 138px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}

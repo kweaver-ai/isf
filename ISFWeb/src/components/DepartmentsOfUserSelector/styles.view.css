@@ -1,0 +1,24 @@
+.dep-name {
+    height: 30px;
+    line-height: 30px;
+
+    & .dep-name-content {
+        display: inline-block;
+        max-width: 120px;
+        vertical-align: top;
+    }
+}
+
+.select-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+.select-option {
+
+    &>div {
+        vertical-align: middle;
+    }
+}

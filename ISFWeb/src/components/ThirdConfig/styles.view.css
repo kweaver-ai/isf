@@ -1,0 +1,250 @@
+@import '../../core/styles/root.css';
+
+.header {
+    box-sizing: content-box;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #555;
+    background-color: #fdfcfc;
+
+    & .header-title {
+        font-weight: 600;
+        padding-left: 8px;
+    }
+}
+
+.container {
+    margin-bottom: 10px;
+
+    .field {
+        line-height: 1;
+    }
+
+    & .mark {
+        display: inline-block;
+        width: 6px;
+        height: 32px;
+        line-height: 32px;
+        margin-right: 8px;
+        color: #DD3333;
+    }
+
+    & .switch {
+        display: inline-block;
+        vertical-align: top;
+        padding-top: 8px;
+    }
+
+    & .button {
+        border: none;
+        color: #3461EC;
+        opacity: 0.75;
+
+        &:hover {
+            background-color: #fff;
+            opacity: 1;
+        }
+
+        &:active {
+            background-color: #fff;
+            opacity: 1;
+        }
+    }
+
+    & .btn-disabled {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        &:hover {
+            background-color: #fff;
+            opacity: 0.5;
+        }
+
+        &:active {
+            background-color: #fff;
+            opacity: 0.5;
+        }
+    }
+
+    & .item-wrapper {
+        box-sizing: content-box;
+        width: 810px;
+        height: 120px;
+        border: 1px solid #eee;
+        overflow-y: scroll;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        padding-left: 12px;
+    }
+
+    & .save-button {
+        width: 80px;
+        margin-right: 8px;
+    }
+
+    & .error {
+        display: inline-block;
+        margin-left: 8px;
+        color: #DD3333;
+    }
+
+    & .plugin {
+        display: table;
+        margin-top: 8px;
+
+        & .row {
+            display: table-row;
+
+            & .plugin-tip {
+                display: table-cell;
+                padding: 0 10px 0 0;
+                vertical-align: middle;
+            }
+
+            & .mark {
+                display: table-cell;
+                padding-right: 8px;
+                vertical-align: middle;
+            }
+
+            & .plugin-content {
+                display: table-cell;
+                vertical-align: middle;
+
+                & .file-name {
+                    display: inline-block;
+                    width: 198px;
+                    height: 30px;
+                    line-height: 30px;
+                    margin-right: 8px;
+                    border: 1px solid #D3D4DB;
+                    border-radius: var(--control-border-radius);
+                    background-color: #fff;
+                    padding: 0 10px;
+                    vertical-align: middle;
+                    color: #505050;
+
+                    &.disabled {
+                        background-color: rgba(211, 212, 219, 0.2);
+                        border-color: rgba(211, 212, 219, 0.8);
+                        color: #c0c0c0;
+                        user-select: none;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                    }
+                }
+
+                & .btn-wraper {
+                    display: inline-block;
+                    position: relative;
+                    width: 78px;
+                    text-align: center;
+                    vertical-align: middle;
+                    margin-right: 8px;
+
+                    & .btn-uploader-picker {
+                        display: inline-block;
+                        width: 78px;
+                        height: 30px;
+                        line-height: 30px;
+                        border: 1px solid #e0e0e0;
+                        border-radius: var(--control-border-radius);
+                        cursor: pointer;
+
+                        background-color: var(--control-background-color);
+                        color: var(--font-color-regular);
+
+                        &:hover {
+                            background-color: var(--grey-02);
+                        }
+
+                        &:active {
+                            background-color: var(--grey-03);
+                        }
+                    }
+
+                    & .disabled {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 78px;
+                        height: 30px;
+                        line-height: 30px;
+                        background: #fff;
+                        color: #c0c0c0;
+                        border: 1px solid rgba(211, 212, 219, 0.8);
+                        border-radius: var(--control-border-radius);
+                        user-select: none;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                    }
+                }
+
+                & .tips {
+                    display: inline-block;
+                    margin-left: 8px;
+                    color: #868686;
+                    cursor: default;
+                }
+            }
+
+            & .plugin-tip-empty {
+                display: table-cell;
+                padding: 0 10px 0 0;
+                vertical-align: middle;
+            }
+
+            & .mark-empty {
+                display: table-cell;
+                padding-right: 8px;
+                vertical-align: middle;
+            }
+
+            & .format-req {
+                display: inline-block;
+                height: 24px;
+                line-height: 24px;
+                vertical-align: top;
+                color: #999;
+                padding-top: 4px;
+            }
+        }
+    }
+}
+
+.main {
+    text-align: left;
+
+    & .icon {
+        display: inline-block;
+        line-height: 1;
+    }
+
+    & .message {
+        display: inline-block;
+        max-width: 326px;
+        margin-left: 20px;
+        line-height: 44px;
+        vertical-align: top;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+    }
+}
+
+.toast {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 90px;
+    border: 0;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}

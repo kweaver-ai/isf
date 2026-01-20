@@ -1,0 +1,33 @@
+#包含prep.cmake(定义编译时的选项)
+INCLUDE($ENV{CMAKE}/common/prep.cmake)
+
+#设置版本号，和向下兼容性
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+CMAKE_POLICY(VERSION 2.8)
+
+#project name: ENTRYDOCACS
+PROJECT(ENTRYDOCACS)
+
+SET(NEED_CFL TRUE)
+SET(NEED_XPCOM TRUE)
+SET(NEED_NCUTIL TRUE)
+SET(NEED_EDATAAPI TRUE)
+
+SET(ERRGEN_FILES $ENV{SHARESERVER}/src/entrydocacs/err/entrydocacserr.csv)
+
+# enable c++11
+SET(ENABLE_C++11 TRUE)
+
+#target name: entrydocacs
+SET(TARGET_NAME entrydocacs)
+
+INCLUDE_DIRECTORIES($ENV{SHARESERVER}/src)
+
+# 依赖的idl文件
+SET(CUSTOM_IDL_FILES $ENV{DATAENGINEIOC}/entrydocioc/ncIEntryDocIOC.idl)
+INCLUDE_DIRECTORIES($ENV{DATAENGINEIOC})
+
+# TARGET_TYPE
+SET(TARGET_TYPE COMPONENT)
+
+INCLUDE($ENV{CMAKE}/common/target.cmake)

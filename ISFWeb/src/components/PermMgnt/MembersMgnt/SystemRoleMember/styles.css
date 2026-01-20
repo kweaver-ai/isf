@@ -1,0 +1,99 @@
+@import "../../../../core/styles/root.css";
+.add-system-role {
+    padding: 10px 0;
+    
+    .label{
+        label {
+            width: 84px;
+            margin-left: 12px;
+        }
+    }
+    .required-label {
+        label {
+            width: 96px;
+        }
+    }
+
+    .visitor {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: nowrap;
+
+        .icon {
+            margin-right: 10px;
+        }
+    }
+
+    .add-visitor {
+        display: flex;
+
+        .visitors {
+            width: 100%;
+            height: 66px;
+            border: 1px solid #d9d9d9;
+            border-radius: 6px;
+            overflow-y: auto;
+
+            .visitors-tip {
+                padding: 4px 12px;
+                color: var(--font-color-disabled);
+            }
+
+            .tag {
+                margin: 4px;
+                word-wrap: break-word;
+                display: inline-flex;
+
+                .tag-content {
+                    display: inline-flex;
+                    align-items: center;
+
+                    .icon {
+                        display: inline-flex;
+                    }
+
+                    .text {
+                        display: inline-block;
+                        max-width: 100px;
+                        margin-left: 8px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        word-wrap: break-word;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        .visitor-error {
+            border: 1px solid #ff4d4f;
+        }
+
+        .add-btn {
+            margin-left: 8px;
+            width: 52px;
+        }
+    }
+
+    :gloval {
+        .dip-components-tag-close-icon {
+            vertical-align: baseline;
+        }
+    }
+}
+
+.user-list-tip {
+    max-height: 120px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #efefef;
+    border-radius: 6px;
+
+    .item {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: nowrap;
+    }
+}

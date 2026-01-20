@@ -1,0 +1,12 @@
+.perm-view {
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.perm-view-auth {
+    height: 460px;
+}

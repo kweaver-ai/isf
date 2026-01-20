@@ -1,0 +1,51 @@
+@import '../../../core/styles/root.css';
+
+.layout {
+    & .setRole-head {
+        height: 30px;
+        & .setRole-tit {
+            float: left;
+            margin-top: 6px;
+            
+            & .user-name {
+                display: inline-block;
+                max-width: 52px;
+                vertical-align: middle;
+            }
+        }
+        
+        & .setRole-search{
+            float: right;
+        }
+
+        & .search-item {
+            display: block;
+            position: relative;
+            cursor: pointer;
+    
+            &:hover {
+                text-decoration: none;
+            }
+    
+            & .seleted-data {
+                display: block;
+            }
+        }
+    }
+
+    & .list {
+        margin: 10px 0;
+        border: 1px #d3d8db solid;
+
+        & .text {
+            line-height: 17px;
+        }
+
+        & .handle-icon {
+            margin-left: 5px;
+        }
+    }
+}
+.del-text {
+    word-wrap: break-word;
+}

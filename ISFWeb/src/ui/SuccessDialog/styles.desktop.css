@@ -1,0 +1,13 @@
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.message {
+    display: inline-block;
+    max-width: 290px;
+    margin-left: 10px;
+    line-height: 1.5;
+    vertical-align: middle;
+    word-wrap: break-word;
+}

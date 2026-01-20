@@ -1,0 +1,6 @@
+.item{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    border-radius: 3px;
+}

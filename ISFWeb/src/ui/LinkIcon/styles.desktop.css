@@ -1,0 +1,8 @@
+.linkIcon {
+    display: inline-block;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: default;
+}

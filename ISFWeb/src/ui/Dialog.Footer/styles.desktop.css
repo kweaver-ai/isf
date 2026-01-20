@@ -1,0 +1,18 @@
+@import '../../core/styles/root.css';
+
+:local .container {
+    position: relative;
+
+    & .padding {
+        padding: 7px;
+        border-top: 1px solid var(--grey-04);
+        border-radius: 0 0 3px 3px;
+        background: #f9f9f9;
+        text-align: right;
+        cursor: default;
+
+        &[role="drag-area"] {
+            cursor: move;
+        }
+    }
+}

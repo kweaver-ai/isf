@@ -1,0 +1,22 @@
+{
+    "required": [
+        "name"
+    ],
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "notes": {
+            "type": "string"
+        },
+        "group_ids_of_members": {
+            "type": "array",
+            "minItems": 0,
+            "uniqueItems": false,
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

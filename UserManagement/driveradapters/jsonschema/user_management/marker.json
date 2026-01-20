@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "required": [
+        "created_at",
+        "user_id",
+        "direction"
+    ],
+    "properties": {
+        "created_at": {
+            "type": "integer"
+        },
+        "user_id": {
+            "type": "string"
+        },
+        "direction": {
+            "type": "string",
+            "enum": ["asc", "desc"]
+        }
+    }
+}

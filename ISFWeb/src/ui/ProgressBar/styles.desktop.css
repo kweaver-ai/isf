@@ -1,0 +1,35 @@
+@import '../../core/styles/root.css';
+
+.progressbar {
+    position: relative;
+    height: 30px;
+    border: 1px solid var(--grey-04);
+    box-sizing: border-box;
+    text-align: center;
+
+    & .text {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translate(0, -50%);
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        color: var(--font-color-regular);
+    }
+
+    & .left{
+        left: 10px;
+    }
+
+    & .right{
+        right: 10px;
+    }
+
+    & .percentage {
+        height: 100%;
+        background-color: var(--progress-background-color);
+    }
+}

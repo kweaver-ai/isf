@@ -1,0 +1,15 @@
+.overlay {
+    display: inline-block;
+    max-width: 80%;
+    padding: 10px 20px;
+    border: 1px solid #FFCC66;
+    border-radius: 5px;
+    background-color: #FFEEBB;
+    z-index: 20;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+
+    &.fixed {
+        position: fixed;
+    }
+}

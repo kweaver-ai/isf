@@ -1,0 +1,46 @@
+#include "nsISupports.idl"
+
+native int(int);
+
+native String(String);
+[ref] native StringRef(String);
+
+%{ C++
+
+/**
+ * acs license manager
+ */
+#define NC_ACS_LICENSE_MANAGER_CID \
+{ 0x78023c70, 0x3a41, 0x4362, { 0x81, 0xed, 0x3, 0x93, 0xaf, 0xa8, 0x12, 0xdd } \
+}
+
+/**
+ * acs license manager
+ */
+#define NC_ACS_LICENSE_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acslicensemanager;1"
+
+%}
+
+[uuid (6A7C6BCA-66FA-40f9-99CC-108C2B79307F)]
+interface ncIACSLicenseManager: nsISupports
+{
+	/**
+	 * ��ȡע����ģ����Ϣ
+	 *
+	 * @param license:		ע����
+	 * @param module:		ע�����Ӧ��ģ����Ϣ
+	 * @return:				У����
+	 */
+	[notxpcom] int GetLicenseInfo ([const] in StringRef license, in StringRef info);
+
+	/**
+	 * ��֤���߼������Ƿ���ȷ
+	 *
+	 * @param license:		ע����
+	 * @param machineCode:	������
+	 * @param activeCode:	������
+	 * @return:				������
+	 */
+	[notxpcom] int VerifyActiveCode ([const] in StringRef license, [const] in StringRef machineCode, [const] in StringRef activeCode);
+};

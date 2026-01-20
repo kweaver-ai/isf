@@ -1,0 +1,49 @@
+/***************************************************************************************************
+pluginMessageInterface.idl:
+    Copyright (c) Eisoo Software Inc. (2022), All rights reserved.
+
+Purpose:
+    插件框架服务
+
+Author:
+    Dylan.gao@aishu.cn
+
+Creating Time:
+    2022-03-25
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native bool(bool);
+
+[ref] native AcsMessageRef(acsMessage);
+
+%{ C++
+
+/**
+ * Plugin_MESSAGE CID
+ */
+#define PLUGIN_MESSAGE_CID \
+{ \
+    0xa1c11bc5, \
+    0x0ac2,    \
+    0x161c,    \
+     { 0x3a, 0xac, 0xd3, 0x5f, 0x1b, 0xc9, 0xe8, 0xc5 } \
+}
+
+/**
+ * PLUGIN_MESSAGE CONTRACTID
+ */
+#define PLUGIN_MESSAGE_CONTRACTID \
+"@eisoo.com/AnyShare7/eacp/drivenAdapter/pluginMessage;1"
+
+#include <interfaces/ncTypeCommon.h>
+%}
+
+[uuid (a5c1315c-a1d5-c54d-98a1-7b81aa9ac12d)]
+interface pluginMessageInterface: nsISupports
+{
+    /*
+     * 发送第三方插件消息
+     */
+    [notxpcom] void SendPluginMessage ([const] in AcsMessageRef msg);
+};

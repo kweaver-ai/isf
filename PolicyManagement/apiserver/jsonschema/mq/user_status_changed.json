@@ -1,0 +1,15 @@
+{
+    "type": "object",
+        "properties": {
+            "user_id": {
+                "type": "string"
+            },
+            "status": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "user_id",
+            "status"
+        ]
+}

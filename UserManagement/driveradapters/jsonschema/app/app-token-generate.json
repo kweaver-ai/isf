@@ -1,0 +1,13 @@
+{
+    "description": "创建应用账户令牌请求体",
+    "required": [
+        "id"
+    ],
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "应用账户ID",
+            "type": "string"
+        }
+    }
+}

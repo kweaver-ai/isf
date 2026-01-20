@@ -1,0 +1,9 @@
+apiVersion: v1
+appVersion: 1.0.0
+description: 审计日志服务
+version: 0.1.1
+keywords:
+  - AuditLog
+  - InformationSecurityFabric
+name: audit-log
+engine: gotpl
