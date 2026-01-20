@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Obligation Template Set Schema",
+  "description": "Schema for setting obligation template with config",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"  
+    },
+    "description": {
+      "type": "string"
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "type",
+        "properties"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "object"
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "type",
+              "title"
+            ],
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "applicable_resource_types": {
+      "type": "object",
+      "required": [
+        "unlimited"
+      ],
+      "properties": {
+        "unlimited": {
+          "type": "boolean"
+        },
+        "resource_types": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "applicable_operations"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "applicable_operations": {
+                "type": "object",
+                "properties": {
+                  "unlimited": {
+                    "type": "boolean"
+                  },
+                  "operations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "default_value": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "ui_schema": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name",
+    "schema",
+    "applicable_resource_types"
+  ],
+  "additionalProperties": false
+}

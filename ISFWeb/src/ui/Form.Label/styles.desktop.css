@@ -1,0 +1,21 @@
+@import '../../core/styles/root.css';
+
+.label {
+    display: table-cell;
+    padding: 0 10px 0 0;
+    vertical-align: middle;
+    color: var(--font-color-strong);
+
+    &.align-top {
+        vertical-align: top;
+        padding-top: 10px;
+    }
+
+    &.colon::after {
+        content: ':';
+        position: relative;
+        top: -.5px;
+        margin: 0 8px 0 2px;
+        color: #000;
+    }
+}

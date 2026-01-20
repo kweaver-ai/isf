@@ -1,0 +1,958 @@
+
+# Resource script for CN.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: efshttpserver\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################/
+#
+# String Table for null
+#
+msgid    "IDS_EACHTTP_EVFS_INIT_ERROR"
+msgstr   "Initialize to get EVFS object error, please check code."
+
+msgid "IDS_EACHTTP_ACSFINDER_INIT_ERROR"
+msgstr "Initialize to get ACSFINDER object error:0x%x, please check code."
+
+msgid "IDS_EACHTTP_ACSTOKEN_INIT_ERROR"
+msgstr "Initialize to get ACSTOKEN object error, please check code."
+
+msgid "IDS_EACHTTP_ACSAUTHIOC_INIT_ERROR"
+msgstr "Initialize to get ACSAUTHIOC object error, please check code."
+
+msgid "IDS_EACHTTP_THRIFT_SHAREMGNT_INIT_ERROR"
+msgstr "Initialize to get THRIFT_SHAREMGNT object error:0x%x, please check code."
+
+msgid "IDS_EACHTTP_ACS_SHAREMGNT_INIT_ERROR"
+msgstr "Initialize to get ACS_SHAREMGNT object error:0x%x, please check code."
+
+msgid "IDS_EACHTTP_ACS_DOC_INIT_ERROR"
+msgstr "Initialize to get ACSDOC object error:0x%x, please check code."
+
+msgid "IDS_EACHTTP_ACS_OWNER_INIT_ERROR"
+msgstr "Initialize to get ACSOWNER object error:0x%x, please check code."
+
+msgid "IDS_EACHTTP_ACS_PERM_INIT_ERROR"
+msgstr "Initialize to get ACSPERM object error:0x%x, please check code."
+
+msgid "IDS_EACHTTP_ACS_LOCK_INIT_ERROR"
+msgstr "Initialize to get ACSLOCK object error:0x%x, please check code."
+
+msgid "IDS_EACHTTP_DB_DOC_INIT_ERROR"
+msgstr "Initialize to get DBDOC object error:0x%x, please check code."
+
+msgid "IDS_EACHTTP_ARG_NULL"
+msgstr "Parameter is null, please check parameter."
+
+msgid "IDS_EACHTTP_ARG_RE_SET"
+msgstr "Parameter is set, please check."
+
+msgid "IDS_EACHTTP_INVALID_ARG_VALUE"
+msgstr "The value of parameter (%s) is invalid."
+
+msgid "IDS_EACHTTP_EVFS_NULL"
+msgstr "ncIEVFS object is null, please check code."
+
+msgid "IDS_EACHTTP_EVFS_COMMAND_HANDLER_NULL"
+msgstr "ncIEVFSCommandHandler object is null, please check parameter."
+
+msgid "IDS_EACHTTP_EVFS_QUERY_HANDLER_NULL"
+msgstr "ncIEVFSQueryHandler object is null, please check parameter."
+
+msgid "IDS_EACHTTP_JSON_KEY_ERROR"
+msgstr "JSON resource does not exist, please check key:%s"
+
+msgid "IDS_EACHTTP_SERVER_UNKNOWN_ERROR"
+msgstr "Unknown error, please check code."
+
+msgid "IDS_EACHTTP_ACSAUTHIOC_NULL"
+msgstr "ncIEACHttpAuthIOC object is null, please check code."
+
+msgid "IDS_EACHTTP_BLOCK_SIZE_NOT_EQUAL_TO_BINARY_SIZE"
+msgstr "Parameter error, data block size and actual size does not match, please check parameter."
+
+msgid "IDS_EACHTTP_METHOD_INVALID"
+msgstr "unsupported HTTP method."
+
+msgid "IDS_EACHTTP_API_NOT_IMPLEMENTED"
+msgstr "Request API error, unsupported API is invoked."
+
+msgid "IDS_EACHTTP_ACCESS_TOKEN_ERR"
+msgstr "access token verification failure."
+
+msgid "IDS_EACHTTP_JSON_SERIALIZE_ARG_NULL"
+msgstr "JSON serializable parameter is null pointer, please check parameter."
+
+msgid "IDS_EACHTTP_JSON_DESERIALIZE_ARG_NULL"
+msgstr "JSON deserializable parameter is null pointer, please check parameter."
+
+msgid "IDS_EACHTTP_JSON_KEY_NOT_INITIALIZED"
+msgstr "JSON field is not deserialized assigned, please check parameter."
+
+msgid "IDS_EACHTTP_BAD_EVBUFFER"
+msgstr "Append reply content to event flow failure, please check code."
+
+msgid "IDS_EACHTTP_RESOURCE_TO_URI_NOT_EXIST"
+msgstr "Request URI: %s pointed resource does not exist, please check URI."
+
+msgid "IDS_EACHTTP_GNS_INVALID"
+msgstr "GNS : %s invalid, please check parameter."
+
+msgid "IDS_EACHTTP_GNS_NULL"
+msgstr "GNS is null, please check parameter."
+
+msgid "IDS_EACHTTP_ERR_MSG_AGR_ERR"
+msgstr "Parameter error"
+
+msgid "IDS_EACHTTP_EXPIRES_TYPE_INVALID"
+msgstr "Parameter expirestype invalid"
+
+msgid "IDS_EACHTTP_ERR_MSG_INTERNAL_ERR"
+msgstr "Internal error."
+
+msgid "IDS_EACHTTP_ERR_MSG_NOT_AUTHORIZED"
+msgstr "Insufficient permissions."
+
+msgid "IDS_EACHTTP_ERR_MSG_RESOURCE_NOT_EXIST"
+msgstr "Resource does not exist."
+
+msgid "IDS_EACHTTP_ERR_MSG_ACCESS_TOKEN_ERR"
+msgstr "access token verification failure."
+
+msgid "IDS_EACHTTP_ERR_MSG_METHOD_INVALID"
+msgstr "Http request method error, only POST is supported."
+
+msgid "IDS_EACHTTP_ERR_MSG_API_NOT_IMPLEMENTED"
+msgstr "Request API error, unsupported API is revoked."
+
+msgid "ACS_USER_DOC"
+msgstr "My Documents"
+
+msgid "ACS_SHARE_DOC"
+msgstr "Shared Documents"
+
+msgid "ACS_ARCHIVE_DOC"
+msgstr "Archive Library"
+
+msgid "USER_DOC"
+msgstr "User Documents"
+
+msgid "CUSTOM_DOC"
+msgstr "Library"
+
+msgid "IDS_EACHTTP_QUERY_METHOD_NOT_SET"
+msgstr "Request method is not set"
+
+msgid "IDS_EACHTTP_QUERY_METHOD_NOT_SUPPORT"
+msgstr "Request method is not supported"
+
+msgid "IDS_EACHTTP_INVALID_JSON"
+msgstr "JSON format error"
+
+msgid "IDS_EACHTTP_PARAMETERS_IS_REQUIRED"
+msgstr "Parameter %s is required"
+
+msgid "IDS_EACHTTP_PARAMETERS_IS_INVALID"
+msgstr "The value of parameter %s is invalid"
+
+msgid "IDS_EACHTTP_ACCOUNT_NOT_SET"
+msgstr "Account is not set in http request"
+
+msgid "IDS_EACHTTP_PASSWORD_NOT_SET"
+msgstr "Password is not set in http request"
+
+msgid "IDS_READ_RSA_PRIVATEKEY_ERROR"
+msgstr "Extract key error"
+
+msgid "IDS_RAS_PRIVATE_DECRYPT_ERROR"
+msgstr "Decrypt error"
+
+msgid "IDS_TOKENID_NOT_SET"
+msgstr "tokenid is not set in http request"
+
+msgid "IDS_USERID_NOT_SET"
+msgstr "userid is not set in http request"
+
+msgid "IDS_GROUPID_NOT_SET"
+msgstr "Contact group ID is not set in http request"
+
+msgid "IDS_DEPARTMENTID_NOT_SET"
+msgstr "Department id is not set in http request"
+
+msgid "IDS_EACHTTP_CONVERT_PATH_BATCH_ERR"
+msgstr "Batch convert GNS path error:%s"
+
+msgid "IDS_EACHTTP_GET_ETSRESOURCEINFO_ERR"
+msgstr "Get ETS info failure"
+
+msgid "IDS_EACHTTP_CONVERT_PATH_ERR"
+msgstr "Convert GNS path error:%s"
+
+msgid "IDS_EACHTTP_GET_ETS_RES_ERR"
+msgstr "Get ETS resource error:%s"
+
+msgid "IDS_DOCID_NOT_SET"
+msgstr "docid is not set in http request"
+
+msgid "IDS_ROOTDOC_NOT_EXIST"
+msgstr "File does not exist"
+
+msgid "IDS_INVALID_QUOTA"
+msgstr "Invalid quota settings:%s"
+
+msgid "IDS_QUOTA_NOT_SET"
+msgstr "Quota is not set in http request"
+
+msgid "IDS_QUOTA_NUM_WRONG"
+msgstr "Invalid quota, it should be within [1,100]GB"
+
+msgid "IDS_USER_DOC_NOT_EXIST"
+msgstr "My documents does not exist"
+
+msgid "IDS_NO_ENOUGH_QUOTA"
+msgstr "There is not enough quota available"
+
+msgid "IDS_QUOTA_CANT_BE_ZERO"
+msgstr "Quota cannot be 0"
+
+msgid "IDS_USERS_NOT_SET"
+msgstr "userids is not set in http request"
+
+msgid "IDS_USERDOC_CANT_SET_OWNER"
+msgstr "You cannot set owners for My Documents"
+
+msgid "IDS_OWNER_CANT_ADD_YOURSELF"
+msgstr "You cannot set yourself as owner"
+
+msgid "IDS_PERM_CANT_ADD_YOURSELF"
+msgstr "You cannot set permissions for yourself"
+
+msgid "IDS_OWNER_CANT_ADD_ADMIN"
+msgstr "You cannot set admin as owner"
+
+msgid "IDS_OWNER_CANT_DELETE_YOURSELF"
+msgstr "Owner cannot delete oneself"
+
+msgid "IDS_PERM_CANT_DELETE_YOURSELF"
+msgstr "You cannot delete your own permission"
+
+msgid "IDS_INVALID_PERM_CONFIG"
+msgstr "Invalid permission settings"
+
+msgid "IDS_INVALID_ACCESSOR_TYPE"
+msgstr "Invalid accessor type %s"
+
+msgid "IDS_PERM_CONFIG_NOT_SET"
+msgstr "No permission settings in http request"
+
+msgid "IDS_PERM_CONFIG_ISALLOWED_NOT_SET"
+msgstr "isallowed is not set in permission settings"
+
+msgid "IDS_PERM_CONFIG_PERMVALUE_NOT_SET"
+msgstr "permvalue is not set in permission settings"
+
+msgid "IDS_PERM_CONFIG_ACCESSORID_NOT_SET"
+msgstr "accessorid is not set in permission settings"
+
+msgid "IDS_PERM_CONFIG_ACCESSORTYPE_NOT_SET"
+msgstr "accessortype is not set in permission settings"
+
+msgid "IDS_PERM_CONFIG_ISALLOWED_INVALID"
+msgstr "Invalid isallowed in permission settings"
+
+msgid "IDS_PERM_CONFIG_PERMVALUE_INVALID"
+msgstr "Invalid permvalue in permission settings"
+
+msgid "IDS_PERM_CONFIG_ACCESSORID_INVALID"
+msgstr "accessorid is invalid in permission settings"
+
+msgid "IDS_PERM_CONFIG_ACCESSORTYPE_INVALID"
+msgstr "accessortype is invalid in permission settings"
+
+msgid "IDS_PERM_CONFIG_ENDTIME_INVALID"
+msgstr "endtime is invalid in permission settings"
+
+msgid "IDS_PERM_CONFIG_ACCESSORTYPE_OR_ID_NOT_EXIST"
+msgstr "accessortype or accessorid does not exist in permission settings"
+
+msgid "IDS_PLATFORM_NOT_SET"
+msgstr "platform is not set in http request"
+
+msgid "IDS_ARCH_NOT_SET"
+msgstr "arch is not set in http request"
+
+msgid "IDS_VERSION_NOT_SET"
+msgstr "version is not set in http request"
+
+msgid "IDS_PLATFORM_INVALID"
+msgstr "Invalid platform settings, only windows, mac, android and iOS are supported"
+
+msgid "IDS_ARCH_INVALID"
+msgstr "Invalid arch settings, only x86/x64 is supported"
+
+msgid "IDS_VERSION_INVALID"
+msgstr "Invalid version settings"
+
+msgid "IDS_CLIENT_NEWER_THAN_SERVER"
+msgstr "Client version is larger than server %s"
+
+msgid "IDS_CLIENT_OLDER_THAN_SERVER"
+msgstr "Client version is smaller than server %s"
+
+msgid "IDS_GET_CLIENT_SETUP_PATH_ERROR"
+msgstr "Failed to get client package path %s"
+
+msgid "IDS_EACHTTP_USER_NOT_EXIST"
+msgstr "User does not exist"
+
+msgid "IDS_EACHTTP_INVALID_ACCOUNT_OR_PASSWORD"
+msgstr "User does not exist or wrong password"
+
+msgid "IDS_EACHTTP_MESSAGEID_FORMAT_ERR"
+msgstr "messageId format error"
+
+msgid "IDS_EACHTTP_TOKENID_FORMAT_ERR"
+msgstr "tokenid format error"
+
+msgid "IDS_EACHTTP_USERID_FORMAT_ERR"
+msgstr "userid format error"
+
+msgid "IDS_EACHTTP_GROUPID_FORMAT_ERR"
+msgstr "group:%s  format error"
+
+msgid "IDS_EACHTTP_DEPARTMENTID_FORMAT_ERR"
+msgstr "depid format error, invalid UUID"
+
+msgid "IDS_EACHTTP_OBJECTID_FORMAT_ERR"
+msgstr "objectid:%s  format error"
+
+msgid "IDS_EACHTTP_DOCID_FORMAT_ERR"
+msgstr "docid format error"
+
+msgid "IDS_EACHTTP_URI_FORMAT_ERR"
+msgstr "URI format error"
+
+msgid "IDS_DEPART_ID_NOT_EXISTS"
+msgstr "Department ID does not exist"
+
+msgid "IDS_EXT_LOGIN_FAILED"
+msgstr "Third-party authentication failure, please enable authentication and check account, APPID and Key."
+
+msgid "IDS_EACHTTP_GET_HOST_INFO_ERR"
+msgstr "Get WebClient configuration failure"
+
+msgid "IDS_EACHTTP_TICKET_INVALID"
+msgstr "Invalid ticket"
+
+msgid "IDS_EACHTTP_THIRD_AUTH_NOT_OPEN"
+msgstr "Third authentication not opened."
+
+msgid "IDS_INVALID_XML_FORMAT"
+msgstr "Invalid xml format"
+
+msgid "IDS_CANT_AUTHENTICATE_TICKET"
+msgstr "Fail to verify Ticket: %s"
+
+msgid "IDS_EACHTTP_NOT_IMPORT_TO_ANYSHARE"
+msgstr "Users are not imported"
+
+msgid "IDS_DEPLOY_WEB_FORBID_LOGIN"
+msgstr "This user is not allowed to login. Please check."
+
+msgid "IDS_EACHTTP_SERVICE_INVALID"
+msgstr "Invalid service"
+
+msgid "IDS_EACHTTP_LOCKER_INFO_NOT_EXIST"
+msgstr "Info of user that locked file does not exist."
+
+msgid "IDS_LOGIN_SUCCESS"
+msgstr "Log in %s client successfully"
+
+msgid "IDS_AUTHENICATION_SUCCESS"
+msgstr "Account authentication succeeded"
+
+msgid "IDS_NAS_GATEWAY"
+msgstr "NAS Gateway"
+
+msgid "IDS_CONSOLE_WEB"
+msgstr "Console Web"
+
+msgid "IDS_DEPLOY_WEB"
+msgstr "Deploy Web"
+
+msgid "IDS_ENABLE_FINDER_SUCCESS"
+msgstr "Enable Public Share of file \"%s\" successfully"
+
+msgid "IDS_DISABLE_FINDER_SUCCESS"
+msgstr "Disable Public Share of file \"%s\" successfully"
+
+msgid "IDS_LOCK_SUCCESS"
+msgstr "User \"%s\" lock file \"%s\" successfully"
+
+msgid "IDS_FORCE_GET_LOCK_SUCCESS"
+msgstr "User \"%s\" successfully grab edit permissions for file \"%s\""
+
+msgid "IDS_FILE_IS_ALREADY_LOCKED"
+msgstr "Failed to enable \"%s\" file lock, file is already locked"
+
+msgid "IDS_UNLOCK_SUCCESS"
+msgstr "User \"%s\" unlock file \"%s\" successfully"
+
+msgid "IDS_ADD_PERM_SUCCESS"
+msgstr "Set the permissions of %s \"%s\" for %s \"%s\" as \"%s\" successfully. The link is valid until %s"
+
+msgid "IDS_EDIT_PERM_SUCCESS"
+msgstr "Set the permissions of %s \"%s\" for %s \"%s\" as \"%s\" successfully. The link is valid until %s"
+
+msgid "IDS_DELETE_PERM_SUCCESS"
+msgstr "Cancel the permissions of %s \"%s\" for %s \"%s\" as \"%s\" successfully"
+
+msgid "IDS_ADD_OWNER_SUCCESS"
+msgstr "Set the owner of %s \"%s\" as \"%s\" successfully"
+
+msgid "IDS_DELETE_OWNER_SUCCESS"
+msgstr "Disable the owner of %s \"%s\" as \"%s\" successfully"
+
+msgid   "IDS_CUSTOMIZED_ADD_PERM_SUCCESS"
+msgstr  "%s%s set %s“%s”%s to %s“%s”%s with permission “%s” successfully, expiring on %s. Some files has been filtered out due to the existence of high security level files"
+
+msgid   "IDS_CUSTOMIZED_EDIT_PERM_SUCCESS"
+msgstr  "%s%s set %s“%s”%s to %s“%s”%s with permission “%s” successfully, expiring on %s. Some files has been filtered out due to the existence of high security level files"
+
+msgid   "IDS_CUSTOMIZED_DELETE_PERM_SUCCESS"
+msgstr  "%s%s cancelled %s“%s”%s to %s“%s”%s the permission “%s” successfully. Some files has been filtered out due to the existence of high security level files"
+
+msgid   "IDS_CUSTOMIZED_ADD_OWNER_SUCCESS"
+msgstr  "%s%s set %s“%s”%s owner as “%s”%s successfully. Some files has been filtered out due to the existence of high security level files"
+
+msgid   "IDS_CUSTOMIZED_DELETE_OWNER_SUCCESS"
+msgstr  "%s%s cancelled %s“%s”%s owner to “%s”%s successfully. Some files has been filtered out due to the existence of high security level files"
+
+msgid "IDS_PERM_INHERIT_SUCCESS"
+msgstr "The inherited permission of %s \"%s\" is %s."
+
+msgid "IDS_EXMSG"
+msgstr "Object path: %s"
+
+msgid "IDS_ALLOW"
+msgstr "Allow"
+
+msgid "IDS_DENY"
+msgstr "Deny"
+
+msgid "IDS_DISPLAY"
+msgstr "Display"
+
+msgid "IDS_READ"
+msgstr "Read"
+
+msgid "IDS_CREATE"
+msgstr "Create"
+
+msgid "IDS_EDIT"
+msgstr "Modify"
+
+msgid "IDS_DELETE"
+msgstr "Delete"
+
+msgid "IDS_UPLOAD"
+msgstr "Upload"
+
+msgid "IDS_EACHTTP_GET_DEVICE_INFO_ERR"
+msgstr "Failed to get device info: %s"
+
+msgid "IDS_EACHTTP_GET_OAUTH_INFO_ERR"
+msgstr "Failed to get OAuth info: %s"
+
+msgid "IDS_USER_DISABLED"
+msgstr "User is disabled."
+
+msgid "IDS_LOGIN_FAILED"
+msgstr "Log in %s client failed"
+
+msgid "IDS_AUTHENICATION_FAILED"
+msgstr "Account authentication failed"
+
+msgid  "IDS_FAILED_TO_LOGIN_CONSOLE"
+msgstr "Log in %s failed"
+
+msgid  "IDS_INCORRECT_USERNAME_OR_PASSWORD"
+msgstr "Incorrect username or password"
+
+msgid  "IDS_FAILED_TO_LOGIN_CONSOLE_ACCOUNT_LOCKED"
+msgstr "Log in %s failed, account has been locked"
+
+msgid  "IDS_WRONG_PASSWORD_MANY_TIMES"
+msgstr "This user has tried %d wrong password attempts."
+
+msgid "IDS_URL_DEPRECATED"
+msgstr "URL is deprecated."
+
+msgid "IDS_INVALID_AD_SESSION"
+msgstr "Invalid Windows AD session."
+
+msgid "IDS_EACHTTP_GET_AD_SSO_STATUS_ERROR"
+msgstr "Failed to get ad sso status: %s"
+
+msgid "IDS_AD_SSO_NOT_ENABLED"
+msgstr "Windows ad sso not enabled."
+
+msgid "IDS_QUIT_ENTRY_DOC"
+msgstr "Quit share：%s"
+
+msgid "IDS_JOIN_ENTRY_DOC"
+msgstr "Join share: %s"
+
+msgid "IDS_EACHTTP_INVALID_PERM"
+msgstr "Invalid permission value."
+
+msgid   "IDS_EACHTTP_DUPLICATE_ACCESSORID"
+msgstr  "accessorid is duplicated"
+
+msgid "IDS_EACHTTP_GET_THIRD_PARTY_AUTH_ERROR"
+msgstr "Failed to get thrid party auth info: %s"
+
+msgid "IDS_INVALID_THIRD_PARTY_ID"
+msgstr "Invalid third party ID: %s"
+
+msgid "IDS_INVALID_THIRD_PARTY_TICKET"
+msgstr "Invalid third party ticket."
+
+msgid "IDS_FAILED_TO_PARSE_THIRD_AUTH_CONFIG"
+msgstr "Failed to parse third auth config."
+
+msgid "IDS_FAILED_TO_EXECUTE_THIRD_AUTH"
+msgstr "Failed to execute third party auth."
+
+msgid "IDS_SEND_ERASE_DEVICE_REQ_SUC"
+msgstr "Sending data wiping request to device %s successfully."
+
+msgid "IDS_ERASE_DEVICE_SUC"
+msgstr "Wiping data of device %s successfully."
+
+msgid "IDS_DISABLE_DEVICE_SUC"
+msgstr "Disable device \"%s\" successfully."
+
+msgid "IDS_ENABLE_DEVICE_SUC"
+msgstr "Enable device \"%s\" successfully."
+
+msgid "IDS_DEVICE_DISABLED"
+msgstr "Device is disabled."
+
+msgid "IDS_DEVICE_NOT_BINDED"
+msgstr "Device is not binded."
+
+msgid "IDS_MODIFY_PASSWORD_SUCCESS"
+msgstr "Set %s password successfully."
+
+msgid "IDS_LOGOUT_SUCCESS"
+msgstr "Log out %s client successfully."
+
+msgid "IDS_TIMEOUT_AUTO_LOGOUT_SUCCESS"
+msgstr "Logon timeout, automatic logout of %s client successfully."
+
+msgid "IDS_LOGIN_FAILED_AND_LOCKED"
+msgstr "Log in %s failed, account locked."
+
+msgid "IDS_INPUT_WRONG_PASSWORD_FOR_THREE_TIMES"
+msgstr "This user inputed the wrong password for %d times."
+
+msgid "IDS_MODIFY_PASSWORD_FAILED_AND_LOCKED"
+msgstr "Modify password failed, account locked."
+
+msgid "IDS_EACHTTP_TIME_AHEAD_SERVER_TIME"
+msgstr "Time set is earlier than server time, please adjust the client time."
+
+msgid "IDS_EACHTTP_TIME_EXCEED_FIVE_YEARS"
+msgstr "Validity exceeds five years, please check and reset."
+
+msgid "IDS_END_TIME"
+msgstr "validity "
+
+msgid "IDS_UNLIMITED"
+msgstr "unlimited"
+
+msgid "IDS_FILE"
+msgstr "file"
+
+msgid "IDS_DIR"
+msgstr "folder"
+
+msgid "IDS_ACS_USER"
+msgstr "user"
+
+msgid "IDS_ACS_DEPARTMENT"
+msgstr "department"
+
+msgid "IDS_ACS_CONTACTOR"
+msgstr "contact group"
+
+msgid "IDS_ACS_GROUP"
+msgstr "group"
+
+msgid "IDS_USER_FIND_SHARE_UNABLE"
+msgstr "Public share has been disabled for this user."
+
+msgid "IDS_USER_CSF_LEVEL_LOWER_THAN_FILE"
+msgstr "User security level is lower than file security level and sharing is not allowed."
+
+msgid "IDS_FILE_CSF_LEVEL_IS_NOT_SET"
+msgstr "The file cannot be shared, as its security level has not been set."
+
+msgid "IDS_CLIENT_UPDATE_PACKAGE_NOT_UPLOAD"
+msgstr "Client update package is not uploaded."
+
+msgid "IDS_EACHTTP_SMTP_RECIPIENT_MAIL_ILLEGAL"
+msgstr "Reciver mailbox is illegal"
+
+msgid "IDS_EACHTTP_SMTP_SERVER_NOT_SET"
+msgstr "smtp server is not set"
+
+msgid "IDS_EACHTTP_SMTP_SEND_FAILED"
+msgstr "Failed to send email"
+
+msgid "IDS_EACHTTP_SMTP_SERVER_NOT_AVAILABLE"
+msgstr "SMTP server is not available"
+
+msgid "IDS_EACHTTP_SEND_VCODE_SERVER_NOT_AVAILABLE"
+msgstr "Server for sending verification code has not been opened"
+
+msgid "IDS_EACHTTP_APP_CREATER_SUCCESS_EXMSG"
+msgstr "User name: \"%s\"; Display name: \"%s\"; User type: \"%s\"; Site: \"%s\"; Email: \"%s\"; Quota: \"%d\" G"
+
+msgid "IDS_LOCAL_USER"
+msgstr "Local User"
+
+msgid "IDS_DOMAIN_USER"
+msgstr "Domain User"
+
+msgid "IDS_THIRD_USER"
+msgstr "Third-party User"
+
+msgid "IDS_EACHTTP_APP_EDIT_SUCCESS_EXMSG"
+msgstr "User name: \"%s\"; Display name: \"%s\"; User type: \"%s\"; Site: \"%s\"; Email: \"%s\"; Quota: \"%d\" G"
+
+msgid "IDS_PWD_CONTROL"
+msgstr "Don't allow user to change password"
+
+msgid "IDS_NOT_PWD_CONTROL"
+msgstr "Allow user to change password"
+
+msgid "IDS_EACHTTP_APP_CREATER_SUCCESS"
+msgstr "Create user \"%s(%s)\" successfully, security level is \"%s\", \"%s\""
+
+msgid "IDS_EACHTTP_APP_EDIT_SUCCESS"
+msgstr "Edit user \"%s(%s)\" successfully, security level is \"%s\", \"%s\""
+
+msgid "IDS_EACHTTP_APP_DELETE_SUCCESS"
+msgstr "Delete user \"%s(%s)\" successfully"
+
+msgid "IDS_EACHTTP_APP_DELETEUSERDOC_SUCCESS"
+msgstr "Delete My Documents of user \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_CREATER_ORG_SUCCESS"
+msgstr "Create organization \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_CREATER_ORG_SUCCESS_EXMSG"
+msgstr "Site \"%s\""
+
+msgid "IDS_EACHTTP_INVALID_ORG_NAME"
+msgstr "Organization name is illegal"
+
+msgid "IDS_EACHTTP_APP_EDIT_ORG_SUCCESS"
+msgstr "Edit organization \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_EDIT_ORG_SUCCESS_EXMSG"
+msgstr "Original organization name \"%s\"; site \"%s\""
+
+msgid "IDS_EACHTTP_APP_DELETE_ORG_SUCCESS"
+msgstr "Delete organization \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_CREATER_DEP_SUCCESS"
+msgstr "Create department \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_CREATER_DEP_SUCCESS_EXMSG"
+msgstr "Site \"%s\""
+
+msgid "IDS_EACHTTP_APP_EDIT_DEP_SUCCESS"
+msgstr "Edit department \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_EDIT_DEP_SUCCESS_EXMSG"
+msgstr "Original department name \"%s\"; site \"%s\""
+
+msgid "IDS_EACHTTP_APP_DELETE_DEP_SUCCESS"
+msgstr "Delete department \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_MOVE_USER_TO_DEP_SUCCESS"
+msgstr "Move user \"%s(%s)\" to department/organization \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_ADD_USER_TO_DEP_SUCCESS"
+msgstr "Add user \"%s\" to department \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_REMOVE_USER_FROM_DEP_SUCCESS"
+msgstr "Remove user \"%s(%s)\" from department \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_SET_MANAGER_SUCCESS"
+msgstr "Set general admin of department \"%s\" as \"%s\" successfully"
+
+msgid "IDS_EACHTTP_APP_CANCEL_MANAGER_SUCCESS"
+msgstr "Cancel general admin of department \"%s\" as \"%s\" successfully"
+
+msgid "IDS_APPLY_SHARE_TO_AUDITORS"
+msgstr "Request has been submitted to approver %s"
+
+msgid "IDS_APPLY_OWNER_DETAIL"
+msgstr "%s Share Permissions: %s \"%s\" is shared with %s \"%s\". The permissions are \"owner\". It expires on \"unlimited\". File path: %s"
+
+msgid "IDS_APPLY_PERM_DETAIL"
+msgstr "%s Share Permissions: %s \"%s\" is shared with %s \"%s\". The permissions are \"%s\". It expires on \"%s\". File path: %s"
+
+msgid "IDS_APPLY_PERM_INHERIT_DETAIL"
+msgstr "%s \"%s\" permissions inherited from superior has been %s file path: %s"
+
+msgid "IDS_OWNER"
+msgstr "Owner"
+
+msgid "IDS_ADD"
+msgstr "Add"
+
+msgid "IDS_DISABLED"
+msgstr "disabled"
+
+msgid "IDS_ENABLED"
+msgstr "enabled"
+
+msgid "IDS_LOGIN_IP_IS_RESTRICTED"
+msgstr "Your account is not allowed to login in this IP segment anymore. If you have any questions, please contact admin."
+
+msgid "IDS_EACHTTP_GET_SECRET_STATUS_ERROR"
+msgstr "Failed to get secret mode status"
+
+msgid "IDS_EACHTTP_GET_CSF_LEVELS_ERROR"
+msgstr "Failed to get the enumeration of classification level"
+
+msgid "IDS_EACHTTP_GET_THIRDCSFSYS_CONFIG_ERROR"
+msgstr "Failed to get configuration of the third party secuirty classification system"
+
+msgid "IDS_PUBLISH_DOCUMENT_EXCHANGE_EXMSG"
+msgstr "Approval type: %s, File path: %s."
+
+msgid "IDS_LOGIN_OSTYPE_IS_FORBID"
+msgstr "This type of client has been disabled by admin."
+
+msgid "IDS_SECURITY_DEVICE_AUTH_SUCCESS"
+msgstr "Security device auth successfully"
+
+msgid "IDS_SECURITY_DEVICE_AUTH_FAILED"
+msgstr "Security device auth failed"
+
+msgid "IDS_EACHTTP_GET_INVITED_SHARE_STATUS_ERROR"
+msgstr "Failed to detect the status of inviting collaborator"
+
+msgid "IDS_OPEN_INVITATION_MSG"
+msgstr "Open the invite link for %s \"%s\" succeeded, permission: \"%s\", permission expiration: %s, link expiration: %s"
+
+msgid "IDS_CLOSE_INVITATION_MSG"
+msgstr "Close the invite link for %s \"%s\" succeeded, permission: \"%s\", permission expiration: %s, link expiration: %s"
+
+msgid "IDS_SET_INVITATION_MSG"
+msgstr "Set the invite link for %s \"%s\" succeeded, permission: \"%s\", permission expiration: %s, link expiration: %s"
+
+msgid "IDS_EACHTTP_CANNOT_JOIN_IN_SECRET_AND_AUDIT_MODE"
+msgstr "Failed to invite users as collaborators, as security mode or file sharing approval has been enabled"
+
+msgid "IDS_EACHTTP_INVITATION_SHARE_STATUS_NOT_OPEN"
+msgstr "The invite link has not been opened"
+
+msgid "IDS_JOIN_INVITATION_SUCCESS"
+msgstr "User\"%s\" was successfully invited as the collaborator of \"%s\", Permission \"%s\", Permission expiration %s"
+
+msgid "IDS_EACHTTP_GET_WATERMARK_STATUS_ERROR"
+msgstr "Failed to get file watermark policy status"
+
+msgid "IDS_EACHTTP_GET_WATERMARK_CONFIG_ERROR"
+msgstr "Failed to get file watermark configuration"
+
+msgid "IDS_EACHTTP_GET_SHARE_DOC_STATUS_ERROR"
+msgstr "Failed to get share doc status"
+
+msgid "IDS_EACHTTP_QUARANTINE_MSG"
+msgstr "\"%s\" involves illegal content, isolate illegal file \"%s\" successfully"
+
+msgid "IDS_EACHTTP_LOG_AUX_FORMAT_PATH"
+msgstr "Path: %s"
+
+msgid "IDS_EACHTTP_DEL_QUARANTINE_LOG"
+msgstr "Delete illegal file “%s”"
+
+msgid "IDS_EACHTTP_DEL_QUARANTINE_EXLOG"
+msgstr "File path: %s"
+
+msgid "IDS_EACHTTP_GET_SITE_OFFICE_ONLINE_INFO_ERROR"
+msgstr "Failed to get the office online information for the site"
+
+msgid   "IDS_USER_FREEZED"
+msgstr  "The user has been frozen."
+
+msgid   "IDS_DOC_CREATOR_FREEZED"
+msgstr  "File creator has been frozen."
+
+msgid   "IDS_CLIENT_LOW_VERSION"
+msgstr  "Your AnyShare client version is too low, please download the new version and login again."
+
+msgid   "IDS_EACHTTP_CHECK_VCODE_IS_NULL"
+msgstr  "Please enter verification code"
+
+msgid   "IDS_EACHTTP_CHECK_VCODE_IS_TIMEOUT"
+msgstr  "Invalid verification code"
+
+msgid   "IDS_EACHTTP_CHECK_VCODE_IS_WRONG"
+msgstr  "Incorrect verification code"
+
+msgid   "IDS_USER_NOT_REAL_NAME_AUTH"
+msgstr  "The user has not completed real-name authentication"
+
+msgid   "IDS_DOC_CREATOR_NOT_REAL_NAME_AUTH"
+msgstr  "File creator has not completed real-name authentication"
+
+msgid   "IDS_INSUFFICIENT_SYSTEM_RESOURCES"
+msgstr  "Insufficient server resources to access"
+
+msgid   "IDS_EACHTTP_USER_NOT_ACTIVATE"
+msgstr  "User has been disabled，Whether to activate immediately？"
+
+msgid   "IDS_EACHTTP_USER_IS_ACTIVATE"
+msgstr  "User has been abled，Please log on to the login page."
+
+msgid   "IDS_EACHTTP_INVALID_TEL_NUMBER"
+msgstr  "Invalid tel number"
+
+msgid   "IDS_EACHTTP_TEL_NUMBER_EXISTS"
+msgstr  "Tel number exists"
+
+msgid   "IDS_EACHTTP_SMS_VERIFY_CODE_ERROR"
+msgstr  "Verification code is incorrect, please enter again."
+
+msgid   "IDS_EACHTTP_SMS_VERIFY_CODE_TIMEOUT"
+msgstr  "Verification code entered has expired, please enter again."
+
+msgid   "IDS_EACHTTP_SEND_VERIFY_CODE_FAIL"
+msgstr  "Failed to send verification code"
+
+msgid   "IDS_EACHTTP_INVALID_EMAIL"
+msgstr  "Invalid email address"
+
+msgid   "IDS_EACHTTP_EMAIL_EXISTS"
+msgstr  "Email address exists"
+
+msgid   "IDS_EACHTTP_USER_ACTIVATE_ERROR"
+msgstr  "Activate user error"
+
+msgid   "IDS_EACHTTP_SMS_ACTIVATE_DISABLED"
+msgstr  "SMS activation is not turned on"
+
+msgid   "IDS_EACHTTP_INVALID_SEARCH_KEY"
+msgstr  "The format of key is illegal."
+
+msgid   "IDS_ADD_CONTACTOR_PERSON"
+msgstr  "\"%s\" was successfully added to the contact group \"%s\""
+
+msgid   "IDS_DELETE_CONTACTOR_PERSON"
+msgstr  "\"%s\" was successfully removed from the contact group \"%s\""
+
+msgid  "IDS_UNSUPPORTED_CLIENT_FOR_SERVER"
+msgstr  "The server version does not support this client."
+
+msgid   "IDS_DISPLAYNAME_NOT_NULL"
+msgstr  "The displayName cannot be empty."
+
+msgid   "IDS_EDIT_EMAIL_EMPTY"
+msgstr  "The mailbox set as empty successfully"
+
+msgid   "IDS_EDIT_EMAIL"
+msgstr  "Mailbox \"%s\" set successfully"
+
+msgid   "IDS_ORIGINAL_EMAIL"
+msgstr  "Original mailbox \"%s\""
+
+msgid   "IDS_EDIT_DISPALYNAME"
+msgstr  "Display name \"%s\" set successfully"
+
+msgid   "IDS_ORIGINAL_DISPALYNAME"
+msgstr  "Original display name \"%s\""
+
+msgid   "IDS_SIGN_NOT_SET"
+msgstr  "Signature is not set"
+
+msgid   "IDS_SIGN_VERIFY_FAILED"
+msgstr  "Signature verification failed"
+
+msgid   "IDS_EACHTTP_EMAIL_ADDRESS_HAS_NOT_BEEN_BOUND"
+msgstr  "Email address has not been bound"
+
+msgid   "IDS_EACHTTP_PHONE_HAS_NOT_BEEN_BOUND"
+msgstr  "Phone number has not been bound"
+
+msgid   "IDS_ORIGINAL_TELNUMBER"
+msgstr  "Previous Phone number \"%s\""
+
+msgid   "IDS_EDIT_TELNUMBER"
+msgstr  "Phone number \"%s\" changed successfully"
+
+msgid   "IDS_EDIT_TELNUMBER_EMPTY"
+msgstr  "Phone number is successfully set as empty"
+
+msgid   "IDS_VCODE_EMAIL_TITLE"
+msgstr  "%s reset password"
+
+msgid   "IDS_VCODE_SMS_CONTENT"
+msgstr  "[%s] Verification code %s, used for resetting password. It will expire in 5 minutes, please complete your verification as soon as possible."
+
+msgid   "IDS_VCODE_EMAIL_CONTENT"
+msgstr  "<div style='margin: 0 auto;font-size: 14px;line-height: 25px;color: #595959;'><div style='color: #000000;'>Dear %s, you are resetting password for <font style='color: #5a8cb4;'>%s</font></div><div style='color: #000000;'>Verification code:</div><div style='line-height: 45px;font-size: 25px;font-weight: bold;'>%s</div><div>will expire in 5 minutes, please complete your verification as soon as possible.</div></div>"
+
+msgid   "IDS_RESET_PASSWORD_SUCCESS"
+msgstr  "Password is reset successfully"
+
+msgid   "IDS_RESET_PASSWORD_SUCCESS_BY_SMS"
+msgstr  "SMS Password Reset"
+
+msgid   "IDS_RESET_PASSWORD_SUCCESS_BY_EMAIL"
+msgstr  "Email Password Reset"
+
+msgid   "IDS_EXIT_PWD_NOT_ENABLED"
+msgstr  "Exit password has been disabled, please contact admin."
+
+msgid   "IDS_EIXT_PWD_INCORRECT"
+msgstr  "Incorrect password, please enter again or contact admin."
+
+msgid   "IDS_INVALID_OS_TYPE"
+msgstr  "Invalid parameter ostype."
+
+msgid   "IDS_EACHTTP_CHECK_OTP_IS_NULL"
+msgstr  "Please enter dynamic password."
+
+msgid   "IDS_EACHTTP_OTP_SERVER_NOT_SET"
+msgstr  "Dynamic password auth config is invalid."
+
+msgid   "IDS_EACHTTP_MFA_SMS_SERVER_NOT_SET"
+msgstr  "MFA SMS server is not set"
+
+msgid   "IDS_EACHTTP_GET_SMTPSRV_CONFIG_ERROR"
+msgstr  "获取SMTP服务器配置失败"
+
+msgid   "IDS_EACHTTP_USER_CANNOT_OPEN_LINK"
+msgstr  "You do not have permission for Anonymous Share."
+
+msgid   "IDS_EACHTTP_DATA_TYPE_IS_ERROR"
+msgstr  "type of '%s' should be '%s'"
+
+msgid   "IDS_EACHTTP_VISITORTYPE_INVALID"
+msgstr  "'visitortype' field is invalid, userid: %s, visitortype: %s."

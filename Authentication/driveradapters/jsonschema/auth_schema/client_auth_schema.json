@@ -1,0 +1,38 @@
+{
+    "required": [
+        "account",
+        "password",
+        "method"
+    ],
+    "type": "object",
+    "properties": {
+        "method": {
+            "type": "string",
+            "enum": [
+                "GET"
+            ]
+        },
+        "account": {
+            "type": "string",
+            "minLength": 1
+        },
+        "password": {
+            "type": "string",
+            "minLength": 1
+        },
+        "option": {
+            "type": "object",
+            "properties": {
+                "uuid": {
+                    "type": "string"
+                },
+                "vcode": {
+                    "type": "string"
+                },
+                "vcodeType": {
+                    "type": "number"
+                }
+            } 
+       }
+    }
+}

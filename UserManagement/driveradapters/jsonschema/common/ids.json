@@ -1,0 +1,16 @@
+{
+    "required": [
+        "ids"
+    ],
+    "type": "object",
+    "properties": {
+        "ids": {
+            "type": "array",
+            "minItems": 0,
+            "uniqueItems": false,
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

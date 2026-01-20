@@ -1,0 +1,75 @@
+@import '../../../core/styles/root.css';
+
+.autocomplete-box {
+    position: relative;
+}
+
+.locator {
+    z-index: 20;
+}
+
+.checkbox {
+    width: 100%;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.list-panel {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    min-width: 120px;
+    min-height: 40px;
+    margin: 0;
+    margin-top: 2px;
+    padding: 4px 0;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--control-border-radius);
+    box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    list-style: none;
+    color: #505050;
+    white-space: nowrap;
+
+    & .list-item {
+        padding: 6px 10px;
+        line-height: 18px;
+        border: none;
+        white-space: pre;
+        cursor: pointer;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+.tip {
+    padding-left: 10px;
+    color: #c0c0c0;
+
+    & .loading {
+        display: inline-block;
+        margin: 6px 4px;
+    }
+}
+
+.caution {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.error {
+    padding-right: 28px;
+    border-color: var(--border-color__error) !important;
+    box-shadow: var(--control-shadow__disabled) !important;
+
+    &:hover,
+    &:active {
+        border-color: var(--border-color__error);
+        box-shadow: var(--control-shadow__disabled);
+    }
+}

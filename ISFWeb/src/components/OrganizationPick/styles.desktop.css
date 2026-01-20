@@ -1,0 +1,73 @@
+.organization-tree {
+    width: 200px;
+    height: 380px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    overflow: auto;
+    text-align: left;
+}
+
+.tree-main {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 10px);
+    padding-left: 6px;
+    box-sizing: border-box;
+}
+
+.search-box {
+    margin: 10px 0;
+}
+
+.select-content {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.button-layout {
+    position: relative;
+    height: 30px;
+
+    & .button-wrapper {
+        float: right;
+        margin-left: 5px;
+    }
+}
+
+.dep-item {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dep-name {
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
+}
+
+.dep-del {
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.seleted-data {
+    margin-right: 30px;
+}
+
+.selected-data-del {
+    width: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+}
+.safari{
+    &::before{
+        content: '';
+        display: block;
+    }
+}

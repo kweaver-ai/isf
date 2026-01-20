@@ -1,0 +1,7 @@
+@import '../../core/styles/root.css';
+
+.tip-text {
+    margin-top: 8px;
+    size: 13px;
+    color: var(--font-color-secondary);
+}

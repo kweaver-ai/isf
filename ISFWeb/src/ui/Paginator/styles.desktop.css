@@ -1,0 +1,20 @@
+:local {
+    & .paginator {
+        & .page-info {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        & .action {
+            display: inline-block;
+            margin: 0 5px;
+        }
+    }
+
+    & .page-input {
+        display: inline-block;
+        width: 32px;
+        padding: 3px;
+        border: 1px solid #dbdbdb;
+    }
+}

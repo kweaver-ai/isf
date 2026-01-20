@@ -1,0 +1,16 @@
+.container {
+    width: 130px;
+
+    & .result-li {
+        padding: 4px 4px 4px 15px;
+    }
+
+    & .result-li-selected {
+        padding: 4px 4px 4px 15px;
+        background-color: #f3f3fa;
+
+        & :hover {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.linkChip {
+    color: #000;
+    text-decoration: none;
+
+    &[disabled] {
+        opacity: .5;
+        cursor: default;
+    }
+}

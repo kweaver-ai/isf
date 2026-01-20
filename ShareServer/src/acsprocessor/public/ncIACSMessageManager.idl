@@ -1,0 +1,180 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native StringVecRef(vector<String>);
+
+[ref] native acsMessageInfoPtrVecRef(vector<std::shared_ptr<acsMessageInfo>>);
+[ref] native acsMessageResultVecRef(vector<acsMessageResult>);
+[ref] native acsMessagePtrVecRef(vector<std::shared_ptr<acsMessage>>);
+
+%{ C++
+
+/**
+ * acs message manager
+ */
+#define NC_ACS_MESSAGE_MANAGER_CID \
+{ \
+    0x643faf63, \
+    0xae82,    \
+    0x4473,    \
+     { 0x9e, 0x9, 0x6b, 0xe6, 0xd6, 0x92, 0x8e, 0x50 } \
+}
+
+/**
+ * acs message manager
+ */
+#define NC_ACS_MESSAGE_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acsmessagemanager;1"
+
+#include <interfaces/ncTypeCommon.h>
+
+// 消息类型
+enum ncMessageType {
+    ACS_SHARE_OPEN_MSG = 1,                 // 开启共享
+    ACS_SHARE_CLOSE_MSG = 2,                // 关闭共享
+    ACS_OWNER_SET_MSG = 3,                  // 设置所有者
+    ACS_OWNER_UNSET_MSG = 4,                // 取消所有者
+    ACS_SIMPLE_MSG = 18,                    // 简单消息(失效)
+    ACS_QUARANTINE_MSG = 21,                // 文件隔离消息
+    ACS_QUARANTINE_APPEAL_MSG = 22,         // 文件从隔离区还原消息
+    ACS_ANTIVIRUS_MSG = 23,                 // 杀毒推送消息(失效)
+    ACS_DOC_REMIND_MSG = 28,                // 文件到期通知消息
+    ACS_APPEAL_APPROVE_MSG = 32,            // 申诉被通过消息
+    ACS_APPEAL_VOTE_MSG = 33,               // 申诉被否决消息
+};
+
+// 消息基本
+struct acsMessageInfo {
+    ncMessageType      msgType;       // 消息类型
+    String             senderId;      // 发送者id
+    int                accessorType;  // 访问者类型
+    String             accessorId;    // 访问者id
+    int64              msgTime;       // 消息创建时间
+    String             taskId;        // 消息任务id, 用于任务处理后通知消息状态更新, 如审核任务
+    String             msgId;         // 消息id
+};
+
+// 基本的消息，包含文档信息
+struct acsMessageDocumentInfo: acsMessageInfo {
+    acsMessageDocumentInfo ()
+        : csflevel (-1)
+    {}
+    String        docId;         // 文档对象的id(gns://guid1/guid2/guid3)
+    String        docUrl;        // 文档内链 "AnyShare://"
+    bool          isDir;         // 是文件夹
+    int           csflevel;      // 文件密级，隔离消息用
+};
+
+// 共享消息，包括权限配置的信息
+struct acsMessageShareInfo: acsMessageDocumentInfo {
+    int64         endTime;       // 权限到期时间
+    int           allowvalue;    // 允许权限值
+    int           denyvalue;     // 拒绝权限值
+};
+
+// 简单消息，包含定制消息内容
+struct acsMessageSimpleInfo: acsMessageDocumentInfo {
+    String        content;        // 定制消息体
+};
+
+// 杀毒消息
+struct acsMessageAntivirusInfo: acsMessageDocumentInfo {
+    int       antivirusOp;
+    String    antivirusAdmin;
+};
+
+// 隔离消息
+struct acsMessageQuarantineInfo: acsMessageDocumentInfo {
+    String    creatorId;
+    String    modifierId;
+    int       quarantineType;    // 隔离类型 1：非法 2：染毒 3：涉黄
+    int       processType;       // 处理类型 1：隔离 2：修复
+};
+
+// 文件到期提醒消息
+struct acsMessageDocRemindInfo: acsMessageDocumentInfo {
+    int64             dueDate;
+    String            remindContent;
+    vector<String>    receivers;
+};
+
+// 申诉处理消息
+struct acsMessageAppealInfo: acsMessageDocumentInfo {
+    String    creatorId;
+    String    modifierId;
+    String    appealSuggest;
+};
+
+// 消息返回
+struct acsMessageResult {
+    String        msgId;         // 消息id
+    String        msgContent;    // 消息内容
+    int64         msgStamp;      // 消息创建时间
+    int           msgStatus;     // 消息状态
+};
+
+%}
+
+[uuid (E4F59331-F9AC-4729-ABA9-141190CFBF00)]
+interface ncIACSMessageManager: nsISupports
+{
+    /*
+    * 启动处理线程 (新Http API使用)
+    */
+    [notxpcom] void StartMessageThread2 ();
+
+    /*
+    * 启动消息推送线程 (新Http API使用)
+    */
+    [notxpcom] void StartPushMessageThread2 ();
+
+    /*
+     * 添加消息记录 (新Http API使用)
+     */
+    [notxpcom] void AddMessage2 ([const] in acsMessagePtrVecRef msgs);
+
+    /*
+     * 获取指定用户消息记录
+     */
+    [notxpcom] void GetMessageByUserId ([const] in StringRef userid, in int64 stamp, in acsMessageResultVecRef msgs);
+
+    /*
+     * 更新用户所有消息状态
+     */
+    [notxpcom] void ReadMessageByUserId ([const] in StringRef userid, in int64 stamp);
+
+    /*
+     * 更加消息id批量更新消息读取状态
+     */
+    [notxpcom] void ReadMessageByIds ([const] in StringRef userid, [const] in StringVecRef msgids);
+
+    /*
+     * 通过处理任务更新消息读取状态
+     */
+    [notxpcom] void ReadMessageByTaskId ([const] in StringRef userid, [const] in StringRef taskId);
+
+    /*
+     * 通过处理任务批量更新消息读取状态
+     */
+    [notxpcom] void BatchReadMessageByTaskId ([const] in StringRef taskId);
+
+    /*
+     * 更新消息所有接收者的读取状态
+     */
+    [notxpcom] void ReadMessageForAllReceivers ([const] in StringRef msgId);
+
+    /*
+     * 更新消息指定接收者的读取状态
+     */
+    [notxpcom] void ReadMessageForSomeReceivers ([const] in StringRef msgId, [const] in StringVecRef receiverIds);
+
+    /*
+     * 添加插件消息
+     */
+    [notxpcom] void AddPluginMessage ([const] in acsMessagePtrVecRef msgs);
+};

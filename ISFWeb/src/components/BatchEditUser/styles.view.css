@@ -1,0 +1,87 @@
+@import '../../core/styles/root.css';
+
+.container-box {
+    min-width: 425px;
+}
+
+.text-label {
+    display: table-cell;
+    width: 102px;
+    padding: 0 8px 0 0;
+    vertical-align: middle;
+}
+
+.unable-edit {
+    width: 320px;
+    padding-top: 3px;
+}
+
+.space-gb {
+    margin: 0 4px 0 8px;
+}
+
+.required {
+    float: right;
+    padding-top: 0px;
+    color: var(--color-error);
+}
+
+.used-size {
+    margin-left: 110px;
+    font-size: var(--font-size-secondary);
+    color: var(--font-color-Description);
+}
+
+.expire-date {
+    color: var(--font-color-regular) !important;
+}
+
+
+.box-wrapper {
+    position: relative;
+
+    & .key-dot {
+        position: absolute;
+        top: 8px;
+        left: -10px;
+        color: var(--color-error);
+    }
+}
+
+.select-range {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 0 0 5px;
+    line-height: 1;
+}
+
+.select-height {
+    height: 32px;
+}
+
+.edit-tip {
+    padding: 0 0 10px 0;
+}
+
+.edit-text {
+    width: 80px;
+}
+
+.container {
+    padding-left: 20px;
+
+    & .conform-tip {
+        margin: 10px 0 10px 0;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    & .conform-container {
+        width: 300px;
+        white-space: normal;
+    }
+}
+
+.label {
+    margin-right: 8px;
+}

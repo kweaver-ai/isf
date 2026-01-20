@@ -1,0 +1,92 @@
+#include "nsISupports.idl"
+
+native int(int);
+native int64(int64);
+native String(String);
+[ref] native StringRef(String);
+[ref] native RequestInfoRef(RequestInfo);
+[ref] native MapUploadPartInfoRef(map<int, UploadPartInfo>);
+[ref] native OSSUploadInfoRef(OSSUploadInfo);
+[ref] native VecOSSInfoRef(vector<OSSInfo>);
+%{ C++
+
+
+/**
+ * ossgateway manager
+ */
+#define OSS_GATEWAY_CID \
+{ \
+    0xdc8b3641, \
+    0x04b0,    \
+    0x5e7c,    \
+     { 0x9d, 0x6d, 0x02, 0x1f, 0x6c, 0x8d, 0xe3, 0x1d } \
+}
+
+/**
+ * ossgateway manager
+ */
+#define OSS_GATEWAY_CONTRACTID \
+"@eisoo.com/AnyShare3.5/drivenadapter/ossGateway;1"
+
+// 请求信息
+struct RequestInfo {
+    string method;          // 方法
+    string url;             // url
+    vector<string> headers; // header
+    string body;            // body
+};
+
+// 分片上传信息
+struct UploadPartInfo
+{
+    UploadPartInfo (string etag, int64 size)
+        : etag (etag)
+        , size (size)
+    {}
+
+    string etag;
+    int64 size;
+};
+
+// 分片上传初始化信息
+struct OSSUploadInfo {
+    int64 partSize;
+    String uploadId;
+};
+
+// 分片上传初始化信息
+struct OSSInfo {
+    String id;
+    bool bDefault;
+};
+
+%}
+
+[uuid (57b05031-5bdd-e5aa-e720-21e6c151c9ca)]
+interface ossGatewayInterface: nsISupports
+{
+    /*
+     * 获取本地存储信息
+     */
+    [notxpcom] void GetLocalOSSInfo (in VecOSSInfoRef infos );
+
+    /*
+     * 自适应普通上传/分片上传协议(只支持分片上传)
+     */
+    [notxpcom] void UploadInfo ([const] in StringRef objName, [const] in StringRef ossID, in OSSUploadInfoRef info);
+
+    /*
+     * 获取分片上传url
+     */
+    [notxpcom] void UploadPart ([const] in StringRef objName, [const] in StringRef ossID, [const] in StringRef uploadID, [const] in int partNum, in RequestInfoRef info);
+
+    /*
+     * 完成分片上传url获取
+     */
+    [notxpcom] void CompleteUpload ([const] in StringRef objName, [const] in StringRef ossID, [const] in StringRef uploadID, [const] in MapUploadPartInfoRef multiPartInfo, in RequestInfoRef res);
+
+    /*
+     * 获取下载信息
+     */
+    [notxpcom] void GetDownLoadInfo ([const] in StringRef objName, [const] in StringRef ossID, [const] in StringRef fileName, [const] in int64 expireTime, in RequestInfoRef res);
+};

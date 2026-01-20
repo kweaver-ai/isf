@@ -1,0 +1,48 @@
+.dialog {
+    min-width: 400px;
+    border-radius: 8px;
+    padding-bottom: 8px;
+    background: #fff;
+
+    & .header {
+        position: relative;
+        box-sizing: border-box;
+        height: 35px;
+        padding: 7px 10px 0 20px;
+        border-radius: 8px 8px 0 0;
+        background-color: #fff;
+        text-align: left;
+
+        & .title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #434342;
+        }
+
+        & .buttons {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 10px 0 0;
+
+            & .button {
+                box-sizing: border-box;
+                padding: 5px;
+                border-radius: 2px;
+                color: #757575;
+
+                &:hover {
+                    background: #efefef;
+                }
+
+                &:active {
+                    background: #dadada;
+                }
+            }
+        }
+    }
+
+    & .content {
+        background-color: #fff;
+    }
+}

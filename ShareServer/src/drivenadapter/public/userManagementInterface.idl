@@ -1,0 +1,132 @@
+/***************************************************************************************************
+usermanagementInterface.idl:
+    Copyright (c) Eisoo Software Inc. (2020), All rights reserved.
+
+Purpose:
+    usermanagement 服务
+
+Author:
+    Young.yu@aishu.cn
+
+Creating Time:
+    2020-11-17
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native SetStringRef(set<String>);
+[ref] native OrgIDInfoRef(ncOrgIDInfo);
+[ref] native OrgNameIDInfoRef(ncOrgNameIDInfo);
+[ref] native UserInfoRef(UserInfo);
+[ref] native AppInfoRef(AppInfo);
+[ref] native VecStringRef(vector<String>);
+[ref] native VecUserInfoRef(vector<UserInfo>);
+%{ C++
+
+
+/**
+ * usermanagement manager
+ */
+#define USER_MANAGEMENT_CID \
+{ \
+    0xe28e26ef, \
+    0xf9df,    \
+    0x4491,    \
+     { 0x85, 0x79, 0x9f, 0x71, 0x5c, 0x4b, 0xa1, 0xbf } \
+}
+
+/**
+ * usermanagement manager
+ */
+#define USER_MANAGEMENT_CONTRACTID \
+"@eisoo.com/AnyShare3.5/drivenadapter/userManagement;1"
+
+// 组织架构成员名称和ID对应信息
+struct ncOrgNameIDInfo {
+    map<String, String> mapUserInfo;
+    map<String, String> mapDepartInfo;
+    map<String, String> mapContactorInfo;
+    map<String, String> mapGroupInfo;
+};
+
+//ncOrgIDInfo 组织架构成员ID信息
+struct ncOrgIDInfo{
+    vector<String> vecUserIDs;
+    vector<String> vecDepartIDs;
+    vector<String> vecContactorIDs;
+    vector<String> vecGroupIDs;
+};
+
+// 用户角色类型
+enum ncUserRoleType {
+    SUPER_ADMIN  = 0,       // 超级管理员
+    SYS_ADMIN    = 1,       // 系统管理员
+    AUDIT_ADMIN  = 2,       // 审计管理员
+    SEC_ADMIN    = 3,       // 安全管理员
+    ORG_MANAGER  = 4,       // 组织管理员
+    ORG_AUDIT    = 5,       // 组织审计员
+    NORMAL_USER  = 6,       // 普通用户
+};
+
+// 用户信息
+struct UserInfo {
+    String id;        // 用户id
+    String name;      // 用户显示名
+    String account;   // 用户登录名
+    String email;     // 邮件地址
+    String telephone; // 电话号码
+    String thirdAttr; // 第三方应用属性
+    String thirdId;   // 第三方应用id
+    bool enabled;    // 用户禁用状态
+    int priority;    // 用户优先级
+    set<ncUserRoleType> roles; //用户角色信息
+    vector<String> vecDepartIDs; // 用户所属部门信息
+    vector<String> vecDepartNames; // 用户所属部门名称信息
+};
+
+// 应用账户信息
+struct AppInfo {
+    String id;      // 应用账户id
+    String name;    // 应用账户名
+};
+%}
+
+[uuid (6a6a21f4-addb-42a5-bbcb-bad5214d87f0)]
+interface userManagementInterface: nsISupports
+{
+    /*
+     * 获取指定用户的访问令牌
+     */
+    [notxpcom] void GetAccessorIDsByUserID ([const] in StringRef userId, in SetStringRef accessorIds);
+
+    /*
+     * 获取指定部门的访问令牌
+     */
+    [notxpcom] void GetAccessorIDsByDepartID ([const] in StringRef depId, in SetStringRef accessorIds);
+
+    /*
+     * 根据id获取组织成员的显示名
+     */
+    [notxpcom] void GetOrgNameIDInfo([const] in OrgIDInfoRef orgIDInfos, in OrgNameIDInfoRef info);
+
+    /*
+     * 获取用户信息
+     */
+    [notxpcom] void GetUserInfo([const] in StringRef userId, in UserInfoRef userInfo);
+
+    /*
+     * 批量获取用户信息
+     */
+    [notxpcom] void BatchGetUserInfo([const] in VecStringRef userIds, in VecUserInfoRef userInfos);
+
+    /*
+     * 获取应用账户信息
+     */
+    [notxpcom] void GetAppInfo([const] in StringRef appId, in AppInfoRef appInfo);
+
+    /*
+     * 删除部门
+     */
+    [notxpcom] void DeleteDepart([const] in StringRef departID);
+};

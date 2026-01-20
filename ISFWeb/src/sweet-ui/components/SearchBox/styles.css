@@ -1,0 +1,39 @@
+@import '../../../core/styles/root.css';
+
+.box {
+    display: flex;
+
+    & .input-content {
+        flex: 1;
+    }
+}
+
+.chip-x-icon {
+    color: var(--grey-06);
+
+    &:hover {
+        cursor: pointer;
+        color: var(--grey-05);
+    }
+
+    &:active {
+        color: var(--grey-07);
+    }
+}
+
+.icon-indent {
+    margin-left: 24px;
+}
+
+.clear-indent {
+    margin-right: 24px;
+}
+
+.icon-before {
+    margin-right: 6px;
+}
+
+.icon-after {
+    margin-left: 6px;
+    cursor: pointer;
+}

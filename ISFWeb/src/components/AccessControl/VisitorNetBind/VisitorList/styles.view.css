@@ -1,0 +1,33 @@
+.container {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+
+    & .header {
+        position: relative;
+
+        & .search-box {
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            .search {
+                padding: 3px 10px !important;
+            }
+        }
+    }
+
+    & .list {
+        height: 100%;
+        margin-top: 10px;
+
+        & .operation {
+            margin-right: 15px;
+        }
+    }
+
+    & .disabled {
+        opacity: 0.4;
+    }
+
+}

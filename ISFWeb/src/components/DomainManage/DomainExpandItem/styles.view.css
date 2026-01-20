@@ -1,0 +1,42 @@
+.expand-info {
+    min-width: 588px;
+    padding-left: 16px;
+
+    & .expand-header {
+        position: relative;
+        height: 34px;
+        line-height: 34px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #E4E6ED;
+
+        & .expand-left {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        & .expand-right {
+            display: inline-block;
+        }
+
+        & .expand-icon {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        & .placeholder {
+            display: inline-block;
+            width: 30px;
+        }
+    }
+
+    & .disabled {
+        color: #c0c0c0;
+        cursor: initial !important;
+    }
+
+    & .content {
+        padding-left: 30px;
+    }
+}

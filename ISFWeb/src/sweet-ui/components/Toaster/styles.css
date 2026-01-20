@@ -1,0 +1,9 @@
+.toaster {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    z-index: 1010;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}

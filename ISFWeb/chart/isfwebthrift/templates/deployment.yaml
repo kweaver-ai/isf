@@ -1,0 +1,121 @@
+{{- if semverCompare ">=1.16-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: apps/v1
+{{- else -}}
+apiVersion: extensions/v1beta1
+{{- end }}
+kind: Deployment
+metadata:
+  name: isfwebthrift
+  namespace: {{ .Values.namespace }}
+  annotations:
+    checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ .Release.Name }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ .Release.Name }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      securityContext:
+        runAsUser: 5000
+        runAsGroup: 5000
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                  - {{ .Release.Name }}
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+        # isfwebthrift
+        - name: {{ .Release.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            readOnlyRootFilesystem: true
+          ports:
+            - name: svc-port
+              containerPort: {{ .Values.service.containerPort }}
+          env:
+            - name: PUBLIC_API_BASE
+              value: "{{ .Values.env.publicProtocol}}://{{ .Values.depServices.eacp.publicHttpHost}}:{{ .Values.depServices.eacp.publicHttpPort}}"
+            - name: PRIVATE_API_BASE
+              value: "{{ .Values.env.privateProtocol}}://{{ .Values.depServices.eacp.privateHttpHost}}:{{ .Values.depServices.eacp.privateHttpPort}}"
+            - name: HYDRA_PUBLIC_URI
+              value: "{{.Values.service.oauth2.hydraPublicProtocol}}://{{.Values.depServices.hydra.publicHost}}:{{.Values.depServices.hydra.publicPort}}"
+            - name: HOST_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          envFrom:
+            - secretRef:
+                name: {{ .Release.Name }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.service.containerPort }}
+            initialDelaySeconds: {{ .Values.service.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.service.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.service.readinessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.service.readinessProbe.failureThreshold }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.service.containerPort }}
+            initialDelaySeconds: {{ .Values.service.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.service.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.service.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.service.livenessProbe.failureThreshold }}
+          volumeMounts:
+            - name: {{ .Release.Name }}-conf
+              mountPath: /config
+            - name: conf-path
+              mountPath: /sysvol/conf
+            - mountPath: /var/cache/nginx
+              name: nginx-cache
+            - mountPath: /var/run
+              name: nginx-run
+            - mountPath: /sysvol/tmp
+              name: sysvol-tmp
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+      dnsConfig:
+        options:
+          - name: single-request-reopen
+          - name: use-vc
+      volumes:
+        - name: {{ .Release.Name }}-conf
+          configMap:
+            name: {{ .Release.Name }}-conf
+        - name: conf-path
+          hostPath:
+            path: /sysvol/conf
+        - name: nginx-cache
+          emptyDir: {}
+        - name: nginx-run
+          emptyDir: {}
+        - name: sysvol-tmp
+          emptyDir: {}

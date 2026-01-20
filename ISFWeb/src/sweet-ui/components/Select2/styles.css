@@ -1,0 +1,9 @@
+.wrapper {
+    position: relative;
+}
+
+.select-menu {
+    min-width: 0;
+    /* 聚焦状态下边框阴影留出2px */
+    margin-top: 2px;
+}

@@ -1,0 +1,75 @@
+/***************************************************************************************************
+ncIACSPolicyManager.idl:
+    Copyright (c) Eisoo Software Inc. (2009 - 2013), All rights reserved.
+
+Purpose:
+    acs 策略管理接口
+
+Author:
+    xu.zhi@aishu.cn
+
+Creating Time:
+    2020-7-30
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+native int64(int64);
+
+native String(String);
+native ACSAccountType(ACSAccountType);
+native ACSClientType(ACSClientType);
+[ref] native StringRef(String);
+
+[ref] native ncPolicyCheckInfoRef(ncPolicyCheckInfo);
+
+%{ C++
+/**
+ * acs policy manager
+ */
+#define NC_ACS_POLICY_MANAGER_CID \
+{ \
+    0xc431d894, \
+    0x57ec,    \
+    0x4ed4,    \
+     { 0xab, 0xd3, 0xa2, 0x5c, 0xd8, 0xa7, 0x6b, 0x45 } \
+}
+
+/**
+ * acs policy manager
+ */
+#define NC_ACS_POLICY_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acscheckmanager;1"
+
+#include "ncIACSCommon.h"
+
+// 实名用户信息
+struct ncPolicyCheckInfo {
+    bool                    enabled;     // 用户禁用状态
+    int                     priority;         // 用户优先级
+    String                  userId;           // 用户id
+    String                  clientId;         // 请求token的OAuth 2.0客户端标识符
+    ACSAccountType          accountType;      // 登录账号类型 
+    ACSClientType           clientType;       // 设备类型 
+    String                  loginIp;          // 登录IP
+    String                  udid;             // 设备ID
+    String                  ip;               // 设备IP
+};
+%}
+
+[uuid (4AFD1D07-462C-453D-A189-D07F291B0B8B)]
+interface ncIACSPolicyManager: nsISupports
+{
+    /*
+     * 访问者网段白名单检查
+     */
+    [notxpcom] bool CheckIp ([const] in StringRef accessorId, [const] in StringRef ip);
+
+    /*
+     * 检查用户是否满足策略检测
+     * 如果满足，则返回true
+     * 如果不满足，抛出错误信息
+     */
+    [notxpcom] bool CheckPolicy ([const] in ncPolicyCheckInfoRef policyInfo);
+};

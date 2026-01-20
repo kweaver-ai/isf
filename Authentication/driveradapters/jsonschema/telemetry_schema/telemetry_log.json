@@ -1,0 +1,18 @@
+{
+    "required": [
+        "type",
+        "message"
+    ],
+    "type": "object",
+    "properties": {
+        "type": {
+            "description": "日志类型",
+            "type": "string"
+        },
+        "message": {
+            "description": "日志内容",
+            "type": "object",
+            "additionalProperties": true
+        }
+    }
+}

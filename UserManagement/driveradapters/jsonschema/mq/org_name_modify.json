@@ -1,0 +1,25 @@
+{
+    "required": [
+        "id",
+        "new_name",
+        "type"
+    ],
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "new_name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "user",
+                "department",
+                "contactor",
+                "group"
+            ]
+        }
+    }
+}

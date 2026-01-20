@@ -1,0 +1,15 @@
+.container {
+    height: 35px;
+    line-height: 35 px;
+    padding: 0 10px;
+
+    & .managers {
+        width: 150px;
+        padding: 0 20px;
+    }
+
+    & .edited {
+        color: #555555;
+        cursor: pointer;
+    }
+}

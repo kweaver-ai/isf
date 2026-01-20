@@ -1,0 +1,17 @@
+.container{
+    line-height: 40px;
+}
+
+.select-range {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 0 0 5px;
+    line-height: 1;
+}
+
+.select-date {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    line-height: 1;
+}

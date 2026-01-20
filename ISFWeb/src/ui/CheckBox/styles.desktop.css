@@ -1,0 +1,8 @@
+.checkbox {
+    vertical-align: middle;
+    cursor: pointer;
+
+    &.disabled {
+        cursor: default;
+    }
+}

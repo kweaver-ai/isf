@@ -1,0 +1,82 @@
+.dep-name {
+    padding-left: 4px;
+    max-width: 196px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
+}
+
+.icon-del {
+    position: relative;
+    top: 3px;
+}
+
+
+
+.content-row {
+    display: flex;
+    justify-content: space-between;
+    color: #505050;
+
+    & .org-picker-clear {
+        display: flex;
+        width: 256px;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+
+        & .clear-text {
+            height: auto;
+        }
+
+        & .disabled-text {
+            color: #c0c0c0;
+        }
+    }
+
+    & .org-picker-tree {
+        box-sizing: border-box;
+        width: 251px;
+        height: 386px;
+        border: 1px solid #eeeeee;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    & .cascade-tree {
+        padding: 9px 12px 12px 6px;
+    }
+
+    & .org-picker-arrow {
+        height: 360px;
+        line-height: 360px;
+    }
+
+    & .org-picker-selections {
+        box-sizing: border-box;
+        width: 255px;
+        height: 386px;
+        padding: 12px;
+        border: 1px solid #eeeeee;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        & .selection {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+    }
+
+}
+
+.row-margin {
+    margin-bottom: 12px;
+}
+
+.safari {
+    &::before {
+        content: '';
+        display: block;
+    }
+}

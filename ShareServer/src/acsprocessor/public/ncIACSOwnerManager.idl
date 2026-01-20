@@ -1,0 +1,84 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+
+native String(String);
+[ref] native StringRef(String);
+[ref] native VectorStringRef(vector<String>);
+[ref] native SetStringRef(set<String>);
+
+[ref] native ncOwnerInfoVecRef(vector<ncOwnerInfo>);
+[ref] native dbOwnerInfoVecRef(vector<dbOwnerInfo>);
+
+%{ C++
+
+/**
+ * acs owner manager
+ */
+#define NC_ACS_OWNER_MANAGER_CID \
+{ \
+    0x3f51587a, \
+    0x13fa,    \
+    0x420b,    \
+     { 0xbf, 0x7d, 0xda, 0x23, 0x5b, 0x32, 0xcc, 0x72 } \
+}
+
+/**
+ * acs owner manager
+ */
+#define NC_ACS_OWNER_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsprocessor/acsownermanager;1"
+
+#include <interfaces/ncTypeCommon.h>
+
+struct ncOwnerInfo {
+    String            account;              // 所有者账户名
+    String            name;                 // 所有者显示名
+    String            userId;               // 所有者用户id
+    String            inheritPath;          // 继承的文档对象的id
+    int64             createTime;           // 创建时间
+    int               csfLevel;             // 密级
+};
+
+%}
+
+[uuid (1D7178CB-6D77-4623-884E-7A869CE09EFF)]
+interface ncIACSOwnerManager: nsISupports
+{
+    /*
+     * 设置文档的最终所有者，会覆盖掉旧的所有者
+     */
+    [notxpcom] void SetAllOwner ([const] in StringRef docId, in dbOwnerInfoVecRef ownerInfos);
+
+    /*
+     * 获取是否是所有者
+     */
+    [notxpcom] bool IsOwner ([const] in StringRef docId, [const] in StringRef userId);
+
+    /*
+     * 获取ownerIds
+     */
+    [notxpcom] void GetOwnerIds ([const] in StringRef docId, in VectorStringRef ownerIds);
+
+    /*
+     * 获取用户作为所有者的所有docId。
+     */
+    [notxpcom] void GetOwnerDocIds ([const] in StringRef userId, in SetStringRef docIds);
+
+    /*
+     * 根据文件对象的id删除所有者配置（用以响应文件被删除后的所有者记录清除）
+     */
+    [notxpcom] void DeleteOwnerByFileId ([const] in StringRef fileId);
+
+    /*
+     * 根据文件夹对象的id删除所有者配置（用以响应文件夹被删除后的所有者记录清除）
+     */
+    [notxpcom] void DeleteOwnerByDirId ([const] in StringRef dirId);
+
+    /*
+     * 根据用户id删除所有者信息
+     */
+    [notxpcom] void DeleteOwnerByUserId ([const] in StringRef userId);
+
+};

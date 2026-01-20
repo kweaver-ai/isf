@@ -1,0 +1,20 @@
+.container {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    background: #fff;
+    
+    & .monthPanel {
+        padding: 10px 5px;
+
+        & .navWrapper {
+            display: inline-block;
+            margin: 0 5px;
+        }
+    }
+
+    & .calendar {
+        
+    }
+}

@@ -1,0 +1,251 @@
+@import '../../../core/styles/root.css';
+
+.drawer-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    user-select: none;
+
+    &.mask-in {
+        animation: mask-visiable .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    }
+
+    &.mask-out {
+        animation: mask-hidden .2s cubic-bezier(0, 0, .2, 1) 0ms;
+    }
+
+}
+
+.drawer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+
+    & .drawer-header {
+        height: 64px;
+        margin: 0;
+        padding: 16px 16px 16px 32px;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre;
+        flex: 0 0 auto;
+
+        & .drawer-title {
+            line-height: 32px;
+            font-size: 15px;
+            color: #505050;
+            opacity: 1;
+            font-weight: 600;
+        }
+
+        & .close-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            color: #7F8391;
+            text-align: center;
+
+            &:hover {
+                color: #FFFFFF;
+                background-color: rgba(255, 103, 109, 0.7);
+                cursor: pointer;
+            }
+
+            &:active {
+                color: #FFFFFF;
+                background-color: rgba(255, 103, 109, 1);
+            }
+        }
+    }
+
+    & .drawer-body {
+        height: 100%;
+        padding: 16px;
+        flex: 1 1 auto;
+        overflow: auto;
+    }
+
+    & .drawer-footer {
+        position: relative;
+        flex: 0 0 auto;
+        height: 56px;
+        margin: 0;
+        padding: 13px 16px;
+        box-shadow: inset 0 1px 0 var(--grey-04);
+    }
+}
+
+.top {
+    top: 0;
+    right: 0;
+    left: 0;
+    animation: ttb-drawer-in .2s cubic-bezier(0, 0, .2, 1) 0ms;
+}
+
+.top-out {
+    top: 0;
+    right: 0;
+    left: 0;
+    animation: ttb-drawer-out .2s cubic-bezier(0, 0, .2, 1) 0ms;
+}
+
+.bottom {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: btt-drawer-in .2s cubic-bezier(0, 0, .2, 1) 0ms;
+}
+
+.bottom-out {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: btt-drawer-out .2s cubic-bezier(0, 0, .2, 1) 0ms;
+}
+
+.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    animation: rtl-drawer-in .2s cubic-bezier(0, 0, .2, 1) 0ms;
+}
+
+.right-out {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    animation: rtl-drawer-out .2s cubic-bezier(0, 0, .2, 1) 0ms;
+}
+
+.left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    animation: ltr-drawer-in .2s cubic-bezier(0, 0, .2, 1) 0ms;
+}
+
+.left-out {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    animation: ltr-drawer-out .2s cubic-bezier(0, 0, .2, 1) 0ms;
+}
+
+@keyframes mask-visiable {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes mask-hidden {
+    0% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    100% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes rtl-drawer-in {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes rtl-drawer-out {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes ltr-drawer-in {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes ltr-drawer-out {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes btt-drawer-in {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes btt-drawer-out {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes ttb-drawer-in {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ttb-drawer-out {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}

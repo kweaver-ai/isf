@@ -1,0 +1,52 @@
+@import '../../../core/styles/root.css';
+
+.drop-icon {
+    opacity: 0.45;
+    
+    &.disabled {
+        opacity: 0.2;
+    }
+}
+
+.text {
+    margin-right: 8px;
+}
+
+.text-button {
+    padding: 0 8px;
+    border: none;
+    border-radius: var(--control-border-radius);
+    background: none;
+    color: var(--font-color-regular);
+
+    &:hover {
+        background-color: rgba(228, 229, 233, 0.6);
+        color: var(--font-color-regular);
+    }
+
+    &:active {
+        background-color: rgba(228, 229, 233, 0.8);
+        color: var(--font-color-regular);
+    }
+
+    &.disabled {
+        background: none;
+        color: var(--font-color-disabled);
+
+        &:hover,
+        &:active {
+            background: none;
+        }
+    }
+}
+
+.no-background {
+    background: none !important;
+
+    &:hover,
+    &:active,
+    &.active,
+    &.disabled {
+        background: none !important;
+    }
+}

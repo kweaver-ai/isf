@@ -1,0 +1,42 @@
+@import '../../core/styles/root.css';
+.container {
+    position: relative;
+    height: 33px;
+
+    &>.padding {
+        padding: 0 10px 0 20px;
+        border-top: 3px solid #d70000;
+        border-bottom: 1px solid var(--grey-03);
+        border-radius: 3px 3px 0 0;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        text-align: left;
+
+        & .title {
+            line-height: normal;
+            font-size: 14px;
+            font-weight: bold;
+            color: #434342;
+        }
+
+        & .button-icon {
+            color: var(--grey-05);
+            cursor: pointer;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            margin-left: 5px;
+            text-align: center;
+            cursor: pointer;
+            
+            &:hover {
+                background: var(--grey-03);
+            }
+        }
+    }
+}

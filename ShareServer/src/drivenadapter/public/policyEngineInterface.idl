@@ -1,0 +1,57 @@
+/***************************************************************************************************
+policyEngineInterface.idl:
+    Copyright (c) Eisoo Software Inc. (2021), All rights reserved.
+
+Purpose:
+    policyEngine微服务接口
+
+Author:
+    Will.lv@aishu.cn
+
+Creating Time:
+    2021-01-18
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native bool(bool);
+native int(int);
+
+native String(String);
+[ref] native StringRef(String);
+
+%{ C++
+
+/**
+ * policyEngine CID
+ */
+#define POLICY_ENGINE_CID \
+{ \
+    0xaff3c871, \
+    0xab2d,    \
+    0x4031,    \
+     { 0xac, 0x1d, 0xc8, 0xc6, 0x73, 0x75, 0x60, 0x7f } \
+}
+
+/**
+ * policyEngine CONTRACTID
+ */
+#define POLICY_ENGINE_CONTRACTID \
+"@eisoo.com/AnyShare3.5/eacp/drivenAdapter/policyengine;1"
+
+#include "common.h"
+
+%}
+
+
+[uuid (5AF84437-EEEF-4613-8FD2-A72B16671ED4)]
+interface policyEngineInterface: nsISupports
+{
+
+    /*
+    * 查询客户端登陆限制策略
+    *
+    * 当前客户端类型进行限制返回true
+    */
+    [notxpcom] bool Audit_ClientRestriction ([const] in StringRef clientType);
+
+};

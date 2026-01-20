@@ -1,0 +1,115 @@
+.container {
+    margin-top: 30px;
+
+    & .tool-bar {
+        float: left;
+        font-weight: 600;
+        color: #555;
+        line-height: 30px;
+    }
+
+    & .toolbar-icon {
+        padding-right: 10px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    & .main {
+        margin-top: 12px;
+
+        & .title {
+            padding: 6px 10px;
+
+            & .text-middle {
+                vertical-align: middle;
+                margin: 0 5px;
+            }
+
+            & .auto-checkbox {
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 32px;
+            }
+
+            & .disabled-text {
+                line-height: 17px;
+                margin-left: 5px;
+                vertical-align: middle;
+            }
+
+        }
+
+
+        & .platform-selections {
+            display: table-row;
+
+            & .selection-label {
+                display: table-cell;
+                padding: 6px 10px;
+            }
+
+            & .selections {
+                display: table;
+
+                & .selections-item {
+                    display: table-cell;
+                    padding: 6px;
+
+                    & .item-label {
+                        display: table-row;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+
+        & .account-selection {
+            display: inline-block;
+            padding: 6px 10px;
+
+            & .account-selection-label {
+                vertical-align: top;
+                padding-right: 16px;
+            }
+
+            & .account-selection-content {
+                display: inline-block;
+            }
+        }
+
+        & .checked-text {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+            line-height: 17px;
+        }
+
+        & .explation {
+            margin: 6px 10px;
+            color: #888;
+
+            & .number-input {
+                display: inline-block;
+                margin: 0 5px;
+            }
+
+            & .link {
+                color: #40a9ff;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        & .change-btn {
+            margin: 20px 10px;
+
+            & .btn {
+                width: 80px;
+                margin-right: 10px
+            }
+        }
+    }
+}

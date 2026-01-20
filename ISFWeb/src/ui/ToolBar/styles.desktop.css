@@ -1,0 +1,10 @@
+:local {
+    & .tool-bar {
+        box-sizing: content-box;
+        height: 30px;
+        padding: 4px 10px 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        position: relative;
+    }
+}

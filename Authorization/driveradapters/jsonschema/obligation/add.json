@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Obligation Template Set Schema",
+    "description": "Schema for setting obligation template with config",
+    "type": "object",
+    "properties": {
+      "type_id": {
+        "type": "string"
+      },
+      "value": {
+        "title": "Configuration",
+        "description": "Configuration object",
+        "type": "object",
+        "additionalProperties": true
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "type_id",
+      "name",
+      "value"
+    ],
+    "additionalProperties": false
+  }

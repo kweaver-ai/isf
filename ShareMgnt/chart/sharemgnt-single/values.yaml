@@ -1,0 +1,88 @@
+replicaCount: 1
+
+nodeSelector: {}
+
+namespace: sharemgnt
+
+image:
+  registry: ""
+  service:
+    repository: as/sharemgnt
+    tag: ""
+    pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 9600
+  language: zh_CN
+  logger: stdout
+  businessTimeOffset: 0
+  readinessProbe:
+    initialDelaySeconds: 10
+    periodSeconds: 3
+    timeoutSeconds: 3
+    failureThreshold: 3
+  livenessProbe:
+    initialDelaySeconds: 10
+    periodSeconds: 20
+    timeoutSeconds: 3
+    failureThreshold: 3
+  enableDualStack: false
+
+env:
+  language: en_US.UTF-8
+  timezone: Asia/Shanghai
+
+depServices:
+  rds:
+    system_id: ''
+    host: 127.0.0.1
+    port: 3320
+    user: ""
+    password: ""
+    type: mysql
+    database: sharemgnt_db
+  mq: {}
+  log:
+    host: log
+    port: 9993
+  ossgatewaymanager:
+    protocol: http
+    privateHost: ossgatewaymanager-private
+    privatePort: 9002
+  authentication:
+    privateHost: authentication-private
+    privatePort: 30110
+  redis:
+    connectType: sentinel
+    connectInfo:
+      masterGroupName: mymaster
+      password: ""
+      sentinelHost: proton-redis-proton-redis-sentinel.resource
+      sentinelPassword: ""
+      sentinelPort: 26379
+      sentinelUsername: root
+      username: root
+      host: ""
+      port: 26379
+      masterHost: ""
+      masterPort: 26379
+      slaveHost: ""
+      slavePort: 26379
+    enableSSL: false
+    secretName: ""
+    caName: ""
+    certName: ""
+    keyName: ""
+
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+
+resources:
+  requests:
+    cpu: 48m
+    memory: 125Mi
+  limits:
+    cpu: 4
+    memory: 4Gi

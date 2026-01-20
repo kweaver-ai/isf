@@ -1,0 +1,15 @@
+{
+    "required": [
+        "pwd_err_cnt",
+        "pwd_err_last_time"
+    ],
+    "type": "object",
+    "properties": {
+        "pwd_err_cnt": {
+            "type": "integer"
+        },
+        "pwd_err_last_time": {
+            "type": "integer"
+        }
+    }
+}

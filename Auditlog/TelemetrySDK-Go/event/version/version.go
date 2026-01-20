@@ -1,0 +1,9 @@
+package version
+
+// 每次拉release都要修改这里的版本号。
+
+const (
+	EventInstrumentationName    = "TelemetrySDK-Go/exporter/ar_event"
+	EventInstrumentationVersion = "2.7.5"
+	EventInstrumentationURL     = "https://github.com/kweaver-ai/TelemetrySDK-Go?path=/exporter/ar_event"
+)

@@ -1,0 +1,550 @@
+#
+# Resource script for US.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cfl 2.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################################################
+#
+######################################################################
+
+msgid "NC_LT_LOGIN"
+msgstr "Access Log"
+
+msgid "NC_LT_MANAGEMENT"
+msgstr "Management Log"
+
+msgid "NC_LT_OPEARTION"
+msgstr "Operation Log"
+
+msgid "NC_LT_OTHER_LOG"
+msgstr "Other Logs"
+
+msgid "IDS_WARN"
+msgstr "Warning"
+
+msgid "IDS_INFO"
+msgstr "Info"
+
+msgid "NCT_CLT_LOGIN_IN"
+msgstr "Log in"
+
+msgid "NCT_CLT_LOGIN_OUT"
+msgstr "Log out"
+
+msgid "NCT_CLT_AUTHENICATION"
+msgstr "Authenicaiton"
+
+msgid "NCT_CLT_OTHER"
+msgstr "Others"
+
+msgid "NCT_MNT_CREATE"
+msgstr "Create"
+
+msgid "NCT_MNT_ADD"
+msgstr "Add"
+
+msgid "NCT_MNT_SET"
+msgstr "Set"
+
+msgid "NCT_MNT_DELETE"
+msgstr "Delete"
+
+msgid "NCT_MNT_COPY"
+msgstr "Copy"
+
+msgid "NCT_MNT_MOVE"
+msgstr "Move"
+
+msgid "NCT_MNT_REMOVE"
+msgstr "Remove"
+
+msgid "NCT_MNT_IMPORT"
+msgstr "Import"
+
+msgid "NCT_MNT_EXPORT"
+msgstr "Export"
+
+msgid "NCT_MNT_AUDIT_MGM"
+msgstr "Sharing Workflow"
+
+msgid "NCT_MNT_QUARANTINE"
+msgstr "Isolate"
+
+msgid "NCT_MNT_UPLOAD"
+msgstr "Upload"
+
+msgid "NCT_MNT_PREVIEW"
+msgstr "Preview"
+
+msgid "NCT_DOT_PREVIEW"
+msgstr "Preview"
+
+msgid "NCT_MNT_DOWNLOAD"
+msgstr "Download"
+
+msgid "NCT_MNT_RESTORE"
+msgstr "Restore"
+
+msgid "NCT_MNT_QUARANTINE_APPEAL"
+msgstr "Appeal"
+
+msgid "NCT_MNT_RESTART"
+msgstr "Restart"
+
+msgid "NCT_MNT_SEND_EMAIL"
+msgstr "Send mail"
+
+msgid "NCT_MNT_RECOVER"
+msgstr "Recover"
+
+msgid "NCT_MNT_EDIT"
+msgstr "Edit"
+
+msgid "NCT_MNT_OTHER"
+msgstr "Others"
+
+msgid "NCT_DOT_CREATE"
+msgstr "New"
+
+msgid "NCT_DOT_UPLOAD"
+msgstr "Upload"
+
+msgid "NCT_DOT_DOWNLOAD"
+msgstr "Download"
+
+msgid "NCT_DOT_EDIT"
+msgstr "Modify"
+
+msgid "NCT_DOT_RENAME"
+msgstr "Rename"
+
+msgid "NCT_DOT_DELETE"
+msgstr "Delete"
+
+msgid "NCT_DOT_COPY"
+msgstr "Copy"
+
+msgid "NCT_DOT_MOVE"
+msgstr "Move"
+
+msgid "NCT_DOT_REC_RESTORE"
+msgstr "Restore"
+
+msgid "NCT_DOT_REC_DELETE"
+msgstr "Recycle Bin Deletion"
+
+msgid "NCT_DOT_SYSREC_DELETE"
+msgstr "Permanently Delete"
+
+msgid "NCT_DOT_SYSREC_REC_RESTORE"
+msgstr "Restore From System Recycle Bin"
+
+msgid "NCT_DOT_RESTORE_REV"
+msgstr "Restore version"
+
+msgid "NCT_DOT_PERM_MGM"
+msgstr "Share with users"
+
+msgid "NCT_DOT_OLINK_SHARE"
+msgstr "Share with anyone"
+
+msgid "NCT_DOT_FINDER_MGM"
+msgstr "Public Share"
+
+msgid "NCT_DOT_BACKUP_TASK"
+msgstr "Backup and Restore"
+
+msgid "NCT_DOT_LOCK_MGM"
+msgstr "File Lock"
+
+msgid "NCT_DOT_ENTRY_DOC_MGM"
+msgstr "Sharing Management"
+
+msgid "NCT_DOT_DEVICE_MGM"
+msgstr "Device Management"
+
+msgid "NCT_DOT_SET"
+msgstr "Settings"
+
+msgid "NCT_DOT_DOCFLOW_SUBMIT"
+msgstr "Submit Doc Relay"
+
+msgid "NCT_DOT_AUDIT_MGM"
+msgstr "Workflow Management"
+
+msgid "NCT_DOT_DOCFLOW"
+msgstr "Docflow"
+
+msgid "NCT_DOT_FILECOLLECTOR"
+msgstr "File Collector"
+
+msgid "NCT_DOT_CACHE"
+msgstr "Cache"
+
+msgid "NCT_DOT_EXPORT"
+msgstr "Export"
+
+msgid "NCT_DOT_DOC_DOMAIN_SYNC"
+msgstr "Doc Domain Sync"
+
+msgid "NCT_DOT_SYNC"
+msgstr "Sync Process Management"
+
+msgid "NCT_DOT_FEEDBACK"
+msgstr "Feedback"
+
+msgid "NCT_DOT_KNOWLEDGE"
+msgstr "Knowledge Operate"
+
+msgid "NCT_DOT_PRODUCT_PUBLISH"
+msgstr "Data product publishing"
+
+msgid "NCT_DOT_PRODUCT_ARCHIVER"
+msgstr "Data product archiving"
+
+msgid "NCT_DOT_OTHER"
+msgstr "Others"
+
+msgid "ACS_USER_DOC"
+msgstr "My Documents"
+
+msgid "ACS_SHARE_DOC"
+msgstr "Shared Documents"
+
+msgid "ACS_ARCHIVE_DOC"
+msgstr "Archive Library"
+
+msgid "USER_DOC"
+msgstr "User Documents"
+
+msgid "CUSTOM_DOC"
+msgstr "Library"
+
+msgid "IDS_GET_ETSRESOURCEINFO_ERR"
+msgstr "Get ETS resource info error"
+
+msgid "IDS_CAN_NOT_LOCK_DIR"
+msgstr "Folder cannot be locked"
+
+msgid "IDS_LOCK_FILE_NEED_MODIFY_PERMISSION"
+msgstr "Modify permission is required to lock file."
+
+msgid "IDS_ONLY_LOCKER_CAN_UNLOCK"
+msgstr "Only the one locked file can unlock this file."
+
+msgid "IDS_USER_NOT_EXIST"
+msgstr "User does not exist"
+
+msgid "IDS_CONVERT_PATH_BATCH_ERR"
+msgstr "batch convert path error "
+
+msgid "IDS_FILE_IS_LOCKED"
+msgstr "file is locked"
+
+msgid "IDS_FILE_IS_NOT_LOCKED"
+msgstr "file is not locked"
+
+msgid "IDS_NEED_TO_BE_OWER_TO_SET_PERM"
+msgstr "Only owner can perform this operation"
+
+msgid "IDS_ROOTDOC_NOT_EXIST"
+msgstr "File does not exist"
+
+msgid "IDS_USERDOC_CANT_SET_OWNER"
+msgstr "Owner cannot be set for My Documents"
+
+msgid "IDS_OWNER_CANT_ADD_YOURSELF"
+msgstr "You cannot set yourself as owner"
+
+msgid "IDS_OWNER_CAN_NOT_ADD_ADMIN"
+msgstr "Admin cannot be set as owner"
+
+msgid "IDS_OWNER_CAN_NOT_DELETE_YOURSELF"
+msgstr "Owner can not delete himself"
+
+msgid "IDS_DUMP_LOG"
+msgstr "Log has been auto dumped once and archive file <%s> is generated."
+
+msgid "IDS_USER_DOC_NOT_EXIST"
+msgstr "My Documents lost"
+
+msgid "IDS_NO_ENOUGH_QUOTA"
+msgstr "Insufficient quota"
+
+msgid "IDS_QUOTA_CANT_BE_ZERO"
+msgstr "User Quota can not be 0"
+
+msgid "IDS_EXMSG"
+msgstr "Object path: %s"
+
+msgid "IDS_AUTO_UNLOCK_SUCCESS"
+msgstr "System unlock file \"%s\" successfully."
+
+msgid "IDS_AUTO_UNLOCK_FAILED"
+msgstr "System unlock file \"%s\" failed."
+
+msgid "IDS_AUTO_LOCK_NOT_SET"
+msgstr "Auto lock is not enabled"
+
+msgid "IDS_CANT_SET_ON_USER_DOC"
+msgstr "My Documents cannot quit share management."
+
+msgid "IDS_GNS_OBJECT_NOT_EXISTS"
+msgstr "GNS object doesn't exist."
+
+msgid "IDS_INVALID_UDID"
+msgstr "Invalid UDID."
+
+msgid "IDS_INVALID_OS_TYPE"
+msgstr "Invalid OS type."
+
+msgid "IDS_DEVICE_UDID_EXISTS"
+msgstr "Device already exists."
+
+msgid "IDS_CANT_CONFIG_EDIT_DELETE_TO_ARCHIVE_DOC"
+msgstr "Modify and Delete permissions cannot be set to files in Archive Library."
+
+msgid "IDS_CONFLICATED_WITH_USER_DISPLAY_NAME"
+msgstr "The same name user already exists, please enter again."
+
+msgid "IDS_CONFLICATED_WITH_ARCHIVE_NAME"
+msgstr "The same name already exists in archive lib, please enter again."
+
+msgid "IDS_INVITION_NOT_EXIST"
+msgstr "The invite link does not exist"
+
+msgid "IDS_INVITION_HAS_EXIST"
+msgstr "The invite link exists already"
+
+msgid "IDS_INVALID_PERM_END_TIME_AHEAD"
+msgstr "The permission expiration you set is earlier than the current time of server, please reset it or check up the time."
+
+msgid "IDS_INVALID_INVITATION_END_TIME_AHEAD"
+msgstr "The link expiration you set is earlier than the current time of server, please reset it or check up the time."
+
+msgid "IDS_INVALID_INVITATION_END_TIME"
+msgstr "The expiration date of link should be earlier than that of permission."
+
+msgid "IDS_USER_DOC_CANNOT_LINK_SHARE"
+msgstr "You do not have permission to share My Documents and cannot set permission."
+
+msgid "IDS_USER_DOC_CANNOT_OPEN_SHARE_INVITATION"
+msgstr "You do not have permission to share My Documents and cannot invite others."
+
+msgid "IDS_USER_DOC_CANNOT_FIND_SHARE"
+msgstr "You do not have permission to share My Documents and cannot enable public share."
+
+msgid "IDS_USER_DOC_CANNOT_EDIT_SHARE_INVITATION"
+msgstr "You do not have permission to share My Documents and cannot modify invite link."
+
+msgid "IDS_NO_AUDITOR"
+msgstr "There is no matched approver and this operation cannot take effect. Please contact admin. "
+
+msgid   "IDS_FILE_MAIL_TITLE"
+msgstr  "%s shared you a file: %s"
+
+msgid   "IDS_FOLDER_MAIL_TITLE"
+msgstr  "%s shared you a folder: %s"
+
+msgid   "IDS_CLICK_TO_VIEW"
+msgstr  "Click to view: "
+
+msgid   "IDS_PERMITIONS"
+msgstr  "Permissions:"
+
+msgid   "IDS_EXPIRATION_DATE"
+msgstr  "Expiration Date: %s"
+
+msgid   "IDS_SECURITY_LEVEL"
+msgstr  "Security Level: %s"
+
+msgid   "IDS_PERM_DENY"
+msgstr  " (Deny %s)"
+
+msgid   "IDS_PERM_DISPLAY"
+msgstr  "Display"
+
+msgid   "IDS_PERM_READ"
+msgstr  "/Read"
+
+msgid   "IDS_PERM_CREATE"
+msgstr  "/Create"
+
+msgid   "IDS_PERM_MODIFY"
+msgstr  "/Modify"
+
+msgid   "IDS_PERM_DELETE"
+msgstr  "/Delete"
+
+msgid   "IDS_IS_OWNER"
+msgstr  " Owner"
+
+msgid   "IDS_EXPIR_DATE"
+msgstr  "Permanent"
+
+msgid   "IDS_UNCLASSIFIED"
+msgstr  "Unclassified"
+
+msgid   "IDS_RESTRICTED"
+msgstr  "Restricted"
+
+msgid   "IDS_COMFIDENTIAL"
+msgstr  "Confidential"
+
+msgid   "IDS_SECRET"
+msgstr  "Secret"
+
+msgid   "IDS_TOP_SECRET"
+msgstr  "Top Secret"
+
+msgid   "IDS_PROMPT_MSG"
+msgstr  "(If this link cannot be opened, please copy the link to the address bar of Windows Explorer)"
+
+msgid   "IDS_PROMPT_MSG2"
+msgstr  "This is system e-mail, no need to reply."
+
+msgid   "IDS_DISABLED_USER"
+msgstr  "Your account has been disabled, please contact admin."
+
+msgid   "IDS_INSUFFICIENT_SYSTEM_RESOURCES"
+msgstr  "Insufficient server resources to access"
+
+msgid   "IDS_CREATE_CUSTOM_DOC_MSG"
+msgstr  "Create custom documents \"%s\" succeed."
+
+msgid   "IDS_CREATE_CUSTOM_DOC_EXMSG"
+msgstr  "Library type \"%s\", library owner \"%s\", related department \"%s\", site \"%s\", quota \"%sGB\""
+
+msgid   "IDS_SHARE_FILE"
+msgstr  "You receive a share:"
+
+msgid   "IDS_SHARE_DIR"
+msgstr  "You receive a share:"
+
+msgid   "IDS_UNSHARE"
+msgstr  "%s stopped sharing: %s"
+
+msgid   "IDS_APPLY_UNSHARE"
+msgstr  "%s stopped sharing with %s, requesting for your approval:%s"
+
+msgid   "IDS_APPLY_SHARE_DOC"
+msgstr  "%s shared files with %s, requesting for your approval:%s"
+
+msgid   "IDS_APPROVE_SHARE_FILE"
+msgstr  "The file you shared with %s %s:%s"
+
+msgid   "IDS_APPROVE_UNSHARE_FILE"
+msgstr  "The file you cancelled sharing to %s %s:%s"
+
+msgid   "IDS_APPLY_OLINK_SHARE"
+msgstr  "%s opened the Anonymous Share, requesting for your approval:%s"
+
+msgid   "IDS_APPROVE_OLINK_SHARE"
+msgstr  "%s opened the Anonymous Share %s:%s"
+
+msgid   "IDS_APPROVE_SUCEESS"
+msgstr  "has been approved"
+
+msgid   "IDS_APPROVE_FAIL"
+msgstr  "has been rejected"
+
+msgid   "IDS_AUDIT_MESSAGE"
+msgstr  "Approver: %s Comments:: %s"
+
+msgid   "IDS_ANTIVIRUS_QUARANTINE"
+msgstr  "The file has been isolated as it may contain virus:%s"
+
+msgid   "IDS_ANTIVIRUS_QUARANTINE_APPEAL"
+msgstr  "The file has been repaired as it may contain virus:%s"
+
+msgid   "IDS_QUARANTINE"
+msgstr  "The file below has been isolated as it involves illegal content: %s"
+
+msgid   "IDS_QUARANTINE_APPEAL"
+msgstr  "The file has been restored as it is approved that it does not have illegal content:%s"
+
+msgid   "IDS_APPLY_PROCESS"
+msgstr  "%s has submitted workflow, please approve:%s"
+
+msgid   "IDS_APPLY_PROCESS2"
+msgstr  "%s approved the workflow submitted by %s, please continue to approve:%s"
+
+msgid   "IDS_APPROVE_PROGRESS"
+msgstr  "Your workflow request has been submitted to Level %s approver %s:%s"
+
+msgid   "IDS_APPROVE_RESULT"
+msgstr  "Your workflow request %s:%s"
+
+msgid   "IDS_APPLY_CSF_LEVEL_SET"
+msgstr  "%s changes the file security level from \"%s\" to \"%s\", please approve:%s"
+
+msgid   "IDS_APPROVE_CSF_LEVEL_SET"
+msgstr  "You changed the file security level to \"%s\" ,which %s:%s"
+
+msgid   "IDS_REJECT_CSF_LEVEL_SET"
+msgstr  "Your change to the file's security level (%s) %s:%s"
+
+msgid   "IDS_DOC_EXCHANGE_RECV_AREA_NOT_EXIST"
+msgstr  "The target site does not exist."
+
+msgid   "IDS_DOC_EXCHANGE_INVALID_DST_DOC_NAME"
+msgstr  "The target location is illegal."
+
+msgid   "IDS_USER_FREEZED"
+msgstr  "The user has been frozen."
+
+msgid   "IDS_DOC_CREATOR_FREEZED"
+msgstr  "File creator has been frozen."
+
+msgid   "IDS_USER_NOT_REAL_NAME_AUTH"
+msgstr  "The user has not completed real-name authentication"
+
+msgid   "IDS_DOC_CREATOR_NOT_REAL_NAME_AUTH"
+msgstr  "File creator has not completed real-name authentication"
+
+msgid   "IDS_FILE_CSF_LEVEL_IS_NOT_SET"
+msgstr  "The file cannot be shared, as its security level has not been set."
+
+msgid   "IDS_PERM_CONFIG_ACCESSORTYPE_OR_ID_NOT_EXIST"
+msgstr  "accessortype or accessorid does not exist in permission settings"
+
+msgid   "IDS_USER_CSF_LEVEL_LOWER_THAN_FILE"
+msgstr  "User security level is lower than file security level and sharing is not allowed."
+
+msgid   "IDS_USER_BIND_MAC_ADDR_MSG"
+msgstr  "%s bind the device %s successfully"
+
+msgid   "IDS_DISABLED"
+msgstr  "disabled"
+
+msgid   "IDS_ENABLED"
+msgstr  "enabled"
+
+msgid   "IDS_DISABLING"
+msgstr  "disabling"
+
+msgid   "IDS_RECOVERING"
+msgstr  "recovering"
+
+msgid   "IDS_APPLY_PERM_INHERIT"
+msgstr  "%s has %s the permissions inherited from superior, please approve:%s"
+
+msgid   "IDS_APPROVE_PERM_INHERIT"
+msgstr  "Your operation of %s inherited permissions %s:%s"
+
+msgid   "IDS_FAILED_TO_CALL_FUNCTION_ON_NOT_MASTER_NODE"
+msgstr  "Operations failed. This function should only be used on the application master node."
+
+msgid   "IDS_USER_CANNOT_OPEN_LINK"
+msgstr  "Failed to share with anyone. This user does not have permission"
+
+msgid   "IDS_LINK_UPLOAD_PERM_ON_FILE"
+msgstr  "Permission to upload for sharing with anyone is not available"

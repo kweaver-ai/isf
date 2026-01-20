@@ -1,0 +1,598 @@
+#
+# Resource script for US.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cfl 2.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################################################
+#
+######################################################################
+
+msgid "NC_LT_LOGIN"
+msgstr "存取日誌"
+
+msgid "NC_LT_MANAGEMENT"
+msgstr "管理日誌"
+
+msgid "NC_LT_OPEARTION"
+msgstr "操作日誌"
+
+msgid "NC_LT_OTHER_LOG"
+msgstr "其他日誌"
+
+msgid "IDS_WARN"
+msgstr "警告"
+
+msgid "IDS_INFO"
+msgstr "資訊"
+
+msgid "NCT_CLT_LOGIN_IN"
+msgstr "登入"
+
+msgid "NCT_CLT_LOGIN_OUT"
+msgstr "登出"
+
+msgid "NCT_CLT_AUTHENICATION"
+msgstr "認證"
+
+msgid "NCT_CLT_OTHER"
+msgstr "其它"
+
+msgid "NCT_MNT_CREATE"
+msgstr "建立"
+
+msgid "NCT_MNT_ADD"
+msgstr "新增"
+
+msgid "NCT_MNT_SET"
+msgstr "設定"
+
+msgid "NCT_MNT_DELETE"
+msgstr "刪除"
+
+msgid "NCT_MNT_COPY"
+msgstr "複製"
+
+msgid "NCT_MNT_MOVE"
+msgstr "移動"
+
+msgid "NCT_MNT_REMOVE"
+msgstr "移除"
+
+msgid "NCT_MNT_IMPORT"
+msgstr "匯入"
+
+msgid "NCT_MNT_EXPORT"
+msgstr "匯出"
+
+msgid "NCT_DOT_DOC_DOMAIN_SYNC"
+msgstr "文件網域同步"
+
+msgid "NCT_MNT_AUDIT_MGM"
+msgstr "共用核准"
+
+msgid "NCT_MNT_QUARANTINE"
+msgstr "隔離"
+
+msgid "NCT_MNT_UPLOAD"
+msgstr "上傳"
+
+msgid "NCT_MNT_PREVIEW"
+msgstr "預覽"
+
+msgid "NCT_DOT_PREVIEW"
+msgstr "預覽"
+
+msgid "NCT_MNT_DOWNLOAD"
+msgstr "下載"
+
+msgid "NCT_MNT_RESTORE"
+msgstr "還原"
+
+msgid "NCT_MNT_QUARANTINE_APPEAL"
+msgstr "申訴"
+
+msgid "NCT_MNT_RESTART"
+msgstr "重啟"
+
+msgid "NCT_MNT_SEND_EMAIL"
+msgstr "傳送電子郵件"
+
+msgid "NCT_MNT_RECOVER"
+msgstr "恢復"
+
+msgid "NCT_MNT_EDIT"
+msgstr "編輯"
+
+msgid "NCT_MNT_OTHER"
+msgstr "其它"
+
+msgid "NCT_DOT_CREATE"
+msgstr "新增"
+
+msgid "NCT_DOT_UPLOAD"
+msgstr "上傳"
+
+msgid "NCT_DOT_DOWNLOAD"
+msgstr "下載"
+
+msgid "NCT_DOT_EDIT"
+msgstr "修改"
+
+msgid "NCT_DOT_RENAME"
+msgstr "重命名"
+
+msgid "NCT_DOT_DELETE"
+msgstr "刪除"
+
+msgid "NCT_DOT_COPY"
+msgstr "複製"
+
+msgid "NCT_DOT_MOVE"
+msgstr "移動"
+
+msgid "NCT_DOT_REC_RESTORE"
+msgstr "從資源回收筒還原"
+
+msgid "NCT_DOT_REC_DELETE"
+msgstr "資源回收筒刪除"
+
+msgid "NCT_DOT_SYSREC_DELETE"
+msgstr "永久刪除"
+
+msgid "NCT_DOT_SYSREC_REC_RESTORE"
+msgstr "从系统資源回收筒还原"
+
+msgid "NCT_DOT_RESTORE_REV"
+msgstr "還原版本"
+
+msgid "NCT_DOT_PERM_MGM"
+msgstr "實名共用"
+
+msgid "NCT_DOT_OLINK_SHARE"
+msgstr "匿名共用"
+
+msgid "NCT_DOT_FINDER_MGM"
+msgstr "發現共用"
+
+msgid "NCT_DOT_BACKUP_TASK"
+msgstr "備份恢復"
+
+msgid "NCT_DOT_LOCK_MGM"
+msgstr "檔案鎖"
+
+msgid "NCT_DOT_ENTRY_DOC_MGM"
+msgstr "共用管理"
+
+msgid "NCT_DOT_DEVICE_MGM"
+msgstr "登入裝置管理"
+
+msgid "NCT_DOT_SET"
+msgstr "設定"
+
+msgid "NCT_DOT_DOCFLOW_SUBMIT"
+msgstr "提交文件流轉"
+
+msgid "NCT_DOT_AUDIT_MGM"
+msgstr "簽核管理"
+
+msgid "NCT_DOT_DOCFLOW"
+msgstr "文檔流轉"
+
+msgid "NCT_DOT_FILECOLLECTOR"
+msgstr "文檔收集"
+
+msgid "NCT_DOT_CACHE"
+msgstr "快取"
+
+msgid "NCT_DOT_EXPORT"
+msgstr "匯出"
+
+msgid "NCT_DOT_SYNC"
+msgstr "同步流程管理"
+
+msgid "NCT_DOT_FEEDBACK"
+msgstr "反饋"
+
+msgid "NCT_DOT_KNOWLEDGE"
+msgstr "知識操作"
+
+msgid "NCT_DOT_PRODUCT_PUBLISH"
+msgstr "資料產品發佈"
+
+msgid "NCT_DOT_PRODUCT_ARCHIVER"
+msgstr "資料產品歸檔"
+
+msgid "NCT_DOT_OTHER"
+msgstr "其它"
+
+msgid "ACS_USER_DOC"
+msgstr "個人文件"
+
+msgid "ACS_SHARE_DOC"
+msgstr "共用文件"
+
+msgid "ACS_ARCHIVE_DOC"
+msgstr "封存庫"
+
+msgid "USER_DOC"
+msgstr "使用者文件"
+
+msgid "CUSTOM_DOC"
+msgstr "文件庫"
+
+msgid "IDS_GET_ETSRESOURCEINFO_ERR"
+msgstr "獲取ETS資源資訊錯誤"
+
+msgid "IDS_CAN_NOT_LOCK_DIR"
+msgstr "不能對資料夾加鎖"
+
+msgid "IDS_LOCK_FILE_NEED_MODIFY_PERMISSION"
+msgstr "鎖定檔案需要修改權限"
+
+msgid "IDS_ONLY_LOCKER_CAN_UNLOCK"
+msgstr "只有鎖定者才能解鎖檔案"
+
+msgid "IDS_USER_NOT_EXIST"
+msgstr "使用者不存在"
+
+msgid "IDS_CONVERT_PATH_BATCH_ERR"
+msgstr "批量轉換路徑錯誤"
+
+msgid "IDS_FILE_IS_LOCKED"
+msgstr "檔案已經被鎖定"
+
+msgid "IDS_FILE_IS_NOT_LOCKED"
+msgstr "檔案未鎖定"
+
+msgid "IDS_NEED_TO_BE_OWER_TO_SET_PERM"
+msgstr "檔案所有者才能進行此項操作"
+
+msgid "IDS_ROOTDOC_NOT_EXIST"
+msgstr "文件不存在 "
+
+msgid "IDS_USERDOC_CANT_SET_OWNER"
+msgstr "個人文件不能設定擁有者"
+
+msgid "IDS_OWNER_CANT_ADD_YOURSELF"
+msgstr "不能設定自己為擁有者"
+
+msgid "IDS_OWNER_CAN_NOT_ADD_ADMIN"
+msgstr "不能設定admin為擁有者"
+
+msgid "IDS_OWNER_CAN_NOT_DELETE_YOURSELF"
+msgstr "擁有者不能刪除自己"
+
+msgid "IDS_DUMP_LOG"
+msgstr "系統自動執行了一次日誌轉存，已產生歸檔檔案<%s>"
+
+msgid "IDS_USER_DOC_NOT_EXIST"
+msgstr "個人文件丟失"
+
+msgid "IDS_NO_ENOUGH_QUOTA"
+msgstr "配額空間不足"
+
+msgid "IDS_QUOTA_CANT_BE_ZERO"
+msgstr "個人空間配額不能為0"
+
+msgid "IDS_EXMSG"
+msgstr "物件路徑：%s"
+
+msgid "IDS_AUTO_UNLOCK_SUCCESS"
+msgstr "系統 將檔案 \"%s\" 解鎖 成功"
+
+msgid "IDS_AUTO_UNLOCK_FAILED"
+msgstr "系統 將檔案 \"%s\" 解鎖 失敗"
+
+msgid "IDS_AUTO_LOCK_NOT_SET"
+msgstr "檔案鎖未開啟"
+
+msgid "IDS_CANT_SET_ON_USER_DOC"
+msgstr "不能針對個人文件進行退出共用管理"
+
+msgid "IDS_GNS_OBJECT_NOT_EXISTS"
+msgstr "GNS物件不存在"
+
+msgid "IDS_INVALID_UDID"
+msgstr "非法的裝置UDID"
+
+msgid "IDS_INVALID_OS_TYPE"
+msgstr "非法的OS類型"
+
+msgid "IDS_DEVICE_UDID_EXISTS"
+msgstr "此裝置已經存在，無法再新增"
+
+msgid "IDS_CANT_CONFIG_EDIT_DELETE_TO_ARCHIVE_DOC"
+msgstr "不能給封存庫檔案設定修改和刪除權限。"
+
+msgid "IDS_CONFLICATED_WITH_USER_DISPLAY_NAME"
+msgstr "存在同名的使用者，請重新輸入。"
+
+msgid "IDS_CONFLICATED_WITH_ARCHIVE_NAME"
+msgstr "已存在同名的封存庫，請重新輸入。"
+
+msgid "IDS_INVITION_NOT_EXIST"
+msgstr "共用邀請連結不存在"
+
+msgid "IDS_INVITION_HAS_EXIST"
+msgstr "共用邀請連結已存在"
+
+msgid "IDS_INVALID_PERM_END_TIME_AHEAD"
+msgstr "您設定的權限有效期間已經早於伺服器的當前時間，請重新設定或校對時間。"
+
+msgid "IDS_INVALID_INVITATION_END_TIME_AHEAD"
+msgstr "您設定的連結有效期間已經早於伺服器的當前時間，請重新設定或校對時間。"
+
+msgid "IDS_INVALID_INVITATION_END_TIME"
+msgstr "連結有效期限不能大於權限有效期限"
+
+msgid "IDS_USER_DOC_CANNOT_LINK_SHARE"
+msgstr "您沒有共用個人文件權限，無法進行權限設定。"
+
+msgid "IDS_USER_DOC_CANNOT_OPEN_SHARE_INVITATION"
+msgstr "您沒有共用個人文件權限，無法開啟共用邀請。"
+
+msgid "IDS_USER_DOC_CANNOT_FIND_SHARE"
+msgstr "您沒有共用個人文件權限，無法開啟發現共用。"
+
+msgid "IDS_USER_DOC_CANNOT_EDIT_SHARE_INVITATION"
+msgstr "您沒有共用個人文件權限，無法修改共用邀請。"
+
+msgid "IDS_NO_AUDITOR"
+msgstr "當前無匹配的核准者，本次操作無法生效，請聯繫管理員。"
+
+msgid   "IDS_FILE_MAIL_TITLE"
+msgstr  "%s 給您共用了一個檔案: %s"
+
+msgid   "IDS_FOLDER_MAIL_TITLE"
+msgstr  "%s 給您共用了一個資料夾: %s"
+
+msgid   "IDS_CLICK_TO_VIEW"
+msgstr  "按一下以檢視: "
+
+msgid   "IDS_PERMITIONS"
+msgstr  "您的權限:"
+
+msgid   "IDS_EXPIRATION_DATE"
+msgstr  "有效期間: %s"
+
+msgid   "IDS_SECURITY_LEVEL"
+msgstr  "檔案密級: %s"
+
+msgid   "IDS_PERM_DENY"
+msgstr  " (拒絕 %s)"
+
+msgid   "IDS_PERM_DISPLAY"
+msgstr  " 顯示"
+
+msgid   "IDS_PERM_READ"
+msgstr  "/读取"
+
+msgid   "IDS_PERM_CREATE"
+msgstr  "/新增"
+
+msgid   "IDS_PERM_MODIFY"
+msgstr  "/修改"
+
+msgid   "IDS_PERM_DELETE"
+msgstr  "/刪除"
+
+msgid   "IDS_IS_OWNER"
+msgstr  " 擁有者"
+
+msgid   "IDS_EXPIR_DATE"
+msgstr  "永久有效"
+
+msgid   "IDS_UNCLASSIFIED"
+msgstr  "非密"
+
+msgid   "IDS_RESTRICTED"
+msgstr  "内部"
+
+msgid   "IDS_COMFIDENTIAL"
+msgstr  "秘密"
+
+msgid   "IDS_SECRET"
+msgstr  "機密"
+
+msgid   "IDS_TOP_SECRET"
+msgstr  "絕密"
+
+msgid   "IDS_PROMPT_MSG"
+msgstr  "(如果您的連結不能正常打開，請將連結複製后粘貼到Windows檔案總管網址欄)"
+
+msgid   "IDS_PROMPT_MSG2"
+msgstr  "此为系統電子郵件，無需回復。"
+
+msgid   "IDS_DISABLED_USER"
+msgstr  "使用者已被停用，請聯繫管理員。"
+
+msgid   "IDS_INSUFFICIENT_SYSTEM_RESOURCES"
+msgstr  "伺服器資源不足，無法存取"
+
+msgid   "IDS_CREATE_CUSTOM_DOC_MSG"
+msgstr  "新增 自訂文件庫 “%s” 成功"
+
+msgid   "IDS_CREATE_CUSTOM_DOC_EXMSG"
+msgstr  "庫類型 “%s”，庫所有者 “%s” ，關聯部門 “%s”，歸屬站台 “%s”， 配額空間 “%sGB”"
+
+msgid   "IDS_SHARE_FILE"
+msgstr  "有人給您共用了一個檔案："
+
+msgid   "IDS_SHARE_DIR"
+msgstr  "有人給您共用了一個資料夾："
+
+msgid   "IDS_UNSHARE"
+msgstr  "%s給您取消了共用:%s"
+
+msgid   "IDS_APPLY_UNSHARE"
+msgstr  "%s給%s取消了共用:%s，請您核准"
+
+msgid   "IDS_APPLY_SHARE_DOC"
+msgstr  "%s給%s共用了文件，請您核准：%s"
+
+msgid   "IDS_APPROVE_SHARE_FILE"
+msgstr  "您給%s共用的文件，“%s”核准：%s"
+
+msgid   "IDS_APPROVE_UNSHARE_FILE"
+msgstr  "您給%s取消共用的文件，“%s”核准：%s"
+
+msgid   "IDS_APPLY_OLINK_SHARE"
+msgstr  "%s開啟了匿名共用，請您核准：%s"
+
+msgid   "IDS_APPROVE_OLINK_SHARE"
+msgstr  "%s開啟了匿名共用，“%s”核准：%s"
+
+msgid   "IDS_APPROVE_SUCEESS"
+msgstr  "已通過"
+
+msgid   "IDS_APPROVE_FAIL"
+msgstr  "未通過"
+
+msgid   "IDS_AUDIT_MESSAGE"
+msgstr  "核准者: %s 核准資訊: %s"
+
+msgid   "IDS_ANTIVIRUS_QUARANTINE"
+msgstr  "您有一個檔案可能存在病毒，已被“隔離”：%s"
+
+msgid   "IDS_ANTIVIRUS_QUARANTINE_APPEAL"
+msgstr  "您有一個檔案可能存在病毒，已被“修復”：%s"
+
+msgid   "IDS_QUARANTINE"
+msgstr  "您有一個檔案涉及非法內容，已被“隔離”：%s"
+
+msgid   "IDS_QUARANTINE_APPEAL"
+msgstr  "您的檔案經核准不含非法內容，已被“還原”：%s"
+
+msgid   "IDS_APPLY_PROCESS"
+msgstr  "%s發起了文件流程，請您核准：%s"
+
+msgid   "IDS_APPLY_PROCESS2"
+msgstr  "%s通過了%s發起的文件流程，請您繼續核准：%s"
+
+msgid   "IDS_APPROVE_PROGRESS"
+msgstr  "您發起的文件流程已提交%s級核准者%s：%s"
+
+msgid   "IDS_APPROVE_RESULT"
+msgstr  "您發起的文件流程，“%s”核准：%s"
+
+msgid   "IDS_APPLY_CSF_LEVEL_SET"
+msgstr  "%s將檔案密級由“%s”更改為“%s”，請您核准：%s"
+
+msgid   "IDS_APPROVE_CSF_LEVEL_SET"
+msgstr  "您將檔案密級更改為“%s”，“%s”核准： %s"
+
+msgid   "IDS_REJECT_CSF_LEVEL_SET"
+msgstr  "您對密級為“%s”檔案的密級更改操作， “%s”核准：%s"
+
+msgid   "IDS_DOC_EXCHANGE_RECV_AREA_NOT_EXIST"
+msgstr  "目標站台不存在。"
+
+msgid   "IDS_DOC_EXCHANGE_INVALID_DST_DOC_NAME"
+msgstr  "目標位置不合法。"
+
+msgid   "IDS_USER_FREEZED"
+msgstr  "使用者已被凍結。"
+
+msgid   "IDS_DOC_CREATOR_FREEZED"
+msgstr  "文件建立者已被凍結。"
+
+msgid   "IDS_USER_NOT_REAL_NAME_AUTH"
+msgstr  "使用者未實名認證"
+
+msgid   "IDS_DOC_CREATOR_NOT_REAL_NAME_AUTH"
+msgstr  "文件建立者未實名認證"
+
+msgid   "IDS_FILE_CSF_LEVEL_IS_NOT_SET"
+msgstr  "當前檔案未定密，不允許共用。"
+
+msgid   "IDS_PERM_CONFIG_ACCESSORTYPE_OR_ID_NOT_EXIST"
+msgstr  "權限設定中accessortype或者accessorid不存在"
+
+msgid   "IDS_USER_CSF_LEVEL_LOWER_THAN_FILE"
+msgstr  "您指定的使用者密級低於當前檔案的密級，無法對其設定共用。"
+
+msgid   "IDS_USER_BIND_MAC_ADDR_MSG"
+msgstr  "使用者 %s 繫結裝置 %s 成功"
+
+msgid   "IDS_DISABLED"
+msgstr  "停用"
+
+msgid   "IDS_ENABLED"
+msgstr  "恢復"
+
+msgid   "IDS_DISABLING"
+msgstr  "停用"
+
+msgid   "IDS_RECOVERING"
+msgstr  "恢復"
+
+msgid   "IDS_APPLY_PERM_INHERIT"
+msgstr  "%s%s了從上級繼承的權限，請您核准：%s"
+
+msgid   "IDS_APPROVE_PERM_INHERIT"
+msgstr  "您%s繼承權限的操作，“%s”核准：%s"
+
+msgid   "IDS_FAILED_TO_CALL_FUNCTION_ON_NOT_MASTER_NODE"
+msgstr  "操作失敗，只能在應用主節點使用該功能。"
+
+msgid   "IDS_FILE_MAIL_TITLE_EN"
+msgstr  "%s shared you a file: %s"
+
+msgid   "IDS_FOLDER_MAIL_TITLE_EN"
+msgstr  "%s shared you a folder: %s"
+
+msgid   "IDS_CLICK_TO_VIEW_EN"
+msgstr  "Click to view: "
+
+msgid   "IDS_PERMITIONS_EN"
+msgstr  "Permissions:"
+
+msgid   "IDS_EXPIRATION_DATE_EN"
+msgstr  "Expiration Date: %s"
+
+msgid   "IDS_PERM_DENY_EN"
+msgstr  " (Deny %s)"
+
+msgid   "IDS_PERM_DISPLAY_EN"
+msgstr  "Display"
+
+msgid   "IDS_PERM_READ_EN"
+msgstr  "/Read"
+
+msgid   "IDS_PERM_CREATE_EN"
+msgstr  "/Create"
+
+msgid   "IDS_PERM_MODIFY_EN"
+msgstr  "/Modify"
+
+msgid   "IDS_PERM_DELETE_EN"
+msgstr  "/Delete"
+
+msgid   "IDS_PERM_COPY_EN"
+msgstr  "/Copy"
+
+msgid   "IDS_IS_OWNER_EN"
+msgstr  " Owner"
+
+msgid   "IDS_EXPIR_DATE_EN"
+msgstr  "Permanent"
+
+msgid   "IDS_PROMPT_MSG_EN"
+msgstr  "(If this link cannot be opened, please copy the link to the address bar of Windows Explorer)"
+
+msgid   "IDS_PROMPT_MSG2_EN"
+msgstr  "This is system e-mail, no need to reply."
+
+msgid   "IDS_USER_CANNOT_OPEN_LINK"
+msgstr  "使用者沒有匿名共用權限，無法開啟匿名共用"
+
+msgid   "IDS_LINK_UPLOAD_PERM_ON_FILE"
+msgstr  "匿名共用不能對檔案設定上傳權限"

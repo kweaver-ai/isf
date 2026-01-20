@@ -1,0 +1,17 @@
+.record {
+    border: 1px solid #e5e5e5;
+    border-width: 0 0 1px 0;
+
+    &.strap {
+        background-color: #fefefe;
+    }
+    
+    &.selected {
+        background-color: #ffebc0;
+    }
+}
+
+.checkbox-cell {
+    text-align: center;
+    vertical-align: middle;
+}

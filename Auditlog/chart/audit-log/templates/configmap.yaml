@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-yaml
+  namespace: {{ .Values.namespace }}
+data:
+  {{- with .Values }}
+  NAMESPACE: {{ .namespace | quote }}
+  LANGUAGE: {{ .service.language | quote }}
+  SERVICE_NAME: {{ .service.name | quote }}
+  SERVICE_PUBLIC_PORT: {{ .service.port | quote }}
+  SERVICE_PRIVATE_PORT: {{ add1 .service.port | quote }}
+
+  DB_HOST: {{ .depServices.rds.host | quote }}
+  DB_PORT: {{ .depServices.rds.port | quote }}
+  DB_USER: {{ .depServices.rds.user | quote }}
+  DB_NAME: {{ .depServices.rds.database | quote }}
+  DB_HOSTREAD: {{ .depServices.rds.hostRead | quote }}
+  DB_PORTREAD: {{ .depServices.rds.portRead | quote }}
+  DB_SYSTEM_ID: {{ .depServices.rds.system_id | quote }}
+
+  AUDIT_LOG_DEBUG_MODE: {{ .env.AUDIT_LOG_DEBUG_MODE | quote }}
+
+  {{- end }}
+  HYDRA_PUBLIC_PROTOCOL: {{ .Values.depServices.hydra.publicProtocol | quote }}
+  HYDRA_PUBLIC_HOST: {{ .Values.depServices.hydra.publicHost | quote }}
+  HYDRA_PUBLIC_PORT: {{ .Values.depServices.hydra.publicPort | quote }}
+  HYDRA_ADMIN_PROTOCOL: {{ .Values.depServices.hydra.administrativeProtocol | quote }}
+  HYDRA_ADMIN_HOST: {{ .Values.depServices.hydra.administrativeHost | quote }}
+  HYDRA_ADMIN_PORT: {{ .Values.depServices.hydra.administrativePort | quote }}
+  DOCUMENT_PRIVATE_PROTOCOL: {{ .Values.depServices.document.privateProtocol | quote }}
+  DOCUMENT_PRIVATE_HOST: {{ .Values.depServices.document.privateHost | quote }}
+  DOCUMENT_PRIVATE_PORT: {{ .Values.depServices.document.privatePort | quote }}
+  USER_MANAGEMENT_PRIVATE_PROTOCOL:  {{ index .Values "depServices" "user-management" "privateProtocol" | quote }}
+  USER_MANAGEMENT_PRIVATE_HOST: {{ index .Values "depServices" "user-management" "privateHost" | quote }}
+  USER_MANAGEMENT_PRIVATE_PORT: {{ index .Values "depServices" "user-management" "privatePort" | quote }}
+  USER_MANAGEMENT_PUBLIC_PROTOCOL: {{ index .Values "depServices" "user-management" "publicProtocol" | quote }}
+  USER_MANAGEMENT_PUBLIC_HOST: {{ index .Values "depServices" "user-management" "publicHost" | quote }}
+  USER_MANAGEMENT_PUBLIC_PORT: {{ index .Values "depServices" "user-management" "publicPort" | quote }}
+  CONFIG_PATH: {{ .Values.service.configPath | quote }}
+  DB_TYPE: {{ .Values.depServices.rds.type | quote }}
+
+  self_server_config.yaml: |
+    {{- toYaml .Values.service | nindent 4 }}
+
+  log_config.yaml: |
+    log_level: {{ .Values.logger.logLevel | quote }}
+
+  log_dump_config.yaml: |
+    log_dump_threshold_login: {{ .Values.logDumpConfig.dumpThresholdLogin | quote }}
+    log_dump_threshold_management: {{ .Values.logDumpConfig.dumpThresholdManagement | quote }}
+    log_dump_threshold_operation: {{ .Values.logDumpConfig.dumpThresholdOperation | quote }}
+    log_dump_log_num: {{ .Values.logDumpConfig.dumpLogNum | quote }}
+    log_dump_interval_time: {{ .Values.logDumpConfig.dumpIntervalTime | quote }}
+
+  mq_config.yaml: |
+    {{- toYaml .Values.depServices.mq | nindent 4 }}
+
+  dep_svc.yaml: |
+    efast:
+    {{- toYaml .Values.depServices.efast | nindent 6 }}
+    sharemgnt:
+    {{- toYaml .Values.depServices.sharemgnt | nindent 6 }}
+    doc-center:
+    {{- toYaml .Values.depServices.doccenter | nindent 6 }}
+    ossgateway:
+    {{- toYaml .Values.depServices.ossgateway | nindent 6 }}
+    kc:
+    {{- toYaml .Values.depServices.kc | nindent 6 }}
+    personal-config:
+    {{- toYaml .Values.depServices.personalconfig | nindent 6 }}
+
+  rec_config.yaml: |
+    {{- toYaml .Values.rec | nindent 4 }}
+
+  log_strategy.yaml: |
+{{.Files.Get "log_strategy.yaml" | indent 4}}

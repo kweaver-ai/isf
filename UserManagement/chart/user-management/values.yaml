@@ -1,0 +1,75 @@
+replicaCount: 1
+
+nodeSelector: {}
+
+namespace: user-management
+
+image:
+  registry: ""
+  service:
+    repository: as/user-management
+    tag: ""
+    pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 30980
+  language: zh_CN
+  logger: stdout
+  sslOn: false
+  certFile: /sysvol/conf/user-management.crt
+  keyFile: /sysvol/conf/user-management.key
+  businessTimeOffset: 0
+  cleanAvatarOffsetTime: 3600
+  logLevel: 4
+  readinessProbe:
+    initialDelaySeconds: 5
+    periodSeconds: 3
+    timeoutSeconds: 3
+    failureThreshold: 3
+  livenessProbe:
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 5
+  enableDualStack: false
+
+env:
+  language: en_US.UTF-8
+  timezone: Asia/Shanghai
+
+depServices:
+  rds:
+    host: 127.0.0.1
+    port: 3320
+    user: ""
+    password: ""
+    database: user_management
+    maxConnections: 30
+    dbCharset: utf8mb4
+    timeout: 10
+    readTimeout: 10
+    writeTimeout: 10
+    type: mysql
+    system_id: ""
+  hydra:
+    publicHost: hydra-public
+    publicPort: 4444
+    administrativeHost: hydra-admin
+    administrativePort: 4445
+  mq: {}
+  ossgatewaymanager:
+    privateHost: ossgatewaymanager-private
+    privatePort: 9002
+
+securityContext:
+  runAsUser: 5000
+  runAsGroup: 5000
+
+resources:
+  requests:
+    cpu: 84m
+    memory: 102Mi
+  limits:
+    cpu: 4
+    memory: 4Gi

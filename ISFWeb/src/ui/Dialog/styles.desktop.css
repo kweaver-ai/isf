@@ -1,0 +1,6 @@
+.container {
+    position: fixed;
+    min-width: 400px;
+    box-shadow: 0 0 3px 3px #585858;
+    z-index: 20;
+}

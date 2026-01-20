@@ -1,0 +1,16 @@
+db_type: "MYSQL"
+db_host: mariadb-mariadb-cluster.resource.svc.cluster.local
+db_port: 3330
+db_host_read: mariadb-mariadb-cluster.resource.svc.cluster.local
+db_port_read: 3330
+user_name: anyshare
+user_pwd: eisoo.com123
+db_name: anyshare
+db_charset: utf8mb4
+# 连接超时 单位毫秒
+timeout: 10000
+read_timeout: 10000
+write_timeout: 10000
+# 允许打开的最大连接数
+max_open_conns: 20
+max_open_read_conns: 20

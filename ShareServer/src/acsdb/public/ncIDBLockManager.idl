@@ -1,0 +1,96 @@
+#include "nsISupports.idl"
+
+native bool(bool);
+native int64(int64);
+
+[ref] native StringRef(String);
+[ref] native StringVecRef(vector<String>);
+[ref] native StringSetRef(set<String>);
+[ref] native ncDBLockInfoRef (ncDBLockInfo);
+[ref] native ncDBLockInfoVecRef (vector<ncDBLockInfo>);
+[ref] native ncDBLockInfoMapRef(map<String, String>);
+[ref] native ncDBLockTimeMapRef(map<String, int64>);
+[ref] native ncDBLockFileInfoMapRef(map<String, ncDBLockFileInfo>);
+
+%{ C++
+/**
+ * db lock manager
+ */
+#define NC_DB_LOCK_MANAGER_CID \
+{ \
+    0xb1485a5,    \
+    0x2f50,        \
+    0x4eaa,        \
+    { 0xa3, 0xfa, 0x12, 0xa8, 0x76, 0x86, 0x21, 0xcc } \
+}
+
+/**
+ * db lock manager
+ */
+#define NC_DB_LOCK_MANAGER_CONTRACTID \
+"@eisoo.com/AnyShare3.5/acsdb/dblockmanager;1"
+
+ // 所有者信息
+struct ncDBLockInfo {
+    String      docId;          // 文档id
+    String      userId;         // 锁定者id
+    int64       createDate;     // 创建时间
+    int64       refreshDate;    // 刷新时间
+    int64       expireTime;     // 有效期限
+
+    ncDBLockInfo (const String& docID = String::EMPTY,
+        const String& userID = String::EMPTY)
+        : docId (docID)
+        , userId (userID)
+        , createDate (-1)
+        , refreshDate (-1)
+        , expireTime (-2)
+    {}
+
+    bool operator == (const ncDBLockInfo& info) const
+    {
+        return docId == info.docId && userId == info.userId;
+    }
+};
+
+ // 文件锁信息
+struct ncDBLockFileInfo {
+    String      docId;          // 文档id
+    String      userId;         // 锁定者id
+    String      lockerAccount;  // 锁定者账号
+    String      lockerName;     // 锁定者显示名
+    int64       createDate;     // 文件锁创建时间
+
+    ncDBLockFileInfo (const String& docID = String::EMPTY,
+        const String& userID = String::EMPTY,
+        const String& account = String::EMPTY,
+        const String& name = String::EMPTY)
+        : docId (docID)
+        , userId (userID)
+        , lockerAccount (account)
+        , lockerName (name)
+        , createDate (-1)
+    {}
+};
+
+%}
+
+[uuid (380D4D3F-DA23-42a0-A6BC-0311D5FAF301)]
+interface ncIDBLockManager: nsISupports
+{
+    /**
+     * 删除文件锁
+     */
+    [notxpcom] void Delete ([const] in StringRef fileId);
+
+    /**
+     * 删除目录下的所有子文件的文件锁
+     */
+    [notxpcom] void DeleteSubs ([const] in StringRef dirId);
+
+    /**
+     * 通过 userId 删除锁
+     */
+    [notxpcom] void DeleteByUserId ([const] in StringRef userId);
+
+};

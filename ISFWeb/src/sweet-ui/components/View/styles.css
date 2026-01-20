@@ -1,0 +1,17 @@
+@import '../../../core/styles/root.css';
+
+.view {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-size-secondary);
+    user-select: none;
+
+    &.block {
+        display: block;
+    }
+
+    &.inline {
+        display: inline-block;
+    }
+}

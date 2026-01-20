@@ -1,0 +1,16 @@
+#auth:
+#  mechanism: PLAIN
+#  password: eisoo.com123
+#  username: anyrobot
+#connectorType: kafka
+#mqHost: kafka-headless.resource
+#mqLookupdHost: ""
+#mqLookupdPort: 0
+#mqPort: 9097
+#mqType: kafka
+connectorType: nsq
+mqHost: 127.0.0.1
+mqLookupdHost: 127.0.0.1
+mqLookupdPort: 4161
+mqPort: 4151
+mqType: nsq

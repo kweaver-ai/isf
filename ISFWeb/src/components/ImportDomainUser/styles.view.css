@@ -1,0 +1,89 @@
+.container {
+    width: 915px;
+    height: 400px;
+
+    & .left {
+        position: relative;
+        float: left;
+        margin-right: 24px;
+
+        & .list {
+            float: left;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+
+            & .list-main {
+                width: 250px;
+                height: 371px;
+            }
+        }
+
+        & .org-picker-selections {
+            float: left;
+            margin: 10px 0 0 8px;
+            box-sizing: border-box;
+            width: 220px;
+            height: 383px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            overflow-y: auto;
+            overflow-x: hidden;
+    
+            & .selection {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                
+                & .dep-name {
+                    width: 185px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        & .selected-header {
+            position: absolute;
+            left: 296px;
+            top: 0;
+            width: 220px;
+
+            & .clear-btn {
+                float: right;
+                margin-top: -5px;            
+            }
+        }
+
+        & .org-picker-arrow {
+            float: left;
+            margin-left: 8px;
+            height: 360px;
+            line-height: 360px;
+        }
+    }
+
+    & .right {
+        float: right;
+        width: 365px;
+
+        & .option {
+            margin-bottom: 16px;
+
+            & .line {
+                margin-top: 10px;
+                vertical-align: middle;
+
+                & .tip {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+.content {
+    .status {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,19 @@
+@import '../../../../../core/styles/root.css';
+.space {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.net-label {
+    margin-left: 26px;
+}
+
+.error {
+    min-height: 30px;
+    max-width: 340px;
+    color: var(--font-color-critical);
+}
+
+.save-btn {
+    margin-right: 10px;
+}

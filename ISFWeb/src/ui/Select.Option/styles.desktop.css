@@ -1,0 +1,18 @@
+.option {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f3f3fa;
+    }
+
+    &.selected {
+        background-color: #f3f3fa;
+    }
+}

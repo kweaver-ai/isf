@@ -1,0 +1,30 @@
+.container {
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    background-color: #6AA84F;
+    vertical-align: top;
+    border-radius: 14px;
+    cursor: pointer;
+    & .child {
+        display: inline-block;
+        position: relative;
+        top: 2px;
+        width: 24px;
+        height: 24px;
+        background-color: white;
+        border-radius: 12px;
+    }
+    &.switch-left {
+        background-color: #F54848;
+    }
+    &.switch-left>div {
+        left: 2px;
+    }
+    &.switch-right {
+        background-color: #6AA84F;
+    }
+    &.switch-right>div {
+        left: 24px;
+    }
+}

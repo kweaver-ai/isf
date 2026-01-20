@@ -1,0 +1,26 @@
+@import '../../../../core/styles/root.css';
+
+.form {
+    & .box-wrapper {
+        position: relative;
+
+        & .key-dot {
+            position: absolute;
+            top: 8px;
+            left: -10px;
+            color: var(--color-error);
+        }
+
+        & .add-button {
+            margin-left: 8px;
+            position: absolute;
+        }
+    }
+
+    & .form-lable {
+        position: relative;
+        display: inline-block;
+        min-width: 90px;
+        top: -5px;
+    }
+}

@@ -1,0 +1,5 @@
+@import '../../core/styles/root.css';
+
+.button {
+    margin-left: var(--layout-spacing-small);
+}

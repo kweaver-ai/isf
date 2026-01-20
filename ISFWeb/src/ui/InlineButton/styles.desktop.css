@@ -1,0 +1,41 @@
+.inline-button {
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    background-color: transparent;
+    outline: none;
+    &:hover {
+        background: #efefef;
+        border-color: #d1d1d1;
+    }
+    &:active {
+        background: #dadada;
+        border-color: #e0e0e0;
+    }
+    & .icon {
+        cursor: pointer;
+    }
+    &.disabled {
+        cursor: default;
+        border-color: transparent;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        background-color: transparent;
+
+        & .icon {
+            cursor: default;
+        }
+        &:hover {
+            background: none;
+            border-color: transparent;
+        }
+        &:active {
+            background: none;
+            border-color: transparent;
+        }
+    }
+}

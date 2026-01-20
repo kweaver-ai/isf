@@ -1,0 +1,25 @@
+.root {
+    box-sizing: border-box;
+    height: 45px;
+
+    & .select-area {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 15px 0 10px;
+
+        & .select-all {
+            vertical-align: middle;
+        }
+
+        & .select-all-label {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+    }
+
+    & .tools {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}

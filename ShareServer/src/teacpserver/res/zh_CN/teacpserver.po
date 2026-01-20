@@ -1,0 +1,130 @@
+#
+# Resource script for US.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cfl 2.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"Previous-Translator: \n"
+
+
+######################################################################
+#
+######################################################################
+
+msgid "IDS_INVALID_CUSTOM_DOC_QUOTA"
+msgstr "组织文档的配额不能小于200GB"
+
+msgid "IDS_OWNER_NOT_EXISTS"
+msgstr "设置的管理员不存在或者已被删除"
+
+msgid "IDS_OWNER_DISABLE"
+msgstr "设置的管理员被禁用"
+
+msgid "IDS_NO_OWNER"
+msgstr "未设置管理员"
+
+msgid "IDS_FORBID_QUOTA_SIZE_DECREASED"
+msgstr "组织文档设置的配额空间不能减少"
+
+msgid "IDS_EXCEED_MAX_CUSTOM_DOC_TYPE_COUNT"
+msgstr "组织文档的类别数量最大为7"
+
+msgid "ACS_USER_DOC"
+msgstr "个人文档"
+
+msgid "ACS_SHARE_DOC"
+msgstr "共享文档"
+
+msgid "IDS_DOC_ID_NOT_EXISTS"
+msgstr "组织文档对应的ID不存在"
+
+msgid "IDS_NOT_CREATER_CANT_EDIT"
+msgstr "您不是组织文档的创建者，不能编辑该组织文档"
+
+msgid "IDS_EDITER_NOT_EXISTS"
+msgstr "编辑者对应的用户ID不存在"
+
+msgid "IDS_NON_MANAGER_CANT_CREATE"
+msgstr "非组织文档管理员不能创建组织文档"
+
+msgid "IDS_CANT_DECREASE_QUOTA"
+msgstr "无法设置总配额"
+
+msgid "IDS_ARGS_INVALID_OR_NOTSET"
+msgstr "参数没有设置或者设置无效"
+
+msgid "IDS_CA_INFO_NOT_SET"
+msgstr "CA消息还未设置"
+
+msgid "IDS_YOU_ARE_NOT_ADMIN"
+msgstr "您不是admin，不能进行该操作"
+
+msgid "IDS_CUSTOM_QUOTA_NUM_WRONG"
+msgstr "配额空间非法"
+
+msgid "IDS_USER_QUOTA_NUM_WRONG"
+msgstr "配额空间非法"
+
+msgid   "IDS_INVALID_OAUTH_INFO"
+msgstr  "非法的OAuth信息，参数必须是合法的URL"
+
+msgid   "IDS_OAUTH_INFO_NOT_SET"
+msgstr  "OAuth信息尚未设置，不能开启"
+
+msgid "IDS_INVALID_LICENSE"
+msgstr "授权码校验失败，未知的授权码类型。"
+
+msgid "IDS_INVALID_ACTIVE_STRING"
+msgstr "无法激活，您的激活码与授权码及机器码不匹配，请输入正确的激活码。"
+
+msgid "IDS_UNKNOWN_ERROR"
+msgstr "未知错误。"
+
+msgid "IDS_NO_ENOUGH_QUOTA"
+msgstr "配额空间不足"
+
+msgid "IDS_SPACE_ALLOCATED_FOR_USER_EXCEEDS_THE_MAX_LIMIT"
+msgstr "当前用户管理可分配空间已超出限制。"
+
+msgid "IDS_INVALID_LIMIT_VALUE"
+msgstr "limit参数错误：limit必须大于等于-1"
+
+msgid "IDS_NCT_MUTITENANT_USER_BELONG_ONE_OU"
+msgstr "多租户模式下用户只能属于一个组织。"
+
+msgid "IDS_RESTART_SHAREMGNT_SERVER_FAILED"
+msgstr "重启 sharemgnt_server 服务失败"
+
+msgid "NCT_INVALID_QUOTA"
+msgstr "配额空间非法"
+
+msgid "IDS_PUBLISH_DOCUMENT_EXCHANGE_EXMSG"
+msgstr "审核模式：%s，文档路径：%s"
+
+msgid "IDS_FILE"
+msgstr "文件"
+
+msgid "IDS_DIR"
+msgstr "文件夹"
+
+msgid "IDS_SEND_BOX"
+msgstr "{发送文件箱}"
+
+msgid "IDS_SITE_NOT_HAS_BEEN_ADDED"
+msgstr "站点未被添加"
+
+msgid "IDS_INVALID_EXPIRED_INTERVAL"
+msgstr "文件锁超时时间不合法"
+
+msgid "IDS_USER_NOT_REAL_NAME_AUTH"
+msgstr "用户未实名认证"
+
+msgid "IDS_INVALID_JSON"
+msgstr "JSON格式错误"
+
+msgid "IDS_INVALID_MAC_ADDR"
+msgstr "MAC地址(%s)错误"

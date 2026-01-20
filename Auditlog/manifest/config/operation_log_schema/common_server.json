@@ -1,0 +1,173 @@
+{
+    "type": "object",
+    "properties": {
+      "operator": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": "string"
+          },
+          "department_path": {
+            "type": [
+              "array",
+              "null"
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "authenticated_user"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "type": {
+                  "const": "authenticated_user"
+                }
+              },
+              "required": [
+                "id",
+                "type"
+              ]
+            },
+            "then": {
+              "required": [
+                "department_path"
+              ]
+            }
+          }
+        ]
+      },
+      "object": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "target_object": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "dependencies": {
+          "id": {
+            "oneOf": [
+              {
+                "required": [
+                  "id",
+                  "path"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "id": {
+                    "type": "null"
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "log_from": {
+        "type": "object",
+        "properties": {
+          "package": {
+            "type": "string",
+            "minLength": 1
+          },
+          "service": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "package",
+          "service"
+        ]
+      }
+    },
+    "required": [
+      "log_from"
+    ]
+  }
+  

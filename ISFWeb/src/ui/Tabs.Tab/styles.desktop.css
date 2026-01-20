@@ -1,0 +1,23 @@
+.tab {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    margin-right: 24px;
+    border-width: 0 0 3px 0;
+    border-style: solid;
+    border-color: transparent;
+    text-align: center;
+
+    &:hover {
+        cursor: pointer;
+        color: #d70000;
+        opacity: 1 !important;
+    }
+
+    &.active {
+        border-color: transparent transparent #d70000 transparent;
+        color: #d70000;
+        opacity: 1 !important;
+    }
+}

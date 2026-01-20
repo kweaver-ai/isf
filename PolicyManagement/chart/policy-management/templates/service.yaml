@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "policy-management.server" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ template "policy-management.server" . }}
+spec:
+{{- if .Values.service.enableDualStack }}
+  ipFamilies:
+  - IPv6
+  - IPv4
+  ipFamilyPolicy: PreferDualStack
+{{- end }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      {{- if eq .Values.service.type "NodePort" }}
+      nodePort: {{ .Values.service.port }}
+      {{- end}}
+      protocol: TCP
+      name: policy-management
+  selector:
+    app: {{ template "policy-management.server" . }}
+  type: {{ .Values.service.type }}

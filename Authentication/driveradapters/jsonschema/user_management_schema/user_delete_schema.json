@@ -1,0 +1,12 @@
+{
+    "required": [
+        "id"
+    ],
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "minLength": 1            
+        }
+    }
+}

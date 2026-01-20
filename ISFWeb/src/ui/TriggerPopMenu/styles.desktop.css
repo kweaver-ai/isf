@@ -1,0 +1,56 @@
+
+@import '../../core/styles/root.css';
+.button-container{
+    display: inline-block;
+    height: 90%;
+    
+    & .button-btn{
+        border: 0;
+        text-align: left;
+        line-height: 30px;
+
+        & .expand-icon{
+            padding-left: 5px;
+            cursor: pointer;
+            color: var(--grey-07);
+        }
+
+        &:hover {
+            background-color: var(--grey-03);
+        }
+
+        &:active {
+            background-color: var(--grey-04);
+        }
+    }
+
+    & .clicked{
+        background-color: var(--grey-03);
+    }
+
+    & .button-disabled{
+        padding: 0 10px;
+        opacity: .5;
+        filter: alpha(opacity=50);
+        cursor: default;
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        &:active {
+            background-color: transparent;
+        }
+    }
+}
+
+.menu {
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    border:1px solid #ececf3;
+    box-shadow:0 2px 9px 1px #ececf3;
+    border-radius: 4px;
+    background: #fff;
+    white-space: nowrap;
+}

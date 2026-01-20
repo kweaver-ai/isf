@@ -1,0 +1,223 @@
+:local .container {
+
+    & .info-content-header {
+        box-sizing: content-box;
+        width: 760px;
+        height: 28px;
+        line-height: 28px;
+        padding: 3px 10px;
+        border: 1px solid #CCCCCC;
+        border-radius: 2px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        color: #555;
+
+        & .info-header-title {
+            padding-left: 10px;
+            font-weight: 600;
+            background: no-repeat left center;
+        }
+    }
+
+    & .security-label {
+        padding: 0 6px 0 13px;
+    }
+
+    & .security-classification {
+        margin-left: 20px;
+    }
+
+    & .security-comment {
+        margin: 5px 0 10px 40px;
+        color: #888;
+    }
+
+    & .security-tip {
+        margin: 0px 0 20px 40px;
+        color: #ed1c24;
+    }
+
+    & .password-comment {
+        margin: 12px 0 20px 40px;
+        color: #888;
+    }
+
+    & .inline-layout {
+        display: inline-block;
+        position: relative;
+        margin: 0 2px 10px 2px;
+    }
+
+    & .operate-btn {
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 0;
+        right: 18px;
+
+        & .triangle-up {
+            position: relative;
+            cursor: pointer;
+        }
+
+        & .triangle-down {
+            position: relative;
+            top: -8px;
+            cursor: pointer;
+        }
+    }
+
+    & .comment-start {
+        display: inline-block;
+        position: relative;
+        color: #888;
+        text-indent: 38px;
+    }
+
+    & .comment-after {
+        color: #888;
+    }
+
+    & .custom-security-comment {
+        margin-bottom: 10px;
+    }
+
+    & .security-grid {
+        width: 360px;
+        margin: 15px auto;
+        overflow: hidden;
+    }
+
+    & .secu-save-btn {
+        display: inline-block;
+        position: absolute;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+        top: -10px;
+        border: 0;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    & .secu-cancel-btn {
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        width: 20px;
+        height: 20px;
+        border: 0px;
+        top: -10px;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    & .dropbox-first {
+        position: relative;
+        z-index: 3
+    }
+
+    & .dropbox-second {
+        position: relative;
+        z-index: 2
+    }
+
+    & .delete-secu {
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 60px;
+    }
+
+    & .custom-secu-name {
+        display: inline-block;
+        width: 200px;
+        vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    & .list {
+        position: relative;
+        width: 360px;
+        height: 168px;
+        margin: 15px auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border: 1px solid #d0d0d0;
+    }
+
+    & .li {
+        box-sizing: content-box;
+        padding: 5px 20px;
+        height: 32px;
+        line-height: 32px;
+        vertical-align: middle;
+    }
+
+    & .add-li {
+        padding: 5px 20px;
+        height: 20px;
+        line-height: 20px;
+        vertical-align: middle;
+    }
+
+    & .li-even {
+        background-color: #eeeeee;
+    }
+
+    & .temp-li {
+        height: 32px;
+        vertical-align: middle;
+    }
+
+    & .save-edit {
+        display: inline-block;
+        position: relative;
+        left: 30px;
+    }
+
+    & .cancel-edit {
+        display: inline-block;
+        position: relative;
+        left: 60px;
+    }
+
+    & .errcnt {
+        position: relative;
+        margin-bottom: 10px;
+        left: 38px;
+        color: #ec000a;
+    }
+
+    & .passerrcnt {
+        color: #ec000a;
+        padding: 0 0 5px 38px;
+    }
+
+    & .errmsg {
+        position: relative;
+        left: 2px;
+        color: #ec000a;
+    }
+
+    & .pass-lock {
+        position: relative;
+        left: 15px;
+        margin-bottom: 10px;
+
+    }
+
+    & .confirm-msg {
+        margin: 10px auto;
+    }
+
+    & .prot-level-select {
+        margin-bottom: 10px;
+    }
+
+    & .login-policy {
+        margin-left: 15px;
+    }
+}

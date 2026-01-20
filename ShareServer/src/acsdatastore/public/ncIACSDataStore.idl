@@ -1,0 +1,134 @@
+#include "nsISupports.idl"
+
+interface ncIDataBlock;
+interface ncIDataCopier;
+
+native int(int);
+native int64(int64);
+native String(String);
+[ref] native stlStringRef(string);
+[ref] native StringRef(String);
+[ref] native partInfoRef(ncUploadPartInfo);
+[ref] native partInfoMapRef(map<int, ncUploadPartInfo>);
+[ref] native UploadInfoRef(ncUploadInfo);
+
+%{ C++
+
+#define NC_ACS_DATA_STORE_CID \
+{ \
+    0xab7a2f96, \
+    0x8277, \
+    0x4d28, \
+    { 0xab, 0x29, 0x79, 0xc6, 0x26, 0xe, 0xf4, 0xf9 } \
+}
+
+
+#define NC_ACS_DATA_STORE_CONTRACTID \
+"@eisoo.com/AnyShare3.5/ncACSDataStore;1"
+
+struct ncUploadPartInfo
+{
+    ncUploadPartInfo (void)
+        : etag ()
+        , size (0)
+    {}
+
+    string etag;
+    int64 size;
+};
+
+struct ncUploadInfo {
+    int64 partSize;
+    String uploadId;
+};
+
+%}
+
+[uuid (0406FDFF-513F-456b-BCB7-DCBE7796393B)]
+interface ncIACSDataStore: nsISupports
+{
+    /**
+     * 创建账户ID
+     * 用户在账户下存储数据
+     * @return                  : 返回账户Id
+     */
+    [notxpcom] String CreateAccountId ();
+
+    /**
+     * 创建对象ID
+     * @return                  : 返回对象Id
+     */
+    [notxpcom] String GenerateObjectId ();
+
+    /**
+     * 获取可用的对象存储ID
+     * @return                  : 对象存储服务ID
+     */
+    [notxpcom] String GetAvailableOSSID ();
+
+    /**
+     * 初始化文件(分块)上传
+     * @param accountId         : 账户id
+     * @param objId             : 对象id
+     * @param ossId             : 对象存储服务ID
+     * @return                  : 分块上传uploadid
+     */
+    [notxpcom] void InitUpload ([const] in StringRef prefix,
+                                  [const] in StringRef accountId,
+                                  [const] in StringRef objId,
+                                  [const] in StringRef ossId,
+                                  in UploadInfoRef info);
+
+    /**
+     * 上传数据块到账户id下
+     * @param accountId         : 账户id
+     * @param objId             : 对象id
+     * @param ossId             : 对象存储服务ID
+     * @param uploadId          : 分块上传一个文件的标识id
+     * @param content           : 数据块内容.
+     * @param offest            : 偏移量
+     * @param sn                : 块号，sn==-1时则是最后一块
+     * @param partInfo          : 上传到开放存储的数据块信息
+     */
+    [notxpcom] void UploadBlock ([const] in StringRef prefix,
+                                 [const] in StringRef accountId,
+                                 [const] in StringRef objId,
+                                 [const] in StringRef ossId,
+                                 [const] in StringRef uploadId,
+                                 [const] in StringRef content,
+                                         in int64 offest,
+                                         in int sn,
+                                         in partInfoRef partInfo);
+
+    /**
+     * 完成开放存储的一个文件上传
+     * @param accountId         : 账户id
+     * @param objId             : 对象id
+     * @param ossId             : 对象存储服务ID
+     * @param uploadId          : 分块上传一个文件的标识id
+     * @param partInfos         : 上传到开放存储的数据块信息
+     */
+    [notxpcom] void CompleteUpload ([const] in StringRef prefix,
+                                    [const] in StringRef accountId,
+                                    [const] in StringRef objId,
+                                    [const] in StringRef ossId,
+                                    [const] in StringRef uploadId,
+                                    [const] in partInfoMapRef partInfos);
+
+    /**
+     * 根据偏移量读取文件内容
+     * @param fileId            : 文件id
+     * @param ossId             : 对象存储服务ID
+     * @param offset            : 读取偏移
+     * @param length            : 读取长度
+     * @param fileSize          : 文件长度
+     * @param content           : 返回的数据内容
+     */
+    [notxpcom] void ReadByOffest ([const] in StringRef prefix,
+                                  [const] in StringRef fileId,
+                                  [const] in StringRef ossId,
+                                          in int64 offset,
+                                          in int length,
+                                          in int64 fileSize,
+                                          in stlStringRef content);
+};

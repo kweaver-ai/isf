@@ -1,0 +1,122 @@
+@import '../../../core/styles/root.css';
+
+.container {
+    padding: 24px;
+
+    & .tool-bar {
+        float: left;
+        padding-top: 6px;
+        font-weight: 600;
+        color: #555;
+
+        & .toolbar-icon {
+            padding-right: 10px;
+            color: #555;
+            font-weight: 500;
+        }
+    }
+
+    & .main {
+        padding: 10px 10px 0 10px;
+
+        & .table {
+            display: table;
+            border-spacing: 0 10px;
+
+            & .row {
+                display: table-row;
+
+                & .label {
+                    display: table-cell;
+                    padding: 0 10px 0 0;
+                    vertical-align: middle;
+                }
+
+                & .field {
+                    display: table-cell;
+                    vertical-align: middle;
+                    line-height: 1;
+
+                    & .open-relay {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                    & .explain {
+                        float: right;
+
+                        & .explain-text {
+                            margin-left: 8px;
+                            color: #868686;
+                            cursor: default;
+                        }
+                    }
+
+                }
+
+                & .switch {
+                    height: 30px;
+                    line-height: 30px;
+                }
+
+            }
+
+            & .hidden-input {
+                display: none;
+            }
+        }
+    }
+
+    & .form-font {
+        text-align: left;
+    }
+
+    & .btn {
+        display: inline-block;
+        margin: 20px 10px 0 0;
+        width: 80px;
+    }
+
+    & .form-change-btn {
+        display: inline-block;
+    }
+
+    & .test {
+        display: inline-block;
+        height: 22px;
+        padding: 3px 0;
+        margin-left: 6px;
+        line-height: 22px;
+    }
+
+    & .test-success {
+        color: #2AA879;
+    }
+
+    & .test-failed {
+        color: #e60012;
+    }
+
+    & .testing {
+        color: #868686;
+    }
+
+
+    & .required {
+        color: var(--color-error);
+        float: right;
+        width: 25px;
+        text-align: right;
+    }
+}
+
+.explain-content {
+    width: 450px;
+    padding: 6px;
+    line-height: 20px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 0 8px 0 #e0e0e0;
+    font-size: 13px;
+    color: #505050;
+    background-color: #fff;
+}

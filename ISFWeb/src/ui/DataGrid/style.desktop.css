@@ -1,0 +1,109 @@
+@import '../../core/styles/root.css';
+
+.datagrid {
+    position: relative;
+
+    & .header-wrap {
+        background-color: #f1f6fa;
+
+        & .header-overflow {
+            padding-right: 17px;
+        }
+    }
+
+    & .table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+
+        & .heads {
+            border: 1px solid #f1f6fa;
+
+            & .heads-tr{
+                background-color: #f1f6fa;
+                height: 40px;
+            }
+        }
+
+        & .cell {
+            padding: 4px 10px;
+            text-align: left;
+            vertical-align: middle;
+            font-size: var(--font-size-secondary);
+            color: var(--font-color-regular);
+        }
+
+        & .text-align-center {
+            text-align: center !important;
+        }
+
+        & .text-align-right {
+            text-align: right !important;
+        }
+
+        & .heads .cell {
+            font-size: var(--font-size-regular);
+            color: var(--grey-07);
+        }
+    }
+
+    & .body-wrap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 40px;
+
+        &.headless-body {
+            border-width: 1px;
+            top: 0;
+        }
+
+        &.static-body {
+            position: static;
+        }
+
+        & .content {
+            overflow: auto;
+
+            & .record {
+                border: 1px solid #e5e5e5;
+                border-width: 0 0 1px 0;
+                height: 40px;
+
+                &.strap {
+                    background-color: #fbfbfb;
+                }
+                
+                &.selected {
+                    background-color: #ffebc0;
+                }
+
+                & .checkbox-cell {
+                    text-indent: 1px;
+                }
+            }
+        }
+    }
+
+    & .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        & .footer-padding {
+            border: 1px solid var(--grey-05);
+            border-width: 1px 1px 1px 1px;
+            padding: 5px 6px;
+        }
+    }
+
+    & .checkbox-cell {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    & .checkbox {
+        margin: 3px 3px 3px 4px;
+    }
+}

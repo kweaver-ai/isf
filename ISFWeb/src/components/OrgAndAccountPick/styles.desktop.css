@@ -1,0 +1,149 @@
+@import '../../core/styles/root.css';
+
+.single-selete {
+    margin-bottom: 8px;
+    height: 24px;
+
+    & .selected-text {
+        float: left;
+    }
+
+    & .selected {
+        display: inline-block;
+        max-width: 380px;
+    }
+}
+
+.dep-name {
+    display: inline-block;
+    padding-left: 4px;
+    max-width: 196px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
+}
+
+.single-selete:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.no-content {
+    padding-left: 4px;
+}
+
+.user-wrp {
+    display: flex;
+    justify-content: space-between;
+    color: var(--font-color-regular);
+
+    .tree-wrp-flex {
+        flex: 1;
+    }
+
+    .tree-wrp {
+        width: 280px;
+        height: 405px;
+
+        .tree-cnt {
+            margin-top: 2px;
+            padding: 8px;
+            height: 360px;
+            box-sizing: border-box;
+            border: 1px solid #efefef;
+
+            .tree-main {
+                position: relative;
+                margin-top: 10px;
+                width: 100%;
+                height: calc(100% - 32px);
+                overflow: auto;
+            }
+
+            .mult-tree {
+                margin-left: -4px;
+            }
+        }
+    }
+
+    .list {
+        width: 240px;
+
+        .clear {
+            height: 24px;
+            margin-bottom: 15px;
+            padding-top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .list-wrp {
+            width: 240px;
+            height: 352px;
+            height: 360px;
+            box-sizing: border-box;
+            border: 1px solid #efefef;
+            overflow-y: scroll;
+
+            .selection {
+                position: relative;
+                display: flex;
+                height: 24px;
+                padding: 12px;
+                margin-bottom: 4px;
+                line-height: 24px;
+
+                .selection-name {
+                    display: inline-block;
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .icon {
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+}
+
+.dep-wrp {
+    width: 510px;
+}
+
+.text {
+    padding: 5px;
+    border: 1px solid var(--background-light__disabled);
+    font-size: 13px;
+    background-color: var(--control-background-color);
+}
+
+.disabled {
+    color: #c0c0c0;
+}
+
+.safari {
+    &::before {
+        content: "";
+        display: block;
+    }
+}
+
+.login-user {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 12px;
+
+    .login-user-checkbox {
+        margin-right: 6px;
+        height: 18px;
+    }
+}

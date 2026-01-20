@@ -1,0 +1,15 @@
+.container{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    & .star{
+        position: relative;
+    }
+    & .star-highlight{
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        overflow: hidden;
+    }
+}

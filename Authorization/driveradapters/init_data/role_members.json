@@ -1,0 +1,42 @@
+[
+    {
+        "role_id": "7dcfcc9c-ad02-11e8-aa06-000c29358ad6",
+        "members": [
+            {
+                "id": "266c6a42-6131-4d62-8f39-853e7093701c",
+                "type": "user",
+                "name": "admin"
+            }
+        ]
+    },
+    {
+        "role_id": "d2bd2082-ad03-11e8-aa06-000c29358ad6",
+        "members": [
+            {
+                "id": "266c6a42-6131-4d62-8f39-853e7093701c",
+                "type": "user",
+                "name": "admin"
+            }
+        ]
+    },
+    {
+        "role_id": "d8998f72-ad03-11e8-aa06-000c29358ad6",
+        "members": [
+            {
+                "id": "4bb41612-a040-11e6-887d-005056920bea",
+                "type": "user",
+                "name": "security"
+            }
+        ]
+    },
+    {
+        "role_id": "def246f2-ad03-11e8-aa06-000c29358ad6",
+        "members": [
+            {
+                "id": "94752844-BDD0-4B9E-8927-1CA8D427E699",
+                "type": "user",
+                "name": "audit"
+            }
+        ]
+    }
+]

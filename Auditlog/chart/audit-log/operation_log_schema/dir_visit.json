@@ -1,0 +1,188 @@
+{
+  "type": "object",
+  "properties": {
+    "object": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "folder",
+            "fav_category",
+            "doc_lib_type"
+          ]
+        }
+      }
+    },
+    "detail": {
+      "type": "object",
+      "properties": {
+        "from_object": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "path": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "doc_lib_type",
+                "normal_dir",
+                "dir/starred",
+                "dir/sharemanage",
+                "associationFile",
+                "nav_doc_center",
+                "by_link",
+                "agentmessage",
+                "autosheets",
+                "autosheetsNewFile",
+                "autosheetsNewForm",
+                "cognitiveAssistant",
+                "content-automation",
+                "dir",
+                "dir/filelock",
+                "dir/quarantine",
+                "dir/recycle",
+                "home",
+                "knowledge-center",
+                "notificationmessage",
+                "personalhomepage/follow",
+                "personalhomepage/profile",
+                "portal",
+                "preview",
+                "settingsmenu",
+                "sharelink_anonymous",
+                "smartSearch",
+                "syncdisk",
+                "work-center",
+                "search-mobile",
+                "doc-audit-mobile",
+                "kc-mobile",
+                "link",
+                "unknown"
+              ]
+            },
+            "doc_lib": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "type": "string",
+                  "minLength": 1,
+                  "enum": [
+                    "user_doc_lib",
+                    "department_doc_lib",
+                    "custom_doc_lib",
+                    "knowledge_doc_lib"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        "object": {
+          "type": "object",
+          "properties": {
+            "fav_category": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "id_path": {
+                  "type": "string"
+                },
+                "name_path": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "id_path",
+                "name_path"
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "from_object"
+      ]
+    }
+  },
+  "required": [
+    "object",
+    "detail"
+  ],
+  "if": {
+    "properties": {
+      "object": {
+        "properties": {
+          "type": {
+            "const": "fav_category"
+          }
+        }
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "detail": {
+        "properties": {
+          "object": {
+            "required": [
+              "fav_category"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "else": {
+    "properties": {
+      "detail": {
+        "properties": {
+          "object": {
+            "not": {
+              "required": [
+                "fav_category"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{{- if semverCompare ">=1.16-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: apps/v1
+{{- else -}}
+apiVersion: extensions/v1beta1
+{{- end }}
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      {{- with .Values.securityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ .Release.Name }}
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: {{ .Release.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            readOnlyRootFilesystem: true
+          env:
+            {{- if .Values.service.logger }}
+              - name: LOGOUT
+                value: {{ .Values.service.logger }}
+            {{- end }}
+            {{- if .Values.env.language }}
+              - name: LANG
+                value: {{ .Values.env.language }}
+              - name: LC_ALL
+                value: {{ .Values.env.language }}
+            {{- end }}
+            {{- if .Values.env.timezone }}
+              - name: TZ
+                value: {{ .Values.env.timezone }}
+            {{- end }}
+            {{- if .Values.depServices.hydra.publicHost }}
+              - name: HYDRA_PUBLIC_API_BASE
+                value: "{{ .Values.depServices.hydra.publicProtocol }}://{{ .Values.depServices.hydra.publicHost }}:{{ .Values.depServices.hydra.publicPort }}"
+            {{- end }}
+            {{- if .Values.depServices.hydra.administrativeHost }}
+              - name: HYDRA_PRIVATE_API_BASE
+                value: "{{ .Values.depServices.hydra.administrativeProtocol }}://{{ .Values.depServices.hydra.administrativeHost }}:{{ .Values.depServices.hydra.administrativePort }}{{ .Values.depServices.hydra.administrativePrefix }}"
+            {{- end }}
+            {{- if .Values.depServices.hydra.administrativePrefix }}
+              - name: HYDRA_PRIVATE_API_BASE_PREFIX
+                value: "{{ .Values.depServices.hydra.administrativePrefix }}"
+            {{- end }}
+            {{- if .Values.depServices.hydra.thirdLoginRemember }}
+              - name: IS_THIRD_REMEMBER_LOGIN
+                value: "{{ .Values.depServices.hydra.thirdLoginRemember }}"
+            {{- end }}
+            {{- if .Values.depServices.eacp.publicHttpHost }}
+              - name: EACP_PUBLIC_API_BASE
+                value: "{{ .Values.depServices.eacp.publicHttpProtocol}}://{{ .Values.depServices.eacp.publicHttpHost }}:{{ .Values.depServices.eacp.publicHttpPort }}"
+            {{- end }}
+            {{- if .Values.depServices.eacp.privateHttpHost }}
+              - name: EACP_PRIVATE_API_BASE
+                value: "{{ .Values.depServices.eacp.privateHttpProtocol}}://{{ .Values.depServices.eacp.privateHttpHost }}:{{ .Values.depServices.eacp.privateHttpPort }}"
+            {{- end }}
+            {{- if .Values.depServices.authentication.publicHost }}
+              - name: AUTHENTICATION_PUBLIC_API_BASE
+                value: "{{ .Values.depServices.authentication.publicProtocol }}://{{ .Values.depServices.authentication.publicHost }}:{{ .Values.depServices.authentication.publicPort }}"
+            {{- end }}
+            {{- if .Values.depServices.authentication.privateHost }}
+              - name: AUTHENTICATION_PRIVATE_API_BASE
+                value: "{{ .Values.depServices.authentication.privateProtocol }}://{{ .Values.depServices.authentication.privateHost }}:{{ .Values.depServices.authentication.privatePort }}"
+            {{- end }}
+            {{- if index .Values "depServices" "deploy-web" "serviceHost" }}
+              - name: DEPLOY_WEB_SERVICE_API_BASE
+                value: {{ index .Values "depServices" "deploy-web" "serviceProtocol"}}://{{ index .Values "depServices" "deploy-web" "serviceHost"}}:{{ index .Values "depServices" "deploy-web" "servicePort"}}
+            {{- end }}
+            {{- if index .Values "depServices" "user-management" "privateHost" }}
+              - name: USER_MANAGEMENT_PRIVATE_API_BASE
+                value: {{ index .Values "depServices" "user-management" "privateProtocol"}}://{{ index .Values "depServices" "user-management" "privateHost"}}:{{ index .Values "depServices" "user-management" "privatePort"}}
+            {{- end }}
+              - name: DEPLOY_WEB_SERVICE
+                value: {{ index .Values "depServices" "deploy-web-service" "privateProtocol"}}://{{ index .Values "depServices" "deploy-web-service" "privateHost"}}:{{ index .Values "depServices" "deploy-web-service" "privatePort"}}
+            {{- if index .Values "depServices" "eacp" "eacpApiTimeout" }}
+              - name: EACP_API_TIMEOUT
+                value: "{{ .Values.depServices.eacp.eacpApiTimeout }}"
+            {{- end }}
+          ports:
+            - name: svc-port
+              containerPort: 4015
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: svc-port
+            initialDelaySeconds: {{ .Values.service.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.service.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.service.readinessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.service.readinessProbe.failureThreshold }}
+          volumeMounts:
+            - name:  oauth2-ui-conf
+              mountPath: /opt/oauth2/conf
+            - name:  npm-cache
+              mountPath: /.npm
+          livenessProbe:
+            tcpSocket:
+              port: svc-port
+            initialDelaySeconds: {{ .Values.service.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.service.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.service.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.service.livenessProbe.failureThreshold }}
+        {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+        {{- end }}
+      volumes:
+        - name: oauth2-ui-conf
+          configMap:
+            name: oauth2-ui-conf
+        - name: npm-cache
+          emptyDir: {}
+      dnsConfig:
+        options:
+          - name: single-request-reopen
+          - name: use-vc

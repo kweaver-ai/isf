@@ -1,0 +1,10 @@
+.chip-wrap {
+    display: inline-block;
+    margin: 1px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.chip-action{
+    vertical-align: top;
+}

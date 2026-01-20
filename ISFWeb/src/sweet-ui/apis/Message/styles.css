@@ -1,0 +1,48 @@
+.content {
+    min-height: 60px;
+    padding: 20px 30px;
+
+    & .icon {
+        float: left;
+    }
+
+    & .article {
+        margin-left: 50px;
+        min-height: 40px;
+
+        & .title {
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        & .message {
+            line-height: 1.5;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        & .message-with-scroll {
+            width: 290px;
+            height: 100px;
+            border: 1px solid #aaa;
+            box-sizing: border-box;
+            border-radius: 2px;
+            padding: 0 2px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            user-select: text;
+        }
+    }
+}
+
+.footer {
+    padding: 7px 20px;
+    border-radius: 0 0 8px 8px;
+    text-align: right;
+    cursor: default;
+
+    & .button {
+        display: inline-block;
+        margin-left: 10px;
+    }
+}

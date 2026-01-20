@@ -1,0 +1,15 @@
+.table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    & .cell-content {
+        padding: 0 0 0 10px;
+        box-sizing: border-box;
+    }
+}
+
+.drag-over {
+    border-top: 2px dashed #BAE7FF !important;
+    border-bottom: 2px dashed #BAE7FF !important;
+}

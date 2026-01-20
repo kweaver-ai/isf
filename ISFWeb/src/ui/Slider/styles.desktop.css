@@ -1,0 +1,13 @@
+.container{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    & .coverd{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        & .handler{
+            position: absolute;
+        }
+    }
+}

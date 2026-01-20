@@ -1,0 +1,13 @@
+@import '../../core/styles/root.css';
+
+.container {
+    padding: 0 var(--layout-spacing-large);
+    background: #fff;
+
+    & .padding {
+        min-height: 62px; /* Panel最小高度130px，通过计算减去Header/Footer和自身padding得到 */
+        padding: 20px 0;
+        background: #fff;
+        cursor: default;
+    }
+}

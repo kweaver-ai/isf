@@ -1,0 +1,26 @@
+.content {
+    padding: 10px;
+
+    & .text {
+        margin: 8px 0;
+    }
+
+    & .field-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & .cycle-text {
+        margin: 8px 0;
+
+        & .select-text {
+            float: left;
+            line-height: 32px;
+        }
+
+        & .cycle-value {
+            display: inline-block;
+        }
+
+    }
+}

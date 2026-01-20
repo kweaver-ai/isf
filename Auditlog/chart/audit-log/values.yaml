@@ -1,0 +1,196 @@
+# Default values for audit-log-server.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+replicaCount: 1
+
+nodeSelector: {}
+
+namespace: anyshare
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+image:
+  registry: ""
+  repository: as/audit-log
+  tag: ""
+  pullPolicy: IfNotPresent
+
+service:
+  configPath: /sysvol/conf
+  enableDualStack: false
+  type: ClusterIP
+  port: 30569
+  debug: false
+  sleep:
+    tokenRefresh: 10
+  sslOn: on
+  certFile:
+  keyFile:
+  name: audit-log
+  language: zh_CN
+  httpClientInsecureSkipVerify: true # 是否跳过证书验证，合主线时改为false
+  readinessProbe:
+    failureThreshold: 3
+    initialDelaySeconds: 15
+    periodSeconds: 3
+    timeoutSeconds: 3
+  livenessProbe:
+    failureThreshold: 5
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 5
+  migration_date: 30
+  ismigration: false # false表示不迁移数据 true表示迁移数据
+
+
+resources:
+  requests:
+    cpu: 75m
+    memory: 107Mi
+  limits:
+    cpu: 4
+    memory: 8Gi
+
+env:
+  language: en_US.UTF-8
+  timezone: Asia/Shanghai
+  GIN_MODE: release
+  AUDIT_LOG_DEBUG_MODE: false
+
+logger:
+  logLevel: info
+
+logDumpConfig:
+  # 日志记录条数超过阀值时进行转存，默认login:100W,management:100W,opetation:800W
+  dumpThresholdLogin: "1000000"
+  dumpThresholdManagement: "1000000"
+  dumpThresholdOperation: "8000000"
+  # 删除数据库日志记录，每次删除数量
+  dumpLogNum: "50000"
+  # 删除数据库日志，sql执行间隔
+  dumpIntervalTime: "0"
+
+rec:
+  save_days: 30
+  remove_old_log_task_interval_second: 3600
+
+depServices:
+  hydra:
+    administrativeHost: hydra-admin
+    administrativePort: "4445"
+    administrativeProtocol: http
+    publicHost: hydra-public
+    publicPort: "4444"
+    publicProtocol: http
+  efast:
+    private:
+      host: "efast-private"
+      port: 9123
+      protocol: http
+    public:
+      host: "efast-public"
+      port: 9123
+      protocol: http
+  sharemgnt:
+    host: sharemgnt
+    port: 9600
+  doccenter:
+    private:
+      host: doc-center-private
+      port: 30566
+      protocol: http
+    public:
+      host: doc-center-public
+      port: 30566
+      protocol: http
+  ossgateway:
+    private:
+      host: ossgatewaymanager-private
+      port: 9002
+      protocol: http
+  kc:
+    private:
+      host: kc-mc-private
+      port: 7203
+      protocol: http
+  personalconfig:
+    private:
+      host: personal-config-private
+      port: 8082
+      protocol: http
+  mq:
+    auth:
+      mechanism: PLAIN
+      password: ""
+      username: ""
+    connectorType: kafka
+    mqHost: kafka-headless.resource
+    mqLookupdHost: ""
+    mqLookupdPort: 0
+    mqPort: 9097
+    mqType: kafka
+  rds:
+    type: MYSQL
+    host: mariadb-mariadb-master.resource
+    port: 3330
+    hostRead: mariadb-mariadb-cluster.resource
+    portRead: 3330
+    user: ""
+    password: ""
+    database: anyshare
+    maxConnections: 30
+    maxReadConnections: 30
+    dbCharset: utf8mb4
+    timeout: 300
+    readTimeout: 300
+    writeTimeout: 10
+    system_id: ""
+  redis:
+    caName: ""
+    certName: ""
+    connectInfo:
+      masterGroupName: mymaster
+      password: ""
+      sentinelHost: proton-redis-proton-redis-sentinel.resource
+      sentinelPassword: ""
+      sentinelPort: 26379
+      sentinelUsername: ""
+      username: ""
+    connectType: sentinel
+    enableSSL: false
+    keyName: ""
+    secretName: ""
+  opensearch:
+    deployTrait:
+      aiid: 1
+      cid: 23
+      trait:
+        status: 4
+        timeout: 0
+      version: ""
+    host: opensearch-master.resource
+    password: ""
+    port: 9200
+    protocol: http
+    user: ""
+    version: 7.10.0
+  user-management:
+    privateHost: user-management-private
+    privatePort: "30980"
+    privateProtocol: http
+    publicHost: user-management-public
+    publicPort: "30980"
+    publicProtocol: http
+  document:
+    privateHost: document-private
+    privatePort: "30920"
+    privateProtocol: http

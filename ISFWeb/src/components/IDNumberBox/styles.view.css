@@ -1,0 +1,27 @@
+@import '../../core/styles/root.css';
+.container{
+    position: relative;
+
+    & .dialog_form_label {
+        display: inline-block;
+        width: 110px;
+        min-height: 30px;
+        line-height: 30px;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    & .validatebox-wrapper {
+        position: absolute;
+        display: inline-block;
+    }
+
+    & .icon-wrapper {
+        display: inline-block;
+        vertical-align: text-bottom;
+        padding-left: 10px;
+        position: absolute;
+        right: -347px;
+        top: 5px;
+    }
+}

@@ -1,0 +1,39 @@
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    & .header {
+        width: 100%;
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .search-box {
+            float: right;
+        }
+    }
+
+    & .main {
+        position: absolute;
+        height: calc(100% - 54px);
+        width: 100%;
+
+        & .inline-button {
+            margin-left: 8px;
+        }
+
+        & .domain-name {
+            display: flex;
+
+            & .text {
+                display: inline-block;
+                padding-left: 8px;
+                flex: 1;
+                overflow: hidden;
+            }
+        }
+    }
+}

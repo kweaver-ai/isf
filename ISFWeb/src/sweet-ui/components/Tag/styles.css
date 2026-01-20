@@ -1,0 +1,105 @@
+@import '../../../core/styles/root.css';
+
+.tag-wrapper {
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+    border: 1px solid var(--control-border-color__disabled);
+    color: var(--font-color-regular);
+    border-radius: var(--control-border-radius);
+    background-color: var(--control-background-color__disabled);
+
+    &.closable {
+        padding-right: 28px;
+    }
+
+    &.checkable {
+        cursor: pointer;
+
+        &:hover {
+            color: #547ee8;
+            background-color: rgba(84, 126, 232, 0.04);
+            border: 1px solid rgba(84, 126, 232, 0.4);
+        }
+
+        &:active {
+            color: #547ee8;
+            background-color: rgba(84, 126, 232, 0.12);
+            border: 1px solid transparent;
+        }
+    }
+
+    &.checked {
+        color: #547ee8;
+        background-color: rgba(84, 126, 232, 0.12);
+        border: 1px solid transparent;
+
+        &:hover {
+            color: #547ee8;
+            background-color: rgba(84, 126, 232, 0.12);
+            border: 1px solid transparent;
+        }
+
+        &:active {
+            color: #547ee8;
+            background-color: rgba(84, 126, 232, 0.12);
+            border: 1px solid transparent;
+        }
+    }
+
+    & .close-wrapper {
+        position: absolute;
+        right: 8px;
+        height: 24px;
+        padding-left: 8px;
+        cursor: pointer;
+
+        & .close-icon {
+            vertical-align: top;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        &:hover {
+            & .close-icon {
+                color: rgba(0, 0, 0);
+            }
+        }
+
+        &:active {
+            & .close-icon {
+                color: rgba(0, 0, 0);
+            }
+        }
+    }
+
+    &.tag-disabled {
+        color: var(--font-color-disabled);
+        background-color: rgba(211, 212, 219, 0.2);
+        border: 1px solid var(--control-border-color__disabled);
+
+        & .close-icon {
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        &:hover {
+            color: var(--font-color-disabled);
+            background-color: rgba(211, 212, 219, 0.2);
+            border: 1px solid var(--control-border-color__disabled);
+
+            & .close-icon {
+                color: rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        &:active {
+            color: var(--font-color-disabled);
+            background-color: rgba(211, 212, 219, 0.2);
+            border: 1px solid var(--control-border-color__disabled);
+
+            & .close-icon {
+                color: rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}

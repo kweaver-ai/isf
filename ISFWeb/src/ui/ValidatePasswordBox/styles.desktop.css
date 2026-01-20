@@ -1,0 +1,75 @@
+:local {
+    & .validate-box {
+        &[disabled] {
+            opacity: .5;
+            filter: alpha(opacity=50);
+            cursor: default;
+        }
+
+        position: relative;
+        display: inline-block;
+        padding: 4px 10px 5px 10px;
+        border: 1px solid #d3d4db;
+        border-radius: 2px;
+
+        & .status {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 6px 5px 0 0;
+        }
+
+        &.validate-fail {
+            background-color: #ffffee;
+            width: 188px;
+            padding-right: 20px;
+        }
+
+        & .validate-message {
+            display: inline-block;
+            margin: 3px 0 0 3px;
+        }
+
+        &:hover {
+            & .locator {
+                display: inline-block;
+            }
+        }
+
+        .tip-wrap {
+            position: absolute;
+
+            & .warning-icon {
+                position: relative;
+                left: -25px;
+            }
+        }
+
+        .right {
+            left: 100%;
+            top: 6px;
+            margin-left: 5px;
+        }
+
+        .top {
+            left: 0;
+            margin-left: -16px;
+            top: -30px;
+        }
+    }
+
+    & .locator {
+        display: inline-block;
+        margin-top: -6px;
+    }
+
+    & .secret-pwd::-ms-clear {
+        /* 暂时--涉密模式下IE浏览器隐藏密码框后的小眼睛 */
+        display: none;
+    }
+
+    & .secret-pwd::-ms-reveal {
+        /* 暂时--涉密模式下IE浏览器隐藏密码框后的小眼睛 */
+        display: none;
+    }
+}

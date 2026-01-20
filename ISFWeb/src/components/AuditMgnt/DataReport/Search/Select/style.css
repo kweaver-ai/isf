@@ -1,0 +1,114 @@
+@import '../../../../../core/styles/root.css';
+
+.select {
+    position: relative;
+    display: inline-block;
+    width: 244px;
+    height: 30px;
+    border: 1px solid var(--control-border-color);
+    border-radius: var(--control-border-radius);
+
+    &:hover {
+        border-color: var(--control-border-color__hover);
+    }
+
+    &.focus {
+        border-color: var(--control-border-color__focus);
+        box-shadow: var(--control-shadow__focus);
+    }
+
+    &.error {
+        border-color: #E60012;
+        box-shadow: var(--control-shadow__disabled);
+        padding-right: 28px;
+
+        &:hover,
+        &:active {
+            border-color: #E60012;
+            box-shadow: var(--control-shadow__disabled);
+        }
+    }
+
+    & .arrow {
+        position: absolute;
+        top: 7px;
+        right: 8px;
+    }
+
+    & .caution {
+        position: absolute;
+        top: 7px;
+        right: 28px;
+    }
+
+    & .input-container {
+        display: inline-block;
+        width: 88%;
+        height: 100%;
+
+        & .input {
+            width: 97%;
+            height: 100%;
+            margin-left: 8px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.container {
+    width: 244px;
+    cursor: default;
+
+    & .auto-list {
+        height: auto;
+
+        &.list {
+            height: 120px;
+            overflow: hidden;
+        }
+
+        & .none {
+            height: 30px;
+            line-height: 30px;
+            padding-left: 10px;
+            color: #c0c0c0;
+        }
+
+        & .loading-tip-container {
+            width: 34px;
+            padding-top: 8px;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+
+            & .loading {
+                line-height: 34px;
+                margin-left: 32px;
+                margin-bottom: 8px;
+                color: #c0c0c0;
+            }
+        }
+
+        & .load-failed-tip-container {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+            color: #c0c0c0;
+
+            & .retry {
+                cursor: pointer;
+                @apply --font-color-link-light-background;
+
+                &:hover {
+                    @apply --font-color-link-light-background__hover;
+                }
+
+                &:active {
+                    @apply --font-color-link-light-background__hover;
+                }
+            }
+        }
+    }
+}

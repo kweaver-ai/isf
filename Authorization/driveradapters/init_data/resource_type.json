@@ -1,0 +1,3619 @@
+[
+    {
+        "id": "menu",
+        "name": "菜单",
+        "description": "工作台侧栏菜单",
+        "instance_url": "GET /api/workstation/v1/menu",
+        "data_struct": "tree",
+        "operation": [
+            {
+                "id": "display",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "显示"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "display"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "顯示"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "agent",
+        "name": "智能体",
+        "description": "DataAgent",
+        "instance_url": "",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "publish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Publish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發布"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "unpublish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "取消发布"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Unpublish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "取消發布"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "unpublish_other_user_agent",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "取消发布他人的智能体"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Unpublish other user's Agent"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "取消發布他人的智能體"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "publish_to_be_skill_agent",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布为技能智能体"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Publish as a Skill Agent"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發布為技能智能體"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "publish_to_be_web_sdk_agent",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布为Web SDK智能体"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Publish as a Web SDK Agent"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發布為Web SDK智能體"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "publish_to_be_api_agent",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布为API智能体"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Publish as an API Agent"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發布為API智能體"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "publish_to_be_data_flow_agent",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布为数据流智能体"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Publish as a Dataflow Agent"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發布為數據流智能體"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "create_system_agent",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "创建系统智能体"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Create a System Agent"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "創建系統智能體"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "use",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "使用"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Use"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "使用"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "mgnt_built_in_agent",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "管理内置智能体"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Manage built-in Agent"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "管理內置智能體"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+            "id": "see_trajectory_analysis",
+            "name": [
+              {
+                "language": "zh-cn",
+                "value": "查看轨迹分析"
+              },
+              {
+                "language": "en-us",
+                "value": "See trajectory analysis"
+              },
+              {
+                "language": "zh-tw",
+                "value": "查看軌跡分析"
+              }
+            ],
+            "description": "",
+            "scope": [
+              "type"
+            ]
+          }
+        ]
+    },
+    {
+        "id": "agent_tpl",
+        "name": "智能体模板",
+        "description": "DataAgent模板",
+        "instance_url": "",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "publish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Publish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發布"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "unpublish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "取消发布"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Unpublish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "取消發布"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "unpublish_other_user_agent_tpl",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "取消发布他人的智能体模板"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "Unpublish other user's Agent Template"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "取消發布他人的智能體模板"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "small_model",
+        "name": "小模型",
+        "description": "小模型连接信息",
+        "instance_url": "",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "display",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "display"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "修改"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "修改"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "execute",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "执行"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "use"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "执行"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "operator",
+        "name": "算子",
+        "description": "算子",
+        "instance_url": "",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "publish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "publish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發佈"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "unpublish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "下架"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "unpublish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "下架"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "public_access",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "公开访问"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "public_access"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "公開訪問"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "execute",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "执行"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "execute"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "执行"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "tool_box",
+        "name": "工具箱",
+        "description": "工具箱",
+        "instance_url": "",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "publish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "publish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發佈"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "unpublish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "下架"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "unpublish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "下架"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限配置"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "許可權配寘"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "public_access",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "公开访问"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "public_access"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "公開訪問"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "execute",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "执行"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "execute"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "执行"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "mcp",
+        "name": "MCP",
+        "description": "MCP Server",
+        "instance_url": "",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "publish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "发布"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "publish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "發佈"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "unpublish",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "下架"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "unpublish"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "下架"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限配置"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "許可權配寘"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "public_access",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "公开访问"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "public_access"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "公開訪問"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "execute",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "执行"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "execute"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "执行"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "data_flow",
+        "name": "数据流",
+        "description": "数据流",
+        "instance_url": "",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "list",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "列举"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "list"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "列舉"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "创建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "創建"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "更新"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "更新"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "manual_exec",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "手动执行"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "manual exec"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "手動執行"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "run_statistics",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "运行统计"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "run statistics"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "運行統計"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "run_with_app",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "以app身份运行"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "run with app"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "以app身份運行"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "display",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "展示可观测性页面"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "display o11y page"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "展示可觀測性頁面"
+                    }
+                ],
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "knowledge_network",
+        "name": "业务知识网络",
+        "description": "业务知识网络",
+        "instance_url": "GET /api/ontology-manager/v1/resources?resource_type=knowledge_network",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "data_query",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "数据查询"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "data_query"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "數據查詢"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "task_manage",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "任务管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "task_manage"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "任务管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "data_connection",
+        "name": "数据连接",
+        "description": "数据来源的连接信息",
+        "instance_url": "GET /api/data-connection/v1/datasource/assignable-catalog",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "display",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "显示"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "display"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "顯示"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "修改"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "修改"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "scan",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "扫描"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "scan"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "掃描"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "data_view",
+        "name": "数据视图",
+        "description": "数据视图的配置信息",
+        "instance_url": "GET /api/mdl-data-model/v1/resources?resource_type=data_view&keyword=",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "data_query",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "数据查询"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "data_query"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "數據查詢"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "rule_manage",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "行列规则管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "rule_manage"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "行列規則管理"
+                    }
+                ],
+                "description": "数据视图行列规则管理",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "rule_authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "行列规则授权"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "rule_authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "行列規則授權"
+                    }
+                ],
+                "description": "数据视图行列规则授权",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "metric_model",
+        "name": "指标模型",
+        "description": "指标计算规则的配置信息",
+        "instance_url": "GET /api/mdl-data-model/v1/resources?resource_type=metric_model",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "data_query",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "数据查询"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "data_query"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "數據查詢"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "objective_model",
+        "name": "目标模型",
+        "description": "目标管理的配置信息",
+        "instance_url": "GET /api/mdl-data-model/v1/resources?resource_type=objective_model",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "data_query",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "数据查询"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "data_query"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "數據查詢"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "trace_model",
+        "name": "链路模型",
+        "description": "链路模型的配置信息",
+        "instance_url": "GET /api/mdl-data-model/v1/resources?resource_type=trace_model",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "data_query",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "数据查询"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "data_query"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "數據查詢"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "event_model",
+        "name": "事件模型",
+        "description": "事件模型的配置信息",
+        "instance_url": "GET /api/mdl-data-model/v1/resources?resource_type=event_model",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "data_query",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "数据查询"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "data_query"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "數據查詢"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "field_model",
+        "name": "字段模型",
+        "description": "字段模型",
+        "instance_url": "GET /api/mdl-index-base/v1/resources?resource_type=field_model",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "index_base",
+        "name": "索引库",
+        "description": "索引库",
+        "instance_url": "GET /api/mdl-index-base/v1/resources?resource_type=index_base",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "index_manage",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "索引管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "index_manage"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "​​索引管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "index_base_policy",
+        "name": "索引库策略",
+        "description": "索引库策略",
+        "instance_url": "GET /api/mdl-index-base/v1/resources?resource_type=index_base_policy",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "repository",
+        "name": "快照仓库",
+        "description": "快照仓库",
+        "instance_url": "GET /api/mdl-index-base/v1/resources?resource_type=repository",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "data_dict",
+        "name": "数据字典",
+        "description": "数据字典的配置信息",
+        "instance_url": "GET /api/mdl-data-model/v1/resources?resource_type=data_dict",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "import",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导入"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导入"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "export",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "导出"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "import"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "导出"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "stream_data_pipeline",
+        "name": "流式数据管道",
+        "description": "流式数据管道的配置信息",
+        "instance_url": "GET /api/flow-stream-data-pipeline/v1/resources?resource_type=stream_data_pipeline",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "view_detail",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "查看"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "view_detail"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "查看"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "create",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "新建"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "create"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "新建"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            },
+            {
+                "id": "modify",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "编辑"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "modify"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "編輯"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "delete",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "删除"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "delete"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "刪除"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "data_view_row_column_rule",
+        "name": "数据视图行列规则",
+        "description": "数据视图行列规则的配置信息",
+        "instance_url": "GET /api/mdl-data-model/v1/resources?resource_type=data_view_row_column_rule",
+        "data_struct": "string",
+        "operation": [
+            {
+                "id": "rule_apply",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "规则应用"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "rule_apply"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "規則應用"
+                    }
+                ],
+                "description": "在数据查询时应用该规则",
+                "scope": [
+                    "type",
+                    "instance"
+                ]
+            },
+            {
+                "id": "authorize",
+                "name": [
+                    {
+                        "language": "zh-cn",
+                        "value": "权限管理"
+                    },
+                    {
+                        "language": "en-us",
+                        "value": "authorize"
+                    },
+                    {
+                        "language": "zh-tw",
+                        "value": "權限管理"
+                    }
+                ],
+                "description": "",
+                "scope": [
+                    "type"
+                ]
+            }
+        ],
+        "hidden": true
+    }
+]

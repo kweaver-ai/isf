@@ -1,0 +1,81 @@
+.container {
+
+    & .tool-bar {
+        float: left;
+        font-weight: 600;
+        color: #555;
+        line-height: 30px;
+    }
+
+    & .toolbar-icon {
+        padding-right: 10px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    & .main {
+        margin-top: 12px;
+
+        & .title {
+            margin: 6px 10px;
+
+            & .password {
+                display: inline-flex;
+                line-height: 1;
+            }
+
+            & .initpwd-btn {
+                margin-left: 10px;
+            }
+
+            & .text-middle {
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+            & .reset-pwd {
+                padding: 6px 10px；
+            }
+
+        }
+
+        & .checked-text {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+            line-height: 17px;
+        }
+
+        & .explain {
+            margin: 6px 10px;
+            color: #888;
+
+            & .number-input {
+                display: inline-block;
+                margin: 0 5px;
+            }
+
+            & .link {
+                color: #40a9ff;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        & .reset-pwd {
+            margin: 10px
+        }
+
+        & .change-btn {
+            margin: 20px 10px;
+
+            & .btn {
+                width: 80px;
+                margin-right: 10px
+            }
+        }
+    }
+}

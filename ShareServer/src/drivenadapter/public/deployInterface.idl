@@ -1,0 +1,48 @@
+/***************************************************************************************************
+deployInterface.idl:
+    Copyright (c) Eisoo Software Inc. (2020), All rights reserved.
+
+Purpose:
+    deploy 服务
+
+Author:
+    xu.zhi@aishu.cn
+
+Creating Time:
+    2021-04-29
+***************************************************************************************************/
+#include "nsISupports.idl"
+
+native String(String);
+[ref] native StringRef(String);
+%{ C++
+
+
+/**
+ * deploy
+ */
+#define DEPLOY_CID \
+{ \
+    0x1c3d7d42, \
+    0xa002,    \
+    0x448a,    \
+     { 0x26, 0x20, 0x17, 0x52, 0x62, 0x3f, 0x1a, 0x8c } \
+}
+
+/**
+ * deploy
+ */
+#define DEPLOY_CONTRACTID \
+"@eisoo.com/AnyShare3.5/drivenadapter/deploy;1"
+
+%}
+
+[uuid (2c57c33f-7234-4177-ad18-3a6c3d7b600c)]
+interface deployInterface: nsISupports
+{
+    /*
+     * 获取访问地址
+     */
+    [notxpcom] void GetAccessAddr (in StringRef host, in StringRef port);
+
+};

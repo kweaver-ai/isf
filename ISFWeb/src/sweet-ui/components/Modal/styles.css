@@ -1,0 +1,44 @@
+.root {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &.fullScreen {
+        position: fixed;
+        z-index: 999;
+    }
+
+    &.currentContext {
+        position: absolute;
+    }
+
+    & .mask {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #000;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+
+    & .content {
+        position: absolute;
+    }
+
+    & .content-with-transparent-region {
+        right: 0;
+        bottom: 0;
+        left: 0;
+        pointer-events: auto;
+    }
+
+    & .transparent-region {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: auto;
+    }
+}

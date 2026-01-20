@@ -1,0 +1,6 @@
+private_host: 10.4.134.229
+private_port: 9200
+private_protocol: http
+user: admin
+password: eisoo.com123
+version: 7.10.0

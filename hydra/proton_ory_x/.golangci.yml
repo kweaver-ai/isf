@@ -1,0 +1,10 @@
+linters:
+  enable:
+    - gosec
+    - vet
+  disable-all: true
+
+run:
+  skip-files:
+    - "migrate_files.go" # go-bindata
+    - ".+_test.go"

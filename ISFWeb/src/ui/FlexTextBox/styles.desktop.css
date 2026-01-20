@@ -1,0 +1,24 @@
+@import '../../core/styles/root.css';
+
+.textbox {
+    display: inline-block;
+    height: 24px;
+    min-width: 5em;
+    line-height: 24px;
+    outline: none;
+    white-space: normal;
+
+    &.disabled {
+        color: var(--font-color-disabled);
+
+        &.placeholder:empty:after {
+            color: var(--font-color-disabled);
+        }
+    }
+
+    &.placeholder:empty:after {
+        display: inline-block;
+        content: attr(data-placeholder);
+        color: #c8c8c8;
+    }
+}

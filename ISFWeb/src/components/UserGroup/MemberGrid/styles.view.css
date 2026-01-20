@@ -1,0 +1,91 @@
+@import '../../../core/styles/root.css';
+
+.member-grid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    & .header {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+
+        & .btn {
+            margin: 0 0 0 8px;
+        }
+
+        & .search-area {
+            float: right;
+            display: flex;
+
+            & .search-scope {
+                z-index: 2;
+                height: 32px;
+                border-radius: var(--control-border-radius) 0 0 var(--control-border-radius);
+            }
+
+            & .search-box {
+                border-radius: 0 var(--control-border-radius) var(--control-border-radius) 0;
+                padding: 3px 10px 3px !important;
+            }
+
+            & .focus {
+                z-index: 3;
+            }
+        }
+    }
+
+    & .grid-wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        padding-top: 40px;
+        box-sizing: border-box;
+    }
+
+    & .icon-text {
+        display: flex;
+        align-items: center;
+
+        & .name {
+            width: calc(100% - 24px);
+        }
+    }
+
+    & .node-icon {
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+}
+
+.info {
+    color: #2B78E4;
+    cursor: pointer;
+}
+
+.departments {
+    overflow: auto;
+    width: 340px;
+    min-height: 160px;
+    max-height: 600px;
+    line-height: 24px;
+    background: var(--background-light);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.1);
+
+    & .depts-header {
+        padding: 10px;
+        background: var(--grey-02);
+    }
+
+    & .depts-info {
+        padding: 10px;
+    }
+}
+
+.node-icon {
+    margin-right: 8px;
+    vertical-align: middle;
+}

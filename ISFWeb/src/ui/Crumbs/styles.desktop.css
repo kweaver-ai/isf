@@ -1,0 +1,77 @@
+@import '../../core/styles/root.css';
+
+.container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    font-size: 13px;
+
+    & .back {
+        display: inline-block;
+        vertical-align: middle;
+
+        & .back-btn:hover {
+            border: 0;
+            border-radius: 4px;
+            background: #e5e4e9;
+            opacity: 0.8;
+        }
+
+        & .back-btn:active {
+            border: 0;
+            border-radius: 4px;
+            background: var(--control-border-color);
+            opacity: 0.7;
+        }
+    }
+
+    & .crumbs {
+        display: flex;
+        flex: 1;
+        padding: 0;
+        margin: 0;
+        vertical-align: middle;
+        align-items: center;
+
+        & .crumb {
+            padding-left: 6px;
+            white-space: nowrap;
+            justify-content: flex-start;
+
+            & .crumbWrap {
+                display: flex;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                & .joiner {
+                    margin-right: 4px;
+                }
+
+                & .link {
+                    color: #0066CC;
+                    text-decoration: none;
+                }
+            }
+
+            &:first-child {
+                & .joiner {
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                width: 0;
+                flex: 1;
+
+                & .link {
+                    width: 0;
+                    flex: 1;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+
+            }
+        }
+    }
+}

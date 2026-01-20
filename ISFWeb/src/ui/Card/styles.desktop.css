@@ -1,0 +1,6 @@
+.card{
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px #b4bec8;
+    display: inline-block;
+}

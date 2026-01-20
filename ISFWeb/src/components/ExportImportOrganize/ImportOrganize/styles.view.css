@@ -1,0 +1,44 @@
+.import-organize-success {
+    width:440px;
+    height: 100px;
+
+    & .import-success-number {
+        margin-left: 10px;
+        vertical-align: 5px;
+    }
+}
+
+.import-organize-error {
+    width:840px;
+    height: 375px;
+
+    & .import-success-number {
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    & .import-error-number {
+        color: #DD3333;
+    }   
+
+    & .operation {
+        text-align: right;
+        margin: 20px 0 10px 0;
+    }
+
+    & .download-btn {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    & .continue-btn {
+        height: 29px;
+        line-height: 29px;
+        border: none;
+    }
+    
+    & .error-message {
+        color: #DD3333;
+    }
+}
+

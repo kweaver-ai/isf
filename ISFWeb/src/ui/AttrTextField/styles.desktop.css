@@ -1,0 +1,22 @@
+.meta {
+    display: table-row;
+
+    & .name {
+        display: table-cell;
+        padding: 10px 0;
+        line-height: 15px;
+        width: 80px;
+    }
+
+    & .val {
+        display: table-cell;
+        padding: 10px 0;
+        line-height: 15px;
+        word-break: break-all;
+        
+        & .elastic {
+            color: #2B78E4;
+            cursor: pointer;
+        }
+    }
+}

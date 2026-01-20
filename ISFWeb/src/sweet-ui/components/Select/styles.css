@@ -1,0 +1,86 @@
+@import '../../../core/styles/root.css';
+
+.select {
+    position: relative;
+    height: var(--input-height);
+    padding: 0 24px 0 8px;
+    border: 1px solid var(--control-border-color);
+    border-radius: var(--control-border-radius);
+    background-color: var(--control-background-color);
+    box-sizing: border-box;
+    line-height: normal;
+
+    &:hover {
+        border-color: var(--control-border-color__hover);
+        cursor: pointer;
+    }
+
+    &.focus {
+        border-color: var(--control-border-color__focus);
+        box-shadow: var(--control-shadow__focus);
+    }
+
+    &.disabled {
+        border-color: var(--control-border-color__disabled);
+        background-color: var(--control-background-color__disabled);
+        box-shadow: var(--control-shadow__disabled);
+
+        &:hover {
+            cursor: default;
+        }
+    }
+
+    & .label {
+        width: 100%;
+        height: 30px;
+        padding: 5px 0;
+        cursor: pointer;
+        color: var(--font-color-regular);
+
+        &.disabled {
+            color: var(--font-color-disabled);
+            cursor: default;
+        }
+    }
+
+    & .arrow-down {
+        position: absolute;
+        top: 7px;
+        color: rgba(0, 0, 0, 0.45);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.disabled-icon {
+            color: rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                cursor: default;
+            }
+
+        }
+    }
+}
+
+
+
+.select-menu {
+    min-width: 0;
+}
+
+.placeholder {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    right: 24px;
+    max-width: 100%;
+    height: 20px;
+    margin-top: -10px;
+    line-height: 20px;
+    overflow: hidden;
+    color: #c8c8c8;
+    white-space: nowrap;
+    text-align: left;
+    text-overflow: ellipsis;
+}

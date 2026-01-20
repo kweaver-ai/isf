@@ -1,0 +1,26 @@
+@import "../styles/root.css";
+:global {
+    #isf-web-plugins {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        .ant-modal-confirm-content {
+            word-break: break-all;
+        }
+    }
+
+    .isf-popconfirm-buttons {
+        display: flex;
+        justify-content: end;
+        flex-direction: row-reverse;
+    }
+
+    .isf-drawer-header-title {
+        flex-direction: row-reverse;
+    }
+
+    ul {
+        margin: 0;
+    }
+}

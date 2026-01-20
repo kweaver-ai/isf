@@ -1,0 +1,106 @@
+@import "../../../core/styles/root.css";
+.members {
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .menu {
+            margin-bottom: 16px;
+    
+            .btn {
+                margin-right: 8px;
+            }
+        }
+
+        .search {
+            width: 240px;
+        }
+    }
+
+    .table {
+        width: 100%;
+        height: calc(100% - 100px);
+
+        .empty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                display: flex;
+                margin-right: 8px;
+                color: rgba(0, 0, 0, 0.85);
+            }
+
+            .name {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-break: break-all;
+                white-space: nowrap;
+            }
+        }
+
+        .ellipsis-item {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+            white-space: nowrap;
+        }
+
+        .tip {
+            height: auto;
+
+            li {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                white-space: normal;
+            }
+        }
+    }
+
+    :global {
+        .isf-tabs-nav::before {
+            border-bottom: none;
+        }
+
+        .isf-table-wrapper .isf-table-thead >tr>th, .css-dev-only-do-not-override-hnodhd.isf-table-wrapper isf-table-thead >tr>td {
+            background-color: var(--background-light);
+        }
+
+        .isf-table-wrapper .isf-table-column-title {
+            font-size: var(--font-size-secondary);
+        }
+
+        .isf-table-thead >tr>th{
+            color: var(--font-color-list) !important;
+            font-weight: normal !important;
+        }
+
+        .isf-table {
+            scrollbar-color: auto !important;
+        }
+    }
+}
+
+.user-list-tip {
+    max-height: 120px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #efefef;
+    border-radius: 6px;
+
+    .item {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        white-space: nowrap;
+    }
+}

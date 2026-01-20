@@ -1,0 +1,39 @@
+.chip {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    background-color: #efefef;
+    line-height: normal;
+    cursor: default;
+
+    &.disabled {
+        opacity: .5;
+        *filter: opacity(alpha=50);
+
+        & .action {
+            cursor: default;
+
+            &:hover {
+                color: #585858;
+            }
+        }
+    }
+
+    & .text {
+        vertical-align: middle;
+        display: inline-block;
+        max-width: 100%;
+    }
+
+    & .action {
+        display: inline-block;
+        margin-left: 10px;
+        color: #585858;
+        text-decoration: none;
+
+        &:hover {
+            color: #000;
+        }
+    }
+}

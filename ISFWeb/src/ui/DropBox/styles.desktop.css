@@ -1,0 +1,57 @@
+@import '../../core/styles/root.css';
+
+.dropbox {
+    position: relative;
+    display: inline-block;
+
+    & .control {
+        position: relative;
+
+        & .select {
+            position: relative;
+            display: block;
+            height: 16px;
+            text-decoration: none;
+            line-height: normal;
+            color: #000;
+            outline: none;
+
+            & .icon {
+                position: absolute;
+            }
+
+            & .text {
+                display: block;
+                margin-right: 16px;
+            }
+
+            & .text-left {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            & .drop-icon {
+                position: absolute;
+                top: 0;
+                right: 0;
+                color: #333;
+            }
+        }
+
+        & .disabled {
+            color: var(--font-color-disabled);
+            cursor: default;
+        }
+    }
+
+    & .drop {
+        position: absolute;
+        display: none;
+        font-weight: normal;
+        z-index: 1;
+
+        &.active {
+            display: block;
+        }
+    }
+}
