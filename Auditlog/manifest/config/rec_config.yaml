@@ -1,0 +1,2 @@
+save_days: 365
+remove_old_log_task_interval_second: 500

@@ -1,0 +1,15 @@
+.vscode
+.idea
+.cache
+cover.out
+*.env
+conf
+#*debug*
+*.work*
+*_debug*
+*ob-app-config-log*
+mock*
+!test/mock*
+infra/cmp/icmp/cmpmock
+infra/cmp/langcmp/langcmpmock
+AuditLog

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-oprlogschema-yaml
+  namespace: {{ .Values.namespace }}
+data:
+  common.json: |
+{{.Files.Get "operation_log_schema/common.json" | indent 4}}
+  dir_visit.json: |
+{{.Files.Get "operation_log_schema/dir_visit.json" | indent 4}}
+  menu_button_click.json: |
+{{.Files.Get "operation_log_schema/menu_button_click.json" | indent 4}}
+  common_client.json: |
+{{.Files.Get "operation_log_schema/common_client.json" | indent 4}}
+  common_server.json: |
+{{.Files.Get "operation_log_schema/common_server.json" | indent 4}}

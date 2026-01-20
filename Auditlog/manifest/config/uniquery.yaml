@@ -1,0 +1,3 @@
+private_host: 10.4.71.247
+private_port: 443
+private_protocol: https

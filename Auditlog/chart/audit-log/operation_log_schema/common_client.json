@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "operator": {
+      "type": "object",
+      "properties": {
+        "agent": {
+          "type": "object",
+          "properties": {
+            "os_type": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "windows",
+                "ios",
+                "android",
+                "harmony",
+                "mac_os",
+                "linux",
+                "unknown"
+              ]
+            },
+            "app_type": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "sync_disk",
+                "web_mobile",
+                "rich_client",
+                "web",
+                "office_plugin",
+                "unknown",
+                "app"
+              ]
+            }
+          },
+          "required": [
+            "os_type",
+            "app_type"
+          ]
+        }
+      },
+      "required": [
+        "agent"
+      ]
+    }
+  },
+  "required": [
+    "operator"
+  ]
+}

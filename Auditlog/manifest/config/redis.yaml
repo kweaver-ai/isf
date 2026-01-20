@@ -1,0 +1,39 @@
+# # 主从模式或者单机模式
+# connect_type: master-slave
+# host: proton-redis-proton-redis.resource.svc.cluster.local
+# port: 6379
+
+# sentinel 模式配置
+connect_type: sentinel
+master_group_name: mymaster
+sentinel_host: proton-redis-proton-redis-sentinel.resource.svc.cluster.local
+sentinel_port: 26379
+sentinel_username: root
+sentinel_password: eisoo.com123
+
+# # 集群模式
+# connect_type: cluster
+# cluster_password: eisoo.com123
+# cluster_addrs:
+#   - 10.2.178.80:7000
+#   - 10.2.178.81:7001
+
+password: eisoo.com123
+username: root
+db: 1
+#重试次数, 默认不重试
+max_retries: 10
+# 连接池大小
+pool_size: 32
+#读取超时时间 3秒
+read_timeout: 3
+#写入超时时间 3秒
+write_timeout: 3
+#连接空闲时间 300秒
+idle_timeout: 300
+#检测死连接,并清理 默认60秒
+idle_check_frequency: 60
+#连接最长时间，300秒
+max_conn_age: 300
+#如果连接池已满 等待可用连接的时间默认 8秒
+pool_timeout: 8
