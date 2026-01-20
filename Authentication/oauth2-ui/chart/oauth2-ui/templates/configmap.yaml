@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oauth2-ui-conf
+  namespace: {{ .Values.namespace }}
+data:
+  service.conf: |
+    [hydra]
+    publicHost = {{ .Values.depServices.hydra.publicHost }}
+    publicPort = {{ .Values.depServices.hydra.publicPort }}
+    publicProtocol = {{ .Values.depServices.hydra.publicProtocol }}
+    administrativeHost = {{ .Values.depServices.hydra.administrativeHost }}
+    administrativePort = {{ .Values.depServices.hydra.administrativePort }}
+    administrativeProtocol = {{ .Values.depServices.hydra.administrativeProtocol }}
+    administrativePrefix = {{ .Values.depServices.hydra.administrativePrefix }}
+    thirdLoginRemember = {{ .Values.depServices.hydra.thirdLoginRemember }}
+    [eacp]
+    publicHttpHost = {{ .Values.depServices.eacp.publicHttpHost }}
+    publicHttpPort = {{ .Values.depServices.eacp.publicHttpPort }}
+    publicHttpProtocol = {{ .Values.depServices.eacp.publicHttpProtocol }}
+    privateHttpHost = {{ .Values.depServices.eacp.privateHttpHost }}
+    privateHttpPort = {{ .Values.depServices.eacp.privateHttpPort }}
+    privateHttpProtocol = {{ .Values.depServices.eacp.privateHttpProtocol }}
+    eacpApiTimeout = {{ .Values.depServices.eacp.eacpApiTimeout }}
+    [authentication]
+    publicHost = {{ .Values.depServices.authentication.publicHost }}
+    publicPort = {{ .Values.depServices.authentication.publicPort }}
+    publicProtocol = {{ .Values.depServices.authentication.publicProtocol }}
+    privateHost = {{ .Values.depServices.authentication.privateHost }}
+    privatePort = {{ .Values.depServices.authentication.privatePort }}
+    privateProtocol = {{ .Values.depServices.authentication.privateProtocol }}
+    [deploy-web]
+    serviceHost = {{ index .Values "depServices" "deploy-web" "serviceHost" }}
+    servicePort = {{ index .Values "depServices" "deploy-web" "servicePort" }}
+    serviceProtocol = {{ index .Values "depServices" "deploy-web" "serviceProtocol" }}
+    [user-management]
+    privateHost = {{ index .Values "depServices" "user-management" "privateHost" }}
+    privatePort = {{ index .Values "depServices" "user-management" "privatePort" }}
+    privateProtocol = {{ index .Values "depServices" "user-management" "privateProtocol" }}
+    [deploy-web-service]
+    privateHost = {{ index .Values "depServices" "deploy-web-service" "privateHost" }}
+    privatePort = {{ index .Values "depServices" "deploy-web-service" "privatePort" }}
+    privateProtocol = {{ index .Values "depServices" "deploy-web-service" "privateProtocol" }}
+

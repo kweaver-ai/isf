@@ -1,0 +1,42 @@
+{
+    "required": [
+        "credential"
+    ],
+    "type": "object",
+    "properties": {
+        "credential": {
+            "required": [
+                "account",
+                "password"
+            ],
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "vcode": {
+            "required": [
+                "id",
+                "content"
+            ],
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                }
+            }
+        },
+        "visitor_name": {
+            "type": "string"
+        }
+    }
+}

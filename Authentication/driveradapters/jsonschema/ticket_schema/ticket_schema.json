@@ -1,0 +1,17 @@
+{
+    "required": [
+        "client_id",
+        "refresh_token"
+    ],
+    "type": "object",
+    "properties": {
+        "client_id": {
+            "type": "string",
+            "minLength": 1
+        },
+        "refresh_token": {
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}

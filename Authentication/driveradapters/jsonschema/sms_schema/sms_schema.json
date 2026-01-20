@@ -1,0 +1,17 @@
+{
+    "required": [
+        "phone_number",
+        "account"
+    ],
+    "type": "object",
+    "properties": {
+        "phone_number": {
+            "type": "string",
+            "minLength": 1
+        },
+        "account": {
+            "type": "string",
+            "minLength": 1
+        }
+    }
+}

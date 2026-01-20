@@ -1,0 +1,85 @@
+replicaCount: 1
+
+nodeSelector: {}
+
+namespace: oauth2-ui
+
+image:
+  registry: ""
+  repository: as/oauth2-ui
+  tag: ""
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 4015
+  language: zh_CN
+  logger: stdout
+  oauthOn: false
+  enableDualStack: false
+  readinessProbe:
+    initialDelaySeconds: 10
+    periodSeconds: 5
+    timeoutSeconds: 5
+    failureThreshold: 3
+  livenessProbe:
+    initialDelaySeconds: 15
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+
+env:
+  language: en_US.UTF-8
+  timezone: Asia/Shanghai
+
+aclOAuth:
+
+depServices:
+  hydra:
+    administrativeHost: hydra-admin
+    administrativePort: "4445"
+    publicHost: hydra-public
+    publicPort: "4444"
+    publicProtocol: http
+    administrativeProtocol: http
+    administrativePrefix: /admin
+    thirdLoginRemember: enable
+  eacp:
+    privateHttpHost: eacp-private
+    privateHttpPort: "9998"
+    publicHttpHost: eacp-public
+    publicHttpPort: "9998"
+    publicHttpProtocol: http
+    privateHttpProtocol: http
+    eacpApiTimeout: 3000
+  authentication:
+    privateHost: authentication-private
+    privatePort: "30110"
+    publicHost: authentication-public
+    publicPort: "30110"
+    publicProtocol: http
+    privateProtocol: http
+  deploy-web:
+    serviceHost: deploy-web-service
+    servicePort: "18080"
+    serviceProtocol: http
+  user-management:
+    privateHost: user-management-private
+    privatePort: "30980"
+    privateProtocol: http
+  deploy-web-service:
+    privateHost: deploy-web-service
+    privatePort: 18880
+    privateProtocol: http
+
+resources:
+  limits:
+    cpu: 4
+    memory: 4Gi
+  requests:
+    cpu: 10m
+    memory: 114Mi
+
+securityContext:
+  runAsUser: 101
+  runAsGroup: 101

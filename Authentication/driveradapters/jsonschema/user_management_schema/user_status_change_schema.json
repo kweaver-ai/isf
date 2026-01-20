@@ -1,0 +1,16 @@
+{
+    "required": [
+        "user_id",
+        "status"
+    ],
+    "type": "object",
+    "properties": {
+        "user_id": {
+            "type": "string",
+            "minLength": 1            
+        },
+        "status": {
+            "type": "boolean"          
+        }
+    }
+}
